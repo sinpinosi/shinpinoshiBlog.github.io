@@ -11,14 +11,6 @@
       <categories>
         <category>エンジニアリング</category>
       </categories>
-  </entry>
-  <entry>
-    <title>hexo_test</title>
-    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test-1/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
       <tags>
         <tag>プログラミング</tag>
       </tags>
@@ -34,6 +26,17 @@
         <tag>プログラミング</tag>
         <tag>Hexo</tag>
         <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo_test</title>
+    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test-1/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
       </tags>
   </entry>
   <entry>

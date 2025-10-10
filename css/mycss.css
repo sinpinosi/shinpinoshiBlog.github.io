@@ -1,13 +1,17 @@
 
 #header{
-  padding: 5em 0;
+  box-sizing: border-box;
+  padding: 3em 1em;
   background-image: url(\hearder_background.png);
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   width: 1200px;
   margin: 30px auto;
 }
 #header a {
-  color: #282828;
+  font-weight: bold;
+  color: #545454;
 
 }
 @media screen and (max-width: 1260px) {
