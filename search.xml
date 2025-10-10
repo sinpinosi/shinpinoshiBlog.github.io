@@ -9,10 +9,18 @@
 <p>リンク: <a href="https://qiita.com/shinpinoshi/items/96e6b0948c3478c961ce">前回のQiita URl</a></p>
 ]]></content>
       <categories>
-        <category>test-category</category>
+        <category>エンジニアリング</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo_test</title>
+    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test-1/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>test-tags</tag>
+        <tag>プログラミング</tag>
       </tags>
   </entry>
   <entry>
@@ -27,11 +35,6 @@
         <tag>Hexo</tag>
         <tag>ブログ</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo_test</title>
-    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test-1/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Hello World</title>

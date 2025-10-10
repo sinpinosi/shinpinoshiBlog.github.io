@@ -1,34 +1,54 @@
+
+#header{
+  padding: 5em 0;
+  background-image: url(\hearder_background.png);
+  background-size: cover;
+  width: 1200px;
+  margin: 30px auto;
+}
+#header a {
+  color: #282828;
+
+}
+@media screen and (max-width: 1260px) {
+    #header {
+      width: 100%;
+    }
+}
+
+
 #local-search-result {
-  margin-top: 0.5em;
+  margin-top: 0.2em;
 }
 
 .search-result-item {
   display: block;
   padding: 0.8em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
   border-radius: 6px;
   text-decoration: none;
   color: inherit;
   transition: background 0.2s;
   border: 1px solid #ddd;
+  background-color: white;
 }
 
 .search-result-item:hover {
-  background-color: #f0f0f0;
+  background-color: #f7f7f7;
+  text-decoration: none;
 }
 
 .search-result-title {
-  font-weight: bold;
+  font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   margin-bottom: 0.3em;
+  font-size: 1.2em;
 }
 
 .search-result-snippet {
   font-size: 0.9em;
-  color: #555;
 }
 
 .search-no-result {
-  color: #999;
   font-style: italic;
   padding: 0.5em;
 }

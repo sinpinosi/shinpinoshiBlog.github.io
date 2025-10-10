@@ -39,14 +39,19 @@
           if (snippet.length > 50) snippet = snippet.slice(0, 50) + '…';
           resultHTML += `
             <a href="${post.url}" class="search-result-item">
-              <div class="search-result-title">${post.title}</div>
-              <div class="search-result-snippet">${snippet}</div>
+              <p class="search-result-title">${post.title}</p>
+              <p class="search-result-snippet">${snippet}</p>
             </a>
           `;
         }
       });
+      if (resultHTML === '') {
+        resultHTML = '<div class="search-no-result">検索結果がありません</div>';
+      }
+    }else{
+      resultHTML = '';
     }
-    resultContainer.innerHTML = resultHTML || '<div class="search-no-result">検索結果がありません</div>';
+    resultContainer.innerHTML = resultHTML;
   });
 
 })();
