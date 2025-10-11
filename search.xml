@@ -2,12 +2,8 @@
 <search>
   <entry>
     <title>hexo_test</title>
-    <url>/shinpinoshiBlog.github.io/2025/10/05/hexo-test/</url>
-    <content><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="テスト"><a href="#テスト" class="headerlink" title="テスト"></a>テスト</h3><span id="more"></span>
-
-<p>``` bash<br>$ echo コマンドライン<br>```</p>
-<p>リンク: <a href="https://qiita.com/shinpinoshi/items/96e6b0948c3478c961ce">前回のQiita URl</a></p>
-]]></content>
+    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test-1/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>エンジニアリング</category>
       </categories>
@@ -16,14 +12,16 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo_test</title>
-    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test-1/</url>
+    <title>【Hexo】ファビコンの設定（テーマ：light）</title>
+    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>エンジニアリング</category>
       </categories>
       <tags>
         <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
       </tags>
   </entry>
   <entry>
@@ -52,16 +50,18 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】ファビコンの設定（テーマ：light）</title>
-    <url>/shinpinoshiBlog.github.io/2025/10/08/hexo-test/</url>
-    <content><![CDATA[]]></content>
+    <title>hexo_test</title>
+    <url>/shinpinoshiBlog.github.io/2025/10/05/hexo-test/</url>
+    <content><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="テスト"><a href="#テスト" class="headerlink" title="テスト"></a>テスト</h3><span id="more"></span>
+
+<p>``` bash<br>$ echo コマンドライン<br>```</p>
+<p>リンク: <a href="https://qiita.com/shinpinoshi/items/96e6b0948c3478c961ce">前回のQiita URl</a></p>
+]]></content>
       <categories>
         <category>エンジニアリング</category>
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
       </tags>
   </entry>
 </search>
