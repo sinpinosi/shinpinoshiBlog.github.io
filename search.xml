@@ -46,72 +46,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
-    <url>/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
-<span id="more"></span>
-
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#1html---md-------">1.HTML要素を.mdファイルに記載</a></li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="1-HTML要素を-mdファイルに記載"><a href="#1-HTML要素を-mdファイルに記載" class="headerlink" title="1.HTML要素を.mdファイルに記載"></a>1.HTML要素を.mdファイルに記載</h2><p class="codeblock-filename">\site\source\_posts\[任意].md</p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
-<h2 id="2-CSSを定義"><a href="#2-CSSを定義" class="headerlink" title="2.CSSを定義"></a>2.CSSを定義</h2><p class="codeblock-filename">\site\themes\light\source\css\[自分の].css</p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
-<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
-<p>まぁ変にバグが起こるよりはいいか(–)b</p>
-<p>以上。今回もお疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
-    <url>/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
-<!-- more -->
-
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#1----------------------">1.コードブロックに使用するプログラム言語を記載</a></li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="1-コードブロックに使用するプログラム言語を記載"><a href="#1-コードブロックに使用するプログラム言語を記載" class="headerlink" title="1.コードブロックに使用するプログラム言語を記載"></a>1.コードブロックに使用するプログラム言語を記載</h2><p>コードブロックに自分が使用するプログラム言語の略称を入れる<br>※例ではCSSを使用<br><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
-<h2 id="完了"><a href="#完了" class="headerlink" title="完了"></a>完了</h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
-<h2 id="Hexoでハイライト可能な言語について"><a href="#Hexoでハイライト可能な言語について" class="headerlink" title="Hexoでハイライト可能な言語について"></a>Hexoでハイライト可能な言語について</h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
-<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
-<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
     <url>/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%EF%BC%88%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%EF%BC%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
     <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p>
@@ -155,6 +89,72 @@
 <p>hoge</p>
 <hr>
 <p>hoge</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
+    <url>/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
+<!-- more -->
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+
+<ul>
+<li><a href="#1----------------------">1.コードブロックに使用するプログラム言語を記載</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2 id="1-コードブロックに使用するプログラム言語を記載"><a href="#1-コードブロックに使用するプログラム言語を記載" class="headerlink" title="1.コードブロックに使用するプログラム言語を記載"></a>1.コードブロックに使用するプログラム言語を記載</h2><p>コードブロックに自分が使用するプログラム言語の略称を入れる<br>※例ではCSSを使用<br><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
+<h2 id="完了"><a href="#完了" class="headerlink" title="完了"></a>完了</h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
+<h2 id="Hexoでハイライト可能な言語について"><a href="#Hexoでハイライト可能な言語について" class="headerlink" title="Hexoでハイライト可能な言語について"></a>Hexoでハイライト可能な言語について</h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
+<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
+<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
+    <url>/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
+<span id="more"></span>
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+
+<ul>
+<li><a href="#1html---md-------">1.HTML要素を.mdファイルに記載</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2 id="1-HTML要素を-mdファイルに記載"><a href="#1-HTML要素を-mdファイルに記載" class="headerlink" title="1.HTML要素を.mdファイルに記載"></a>1.HTML要素を.mdファイルに記載</h2><p class="codeblock-filename">\site\source\_posts\[任意].md</p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
+<h2 id="2-CSSを定義"><a href="#2-CSSを定義" class="headerlink" title="2.CSSを定義"></a>2.CSSを定義</h2><p class="codeblock-filename">\site\themes\light\source\css\[自分の].css</p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
+<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
+<p>まぁ変にバグが起こるよりはいいか(–)b</p>
+<p>以上。今回もお疲れさまでした。</p>
 ]]></content>
       <categories>
         <category>エンジニアリング</category>
