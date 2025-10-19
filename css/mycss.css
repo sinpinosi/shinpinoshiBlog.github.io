@@ -66,6 +66,12 @@ article.post .icon:before {
   border-top: none;
   margin-top: 0px;
 }
+.codeblock-filename {
+  display: block;
+  width: fit-content;       /* テキスト幅に合わせる */
+  background: #fff;
+  padding: 0.2em 0.5em;
+}
 
 /* 検索ボックス */
 #local-search-result {
