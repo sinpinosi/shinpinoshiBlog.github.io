@@ -59,18 +59,21 @@ article.post .icon:before {
   background: #eee;
   border: 1px solid #ddd;
   border-bottom: none;
-  color: #999;
-  padding-left: 15px;
+  color: #727272;
+  font-size: 0.9em;
 }
 .codeblock-filename + .highlight{
   border-top: none;
   margin-top: 0px;
 }
-.codeblock-filename {
-  display: block;
-  width: fit-content;       /* テキスト幅に合わせる */
-  background: #fff;
-  padding: 0.2em 0.5em;
+
+.codeblock-filename span{
+  display: inline-block;
+  background-color: #f7f7f7;
+  width: fit-content;
+  padding: 3px 7px;
+  margin-top: 0px;
+  border-radius: 5px;
 }
 
 /* 検索ボックス */
@@ -108,4 +111,11 @@ article.post .icon:before {
 .search-no-result {
   font-style: italic;
   padding: 0.5em;
+}
+
+
+/* 記事 */
+.e-content h2{
+  margin-top: 30px !important;
+  padding-bottom: 5px !important;
 }
