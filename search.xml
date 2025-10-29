@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
+    <url>/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
+<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
+<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
+<li><a href="#%E6%9C%80%E5%BE%8C%E3%81%AB">最後に</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h2><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md"></p>
+<h2><span id="2_configymlを変更">2._config.ymlを変更</span></h2><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
+<p class="codeblock-filename"><span>site\_config.yml</span></p>
+
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml"></p>
+<h2><span id="3cssを変更">3.cssを変更</span></h2><p>このままだとダサいのでCSSをいい感じに変更</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="[自分のCSS].css"></p>
+<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。<br><img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像"></p>
+<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
+
+
+<h2><span id="最後に">最後に</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
+<p>これでよりブログっぽくなったと思います。</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
     <url>/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%EF%BC%88%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%EF%BC%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
@@ -70,96 +124,30 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
-    <url>/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
+    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
+    <url>/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
 <span id="more"></span>
-
+<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
-<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
-<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
-<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
-<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
-<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
-<li><a href="#%E6%9C%80%E5%BE%8C%E3%81%AB">最後に</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h2><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md"></p>
-<h2><span id="2_configymlを変更">2._config.ymlを変更</span></h2><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
-<p class="codeblock-filename"><span>site\_config.yml</span></p>
-
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml"></p>
-<h2><span id="3cssを変更">3.cssを変更</span></h2><p>このままだとダサいのでCSSをいい感じに変更</p>
-<p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="[自分のCSS].css"></p>
-<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。<br><img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像"></p>
-<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
-
-
-<h2><span id="最後に">最後に</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
-<p>これでよりブログっぽくなったと思います。</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
-    <url>/2025/10/27/%E3%80%90Hexo%E3%80%91%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E4%BD%9C%E6%88%90%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#1robotstxt%E3%82%92%E4%BD%9C%E6%88%90">1.robots.txtを作成</a></li>
-<li><a href="#2hexo-generator-sitemap%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">2.hexo-generator-sitemapをダウンロード</a></li>
-<li><a href="#3_configyml%E3%82%92%E7%B7%A8%E9%9B%86">3._config.ymlを編集</a></li>
-<li><a href="#4%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4">4.デプロイ</a></li>
-<li><a href="#5googlesearchconsole%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%86%8D%E7%99%BB%E9%8C%B2">5.GoogleSearchConsoleでインデックスを再登録</a></li>
+<li><a href="#1%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E3%82%92%E8%A8%98%E8%BC%89">1.コードブロックに使用するプログラム言語を記載</a></li>
 <li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#hexo%E3%81%A7%E3%83%8F%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E5%8F%AF%E8%83%BD%E3%81%AA%E8%A8%80%E8%AA%9E%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Hexoでハイライト可能な言語について</a></li>
 <li><a href="#%E6%9C%80%E5%BE%8C%E3%81%AB">最後に</a></li>
 </ul>
 <!-- tocstop -->
 
 </div>
 
-<h2><span id="1robotstxtを作成">1.robots.txtを作成</span></h2><p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
-<h2><span id="2hexo-generator-sitemapをダウンロード">2.hexo-generator-sitemapをダウンロード</span></h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-<h2><span id="3_configymlを編集">3._config.ymlを編集</span></h2><p class="codeblock-filename"><span>site\_config.yml</span></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
-<h2><span id="4デプロイ">4.デプロイ</span></h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
-
-<h2><span id="5googlesearchconsoleでインデックスを再登録">5.GoogleSearchConsoleでインデックスを再登録</span></h2><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
-<h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
-<h2><span id="最後に">最後に</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
+<h2><span id="1コードブロックに使用するプログラム言語を記載">1.コードブロックに使用するプログラム言語を記載</span></h2><p>コードブロックに自分が使用するプログラム言語の略称を入れる<br>※例ではCSSを使用<br><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
+<h2><span id="完了">完了</span></h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
+<h2><span id="hexoでハイライト可能な言語について">Hexoでハイライト可能な言語について</span></h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
+<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
+<h2><span id="最後に">最後に</span></h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -214,30 +202,42 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
-    <url>/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
+    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
+    <url>/2025/10/27/%E3%80%90Hexo%E3%80%91%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E4%BD%9C%E6%88%90%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
 <span id="more"></span>
-<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
+<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
-<li><a href="#1%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E3%82%92%E8%A8%98%E8%BC%89">1.コードブロックに使用するプログラム言語を記載</a></li>
+<li><a href="#1robotstxt%E3%82%92%E4%BD%9C%E6%88%90">1.robots.txtを作成</a></li>
+<li><a href="#2hexo-generator-sitemap%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">2.hexo-generator-sitemapをダウンロード</a></li>
+<li><a href="#3_configyml%E3%82%92%E7%B7%A8%E9%9B%86">3._config.ymlを編集</a></li>
+<li><a href="#4%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4">4.デプロイ</a></li>
+<li><a href="#5googlesearchconsole%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%86%8D%E7%99%BB%E9%8C%B2">5.GoogleSearchConsoleでインデックスを再登録</a></li>
 <li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#hexo%E3%81%A7%E3%83%8F%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E5%8F%AF%E8%83%BD%E3%81%AA%E8%A8%80%E8%AA%9E%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Hexoでハイライト可能な言語について</a></li>
 <li><a href="#%E6%9C%80%E5%BE%8C%E3%81%AB">最後に</a></li>
 </ul>
 <!-- tocstop -->
 
 </div>
 
-<h2><span id="1コードブロックに使用するプログラム言語を記載">1.コードブロックに使用するプログラム言語を記載</span></h2><p>コードブロックに自分が使用するプログラム言語の略称を入れる<br>※例ではCSSを使用<br><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
-<h2><span id="完了">完了</span></h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
-<h2><span id="hexoでハイライト可能な言語について">Hexoでハイライト可能な言語について</span></h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
-<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
-<h2><span id="最後に">最後に</span></h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
+<h2><span id="1robotstxtを作成">1.robots.txtを作成</span></h2><p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
+<h2><span id="2hexo-generator-sitemapをダウンロード">2.hexo-generator-sitemapをダウンロード</span></h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<h2><span id="3_configymlを編集">3._config.ymlを編集</span></h2><p class="codeblock-filename"><span>site\_config.yml</span></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
+<h2><span id="4デプロイ">4.デプロイ</span></h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2><span id="5googlesearchconsoleでインデックスを再登録">5.GoogleSearchConsoleでインデックスを再登録</span></h2><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
+<h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
+<h2><span id="最後に">最後に</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
