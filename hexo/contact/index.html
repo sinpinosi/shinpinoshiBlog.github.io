@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  
+  <title>【Hexo】問い合わせフォームを作成する（テーマ：light） | shinpinoshi blog</title>
+  <meta name="author" content="shinpinoshi">
+  
+  <meta name="description" content="概要お問い合わせフォームを設置すると、サイトに問題があったときなどにご連絡いただけます。個人的に必須だと思うので、なるべく安くできるように実装してみました。">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="【Hexo】問い合わせフォームを作成する（テーマ：light）"/>
+  <meta property="og:site_name" content="shinpinoshi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+    
+  
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <!-- <h1><a href="/">shinpinoshi blog</a></h1>
+  <h2><a href="/"></a></h2> -->
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+<!-- <nav id="main-nav" class="alignright">
+  <ul>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav> -->
+<div class="clearfix"></div>
+
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-【Hexo】問い合わせフォームを作成する（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>【Hexo】問い合わせフォームを作成する（テーマ：light）</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2025-11-09T13:40:52.000Z"><a href="/hexo/contact/">2025-11-09</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">【Hexo】問い合わせフォームを作成する（テーマ：light）</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>お問い合わせフォームを設置すると、サイトに問題があったときなどにご連絡いただけます。<br>個人的に必須だと思うので、なるべく安くできるように実装してみました。</p>
+<span id="more"></span>
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+
+<ul>
+<li><a href="#--">検討</a></li>
+<li><a href="#--">手順</a><ul>
+<li><a href="#1---------------">1.お問い合わせの固定ページを生成</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h2 id="検討"><a href="#検討" class="headerlink" title="検討"></a>検討</h2><p>お問い合わせ送信サービスを検討する</p>
+<ul>
+<li><p>Formspree</p>
+<ul>
+<li>料金：月50件まで無料</li>
+<li>安定・通知機能豊富</li>
+</ul>
+</li>
+<li><p>Formsubmit</p>
+<ul>
+<li>料金：無制限（実質）</li>
+<li>とにかく簡単・メール転送のみ</li>
+</ul>
+</li>
+</ul>
+<p><strong>今回はFormsubmitを使用します。</strong></p>
+<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-お問い合わせの固定ページを生成"><a href="#1-お問い合わせの固定ページを生成" class="headerlink" title="1.お問い合わせの固定ページを生成"></a>1.お問い合わせの固定ページを生成</h3><p>お問い合わせの固定ページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-お問い合わせフォームを記載"><a href="#2-お問い合わせフォームを記載" class="headerlink" title="2.お問い合わせフォームを記載"></a>2.お問い合わせフォームを記載</h3><p>当ブログの場合は下記のような感じ</p>
+<div class="notice notice-info">
+テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
+</div>
+<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
+<h3 id="3-Thanksページを生成"><a href="#3-Thanksページを生成" class="headerlink" title="3.Thanksページを生成"></a>3.Thanksページを生成</h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Thanksページを編集"><a href="#4-Thanksページを編集" class="headerlink" title="4.Thanksページを編集"></a>4.Thanksページを編集</h3><p>Thanksページを記載します。</p>
+<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
+<h3 id="5-お問い合わせページへのリンクを作成"><a href="#5-お問い合わせページへのリンクを作成" class="headerlink" title="5.お問い合わせページへのリンクを作成"></a>5.お問い合わせページへのリンクを作成</h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
+<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
+<p>※手順3以降で説明してます。</p>
+<h3 id="6-初回認証を行う"><a href="#6-初回認証を行う" class="headerlink" title="6.初回認証を行う"></a>6.初回認証を行う</h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
+<div class="notice notice-info">
+ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
+</div>
+
+<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
+<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
+<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
+<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
+<p>以上お疲れさまでした。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a>, <a href="/tags/Hexo/">Hexo</a>, <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">Category</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>10</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>1</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>10</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%8C%81%E3%81%A1%E7%89%A9/">持ち物</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+  <div class="widget widget-archives">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+
+  <div class="search">
+  <input type="text" id="local-search-input" placeholder="Search">
+  <div id="local-search-result"></div>
+  <script>
+    window.ROOT_PATH = '/';
+  </script>
+  <script src="/js/search.js"></script>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+      </div>          
+    </div>
+  </div>
+
+
+<div class="alignleft">
+  
+  &copy; 2025 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+  
+    <!-- ↓ ここから新しいフッターメニュー -->
+    
+      <ul class="footer-menu">
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/profile">プロフィール</a></li>
+        
+          <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+        
+          <li><a href="/contact">お問い合わせ</a></li>
+        
+      </ul>
+    
+    <!-- ↑ フッターメニューここまで -->
+  </footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

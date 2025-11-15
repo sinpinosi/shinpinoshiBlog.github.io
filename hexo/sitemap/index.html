@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  
+  <title>【Hexo】サイトマップを自動で作成（テーマ：light） | shinpinoshi blog</title>
+  <meta name="author" content="shinpinoshi">
+  
+  <meta name="description" content="概要GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="【Hexo】サイトマップを自動で作成（テーマ：light）"/>
+  <meta property="og:site_name" content="shinpinoshi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+    
+  
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <!-- <h1><a href="/">shinpinoshi blog</a></h1>
+  <h2><a href="/"></a></h2> -->
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+<!-- <nav id="main-nav" class="alignright">
+  <ul>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav> -->
+<div class="clearfix"></div>
+
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-【Hexo】サイトマップを自動で作成（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>【Hexo】サイトマップを自動で作成（テーマ：light）</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2025-10-27T13:39:53.000Z"><a href="/hexo/sitemap/">2025-10-27</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">【Hexo】サイトマップを自動で作成（テーマ：light）</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+
+<ul>
+<li><a href="#--">手順</a><ul>
+<li><a href="#1robotstxt---">1.robots.txtを作成</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-robots-txtを作成"><a href="#1-robots-txtを作成" class="headerlink" title="1.robots.txtを作成"></a>1.robots.txtを作成</h3><p>「robots.txt」にサイトマップの場所を記載する</p>
+<p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
+<h3 id="2-サイトマップを自動で生成するライブラリをダウンロード"><a href="#2-サイトマップを自動で生成するライブラリをダウンロード" class="headerlink" title="2.サイトマップを自動で生成するライブラリをダウンロード"></a>2.サイトマップを自動で生成するライブラリをダウンロード</h3><p>サイトマップを自動で生成するライブラリとして「hexo-generator-sitemap」をダウンロードする</p>
+<p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-config-ymlを編集"><a href="#3-config-ymlを編集" class="headerlink" title="3._config.ymlを編集"></a>3._config.ymlを編集</h3><p class="codeblock-filename"><span>site\_config.yml</span></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
+<h3 id="4-デプロイ"><a href="#4-デプロイ" class="headerlink" title="4.デプロイ"></a>4.デプロイ</h3><p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-GoogleSearchConsoleでインデックスを再登録"><a href="#5-GoogleSearchConsoleでインデックスを再登録" class="headerlink" title="5.GoogleSearchConsoleでインデックスを再登録"></a>5.GoogleSearchConsoleでインデックスを再登録</h3><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
+<h2 id="完了"><a href="#完了" class="headerlink" title="完了"></a>完了</h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
+<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>sitemapは必須なんですね。。なるほど！</p>
+<p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
+<p>以上お疲れさまでした。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a>, <a href="/tags/Hexo/">Hexo</a>, <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">Category</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>10</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>1</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>10</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%8C%81%E3%81%A1%E7%89%A9/">持ち物</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+  <div class="widget widget-archives">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+
+  <div class="search">
+  <input type="text" id="local-search-input" placeholder="Search">
+  <div id="local-search-result"></div>
+  <script>
+    window.ROOT_PATH = '/';
+  </script>
+  <script src="/js/search.js"></script>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+      </div>          
+    </div>
+  </div>
+
+
+<div class="alignleft">
+  
+  &copy; 2025 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+  
+    <!-- ↓ ここから新しいフッターメニュー -->
+    
+      <ul class="footer-menu">
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/profile">プロフィール</a></li>
+        
+          <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+        
+          <li><a href="/contact">お問い合わせ</a></li>
+        
+      </ul>
+    
+    <!-- ↑ フッターメニューここまで -->
+  </footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  
+  <title>【Hexo】プライバシーポリシーの作成（テーマ：light） | shinpinoshi blog</title>
+  <meta name="author" content="shinpinoshi">
+  
+  <meta name="description" content="概要Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。
+GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要があります。">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="【Hexo】プライバシーポリシーの作成（テーマ：light）"/>
+  <meta property="og:site_name" content="shinpinoshi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+    
+  
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <!-- <h1><a href="/">shinpinoshi blog</a></h1>
+  <h2><a href="/"></a></h2> -->
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+<!-- <nav id="main-nav" class="alignright">
+  <ul>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav> -->
+<div class="clearfix"></div>
+
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-【Hexo】プライバシーポリシーの作成（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>【Hexo】プライバシーポリシーの作成（テーマ：light）</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2025-11-04T06:57:53.000Z"><a href="/hexo/privacypolicy/">2025-11-04</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">【Hexo】プライバシーポリシーの作成（テーマ：light）</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
+<p>GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要があります。</p>
+<span id="more"></span>
+
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+
+<ul>
+<li><a href="#--">手順</a><ul>
+<li><a href="#1--------">1.固定ページを生成</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-固定ページを生成"><a href="#1-固定ページを生成" class="headerlink" title="1.固定ページを生成"></a>1.固定ページを生成</h3><p>プライバシーポリシーの固定ページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;privacy-policy&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-プライバシーポリシーを記載"><a href="#2-プライバシーポリシーを記載" class="headerlink" title="2.プライバシーポリシーを記載"></a>2.プライバシーポリシーを記載</h3><p>当ブログの場合は下記のような感じ</p>
+<div class="notice notice-info">
+テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
+</div>
+<p class="codeblock-filename"><span>\site\source\privacy-policy\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## プライバシーポリシー</span></span><br><span class="line"><span class="section">### 個人情報の利用目的</span></span><br><span class="line">当ブログでは、お問い合わせや記事へのコメントの際、名前やメールアドレス等の個人情報を入力いただく場合がございます。</span><br><span class="line">取得した個人情報は、お問い合わせに対する回答や必要な情報を電子メールなどでご連絡する場合に利用させていただくものであり、これらの目的以外では利用いたしません。</span><br><span class="line"></span><br><span class="line"><span class="section">### 広告について</span></span><br><span class="line">当ブログでは、第三者配信の広告サービス（Googleアドセンス）を利用しており、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用しております。</span><br><span class="line">クッキーを使用することで当サイトはお客様のコンピュータを識別できるようになりますが、お客様個人を特定できるものではありません。</span><br><span class="line"></span><br><span class="line">Cookieを無効にする方法やGoogleアドセンスに関する詳細は「広告 – ポリシーと規約 – Google」をご確認ください。</span><br><span class="line"></span><br><span class="line"><span class="section">### アクセス解析ツールについて</span></span><br><span class="line">当ブログでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。トラフィックデータは匿名で収集されており、個人を特定するものではありません。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## 免責事項</span></span><br><span class="line">当ブログからのリンクやバナーなどで移動したサイトで提供される情報、サービス等について一切の責任を負いません。</span><br><span class="line"></span><br><span class="line">また当ブログのコンテンツ・情報について、できる限り正確な情報を提供するように努めておりますが、正確性や安全性を保証するものではありません。情報が古くなっていることもございます。</span><br><span class="line"></span><br><span class="line">当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## 著作権</span></span><br><span class="line">当ブログで掲載している文章や画像などにつきましては、無断転載することを禁止します。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## リンクについて</span></span><br><span class="line">当ブログは基本的にリンクフリーです。リンクを行う場合の許可や連絡は不要です。</span><br><span class="line"></span><br><span class="line">ただし、インラインフレームの使用や画像の直リンクはご遠慮ください。</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line">article .post-content&#123;</span><br><span class="line"><span class="code">	padding:20px;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">article.page&#123;</span></span><br><span class="line"><span class="code">	padding:0;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-layout-ejsを編集"><a href="#3-layout-ejsを編集" class="headerlink" title="3.layout.ejsを編集"></a>3.layout.ejsを編集</h3><p>フッターに固定ページを表示するためにlayout.ejsに下記を追記</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\layout.ejs</span></p>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.footer_menu &amp;&amp; theme.footer_menu.length) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;footer-menu&quot;</span>&gt;</span></span><br><span class="line">    &lt;% theme.footer_menu.forEach(function(item)&#123; %&gt;</span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%- url_for(item.url) %&gt;&quot;</span>&gt;</span>&lt;%- item.name %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &lt;% &#125;); %&gt;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_1.png" alt="layout.ejs" title="layout.ejs"></p>
+<h3 id="4-config-ymlを編集"><a href="#4-config-ymlを編集" class="headerlink" title="4._config.ymlを編集"></a>4._config.ymlを編集</h3><p>config.ymlにフッターメニュー項目を追加する</p>
+<p class="codeblock-filename"><span>site\themes\light\_config.yml</span></p>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">footer_menu:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Home</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">プライバシーポリシー</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/privacy-policy</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_2.png" alt="_config.yml" title="_config.yml"></p>
+<h3 id="5-cssを記載"><a href="#5-cssを記載" class="headerlink" title="5.cssを記載"></a>5.cssを記載</h3><p>見ずらいのでいい感じにレイアウトを変更してみる</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\[任意のCSS].css</span></p>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* フッター */</span></span><br><span class="line"><span class="selector-class">.footer-menu</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_3.png" alt="[任意のCSS].css" title="[任意のCSS].css"></p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事表示プライバシーポリシーが完成しました。<br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_4.png" alt="完成（フッター）" title="完成（フッター）"><br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_5.png" alt="完成（プライバシーポリシー）" title="完成（プライバシーポリシー）"></p>
+<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>プライバシーポリシーを追加するにあたり色々調べましたが、こんな面倒なこと皆さんやられてるんですね。。<br>いやー勉強になりました(^-^;</p>
+<p>実装については、フッター機能がないことに気づき面倒だな、、と思いましたが、思ったより工数はかからず数時間で実装できました。</p>
+<p>結構いい感じなのではないでしょうか？</p>
+<p>以上お疲れさまでした。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a>, <a href="/tags/Hexo/">Hexo</a>, <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">Category</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>10</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>1</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>10</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%8C%81%E3%81%A1%E7%89%A9/">持ち物</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+  <div class="widget widget-archives">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+
+  <div class="search">
+  <input type="text" id="local-search-input" placeholder="Search">
+  <div id="local-search-result"></div>
+  <script>
+    window.ROOT_PATH = '/';
+  </script>
+  <script src="/js/search.js"></script>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+      </div>          
+    </div>
+  </div>
+
+
+<div class="alignleft">
+  
+  &copy; 2025 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+  
+    <!-- ↓ ここから新しいフッターメニュー -->
+    
+      <ul class="footer-menu">
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/profile">プロフィール</a></li>
+        
+          <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+        
+          <li><a href="/contact">お問い合わせ</a></li>
+        
+      </ul>
+    
+    <!-- ↑ フッターメニューここまで -->
+  </footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

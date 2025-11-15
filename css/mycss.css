@@ -1,0 +1,350 @@
+body {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%; /* Safari */
+}
+.e-content h3 {
+  margin-left: 2px;
+  margin-top:20px !important;
+  border-left: 7px solid rgb(107, 107, 107);
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+/* ヘッダー ロゴ*/
+
+/* ヘッダー */
+#header{
+  display: flex;
+  justify-content: center;
+    margin: 15px auto;
+}
+#header img{
+  width: 300px;
+}
+@media screen and (max-width: 600px) {
+  #header img{
+    width: 200px;
+  }
+}
+/* imageキャプション */
+.caption{
+  font-size: 0.8em !important;
+  color: #aaa !important;
+}
+
+/* パンくずリスト */
+.breadcrumb {
+  font-size: 0.9em;
+  padding: 5px 8px;
+}
+.breadcrumb a{
+    color: #872d2d;
+}
+.breadcrumb span {
+  font-weight: 600;
+}
+
+/* 記事のアイコン */
+article.post .icon:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url('../images/common/pin.svg') no-repeat center center;
+}
+
+/* 目次 */
+.post-toc {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  margin: 1em 0;
+  color: #333;
+}
+
+.post-toc ul {
+  list-style: none;
+  margin: 1em 0em 1em 1em !important;
+}
+
+.post-toc ul li {
+  padding: 0.1em 0em 0.1em 1em !important;
+  margin: 0.3em 0em !important;
+  border-left: 2px solid #e5e5e5;
+}
+.post-toc ul li ul{
+  margin: 0px 0px 0px 2px !important;
+} 
+
+/* info-warnボックス */
+.notice {
+  padding: 10px;
+  margin: 15px 5px 0 5px;
+  border-radius: 6px;
+}
+.notice::before {
+  display: block;
+  font-weight: bold;
+  padding: 2px 0 6px 0;
+}
+/* warnボックス */
+.notice-warn {
+  background: #fff3cd;
+  border-left: 6px solid #ffcc00;
+}
+.notice-warn::before {
+  content: "注意";
+  color: #b36b00;
+}
+/* infoボックス */
+.notice-info {
+  background: #e8f4fd;
+  border-left: 6px solid #5bc0de;
+}
+.notice-info::before {
+  content: "情報";
+  color: #0b5fa4;
+}
+
+/* ファイル名付きコードブロック */
+.codeblock-filename{
+  background: #eee;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  color: #727272;
+  font-size: 0.9em;
+}
+.codeblock-filename + .highlight{
+  border-top: none;
+  margin-top: 0px;
+}
+
+.codeblock-filename span{
+  display: inline-block;
+  background-color: #f7f7f7;
+  width: fit-content;
+  padding: 3px 7px;
+  margin-top: 0px;
+  border-radius: 5px;
+}
+
+/* 検索ボックス */
+#local-search-result {
+  margin-top: 0.2em;
+}
+
+.search-result-item {
+  display: block;
+  padding: 0.8em;
+  margin-bottom: 0.2em;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+.search-result-item:hover {
+  background-color: #f7f7f7;
+  text-decoration: none;
+}
+
+.search-result-title {
+  font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin-bottom: 0.3em;
+  font-size: 1.2em;
+}
+
+.search-result-snippet {
+  font-size: 0.9em;
+}
+
+.search-no-result {
+  font-style: italic;
+  padding: 0.5em;
+}
+
+/* リンクカード */
+/* リンクカード_外部 */
+.e-content p a[target="_blank"] {
+  display: block;
+  border: 1px solid #bcdac2;
+  background: linear-gradient(135deg, #f0f9f2, #e8f3ea);
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #255d38;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: all 0.25s ease;
+  margin: 10px 0;
+  position: relative;
+}
+.e-content p a[target="_blank"]:hover {
+  background: linear-gradient(135deg, #e3f4e7, #d8eee0);
+  border-color: #8ec49b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.e-content p a[target="_blank"]::before {
+  content: "🔗 外部リンク";
+  display: block;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #1c4b2e;
+  margin-bottom: 0.5em;
+  opacity: 0.8;
+}
+
+/* リンクカード_内部 */
+.e-content p a[href^="/"] {
+  display: block;
+  border: 1px solid #b9d7e0;
+  background: linear-gradient(135deg, #f2f9fb, #eaf3f6);
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #224a58;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: all 0.25s ease;
+  margin-top: 10px;
+  position: relative;
+}
+.e-content p a[href^="/"]:hover {
+  background: linear-gradient(135deg, #e6f2f6, #d9ebf1);
+  border-color: #8bbdcc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.e-content p a[href^="/"]::before {
+  content: "🔗 内部リンク";
+  display: block;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #1c3f4d;
+  margin-bottom: 0.5em;
+  opacity: 0.8;
+}
+
+
+/* 記事 */
+.e-content h2{
+  padding-bottom: 5px !important;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+  .e-content h2 {
+    padding-bottom: 2px !important;
+  }
+}
+
+/* フッター */
+.footer-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 0;
+}
+
+
+/* プロフィール */
+.profile-container {
+  background: #eee;
+  color: #444;
+  font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-shadow: 0 0 1px transparent;
+  width: 900px;
+  background: #fff;
+  text-align: left;
+  color: #333;
+  padding-bottom: 10px; 
+  margin-bottom: 20px; 
+}
+.profile-flex {
+  display: flex;
+  align-items: center;
+}
+.profile-section {
+  margin: 0 10px;
+}
+/* プロフィールタイトル */
+.profile-title{
+    padding: 15px 20px;
+    font-size: 1em;
+    border-bottom: 1px solid #ddd;
+    font-weight: normal;
+}
+/* アイコン画像 */
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #eee;
+  transition: transform 0.3s ease;
+}
+.profile-div{
+  margin:8px 0
+}
+/* 名前 */
+.profile-name {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 10px 0;
+}
+/* サブタイトル */
+.profile-sub-title {
+  font-size: 1em;
+  font-weight:bold;
+  margin: 0px !important;
+}
+/* 内容 */
+.profile-bio {
+  font-size: 1em;
+  line-height: 1.8;
+  color: #444;
+  margin: 0px !important;
+}
+
+@media screen and (max-width: 1260px) {
+  .profile-container {
+      width: auto;
+      margin-right: 300px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .profile-container {
+      margin-right: 0;
+      width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .profile-container {
+    font-size: 13px;
+  }
+  .profile-flex {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer-menu{
+    display:block
+  }
+  .footer-menu li{
+    margin: 3px 0;
+  }
+}
