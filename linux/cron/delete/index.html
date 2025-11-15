@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  
+  <title>【Linux】cronで不要になったジョブを削除する | shinpinoshi blog</title>
+  <meta name="author" content="shinpinoshi">
+  
+  <meta name="description" content="概要リリース後に不要となるcronのジョブを削除する為の手順です。バックアップから削除までを安全に行うようにしています。
+これからcronの削除をリリース方は是非ご参考ください！">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="【Linux】cronで不要になったジョブを削除する"/>
+  <meta property="og:site_name" content="shinpinoshi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+    
+  
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-【Linux】cronで不要になったジョブを削除する" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>【Linux】cronで不要になったジョブを削除する</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2025-11-15T07:59:17.000Z"><a href="/linux/cron/delete/">2025-11-15</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">【Linux】cronで不要になったジョブを削除する</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
+<p>これからcronの削除をリリース方は是非ご参考ください！</p>
+<span id="more"></span>
+
+<div class="notice notice-warn">
+環境によって意味が変わってくるコマンドがあるかもしれません。
+鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
+</div>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
+<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
+<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
+<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
+<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
+
+<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
+
+
+<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
+<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
+<p>以上、お疲れ様でした。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/">リリース手順</a>, <a href="/tags/linux/">linux</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">Category</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>11</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>1</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>10</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/">リリース手順</a><small>1</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%8C%81%E3%81%A1%E7%89%A9/">持ち物</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+  <div class="widget widget-archives">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+
+  <div class="search">
+  <input type="text" id="local-search-input" placeholder="Search">
+  <div id="local-search-result"></div>
+  <script>
+    window.ROOT_PATH = '/';
+  </script>
+  <script src="/js/search.js"></script>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+      </div>          
+    </div>
+  </div>
+
+
+<div class="alignleft">
+  
+  &copy; 2025 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+  
+    <!-- ↓ ここから新しいフッターメニュー -->
+    
+      <ul class="footer-menu">
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/profile">プロフィール</a></li>
+        
+          <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+        
+          <li><a href="/contact">お問い合わせ</a></li>
+        
+      </ul>
+    
+    <!-- ↑ フッターメニューここまで -->
+  </footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

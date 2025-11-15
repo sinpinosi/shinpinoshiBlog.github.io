@@ -50,19 +50,10 @@
 
 <body>
   <header id="header" class="inner"><div class="header_logo alignleft">
-  <!-- <h1><a href="/">shinpinoshi blog</a></h1>
-  <h2><a href="/"></a></h2> -->
   <a href="/">
     <img src="/images/common/header_logo.png" alt="header_logo">
   </a>
 </div>
-<!-- <nav id="main-nav" class="alignright">
-  <ul>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav> -->
-<div class="clearfix"></div>
 
 </header>
   <div id="content" class="inner">
@@ -100,29 +91,36 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
+        <h2><span id="概要">概要</span></h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1html---md-------">1.HTML要素を.mdファイルに記載</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1html%E8%A6%81%E7%B4%A0%E3%82%92md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E8%A8%98%E8%BC%89">1.HTML要素を.mdファイルに記載</a></li>
+<li><a href="#2css%E3%82%92%E5%AE%9A%E7%BE%A9">2.CSSを定義</a></li>
 </ul>
 </li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E6%9C%80%E5%BE%8C%E3%81%AB">最後に</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-HTML要素を-mdファイルに記載"><a href="#1-HTML要素を-mdファイルに記載" class="headerlink" title="1.HTML要素を.mdファイルに記載"></a>1.HTML要素を.mdファイルに記載</h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1html要素をmdファイルに記載">1.HTML要素を.mdファイルに記載</span></h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
-<h3 id="2-CSSを定義"><a href="#2-CSSを定義" class="headerlink" title="2.CSSを定義"></a>2.CSSを定義</h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
+<h3><span id="2cssを定義">2.CSSを定義</span></h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
-<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
+<h2><span id="完成">完成</span></h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
+<h2><span id="最後に">最後に</span></h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
 <p>まぁ変にバグが起こるよりはいいか(–)b</p>
 <p>以上。今回もお疲れさまでした。</p>
 
@@ -157,7 +155,7 @@
   <h3 class="title">Category</h3>
   <ul class="entry">
   
-    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>10</small></li>
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>11</small></li>
   
     <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>1</small></li>
   
@@ -174,9 +172,13 @@
   
     <li><a href="/tags/Hexo/">Hexo</a><small>10</small></li>
   
+    <li><a href="/tags/linux/">linux</a><small>1</small></li>
+  
     <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>10</small></li>
   
     <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/">リリース手順</a><small>1</small></li>
   
     <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>1</small></li>
   
@@ -194,7 +196,7 @@
   <div class="widget widget-archives">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 

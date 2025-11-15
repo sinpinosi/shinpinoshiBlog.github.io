@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shinpinoshi.com/hexo/noindex/</loc>
+    
+    <lastmod>2025-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/linux/cron/delete/</loc>
+    
+    <lastmod>2025-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shinpinoshi.com/hexo/redirect/</loc>
     
     <lastmod>2025-11-15</lastmod>
@@ -110,15 +128,6 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/hexo/noindex/</loc>
-    
-    <lastmod>2025-11-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shinpinoshi.com/contact/index.html</loc>
     
     <lastmod>2025-11-09</lastmod>
@@ -198,6 +207,20 @@
   
   <url>
     <loc>https://shinpinoshi.com/tags/%E6%8C%81%E3%81%A1%E7%89%A9/</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/linux/</loc>
     <lastmod>2025-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

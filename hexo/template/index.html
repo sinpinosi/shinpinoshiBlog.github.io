@@ -50,19 +50,10 @@
 
 <body>
   <header id="header" class="inner"><div class="header_logo alignleft">
-  <!-- <h1><a href="/">shinpinoshi blog</a></h1>
-  <h2><a href="/"></a></h2> -->
   <a href="/">
     <img src="/images/common/header_logo.png" alt="header_logo">
   </a>
 </div>
-<!-- <nav id="main-nav" class="alignright">
-  <ul>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav> -->
-<div class="clearfix"></div>
 
 </header>
   <div id="content" class="inner">
@@ -100,26 +91,32 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
+        <h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
 <span id="more"></span>
 <p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1postmd-----">1.post.mdを変更する</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
 </ul>
 </li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-post-mdを変更する"><a href="#1-post-mdを変更する" class="headerlink" title="1.post.mdを変更する"></a>1.post.mdを変更する</h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
 <p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
 
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2 id="完了"><a href="#完了" class="headerlink" title="完了"></a>完了</h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
+<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
 <p>以上お疲れさまでした。</p>
 
       
@@ -153,7 +150,7 @@
   <h3 class="title">Category</h3>
   <ul class="entry">
   
-    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>10</small></li>
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>11</small></li>
   
     <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>1</small></li>
   
@@ -170,9 +167,13 @@
   
     <li><a href="/tags/Hexo/">Hexo</a><small>10</small></li>
   
+    <li><a href="/tags/linux/">linux</a><small>1</small></li>
+  
     <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>10</small></li>
   
     <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/">リリース手順</a><small>1</small></li>
   
     <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>1</small></li>
   
@@ -190,7 +191,7 @@
   <div class="widget widget-archives">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 

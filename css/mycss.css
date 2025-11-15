@@ -10,8 +10,6 @@ body {
   font-weight: bold;
 }
 
-/* ヘッダー ロゴ*/
-
 /* ヘッダー */
 #header{
   display: flex;
