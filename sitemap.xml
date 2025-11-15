@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shinpinoshi.com/hexo/mokuji/</loc>
+    
+    <lastmod>2025-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/codeblock/langcolor/</loc>
+    
+    <lastmod>2025-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/codeblock/filename/</loc>
+    
+    <lastmod>2025-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/sitemap/</loc>
+    
+    <lastmod>2025-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shinpinoshi.com/hexo/noindex/</loc>
     
     <lastmod>2025-11-15</lastmod>
@@ -23,24 +59,6 @@
     <loc>https://shinpinoshi.com/hexo/redirect/</loc>
     
     <lastmod>2025-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/sitemap/</loc>
-    
-    <lastmod>2025-11-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/codeblock/filename/</loc>
-    
-    <lastmod>2025-11-13</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -75,24 +93,6 @@
   
   <url>
     <loc>https://shinpinoshi.com/hexo/template/</loc>
-    
-    <lastmod>2025-11-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/mokuji/</loc>
-    
-    <lastmod>2025-11-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/codeblock/langcolor/</loc>
     
     <lastmod>2025-11-12</lastmod>
     
