@@ -103,6 +103,26 @@ article.post .icon:before {
   color: #0b5fa4;
 }
 
+
+/* マーカー（文字強調） */
+.mark-g {
+  background: linear-gradient(transparent 60%, #c8f2c8 60%);
+  padding: 0 2px;
+  font-weight: bold;
+}
+.mark-y {
+  background: linear-gradient(transparent 60%, #fff3a3 60%);
+  padding: 0 2px;
+  font-weight: bold;
+}
+.mark-r {
+  background: linear-gradient(transparent 60%, #f7c4c4 60%);
+  padding: 0 2px;
+  font-weight: bold;
+}
+
+
+
 /* ファイル名付きコードブロック */
 .codeblock-filename{
   background: #eee;
@@ -244,16 +264,6 @@ article.post .icon:before {
   }
 }
 
-/* フッター */
-.footer-menu {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 10px;
-  padding: 0;
-}
-
 
 /* プロフィール */
 .profile-container {
@@ -317,7 +327,6 @@ article.post .icon:before {
   color: #444;
   margin: 0px !important;
 }
-
 @media screen and (max-width: 1260px) {
   .profile-container {
       width: auto;
@@ -341,6 +350,15 @@ article.post .icon:before {
   }
 }
 
+/* フッター */
+.footer-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 0;
+}
 @media screen and (max-width: 600px) {
   .footer-menu{
     display:block
