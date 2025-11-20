@@ -3,8 +3,11 @@ body {
     -webkit-text-size-adjust: 100%; /* Safari */
 }
 
+.e-content h2:first-of-type  {
+  margin-top:20px !important;
+}
 .e-content h2 {
-  margin-top:30px !important;
+  margin-top:40px !important;
   padding-right: 30px; /* ひし形の分だけ余白を確保 */
 }
 .e-content h2::before {
@@ -14,14 +17,17 @@ body {
   display: inline-block; /* transform を文字に効かせるため */
   transform: scaleX(0.7); /* 横幅80%に縮小 */
 }
-
+.e-content h2 + h3 {
+  margin-top:20px !important;
+} 
 .e-content h3 {
   margin-left: 2px;
-  margin-top:20px !important;
   border-left: 7px solid #0b5fa4;
   padding-left: 10px;
   font-weight: bold;
+  margin-top:40px !important;
 }
+
 
 /* ヘッダー */
 #header{
@@ -283,7 +289,6 @@ article.post .icon:before {
   background: #eee;
   color: #444;
   font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
   text-shadow: 0 0 1px transparent;
   width: 900px;
   background: #fff;
@@ -353,9 +358,6 @@ article.post .icon:before {
   }
 }
 @media screen and (max-width: 600px) {
-  .profile-container {
-    font-size: 13px;
-  }
   .profile-flex {
     display: block;
     text-align: center;

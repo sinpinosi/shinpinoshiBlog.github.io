@@ -13,7 +13,7 @@ body {
   background: #eee;
   color: #444;
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   text-shadow: 0 0 1px transparent;
 }
 @media screen and (max-width: 1260px) {
@@ -23,7 +23,8 @@ body {
 }
 @media screen and (max-width: 600px) {
   body {
-    font-size: 13px;
+    font-size: 15px;
+    margin: 0 0;
   }
 }
 h1,
