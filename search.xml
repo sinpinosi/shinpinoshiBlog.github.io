@@ -58,63 +58,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
-    <url>//hexo/sitemap/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1robotstxt%E3%82%92%E4%BD%9C%E6%88%90">1.robots.txtを作成</a></li>
-<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">2.サイトマップを自動で生成するライブラリをダウンロード</a></li>
-<li><a href="#3_configyml%E3%82%92%E7%B7%A8%E9%9B%86">3._config.ymlを編集</a></li>
-<li><a href="#4%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4">4.デプロイ</a></li>
-<li><a href="#5googlesearchconsole%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%86%8D%E7%99%BB%E9%8C%B2">5.GoogleSearchConsoleでインデックスを再登録</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1robotstxtを作成">1.robots.txtを作成</span></h3><p>「robots.txt」にサイトマップの場所を記載する</p>
-<p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
-<h3><span id="2サイトマップを自動で生成するライブラリをダウンロード">2.サイトマップを自動で生成するライブラリをダウンロード</span></h3><p>サイトマップを自動で生成するライブラリとして「hexo-generator-sitemap」をダウンロードする</p>
-<p class="codeblock-filename"><span>コマンドライン</span></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-
-<h3><span id="3_configymlを編集">3._config.ymlを編集</span></h3><p class="codeblock-filename"><span>site\_config.yml</span></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
-<h3><span id="4デプロイ">4.デプロイ</span></h3><p class="codeblock-filename"><span>コマンドライン</span></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
-
-<h3><span id="5googlesearchconsoleでインデックスを再登録">5.GoogleSearchConsoleでインデックスを再登録</span></h3><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
-<h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
-<h2><span id="締め">締め</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
-<p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
     <url>//hexo/codeblock/langcolor/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
@@ -147,46 +90,6 @@
 <h2><span id="hexoでハイライト可能な言語について">Hexoでハイライト可能な言語について</span></h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
 <p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
 <h2><span id="締め">締め</span></h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
-    <url>//hexo/template/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
-<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
-<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -316,98 +219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】問い合わせフォームを作成する（テーマ：light）</title>
-    <url>//hexo/contact/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>お問い合わせフォームを設置すると、サイトに問題があったときなどにご連絡いただけます。<br>個人的に必須だと思うので、なるべく安くできるように実装してみました。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%A4%9C%E8%A8%8E">検討</a></li>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.お問い合わせの固定ページを生成</a></li>
-<li><a href="#2%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E8%A8%98%E8%BC%89">2.お問い合わせフォームを記載</a></li>
-<li><a href="#3thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">3.Thanksページを生成</a></li>
-<li><a href="#4thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%B7%A8%E9%9B%86">4.Thanksページを編集</a></li>
-<li><a href="#5%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%B8%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90">5.お問い合わせページへのリンクを作成</a></li>
-<li><a href="#6%E5%88%9D%E5%9B%9E%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A1%8C%E3%81%86">6.初回認証を行う</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="検討">検討</span></h2><p>お問い合わせ送信サービスを検討する</p>
-<ul>
-<li><p>Formspree</p>
-<ul>
-<li>料金：月50件まで無料</li>
-<li>安定・通知機能豊富</li>
-</ul>
-</li>
-<li><p>Formsubmit</p>
-<ul>
-<li>料金：無制限（実質）</li>
-<li>とにかく簡単・メール転送のみ</li>
-</ul>
-</li>
-</ul>
-<p><strong>今回はFormsubmitを使用します。</strong></p>
-<h2><span id="手順">手順</span></h2><h3><span id="1お問い合わせの固定ページを生成">1.お問い合わせの固定ページを生成</span></h3><p>お問い合わせの固定ページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3><span id="2お問い合わせフォームを記載">2.お問い合わせフォームを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
-<div class="notice notice-info">
-テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
-</div>
-<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
-<h3><span id="3thanksページを生成">3.Thanksページを生成</span></h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3><span id="4thanksページを編集">4.Thanksページを編集</span></h3><p>Thanksページを記載します。</p>
-<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
-<h3><span id="5お問い合わせページへのリンクを作成">5.お問い合わせページへのリンクを作成</span></h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
-<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
-<p>※手順3以降で説明してます。</p>
-<h3><span id="6初回認証を行う">6.初回認証を行う</span></h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
-<div class="notice notice-info">
-ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
-</div>
-
-<h2><span id="確認">確認</span></h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
-<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
-<h2><span id="締め">締め</span></h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
-<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】プライバシーポリシーの作成（テーマ：light）</title>
     <url>//hexo/privacypolicy/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
@@ -466,6 +277,103 @@
 <h2><span id="締め">締め</span></h2><p>プライバシーポリシーを追加するにあたり色々調べましたが、こんな面倒なこと皆さんやられてるんですね。。<br>いやー勉強になりました(^-^;</p>
 <p>実装については、フッター機能がないことに気づき面倒だな、、と思いましたが、思ったより工数はかからず数時間で実装できました。</p>
 <p>結構いい感じなのではないでしょうか？</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
+    <url>//hexo/sitemap/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1robotstxt%E3%82%92%E4%BD%9C%E6%88%90">1.robots.txtを作成</a></li>
+<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">2.サイトマップを自動で生成するライブラリをダウンロード</a></li>
+<li><a href="#3_configyml%E3%82%92%E7%B7%A8%E9%9B%86">3._config.ymlを編集</a></li>
+<li><a href="#4%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4">4.デプロイ</a></li>
+<li><a href="#5googlesearchconsole%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%86%8D%E7%99%BB%E9%8C%B2">5.GoogleSearchConsoleでインデックスを再登録</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1robotstxtを作成">1.robots.txtを作成</span></h3><p>「robots.txt」にサイトマップの場所を記載する</p>
+<p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
+<h3><span id="2サイトマップを自動で生成するライブラリをダウンロード">2.サイトマップを自動で生成するライブラリをダウンロード</span></h3><p>サイトマップを自動で生成するライブラリとして「hexo-generator-sitemap」をダウンロードする</p>
+<p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<h3><span id="3_configymlを編集">3._config.ymlを編集</span></h3><p class="codeblock-filename"><span>site\_config.yml</span></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
+<h3><span id="4デプロイ">4.デプロイ</span></h3><p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h3><span id="5googlesearchconsoleでインデックスを再登録">5.GoogleSearchConsoleでインデックスを再登録</span></h3><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
+<h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
+<h2><span id="締め">締め</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
+<p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
+    <url>//hexo/template/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
+<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
+<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -597,363 +505,6 @@
         <tag>プログラミング</tag>
         <tag>Hexo</tag>
         <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Linux】cronで不要になったジョブを削除する</title>
-    <url>//linux/cron/delete/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
-<p>これからcronの削除をリリース方は是非ご参考ください！</p>
-<span id="more"></span>
-
-<div class="notice notice-warn">
-環境によって意味が変わってくるコマンドがあるかもしれません。
-鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
-</div>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
-<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
-<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
-<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
-<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
-<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
-
-<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
-
-
-<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
-<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
-<p>以上、お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>リリース手順</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
-    <url>//mind/newcomers/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
-<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと心構えを学べるかもです！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
-<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
-<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
-<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
-<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
-<ul>
-<li>怒られることはあなたのことが嫌いってわけじゃない</li>
-<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
-<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
-</ul>
-<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
-<ul>
-<li>質問するのは悪い事じゃないし迷惑でもない<ul>
-<li>むしろミスされた方が迷惑</li>
-</ul>
-</li>
-<li>チームの人間なら迷わずいつでも質問しても良い<ul>
-<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
-</ul>
-</li>
-<li>質問しないことのデメリットを伝える<ul>
-<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
-</ul>
-</li>
-<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
-<li>まぁこういうこともあるってことですね</li>
-</ul>
-</li>
-</ul>
-<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
-<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
-<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
-<p>まぁ伝えても中々すぐに実践はしてくれませんが、後輩くんの頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
-<p>無能な後輩をジョブチェンさせて、有能な後輩育てましょう！</p>
-<p>以上、お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>メンタルヘルス</category>
-      </categories>
-      <tags>
-        <tag>新人</tag>
-        <tag>心構え</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
-    <url>//money/point/iherb/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
-<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
-<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
-<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
-<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
-<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
-</ul>
-</li>
-<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
-<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
-<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
-<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
-<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
-<p>使用方法については購入時の適用なので、下で説明します。</p>
-<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
-<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
-<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
-<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
-<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
-<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
-<div class="notice notice-warn">
-iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
-
-<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
-</div>
-
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
-<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
-<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
-<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
-<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
-<p>もし興味があれば是非購入してみてください。</p>
-<p>以上となります。<br>今回もお疲れさまでした。</p>
-<style>
-img[src*="/images/posts/20251116_money_iHerb/"] {
-  width: 320px;
-  height: auto;
-  object-fit: cover; /* はみ出し対策（必要なら） */
-}
-</style>]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
-    <url>//money/point/vpointget/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
-<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
-<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
-<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
-<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
-<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
-<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
-<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
-<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
-<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
-<div class="notice notice-info">
-アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
-</div>
-
-<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
-<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
-<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
-<div class="notice notice-info">
-iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
-</div>
-
-<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
-<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
-<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
-<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
-<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
-<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<div class="notice notice-warn">
-Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
-</div>
-
-<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
-<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
-<div class="notice notice-warn">
-このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
-</div>
-
-
-<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
-<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
-<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
-<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
-<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>25歳一人暮らし年収400万が600万円貯金した方法</title>
-    <url>//money/saving/25yearsold/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-y">年収400万円の私が25歳で600万円貯金した方法</span>を備忘録として残します。<br>普通に旅行も行くし、飲み会にも参加して達成したので、多分誰でもできます。</p>
-<p>それではやっていきましょう。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
-<li><a href="#%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%BF%E7%94%A8">フリマアプリを使用</a></li>
-<li><a href="#%E6%B1%BA%E6%B8%88%E3%81%A7%E7%8D%B2%E5%BE%97%E3%81%99%E3%82%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96">決済で獲得するポイントを最大化</a></li>
-<li><a href="#%E3%82%A6%E3%82%A7%E3%83%AB%E3%82%B7%E3%82%A2%E3%81%AE%E6%97%A5%E3%82%92%E4%BD%BF%E3%81%86">ウェルシアの日を使う</a></li>
-<li><a href="#tiktok-light%E3%82%92%E3%82%84%E3%82%8B">TikTok Lightをやる</a></li>
-<li><a href="#%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E4%BD%BF%E7%94%A8">ポイントサイトを使用</a></li>
-<li><a href="#%E8%B6%A3%E5%91%B3">趣味</a></li>
-<li><a href="#%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87">株式投資</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="方法">方法</span></h2><h3><span id="フリマアプリを使用">フリマアプリを使用</span></h3><p>メルカリやYahoo!フリマなどで不要になったものを売却します。</p>
-<p><span class="mark-y">また長く使うものを購入するときも必ずフリマアプリを見て、</span><br><span class="mark-y">いくらで売れるのか確認してから購入します。</span><br><span class="mark-g">個人的には5割以上の金額で売れるならいいかな</span>と思います！</p>
-<div class="notice notice-info">
-結構ここまでやってる人は少ないと思いますが、年間で数10万円はこれで浮かせられるのでおすすめです！
-</div>
-
-<p>最近は販売手数料が低く割と売買も活発なYahoo!フリマがおすすめです。</p>
-<p>Yahoo!フリマは招待コードから登録すると1000ポイントくらい貰えたりします。<br>もし周りにやってる人がいなければ自分の招待コードを使用してもらえると走り回って喜びます！<br><span class="mark-g">紹介コード：VENXDI</span></p>
-<h3><span id="決済で獲得するポイントを最大化">決済で獲得するポイントを最大化</span></h3><p>基本的には日常で使用する決済を最大化すれば良いです。<br><span class="mark-r">ただ1ポイントのために広告をクリックするなどは面倒なのでやらなくていいです（タイパ悪いので）</span></p>
-<p>ここでは2つ例を出します。<br><strong>＜楽天ペイ　還元4.5%＞</strong><br>  VポイントプレミアムカードからJALペイチャージ → WAONチャージ → ミニストップで楽天ギフトカード購入 → 楽天へチャージ</p>
-<div class="notice notice-warn">
-<span class="mark-r">2025/12/1以降VポイントプレミアムカードからJALペイへのチャージができなくなります。<span>
-  
-<p>退避ルートとしては<br><strong>・PayPayクレカを使用してJALペイへチャージ</strong><br>or<br><strong>・Vポイントプレミアムカードから直接WAONへチャージ</strong><br>があります。<br>（どちらも還元0.5%落ちますが、、、）</p>
-</span></span></div>
-
-<p><strong>＜Suica 還元1.5%以上＞</strong><br>JREクレジットカードでSuicaにチャージ<br>※以上と書いているのは旅行セクションで説明します。</p>
-<p><span class="mark-y">例えば楽天ペイの場合、年間200万円使う人なら9万円手元に返ってきます！</span><br>この仕組みを作るのは0.5人日くらいかかるかもですが、<span class="mark-g">0.5人日で年間9万円なので時給18万円</span>です。<br>つまり絶対やるべきでしょう！</p>
-<h3><span id="ウェルシアの日を使う">ウェルシアの日を使う</span></h3><p>ウェルシアの日とは、<span class="mark-y">毎月20日にウェルシアでWAON POINTを使用して商品を購入すると、ポイントの1.5倍商品を購入できます。</span><br>例えば、<span class="mark-g">WAON POINTが1000ポイントある場合は1500円分の商品が買えます。</span></p>
-<p>普通にやらなきゃ損ですよね！</p>
-<div class="notice notice-info">
-自分の場合は楽天ペイの「VポイントプレミアムカードからJALペイチャージ」でVポイントを獲得できるので、それをWAON POINTに変換して使用してます。
-</div>
-
-<h3><span id="tiktok-lightをやる">TikTok Lightをやる</span></h3><p>これは動画を見ない人もやるべきです。<br>（自分もTikTokの動画には一切興味ないです）</p>
-<p>でもポイントの効率はかなり良く、<span class="mark-y">開く→ポイントページを開く→ボタンを押す　だけで2ヶ月で3000ポイント貯まったりします。</span></p>
-<p>そしてその<span class="mark-g">ポイントを使用してウェルシア日で買い物するとポイントの相乗効果を得られます！</span></p>
-<p>ちなみにTikTok Lightは招待コードから登録すると3000ポイントくらい貰えたりします。<br>友達に既にやってる方がいたら必ず声をかけて招待コードをもらいましょう。<br>もしいなければ自分の招待コードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3><span id="ポイントサイトを使用">ポイントサイトを使用</span></h3><p>例えば<span class="mark-y">クレジットカードや証券会社を契約する時に、モッピーなどのポイントサイトを経由すると1万円分のポイントがもらえたりします。</span></p>
-<p>やらない理由はないですね！</p>
-<p>また個人的には<span class="mark-y">モッピー経由でiHerbで物を購入する時に最大6%程のポイント還元が受けれるのが大きいです。</span></p>
-<p>ちなみに<span class="mark-g">モッピーポイントもVポイントに交換可能なのでウェルシアの日で使えます！</span></p>
-<div class="notice notice-warn">
-モッピーは広告メールが鬱陶しいので、登録する際のメールアドレスは新しく用意した方がいいかもです。
-</div>
-
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<h3><span id="趣味">趣味</span></h3><p>自分の場合、ポイント運用とプログラミングが趣味みたいな物なので、あまりお金はかかりませんでした。<br>ただこれは人によるので、無理に止めることはないです。</p>
-<p>ただ<span class="mark-r">人付き合いで続けてたりするなら勇気を持って止めるべきです！</span></p>
-<h3><span id="株式投資">株式投資</span></h3><p>当然必須です。<br>基本的には全世界株式に月5万入れて、現金が貯まったら株主優待目的で、好きな株を購入してる形です。<br>なんだかんだ<span class="mark-y">100万円くらいは含み益出てます。</span></p>
-<h2><span id="締め">締め</span></h2><p>もちろん人によっては事情が違ったりするので、投資系はやらなくても良いですが、<span class="mark-y">ポイントの最大化だけは全日本人がやるべきだと思ってます！</span><br>まず損することはないので、やらないのはもったいないですよね！</p>
-<p>お金に関することで紹介したいことはまだまだたくさんあって、<br>例えば,<span class="mark-g">旅行の時のポイント最大化</span>や<span class="mark-g">物を売却する時の調べ方</span>など山積みです！<br>これからも色々あげてくので、他の記事も是非見ていってくださいねd(^_^o)</p>
-<p>ここからは自分の語りですが、<span class="mark-r">私は会社に入ってすぐの時に仮想通貨に投機して60万円ほど失ったことがあります</span><br>もちろんその時は悲しくて落ち込んだのですが、冷静になって考えてみると若いときに失敗してよかったなと思いました。<br>だって年を取ってからだと失敗する額の桁が変わりますから、、、</p>
-<p><span class="mark-g">失敗することが良いとは言えませんが、自分の場合は失敗から学べたのである意味幸せだったのかもしれないですね！</span></p>
-<p>以上、お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>貯金</tag>
       </tags>
   </entry>
   <entry>
@@ -1246,6 +797,455 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       <tags>
         <tag>食</tag>
         <tag>持ち物</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Linux】cronで不要になったジョブを削除する</title>
+    <url>//linux/cron/delete/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
+<p>これからcronの削除をリリース方は是非ご参考ください！</p>
+<span id="more"></span>
+
+<div class="notice notice-warn">
+環境によって意味が変わってくるコマンドがあるかもしれません。
+鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
+</div>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
+<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
+<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
+<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
+<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
+
+<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
+
+
+<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
+<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
+<p>以上、お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>リリース手順</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】問い合わせフォームを作成する（テーマ：light）</title>
+    <url>//hexo/contact/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>お問い合わせフォームを設置すると、サイトに問題があったときなどにご連絡いただけます。<br>個人的に必須だと思うので、なるべく安くできるように実装してみました。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%A4%9C%E8%A8%8E">検討</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.お問い合わせの固定ページを生成</a></li>
+<li><a href="#2%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E8%A8%98%E8%BC%89">2.お問い合わせフォームを記載</a></li>
+<li><a href="#3thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">3.Thanksページを生成</a></li>
+<li><a href="#4thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%B7%A8%E9%9B%86">4.Thanksページを編集</a></li>
+<li><a href="#5%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%B8%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90">5.お問い合わせページへのリンクを作成</a></li>
+<li><a href="#6%E5%88%9D%E5%9B%9E%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A1%8C%E3%81%86">6.初回認証を行う</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="検討">検討</span></h2><p>お問い合わせ送信サービスを検討する</p>
+<ul>
+<li><p>Formspree</p>
+<ul>
+<li>料金：月50件まで無料</li>
+<li>安定・通知機能豊富</li>
+</ul>
+</li>
+<li><p>Formsubmit</p>
+<ul>
+<li>料金：無制限（実質）</li>
+<li>とにかく簡単・メール転送のみ</li>
+</ul>
+</li>
+</ul>
+<p><strong>今回はFormsubmitを使用します。</strong></p>
+<h2><span id="手順">手順</span></h2><h3><span id="1お問い合わせの固定ページを生成">1.お問い合わせの固定ページを生成</span></h3><p>お問い合わせの固定ページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="2お問い合わせフォームを記載">2.お問い合わせフォームを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
+<div class="notice notice-info">
+テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
+</div>
+<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
+<h3><span id="3thanksページを生成">3.Thanksページを生成</span></h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="4thanksページを編集">4.Thanksページを編集</span></h3><p>Thanksページを記載します。</p>
+<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
+<h3><span id="5お問い合わせページへのリンクを作成">5.お問い合わせページへのリンクを作成</span></h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
+<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
+<p>※手順3以降で説明してます。</p>
+<h3><span id="6初回認証を行う">6.初回認証を行う</span></h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
+<div class="notice notice-info">
+ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
+</div>
+
+<h2><span id="確認">確認</span></h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
+<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
+<h2><span id="締め">締め</span></h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
+<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
+    <url>//money/point/vpointget/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
+<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
+<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
+<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
+<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
+<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
+<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
+<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
+<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
+<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
+<div class="notice notice-info">
+アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
+</div>
+
+<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
+<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
+<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
+<div class="notice notice-info">
+iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
+</div>
+
+<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
+<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
+<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
+<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
+<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
+<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
+<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<div class="notice notice-warn">
+Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
+</div>
+
+<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
+<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
+<div class="notice notice-warn">
+このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
+</div>
+
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
+<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
+<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
+<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
+<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>食</tag>
+        <tag>ポイ活</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
+    <url>//money/point/iherb/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
+<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
+<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
+<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
+<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
+<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
+</ul>
+</li>
+<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
+<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
+<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
+<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
+<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
+<p>使用方法については購入時の適用なので、下で説明します。</p>
+<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
+<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
+<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
+<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
+<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
+<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
+<div class="notice notice-warn">
+iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
+
+<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
+<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
+<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
+<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
+<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
+<p>もし興味があれば是非購入してみてください。</p>
+<p>以上となります。<br>今回もお疲れさまでした。</p>
+<style>
+img[src*="/images/posts/20251116_money_iHerb/"] {
+  width: 320px;
+  height: auto;
+  object-fit: cover; /* はみ出し対策（必要なら） */
+}
+</style>]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>食</tag>
+        <tag>ポイ活</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
+    <url>//mind/newcomers/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
+<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと心構えを学べるかもです！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
+<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
+<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
+<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
+<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
+<ul>
+<li>怒られることはあなたのことが嫌いってわけじゃない</li>
+<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
+<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
+</ul>
+<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
+<ul>
+<li>質問するのは悪い事じゃないし迷惑でもない<ul>
+<li>むしろミスされた方が迷惑</li>
+</ul>
+</li>
+<li>チームの人間なら迷わずいつでも質問しても良い<ul>
+<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
+</ul>
+</li>
+<li>質問しないことのデメリットを伝える<ul>
+<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
+</ul>
+</li>
+<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
+<li>まぁこういうこともあるってことですね</li>
+</ul>
+</li>
+</ul>
+<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
+<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
+<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
+<p>まぁ伝えても中々すぐに実践はしてくれませんが、後輩くんの頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
+<p>無能な後輩をジョブチェンさせて、有能な後輩育てましょう！</p>
+<p>以上、お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>メンタルヘルス</category>
+      </categories>
+      <tags>
+        <tag>新人</tag>
+        <tag>心構え</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>25歳一人暮らし年収400万が600万円貯金した方法</title>
+    <url>//money/saving/25yearsold/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-y">年収400万円の私が25歳で600万円貯金した方法</span>を備忘録として残します。<br>普通に旅行も行くし、飲み会にも参加して達成したので、多分誰でもできます。</p>
+<p>それではやっていきましょう。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
+<li><a href="#%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%BF%E7%94%A8">フリマアプリを使用</a></li>
+<li><a href="#%E6%B1%BA%E6%B8%88%E3%81%A7%E7%8D%B2%E5%BE%97%E3%81%99%E3%82%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96">決済で獲得するポイントを最大化</a></li>
+<li><a href="#%E3%82%A6%E3%82%A7%E3%83%AB%E3%82%B7%E3%82%A2%E3%81%AE%E6%97%A5%E3%82%92%E4%BD%BF%E3%81%86">ウェルシアの日を使う</a></li>
+<li><a href="#tiktok-light%E3%82%92%E3%82%84%E3%82%8B">TikTok Lightをやる</a></li>
+<li><a href="#%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E4%BD%BF%E7%94%A8">ポイントサイトを使用</a></li>
+<li><a href="#%E8%B6%A3%E5%91%B3">趣味</a></li>
+<li><a href="#%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87">株式投資</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="方法">方法</span></h2><h3><span id="フリマアプリを使用">フリマアプリを使用</span></h3><p>メルカリやYahoo!フリマなどで不要になったものを売却します。</p>
+<p><span class="mark-y">また長く使うものを購入するときも必ずフリマアプリを見て、</span><br><span class="mark-y">いくらで売れるのか確認してから購入します。</span><br><span class="mark-g">個人的には5割以上の金額で売れるならいいかな</span>と思います！</p>
+<div class="notice notice-info">
+結構ここまでやってる人は少ないと思いますが、年間で数10万円はこれで浮かせられるのでおすすめです！
+</div>
+
+<p>最近は販売手数料が低く割と売買も活発なYahoo!フリマがおすすめです。</p>
+<p>Yahoo!フリマは招待コードから登録すると1000ポイントくらい貰えたりします。<br>もし周りにやってる人がいなければ自分の招待コードを使用してもらえると走り回って喜びます！<br><span class="mark-g">紹介コード：VENXDI</span></p>
+<h3><span id="決済で獲得するポイントを最大化">決済で獲得するポイントを最大化</span></h3><p>基本的には日常で使用する決済を最大化すれば良いです。<br><span class="mark-r">ただ1ポイントのために広告をクリックするなどは面倒なのでやらなくていいです（タイパ悪いので）</span></p>
+<p>ここでは2つ例を出します。<br><strong>＜楽天ペイ　還元4.5%＞</strong><br>  VポイントプレミアムカードからJALペイチャージ → WAONチャージ → ミニストップで楽天ギフトカード購入 → 楽天へチャージ</p>
+<div class="notice notice-warn">
+<span class="mark-r">2025/12/1以降VポイントプレミアムカードからJALペイへのチャージができなくなります。<span>
+  
+<p>退避ルートとしては<br><strong>・PayPayクレカを使用してJALペイへチャージ</strong><br>or<br><strong>・Vポイントプレミアムカードから直接WAONへチャージ</strong><br>があります。<br>（どちらも還元0.5%落ちますが、、、）</p>
+</span></span></div>
+
+<p><strong>＜Suica 還元1.5%以上＞</strong><br>JREクレジットカードでSuicaにチャージ<br>※以上と書いているのは旅行セクションで説明します。</p>
+<p><span class="mark-y">例えば楽天ペイの場合、年間200万円使う人なら9万円手元に返ってきます！</span><br>この仕組みを作るのは0.5人日くらいかかるかもですが、<span class="mark-g">0.5人日で年間9万円なので時給18万円</span>です。<br>つまり絶対やるべきでしょう！</p>
+<h3><span id="ウェルシアの日を使う">ウェルシアの日を使う</span></h3><p>ウェルシアの日とは、<span class="mark-y">毎月20日にウェルシアでWAON POINTを使用して商品を購入すると、ポイントの1.5倍商品を購入できます。</span><br>例えば、<span class="mark-g">WAON POINTが1000ポイントある場合は1500円分の商品が買えます。</span></p>
+<p>普通にやらなきゃ損ですよね！</p>
+<div class="notice notice-info">
+自分の場合は楽天ペイの「VポイントプレミアムカードからJALペイチャージ」でVポイントを獲得できるので、それをWAON POINTに変換して使用してます。
+</div>
+
+<h3><span id="tiktok-lightをやる">TikTok Lightをやる</span></h3><p>これは動画を見ない人もやるべきです。<br>（自分もTikTokの動画には一切興味ないです）</p>
+<p>でもポイントの効率はかなり良く、<span class="mark-y">開く→ポイントページを開く→ボタンを押す　だけで2ヶ月で3000ポイント貯まったりします。</span></p>
+<p>そしてその<span class="mark-g">ポイントを使用してウェルシア日で買い物するとポイントの相乗効果を得られます！</span></p>
+<p>ちなみにTikTok Lightは招待コードから登録すると3000ポイントくらい貰えたりします。<br>友達に既にやってる方がいたら必ず声をかけて招待コードをもらいましょう。<br>もしいなければ自分の招待コードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
+<h3><span id="ポイントサイトを使用">ポイントサイトを使用</span></h3><p>例えば<span class="mark-y">クレジットカードや証券会社を契約する時に、モッピーなどのポイントサイトを経由すると1万円分のポイントがもらえたりします。</span></p>
+<p>やらない理由はないですね！</p>
+<p>また個人的には<span class="mark-y">モッピー経由でiHerbで物を購入する時に最大6%程のポイント還元が受けれるのが大きいです。</span></p>
+<p>ちなみに<span class="mark-g">モッピーポイントもVポイントに交換可能なのでウェルシアの日で使えます！</span></p>
+<div class="notice notice-warn">
+モッピーは広告メールが鬱陶しいので、登録する際のメールアドレスは新しく用意した方がいいかもです。
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<h3><span id="趣味">趣味</span></h3><p>自分の場合、ポイント運用とプログラミングが趣味みたいな物なので、あまりお金はかかりませんでした。<br>ただこれは人によるので、無理に止めることはないです。</p>
+<p>ただ<span class="mark-r">人付き合いで続けてたりするなら勇気を持って止めるべきです！</span></p>
+<h3><span id="株式投資">株式投資</span></h3><p>当然必須です。<br>基本的には全世界株式に月5万入れて、現金が貯まったら株主優待目的で、好きな株を購入してる形です。<br>なんだかんだ<span class="mark-y">100万円くらいは含み益出てます。</span></p>
+<h2><span id="締め">締め</span></h2><p>もちろん人によっては事情が違ったりするので、投資系はやらなくても良いですが、<span class="mark-y">ポイントの最大化だけは全日本人がやるべきだと思ってます！</span><br>まず損することはないので、やらないのはもったいないですよね！</p>
+<p>お金に関することで紹介したいことはまだまだたくさんあって、<br>例えば,<span class="mark-g">旅行の時のポイント最大化</span>や<span class="mark-g">物を売却する時の調べ方</span>など山積みです！<br>これからも色々あげてくので、他の記事も是非見ていってくださいねd(^_^o)</p>
+<p>ここからは自分の語りですが、<span class="mark-r">私は会社に入ってすぐの時に仮想通貨に投機して60万円ほど失ったことがあります</span><br>もちろんその時は悲しくて落ち込んだのですが、冷静になって考えてみると若いときに失敗してよかったなと思いました。<br>だって年を取ってからだと失敗する額の桁が変わりますから、、、</p>
+<p><span class="mark-g">失敗することが良いとは言えませんが、自分の場合は失敗から学べたのである意味幸せだったのかもしれないですね！</span></p>
+<p>以上、お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>貯金</tag>
       </tags>
   </entry>
 </search>
