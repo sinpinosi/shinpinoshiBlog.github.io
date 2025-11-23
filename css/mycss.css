@@ -348,7 +348,7 @@ article.post .icon:before {
 @media screen and (max-width: 1260px) {
   .profile-container {
       width: auto;
-      margin-right: 300px;
+      /* margin-right: 300px; */
   }
 }
 @media screen and (max-width: 900px) {
@@ -369,16 +369,15 @@ article.post .icon:before {
 .footer-menu {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  padding: 0; 
   justify-content: center;
-  margin-top: 10px;
-  padding: 0;
+  flex-wrap: wrap;
 }
-@media screen and (max-width: 600px) {
-  .footer-menu{
-    display:block
-  }
-  .footer-menu li{
-    margin: 3px 0;
-  }
+  
+.footer-menu li{
+  border-right: 1px solid #a4a4a4;
+  padding: 0 10px;
+}
+.footer-menu li:last-child {
+  border-right: none;
 }
