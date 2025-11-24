@@ -149,6 +149,7 @@ article.post .icon:before {
   border-bottom: none;
   color: #727272;
   font-size: 0.9em;
+  margin-bottom: 0px !important;
 }
 .codeblock-filename + .highlight{
   border-top: none;

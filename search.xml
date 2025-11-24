@@ -1,123 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
-    <url>//hexo/template/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1postmd-----">1.post.mdを変更する</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-post-mdを変更する"><a href="#1-post-mdを変更する" class="headerlink" title="1.post.mdを変更する"></a>1.post.mdを変更する</h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
-<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2 id="完了"><a href="#完了" class="headerlink" title="完了"></a>完了</h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
     <url>//hexo/mokuji/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1--------------">1.マークダウンにコメントを追加</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
+<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
+<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
 </ul>
 </li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-マークダウンにコメントを追加"><a href="#1-マークダウンにコメントを追加" class="headerlink" title="1.マークダウンにコメントを追加"></a>1.マークダウンにコメントを追加</h3><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h3><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
 
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md"></p>
-<h3 id="2-config-ymlを変更"><a href="#2-config-ymlを変更" class="headerlink" title="2._config.ymlを変更"></a>2._config.ymlを変更</h3><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
+<h3><span id="2_configymlを変更">2._config.ymlを変更</span></h3><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
 <p class="codeblock-filename"><span>site\_config.yml</span></p>
 
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml"></p>
-<h3 id="3-cssを変更"><a href="#3-cssを変更" class="headerlink" title="3.cssを変更"></a>3.cssを変更</h3><p>このままだとダサいのでCSSをいい感じに変更</p>
+<h3><span id="3cssを変更">3.cssを変更</span></h3><p>このままだとダサいのでCSSをいい感じに変更</p>
 <p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
 
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="[自分のCSS].css"></p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事目次が作成されました。<br><img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像"></p>
-<h2 id="反映されない場合"><a href="#反映されない場合" class="headerlink" title="反映されない場合"></a>反映されない場合</h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
+<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。<br><img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像"></p>
+<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
+<h2><span id="締め">締め</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
 <p>これでよりブログっぽくなったと思います。</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
-    <url>//hexo/sitemap/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1robotstxt---">1.robots.txtを作成</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-robots-txtを作成"><a href="#1-robots-txtを作成" class="headerlink" title="1.robots.txtを作成"></a>1.robots.txtを作成</h3><p>「robots.txt」にサイトマップの場所を記載する</p>
-<p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
-<h3 id="2-サイトマップを自動で生成するライブラリをダウンロード"><a href="#2-サイトマップを自動で生成するライブラリをダウンロード" class="headerlink" title="2.サイトマップを自動で生成するライブラリをダウンロード"></a>2.サイトマップを自動で生成するライブラリをダウンロード</h3><p>サイトマップを自動で生成するライブラリとして「hexo-generator-sitemap」をダウンロードする</p>
-<p class="codeblock-filename"><span>コマンドライン</span></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-config-ymlを編集"><a href="#3-config-ymlを編集" class="headerlink" title="3._config.ymlを編集"></a>3._config.ymlを編集</h3><p class="codeblock-filename"><span>site\_config.yml</span></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
-<h3 id="4-デプロイ"><a href="#4-デプロイ" class="headerlink" title="4.デプロイ"></a>4.デプロイ</h3><p class="codeblock-filename"><span>コマンドライン</span></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-GoogleSearchConsoleでインデックスを再登録"><a href="#5-GoogleSearchConsoleでインデックスを再登録" class="headerlink" title="5.GoogleSearchConsoleでインデックスを再登録"></a>5.GoogleSearchConsoleでインデックスを再登録</h3><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
-<h2 id="完了"><a href="#完了" class="headerlink" title="完了"></a>完了</h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>sitemapは必須なんですね。。なるほど！</p>
-<p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -132,24 +60,39 @@
   <entry>
     <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
     <url>//hexo/markdown/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#------">マークダウン</a><ul>
-<li><a href="#---">リンク</a></li>
+<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3">マークダウン</a><ul>
+<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
+<li><a href="#%E7%94%BB%E5%83%8F">画像</a></li>
+<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
+<li><a href="#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88">番号付きリスト</a></li>
+<li><a href="#%E6%94%B9%E8%A1%8C">改行</a></li>
+<li><a href="#%E5%A4%AA%E5%AD%97">太字</a></li>
+<li><a href="#%E7%BD%AB%E7%B7%9A">罫線</a></li>
+<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97">見出し</a></li>
+</ul>
+</li>
+<li><a href="#h2%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h2の見出し</a><ul>
+<li><a href="#h3%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h3の見出し</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="マークダウン"><a href="#マークダウン" class="headerlink" title="マークダウン"></a>マークダウン</h2><h3 id="リンク"><a href="#リンク" class="headerlink" title="リンク"></a>リンク</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
+</div>
+
+<h2><span id="マークダウン">マークダウン</span></h2><h3><span id="リンク">リンク</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.deepl.com/ja/translator" title="翻訳サイト">DeepL</a><br><a href="/" title="HOME">ブログのHOME</a></p>
-<h3 id="画像"><a href="#画像" class="headerlink" title="画像"></a>画像</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
+<h3><span id="画像">画像</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251012/mounten_view.jpg" alt="山の画像" title="山の画像です"></p>
-<h3 id="リスト"><a href="#リスト" class="headerlink" title="リスト"></a>リスト</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
+<h3><span id="リスト">リスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
 <ul>
 <li>list1<ul>
 <li>hoge</li>
@@ -160,23 +103,80 @@
 </ul>
 </li>
 </ul>
-<h3 id="番号付きリスト"><a href="#番号付きリスト" class="headerlink" title="番号付きリスト"></a>番号付きリスト</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
+<h3><span id="番号付きリスト">番号付きリスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
 <ol>
 <li>リスト１</li>
 <li>リスト２</li>
 </ol>
-<h3 id="改行"><a href="#改行" class="headerlink" title="改行"></a>改行</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<h3><span id="改行">改行</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
 <p>abc</p>
 <p>efg</p>
 <p>hoge</p>
-<h3 id="太字"><a href="#太字" class="headerlink" title="太字"></a>太字</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
+<h3><span id="太字">太字</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
 <p>hoge<strong>hoge</strong>hoge</p>
-<h3 id="罫線"><a href="#罫線" class="headerlink" title="罫線"></a>罫線</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<h3><span id="罫線">罫線</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
 <p>hoge</p>
 <hr>
 <p>hoge</p>
-<h3 id="見出し"><a href="#見出し" class="headerlink" title="見出し"></a>見出し</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
-<h2 id="h2の見出し"><a href="#h2の見出し" class="headerlink" title="h2の見出し"></a>h2の見出し</h2><h3 id="h3の見出し"><a href="#h3の見出し" class="headerlink" title="h3の見出し"></a>h3の見出し</h3><h4 id="h4の見出し"><a href="#h4の見出し" class="headerlink" title="h4の見出し"></a>h4の見出し</h4><h5 id="h5の見出し"><a href="#h5の見出し" class="headerlink" title="h5の見出し"></a>h5の見出し</h5><h6 id="h6の見出し"><a href="#h6の見出し" class="headerlink" title="h6の見出し"></a>h6の見出し</h6>]]></content>
+<h3><span id="見出し">見出し</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
+<h2><span id="h2の見出し">h2の見出し</span></h2><h3><span id="h3の見出し">h3の見出し</span></h3><h4><span id="h4の見出し">h4の見出し</span></h4><h5><span id="h5の見出し">h5の見出し</span></h5><h6><span id="h6の見出し">h6の見出し</span></h6>]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
+    <url>//hexo/sitemap/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1robotstxt%E3%82%92%E4%BD%9C%E6%88%90">1.robots.txtを作成</a></li>
+<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">2.サイトマップを自動で生成するライブラリをダウンロード</a></li>
+<li><a href="#3_configyml%E3%82%92%E7%B7%A8%E9%9B%86">3._config.ymlを編集</a></li>
+<li><a href="#4%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4">4.デプロイ</a></li>
+<li><a href="#5googlesearchconsole%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%86%8D%E7%99%BB%E9%8C%B2">5.GoogleSearchConsoleでインデックスを再登録</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1robotstxtを作成">1.robots.txtを作成</span></h3><p>「robots.txt」にサイトマップの場所を記載する</p>
+<p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
+<h3><span id="2サイトマップを自動で生成するライブラリをダウンロード">2.サイトマップを自動で生成するライブラリをダウンロード</span></h3><p>サイトマップを自動で生成するライブラリとして「hexo-generator-sitemap」をダウンロードする</p>
+<p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<h3><span id="3_configymlを編集">3._config.ymlを編集</span></h3><p class="codeblock-filename"><span>site\_config.yml</span></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
+<h3><span id="4デプロイ">4.デプロイ</span></h3><p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h3><span id="5googlesearchconsoleでインデックスを再登録">5.GoogleSearchConsoleでインデックスを再登録</span></h3><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
+<h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
+<h2><span id="締め">締め</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
+<p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
       <categories>
         <category>エンジニアリング</category>
       </categories>
@@ -189,26 +189,36 @@
   <entry>
     <title>【Hexo】プライバシーポリシーの作成（テーマ：light）</title>
     <url>//hexo/privacypolicy/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
 <p>GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要があります。</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1--------">1.固定ページを生成</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.固定ページを生成</a></li>
+<li><a href="#2%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%82%92%E8%A8%98%E8%BC%89">2.プライバシーポリシーを記載</a></li>
+<li><a href="#3layoutejs%E3%82%92%E7%B7%A8%E9%9B%86">3.layout.ejsを編集</a></li>
+<li><a href="#4_configyml%E3%82%92%E7%B7%A8%E9%9B%86">4._config.ymlを編集</a></li>
+<li><a href="#5css%E3%82%92%E8%A8%98%E8%BC%89">5.cssを記載</a></li>
 </ul>
 </li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-固定ページを生成"><a href="#1-固定ページを生成" class="headerlink" title="1.固定ページを生成"></a>1.固定ページを生成</h3><p>プライバシーポリシーの固定ページを生成します。</p>
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1固定ページを生成">1.固定ページを生成</span></h3><p>プライバシーポリシーの固定ページを生成します。</p>
 <p class="codeblock-filename"><span>コマンド</span></p>
 
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;privacy-policy&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-プライバシーポリシーを記載"><a href="#2-プライバシーポリシーを記載" class="headerlink" title="2.プライバシーポリシーを記載"></a>2.プライバシーポリシーを記載</h3><p>当ブログの場合は下記のような感じ</p>
+<h3><span id="2プライバシーポリシーを記載">2.プライバシーポリシーを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
 <div class="notice notice-info">
 テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
 </div>
@@ -216,23 +226,23 @@
 
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line"><span class="section">## プライバシーポリシー</span></span><br><span class="line"><span class="section">### 個人情報の利用目的</span></span><br><span class="line">当ブログでは、お問い合わせや記事へのコメントの際、名前やメールアドレス等の個人情報を入力いただく場合がございます。</span><br><span class="line">取得した個人情報は、お問い合わせに対する回答や必要な情報を電子メールなどでご連絡する場合に利用させていただくものであり、これらの目的以外では利用いたしません。</span><br><span class="line"></span><br><span class="line"><span class="section">### 広告について</span></span><br><span class="line">当ブログでは、第三者配信の広告サービス（Googleアドセンス）を利用しており、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用しております。</span><br><span class="line">クッキーを使用することで当サイトはお客様のコンピュータを識別できるようになりますが、お客様個人を特定できるものではありません。</span><br><span class="line"></span><br><span class="line">Cookieを無効にする方法やGoogleアドセンスに関する詳細は「広告 – ポリシーと規約 – Google」をご確認ください。</span><br><span class="line"></span><br><span class="line"><span class="section">### アクセス解析ツールについて</span></span><br><span class="line">当ブログでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。トラフィックデータは匿名で収集されており、個人を特定するものではありません。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## 免責事項</span></span><br><span class="line">当ブログからのリンクやバナーなどで移動したサイトで提供される情報、サービス等について一切の責任を負いません。</span><br><span class="line"></span><br><span class="line">また当ブログのコンテンツ・情報について、できる限り正確な情報を提供するように努めておりますが、正確性や安全性を保証するものではありません。情報が古くなっていることもございます。</span><br><span class="line"></span><br><span class="line">当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## 著作権</span></span><br><span class="line">当ブログで掲載している文章や画像などにつきましては、無断転載することを禁止します。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## リンクについて</span></span><br><span class="line">当ブログは基本的にリンクフリーです。リンクを行う場合の許可や連絡は不要です。</span><br><span class="line"></span><br><span class="line">ただし、インラインフレームの使用や画像の直リンクはご遠慮ください。</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line">article .post-content&#123;</span><br><span class="line"><span class="code">	padding:20px;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">article.page&#123;</span></span><br><span class="line"><span class="code">	padding:0;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="3-layout-ejsを編集"><a href="#3-layout-ejsを編集" class="headerlink" title="3.layout.ejsを編集"></a>3.layout.ejsを編集</h3><p>フッターに固定ページを表示するためにlayout.ejsに下記を追記</p>
+<h3><span id="3layoutejsを編集">3.layout.ejsを編集</span></h3><p>フッターに固定ページを表示するためにlayout.ejsに下記を追記</p>
 <p class="codeblock-filename"><span>site\themes\light\layout\layout.ejs</span></p>
 
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (theme.footer_menu &amp;&amp; theme.footer_menu.length) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;footer-menu&quot;</span>&gt;</span></span><br><span class="line">    &lt;% theme.footer_menu.forEach(function(item)&#123; %&gt;</span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%- url_for(item.url) %&gt;&quot;</span>&gt;</span>&lt;%- item.name %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &lt;% &#125;); %&gt;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_1.png" alt="layout.ejs" title="layout.ejs"></p>
-<h3 id="4-config-ymlを編集"><a href="#4-config-ymlを編集" class="headerlink" title="4._config.ymlを編集"></a>4._config.ymlを編集</h3><p>config.ymlにフッターメニュー項目を追加する</p>
+<h3><span id="4_configymlを編集">4._config.ymlを編集</span></h3><p>config.ymlにフッターメニュー項目を追加する</p>
 <p class="codeblock-filename"><span>site\themes\light\_config.yml</span></p>
 
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">footer_menu:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Home</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">プライバシーポリシー</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/privacy-policy</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_2.png" alt="_config.yml" title="_config.yml"></p>
-<h3 id="5-cssを記載"><a href="#5-cssを記載" class="headerlink" title="5.cssを記載"></a>5.cssを記載</h3><p>見ずらいのでいい感じにレイアウトを変更してみる</p>
+<h3><span id="5cssを記載">5.cssを記載</span></h3><p>見ずらいのでいい感じにレイアウトを変更してみる</p>
 <p class="codeblock-filename"><span>site\themes\light\source\css\[任意のCSS].css</span></p>
 
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* フッター */</span></span><br><span class="line"><span class="selector-class">.footer-menu</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_3.png" alt="[任意のCSS].css" title="[任意のCSS].css"></p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事表示プライバシーポリシーが完成しました。<br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_4.png" alt="完成（フッター）" title="完成（フッター）"><br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_5.png" alt="完成（プライバシーポリシー）" title="完成（プライバシーポリシー）"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>プライバシーポリシーを追加するにあたり色々調べましたが、こんな面倒なこと皆さんやられてるんですね。。<br>いやー勉強になりました(^-^;</p>
+<h2><span id="完成">完成</span></h2><p>無事表示プライバシーポリシーが完成しました。<br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_4.png" alt="完成（フッター）" title="完成（フッター）"><br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_5.png" alt="完成（プライバシーポリシー）" title="完成（プライバシーポリシー）"></p>
+<h2><span id="締め">締め</span></h2><p>プライバシーポリシーを追加するにあたり色々調べましたが、こんな面倒なこと皆さんやられてるんですね。。<br>いやー勉強になりました(^-^;</p>
 <p>実装については、フッター機能がないことに気づき面倒だな、、と思いましたが、思ったより工数はかからず数時間で実装できました。</p>
 <p>結構いい感じなのではないでしょうか？</p>
 <p>以上お疲れさまでした。</p>
@@ -247,31 +257,86 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
-    <url>//hexo/codeblock/langcolor/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
+    <title>【Hexo】問い合わせフォームを作成する（テーマ：light）</title>
+    <url>//hexo/contact/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>お問い合わせフォームを設置すると、サイトに問題があったときなどにご連絡いただけます。<br>個人的に必須だと思うので、なるべく安くできるように実装してみました。</p>
 <span id="more"></span>
-<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1----------------------">1.コードブロックに使用するプログラム言語を記載</a></li>
+<li><a href="#%E6%A4%9C%E8%A8%8E">検討</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.お問い合わせの固定ページを生成</a></li>
+<li><a href="#2%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E8%A8%98%E8%BC%89">2.お問い合わせフォームを記載</a></li>
+<li><a href="#3thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">3.Thanksページを生成</a></li>
+<li><a href="#4thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%B7%A8%E9%9B%86">4.Thanksページを編集</a></li>
+<li><a href="#5%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%B8%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90">5.お問い合わせページへのリンクを作成</a></li>
+<li><a href="#6%E5%88%9D%E5%9B%9E%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A1%8C%E3%81%86">6.初回認証を行う</a></li>
 </ul>
 </li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-コードブロックに使用するプログラム言語を記載"><a href="#1-コードブロックに使用するプログラム言語を記載" class="headerlink" title="1.コードブロックに使用するプログラム言語を記載"></a>1.コードブロックに使用するプログラム言語を記載</h3><p>コードブロックに自分が使用するプログラム言語の略称を入れる</p>
-<div class="notice notice-info">
-下記はCSSの場合
 </div>
 
-<p><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
-<h2 id="完了"><a href="#完了" class="headerlink" title="完了"></a>完了</h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
-<h2 id="Hexoでハイライト可能な言語について"><a href="#Hexoでハイライト可能な言語について" class="headerlink" title="Hexoでハイライト可能な言語について"></a>Hexoでハイライト可能な言語について</h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
-<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
+<h2><span id="検討">検討</span></h2><p>お問い合わせ送信サービスを検討する</p>
+<ul>
+<li><p>Formspree</p>
+<ul>
+<li>料金：月50件まで無料</li>
+<li>安定・通知機能豊富</li>
+</ul>
+</li>
+<li><p>Formsubmit</p>
+<ul>
+<li>料金：無制限（実質）</li>
+<li>とにかく簡単・メール転送のみ</li>
+</ul>
+</li>
+</ul>
+<p><strong>今回はFormsubmitを使用します。</strong></p>
+<h2><span id="手順">手順</span></h2><h3><span id="1お問い合わせの固定ページを生成">1.お問い合わせの固定ページを生成</span></h3><p>お問い合わせの固定ページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="2お問い合わせフォームを記載">2.お問い合わせフォームを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
+<div class="notice notice-info">
+テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
+</div>
+<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
+<h3><span id="3thanksページを生成">3.Thanksページを生成</span></h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="4thanksページを編集">4.Thanksページを編集</span></h3><p>Thanksページを記載します。</p>
+<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
+<h3><span id="5お問い合わせページへのリンクを作成">5.お問い合わせページへのリンクを作成</span></h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
+<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
+<p>※手順3以降で説明してます。</p>
+<h3><span id="6初回認証を行う">6.初回認証を行う</span></h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
+<div class="notice notice-info">
+ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
+</div>
+
+<h2><span id="確認">確認</span></h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
+<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
+<h2><span id="締め">締め</span></h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
+<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -284,29 +349,421 @@
       </tags>
   </entry>
   <entry>
-    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
-    <url>//mind/newcomers/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
-<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと心構えを学べるかもです！</p>
+    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
+    <url>//hexo/template/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
 <span id="more"></span>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<!-- toc -->
 
 <ul>
-<li><a href="#---">心構え</a><ul>
-<li><a href="#---------------">怒られることは悪いことじゃない</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
 </ul>
 </li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="心構え"><a href="#心構え" class="headerlink" title="心構え"></a>心構え</h2><h3 id="怒られることは悪いことじゃない"><a href="#怒られることは悪いことじゃない" class="headerlink" title="怒られることは悪いことじゃない"></a>怒られることは悪いことじゃない</h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
+<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
+<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</title>
+    <url>//hexo/noindex/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1headejs%E3%82%92%E5%A4%89%E6%9B%B4">1.head.ejsを変更</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1headejsを変更">1.head.ejsを変更</span></h3><p>ヘッダーを定義するファイルに「アーカイブ」と「タグ」ページの場合はnoindexを設定するように定義</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_archive() || is_tag()) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_1.png" alt="head.ejs" title="head.ejs"></p>
+<h2><span id="確認">確認</span></h2><p>ビルドを行いpublic内に生成されたHTMLのヘッダーを確認する。<br>下記のように指定したページだけnoindexが記載されてればOKです。</p>
+<div class="notice notice-info">
+追記：後から気づきましたが、vscodeの検索窓から「meta name="robots" 」などで検索すれば一括で簡単に見れますね。。。
+</div>
+
+<p><strong>＜アーカイブ＞</strong><br>site\public\archives\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_2.png" alt="アーカイブ" title="アーカイブ"></p>
+<p><strong>＜タグのHTML＞</strong><br>site\public\tags\Hexo\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_3.png" alt="タグ" title="タグ"></p>
+<p><strong>＜トップページのHTML＞</strong><br>site\public\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_4.png" alt="トップページ" title="トップページ"></p>
+<p><strong>＜カテゴリのHTML＞</strong><br>site\public\categories\エンジニアリング\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_5.png" alt="カテゴリ" title="カテゴリ"></p>
+<p><strong>＜記事のHTML＞</strong><br>site\public\travel\picatitibu\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_6.png" alt="記事" title="記事"></p>
+<p>問題なく設定できてますね！</p>
+<div class="notice notice-warn">
+ここで設定を失敗するとすべてのページがnoindexとなってしまい、全ページが検索エンジンから消えます。必ず確認するようにしましょう！
+</div>
+
+<h2><span id="補足">補足</span></h2><p>特定のページのみをnoindexにする場合は「is_current(‘ページ名’)」のように記載すれば可能です。</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_current(&#x27;/privacy-policy&#x27;)) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="締め">締め</span></h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
+<p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
+    <url>//hexo/codeblock/filename/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1html%E8%A6%81%E7%B4%A0%E3%82%92md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E8%A8%98%E8%BC%89">1.HTML要素を.mdファイルに記載</a></li>
+<li><a href="#2css%E3%82%92%E5%AE%9A%E7%BE%A9">2.CSSを定義</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1html要素をmdファイルに記載">1.HTML要素を.mdファイルに記載</span></h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
+<h3><span id="2cssを定義">2.CSSを定義</span></h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
+<h2><span id="完成">完成</span></h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
+<h2><span id="締め">締め</span></h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
+<p>まぁ変にバグが起こるよりはいいか(–)b</p>
+<p>以上。今回もお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
+    <url>//hexo/codeblock/langcolor/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E3%82%92%E8%A8%98%E8%BC%89">1.コードブロックに使用するプログラム言語を記載</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#hexo%E3%81%A7%E3%83%8F%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E5%8F%AF%E8%83%BD%E3%81%AA%E8%A8%80%E8%AA%9E%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Hexoでハイライト可能な言語について</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1コードブロックに使用するプログラム言語を記載">1.コードブロックに使用するプログラム言語を記載</span></h3><p>コードブロックに自分が使用するプログラム言語の略称を入れる</p>
+<div class="notice notice-info">
+下記はCSSの場合
+</div>
+
+<p><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
+<h2><span id="完了">完了</span></h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
+<h2><span id="hexoでハイライト可能な言語について">Hexoでハイライト可能な言語について</span></h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
+<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
+<h2><span id="締め">締め</span></h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
+    <url>//hexo/redirect/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
+<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
+<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
+<span id="more"></span>
+<div class="notice notice-info">
+あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
+</div>
+
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
+<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+
+<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
+<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
+<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
+<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
+<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
+<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
+<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
+<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
+<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
+    <url>//money/point/iherb/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
+<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
+<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
+<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
+<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
+<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
+</ul>
+</li>
+<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
+<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
+<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
+<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
+<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
+<p>使用方法については購入時の適用なので、下で説明します。</p>
+<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
+<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
+<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
+<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
+<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
+<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
+<div class="notice notice-warn">
+iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
+
+<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
+<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
+<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
+<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
+<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
+<p>もし興味があれば是非購入してみてください。</p>
+<p>以上となります。<br>今回もお疲れさまでした。</p>
+<style>
+img[src*="/images/posts/20251116_money_iHerb/"] {
+  width: 320px;
+  height: auto;
+  object-fit: cover; /* はみ出し対策（必要なら） */
+}
+</style>]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>食</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Linux】cronで不要になったジョブを削除する</title>
+    <url>//linux/cron/delete/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
+<p>これからcronの削除をリリース方は是非ご参考ください！</p>
+<span id="more"></span>
+
+<div class="notice notice-warn">
+環境によって意味が変わってくるコマンドがあるかもしれません。
+鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
+</div>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
+<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
+<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
+<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
+<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
+
+<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
+
+
+<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
+<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
+<p>以上、お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>リリース手順</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
+    <url>//mind/newcomers/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
+<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと心構えを学べるかもです！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
+<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
+<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
+<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
+<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
 <ul>
 <li>怒られることはあなたのことが嫌いってわけじゃない</li>
 <li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
 <li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
 </ul>
-<h3 id="わからなかったら必ず質問して欲しい"><a href="#わからなかったら必ず質問して欲しい" class="headerlink" title="わからなかったら必ず質問して欲しい"></a>わからなかったら必ず質問して欲しい</h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
+<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
 <ul>
 <li>質問するのは悪い事じゃないし迷惑でもない<ul>
 <li>むしろミスされた方が迷惑</li>
@@ -325,9 +782,9 @@
 </ul>
 </li>
 </ul>
-<h3 id="本番環境を触る時はミスしたら死ぬ覚悟で"><a href="#本番環境を触る時はミスしたら死ぬ覚悟で" class="headerlink" title="本番環境を触る時はミスしたら死ぬ覚悟で"></a>本番環境を触る時はミスしたら死ぬ覚悟で</h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
-<h3 id="ショートカットキーを使え"><a href="#ショートカットキーを使え" class="headerlink" title="ショートカットキーを使え"></a>ショートカットキーを使え</h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
+<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
+<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
+<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
 <p>まぁ伝えても中々すぐに実践はしてくれませんが、後輩くんの頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
 <p>無能な後輩をジョブチェンさせて、有能な後輩育てましょう！</p>
 <p>以上、お疲れ様でした。</p>
@@ -341,201 +798,68 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
-    <url>//hexo/codeblock/filename/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
-<span id="more"></span>
-
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1html---md-------">1.HTML要素を.mdファイルに記載</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-HTML要素を-mdファイルに記載"><a href="#1-HTML要素を-mdファイルに記載" class="headerlink" title="1.HTML要素を.mdファイルに記載"></a>1.HTML要素を.mdファイルに記載</h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
-<h3 id="2-CSSを定義"><a href="#2-CSSを定義" class="headerlink" title="2.CSSを定義"></a>2.CSSを定義</h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
-<p>まぁ変にバグが起こるよりはいいか(–)b</p>
-<p>以上。今回もお疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</title>
-    <url>//hexo/noindex/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
-<span id="more"></span>
-
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1headejs---">1.head.ejsを変更</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-head-ejsを変更"><a href="#1-head-ejsを変更" class="headerlink" title="1.head.ejsを変更"></a>1.head.ejsを変更</h3><p>ヘッダーを定義するファイルに「アーカイブ」と「タグ」ページの場合はnoindexを設定するように定義</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_archive() || is_tag()) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_1.png" alt="head.ejs" title="head.ejs"></p>
-<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>ビルドを行いpublic内に生成されたHTMLのヘッダーを確認する。<br>下記のように指定したページだけnoindexが記載されてればOKです。</p>
-<div class="notice notice-info">
-追記：後から気づきましたが、vscodeの検索窓から「meta name="robots" 」などで検索すれば一括で簡単に見れますね。。。
-</div>
-
-<p><strong>＜アーカイブ＞</strong><br>site\public\archives\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_2.png" alt="アーカイブ" title="アーカイブ"></p>
-<p><strong>＜タグのHTML＞</strong><br>site\public\tags\Hexo\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_3.png" alt="タグ" title="タグ"></p>
-<p><strong>＜トップページのHTML＞</strong><br>site\public\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_4.png" alt="トップページ" title="トップページ"></p>
-<p><strong>＜カテゴリのHTML＞</strong><br>site\public\categories\エンジニアリング\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_5.png" alt="カテゴリ" title="カテゴリ"></p>
-<p><strong>＜記事のHTML＞</strong><br>site\public\travel\picatitibu\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_6.png" alt="記事" title="記事"></p>
-<p>問題なく設定できてますね！</p>
-<div class="notice notice-warn">
-ここで設定を失敗するとすべてのページがnoindexとなってしまい、全ページが検索エンジンから消えます。必ず確認するようにしましょう！
-</div>
-
-<h2 id="補足"><a href="#補足" class="headerlink" title="補足"></a>補足</h2><p>特定のページのみをnoindexにする場合は「is_current(‘ページ名’)」のように記載すれば可能です。</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_current(&#x27;/privacy-policy&#x27;)) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
-<p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Linux】cronで不要になったジョブを削除する</title>
-    <url>//linux/cron/delete/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
-<p>これからcronの削除をリリース方は是非ご参考ください！</p>
-<span id="more"></span>
-
-<div class="notice notice-warn">
-環境によって意味が変わってくるコマンドがあるかもしれません。
-鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
-</div>
-
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#----------">退避ディレクトリ作成</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="退避ディレクトリ作成"><a href="#退避ディレクトリ作成" class="headerlink" title="退避ディレクトリ作成"></a>退避ディレクトリ作成</h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
-
-<h3 id="退避ディレクトリ移動"><a href="#退避ディレクトリ移動" class="headerlink" title="退避ディレクトリ移動"></a>退避ディレクトリ移動</h3><p>退避ディレクトリにcdコマンドで移動します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
-
-<h3 id="現在定義されているcronの設定を確認"><a href="#現在定義されているcronの設定を確認" class="headerlink" title="現在定義されているcronの設定を確認"></a>現在定義されているcronの設定を確認</h3><p>念のためcronに現在設定されている内容を確認します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
-
-<h3 id="cronのバックアップと編集用ファイル作成"><a href="#cronのバックアップと編集用ファイル作成" class="headerlink" title="cronのバックアップと編集用ファイル作成"></a>cronのバックアップと編集用ファイル作成</h3><p>cronのバックアップと編集用ファイルを作成する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
-
-<h3 id="編集用ファイルを編集"><a href="#編集用ファイルを編集" class="headerlink" title="編集用ファイルを編集"></a>編集用ファイルを編集</h3><p>編集用ファイルから削除対象のcronを削除する。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
-
-<h3 id="cronを適用"><a href="#cronを適用" class="headerlink" title="cronを適用"></a>cronを適用</h3><p>編集用ファイルをcronに適用する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
-<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
-<p>以上、お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>リリース手順</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
     <url>//money/point/vpointget/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
 <p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
 <p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
 <p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#---">貯め方</a><ul>
-<li><a href="#1v-------------">1.Vポイントカードアプリを利用</a></li>
+<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
+<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
+<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
+<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
+<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
 </ul>
 </li>
+<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
+<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="貯め方"><a href="#貯め方" class="headerlink" title="貯め方"></a>貯め方</h2><h3 id="1-Vポイントカードアプリを利用"><a href="#1-Vポイントカードアプリを利用" class="headerlink" title="1.Vポイントカードアプリを利用"></a>1.Vポイントカードアプリを利用</h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
+</div>
+
+<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
 <p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
 <div class="notice notice-info">
 アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
 </div>
 
-<h3 id="2-コンビニやカフェ、ファミレスで三井住友カードを利用する"><a href="#2-コンビニやカフェ、ファミレスで三井住友カードを利用する" class="headerlink" title="2.コンビニやカフェ、ファミレスで三井住友カードを利用する"></a>2.コンビニやカフェ、ファミレスで三井住友カードを利用する</h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
+<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
 <p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
 <p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
 <div class="notice notice-info">
 iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
 </div>
 
-<h3 id="3-TikTok-Liteを利用"><a href="#3-TikTok-Liteを利用" class="headerlink" title="3.TikTok Liteを利用"></a>3.TikTok Liteを利用</h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
+<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
 <p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
 <p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
 <p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3 id="4-モッピーを利用"><a href="#4-モッピーを利用" class="headerlink" title="4.モッピーを利用"></a>4.モッピーを利用</h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
+<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
 <p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
 <p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
 <div class="notice notice-warn">
 Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
 </div>
 
-<h2 id="ガチ勢ポイ活ユーザーへの注意"><a href="#ガチ勢ポイ活ユーザーへの注意" class="headerlink" title="ガチ勢ポイ活ユーザーへの注意"></a>ガチ勢ポイ活ユーザーへの注意</h2><h3 id="VポイントPrimeクレジットカードについて"><a href="#VポイントPrimeクレジットカードについて" class="headerlink" title="VポイントPrimeクレジットカードについて"></a>VポイントPrimeクレジットカードについて</h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
+<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
 <p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
 <div class="notice notice-warn">
 このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
 </div>
 
 
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>こんな感じで沢山得する方法がありますよね！</p>
+<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
 <p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
 <p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
 <p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
@@ -551,157 +875,113 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】問い合わせフォームを作成する（テーマ：light）</title>
-    <url>//hexo/contact/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>お問い合わせフォームを設置すると、サイトに問題があったときなどにご連絡いただけます。<br>個人的に必須だと思うので、なるべく安くできるように実装してみました。</p>
+    <title>25歳一人暮らし年収400万が600万円貯金した方法</title>
+    <url>//money/saving/25yearsold/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-y">年収400万円の私が25歳で600万円貯金した方法</span>を備忘録として残します。<br>普通に旅行も行くし、飲み会にも参加して達成したので、多分誰でもできます。</p>
+<p>それではやっていきましょう。</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">検討</a></li>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1---------------">1.お問い合わせの固定ページを生成</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
+<li><a href="#%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%BF%E7%94%A8">フリマアプリを使用</a></li>
+<li><a href="#%E6%B1%BA%E6%B8%88%E3%81%A7%E7%8D%B2%E5%BE%97%E3%81%99%E3%82%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96">決済で獲得するポイントを最大化</a></li>
+<li><a href="#%E3%82%A6%E3%82%A7%E3%83%AB%E3%82%B7%E3%82%A2%E3%81%AE%E6%97%A5%E3%82%92%E4%BD%BF%E3%81%86">ウェルシアの日を使う</a></li>
+<li><a href="#tiktok-light%E3%82%92%E3%82%84%E3%82%8B">TikTok Lightをやる</a></li>
+<li><a href="#%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E4%BD%BF%E7%94%A8">ポイントサイトを使用</a></li>
+<li><a href="#%E8%B6%A3%E5%91%B3">趣味</a></li>
+<li><a href="#%E6%A0%AA%E5%BC%8F%E6%8A%95%E8%B3%87">株式投資</a></li>
 </ul>
 </li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="検討"><a href="#検討" class="headerlink" title="検討"></a>検討</h2><p>お問い合わせ送信サービスを検討する</p>
-<ul>
-<li><p>Formspree</p>
-<ul>
-<li>料金：月50件まで無料</li>
-<li>安定・通知機能豊富</li>
-</ul>
-</li>
-<li><p>Formsubmit</p>
-<ul>
-<li>料金：無制限（実質）</li>
-<li>とにかく簡単・メール転送のみ</li>
-</ul>
-</li>
-</ul>
-<p><strong>今回はFormsubmitを使用します。</strong></p>
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-お問い合わせの固定ページを生成"><a href="#1-お問い合わせの固定ページを生成" class="headerlink" title="1.お問い合わせの固定ページを生成"></a>1.お問い合わせの固定ページを生成</h3><p>お問い合わせの固定ページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-お問い合わせフォームを記載"><a href="#2-お問い合わせフォームを記載" class="headerlink" title="2.お問い合わせフォームを記載"></a>2.お問い合わせフォームを記載</h3><p>当ブログの場合は下記のような感じ</p>
-<div class="notice notice-info">
-テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
-</div>
-<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
-<h3 id="3-Thanksページを生成"><a href="#3-Thanksページを生成" class="headerlink" title="3.Thanksページを生成"></a>3.Thanksページを生成</h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-Thanksページを編集"><a href="#4-Thanksページを編集" class="headerlink" title="4.Thanksページを編集"></a>4.Thanksページを編集</h3><p>Thanksページを記載します。</p>
-<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
-<h3 id="5-お問い合わせページへのリンクを作成"><a href="#5-お問い合わせページへのリンクを作成" class="headerlink" title="5.お問い合わせページへのリンクを作成"></a>5.お問い合わせページへのリンクを作成</h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
-<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
-<p>※手順3以降で説明してます。</p>
-<h3 id="6-初回認証を行う"><a href="#6-初回認証を行う" class="headerlink" title="6.初回認証を行う"></a>6.初回認証を行う</h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
-<div class="notice notice-info">
-ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
 </div>
 
-<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
-<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
-<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
-<p>以上お疲れさまでした。</p>
+<h2><span id="方法">方法</span></h2><h3><span id="フリマアプリを使用">フリマアプリを使用</span></h3><p>メルカリやYahoo!フリマなどで不要になったものを売却します。</p>
+<p><span class="mark-y">また長く使うものを購入するときも必ずフリマアプリを見て、</span><br><span class="mark-y">いくらで売れるのか確認してから購入します。</span><br><span class="mark-g">個人的には5割以上の金額で売れるならいいかな</span>と思います！</p>
+<div class="notice notice-info">
+結構ここまでやってる人は少ないと思いますが、年間で数10万円はこれで浮かせられるのでおすすめです！
+</div>
+
+<p>最近は販売手数料が低く割と売買も活発なYahoo!フリマがおすすめです。</p>
+<p>Yahoo!フリマは招待コードから登録すると1000ポイントくらい貰えたりします。<br>もし周りにやってる人がいなければ自分の招待コードを使用してもらえると走り回って喜びます！<br><span class="mark-g">紹介コード：VENXDI</span></p>
+<h3><span id="決済で獲得するポイントを最大化">決済で獲得するポイントを最大化</span></h3><p>基本的には日常で使用する決済を最大化すれば良いです。<br><span class="mark-r">ただ1ポイントのために広告をクリックするなどは面倒なのでやらなくていいです（タイパ悪いので）</span></p>
+<p>ここでは2つ例を出します。<br><strong>＜楽天ペイ　還元4.5%＞</strong><br>  VポイントプレミアムカードからJALペイチャージ → WAONチャージ → ミニストップで楽天ギフトカード購入 → 楽天へチャージ</p>
+<div class="notice notice-warn">
+<span class="mark-r">2025/12/1以降VポイントプレミアムカードからJALペイへのチャージができなくなります。</span>
+  
+<p>退避ルートとしては<br><strong>・PayPayクレカを使用してJALペイへチャージ</strong><br>or<br><strong>・Vポイントプレミアムカードから直接WAONへチャージ</strong><br>があります。<br>（どちらも還元0.5%落ちますが、、、）</p>
+</div>
+
+<p><strong>＜Suica 還元1.5%以上＞</strong><br>JREクレジットカードでSuicaにチャージ<br>※以上と書いているのは旅行セクションで説明します。</p>
+<p><span class="mark-y">例えば楽天ペイの場合、年間200万円使う人なら9万円手元に返ってきます！</span><br>この仕組みを作るのは0.5人日くらいかかるかもですが、<span class="mark-g">0.5人日で年間9万円なので時給18万円</span>です。<br>つまり絶対やるべきでしょう！</p>
+<h3><span id="ウェルシアの日を使う">ウェルシアの日を使う</span></h3><p>ウェルシアの日とは、<span class="mark-y">毎月20日にウェルシアでWAON POINTを使用して商品を購入すると、ポイントの1.5倍商品を購入できます。</span><br>例えば、<span class="mark-g">WAON POINTが1000ポイントある場合は1500円分の商品が買えます。</span></p>
+<p>普通にやらなきゃ損ですよね！</p>
+<div class="notice notice-info">
+自分の場合は楽天ペイの「VポイントプレミアムカードからJALペイチャージ」でVポイントを獲得できるので、それをWAON POINTに変換して使用してます。
+</div>
+
+<h3><span id="tiktok-lightをやる">TikTok Lightをやる</span></h3><p>これは動画を見ない人もやるべきです。<br>（自分もTikTokの動画には一切興味ないです）</p>
+<p>でもポイントの効率はかなり良く、<span class="mark-y">開く→ポイントページを開く→ボタンを押す　だけで2ヶ月で3000ポイント貯まったりします。</span></p>
+<p>そしてその<span class="mark-g">ポイントを使用してウェルシア日で買い物するとポイントの相乗効果を得られます！</span></p>
+<p>ちなみにTikTok Lightは招待コードから登録すると3000ポイントくらい貰えたりします。<br>友達に既にやってる方がいたら必ず声をかけて招待コードをもらいましょう。<br>もしいなければ自分の招待コードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
+<h3><span id="ポイントサイトを使用">ポイントサイトを使用</span></h3><p>例えば<span class="mark-y">クレジットカードや証券会社を契約する時に、モッピーなどのポイントサイトを経由すると1万円分のポイントがもらえたりします。</span></p>
+<p>やらない理由はないですね！</p>
+<p>また個人的には<span class="mark-y">モッピー経由でiHerbで物を購入する時に最大6%程のポイント還元が受けれるのが大きいです。</span></p>
+<p>ちなみに<span class="mark-g">モッピーポイントもVポイントに交換可能なのでウェルシアの日で使えます！</span></p>
+<div class="notice notice-warn">
+モッピーは広告メールが鬱陶しいので、登録する際のメールアドレスは新しく用意した方がいいかもです。
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<h3><span id="趣味">趣味</span></h3><p>自分の場合、ポイント運用とプログラミングが趣味みたいな物なので、あまりお金はかかりませんでした。<br>ただこれは人によるので、無理に止めることはないです。</p>
+<p>ただ<span class="mark-r">人付き合いで続けてたりするなら勇気を持って止めるべきです！</span></p>
+<h3><span id="株式投資">株式投資</span></h3><p>当然必須です。<br>基本的には全世界株式に月5万入れて、現金が貯まったら株主優待目的で、好きな株を購入してる形です。<br>なんだかんだ<span class="mark-y">100万円くらいは含み益出てます。</span></p>
+<h2><span id="締め">締め</span></h2><p>もちろん人によっては事情が違ったりするので、投資系はやらなくても良いですが、<span class="mark-y">ポイントの最大化だけは全日本人がやるべきだと思ってます！</span><br>まず損することはないので、やらないのはもったいないですよね！</p>
+<p>お金に関することで紹介したいことはまだまだたくさんあって、<br>例えば,<span class="mark-g">旅行の時のポイント最大化</span>や<span class="mark-g">物を売却する時の調べ方</span>など山積みです！<br>これからも色々あげてくので、他の記事も是非見ていってくださいねd(^_^o)</p>
+<p>ここからは自分の語りですが、<span class="mark-r">私は会社に入ってすぐの時に仮想通貨に投機して60万円ほど失ったことがあります</span><br>もちろんその時は悲しくて落ち込んだのですが、冷静になって考えてみると若いときに失敗してよかったなと思いました。<br>だって年を取ってからだと失敗する額の桁が変わりますから、、、</p>
+<p><span class="mark-g">失敗することが良いとは言えませんが、自分の場合は失敗から学べたのである意味幸せだったのかもしれないですね！</span></p>
+<p>以上、お疲れ様でした！</p>
 ]]></content>
       <categories>
-        <category>エンジニアリング</category>
+        <category>お金</category>
       </categories>
       <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
-    <url>//hexo/redirect/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
-<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
-<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
-<span id="more"></span>
-<div class="notice notice-info">
-あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
-</div>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1hexo-generator-alias-------">1.hexo-generator-aliasをダウンロード</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-hexo-generator-aliasをダウンロード"><a href="#1-hexo-generator-aliasをダウンロード" class="headerlink" title="1.hexo-generator-aliasをダウンロード"></a>1.hexo-generator-aliasをダウンロード</h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-mdファイルを編集"><a href="#2-mdファイルを編集" class="headerlink" title="2.mdファイルを編集"></a>2.mdファイルを編集</h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
-<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
-<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><h3 id="確認方法"><a href="#確認方法" class="headerlink" title="確認方法"></a>確認方法</h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
-<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
-<h3 id="確認実施"><a href="#確認実施" class="headerlink" title="確認実施"></a>確認実施</h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
-<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
-<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
-<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
+        <tag>ポイ活</tag>
+        <tag>貯金</tag>
       </tags>
   </entry>
   <entry>
     <title>【PICA秩父】素泊まりバーベキューで必要だったもの</title>
     <url>//travel/picatitibu/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>友達と素泊まりバーベキューをした時に必要だった物のメモです。</p>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>友達と素泊まりバーベキューをした時に必要だった物のメモです。</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">前提</a></li>
-<li><a href="#-----">必要なもの</a></li>
-<li><a href="#------------">必要なもの（備え付け有）</a></li>
-<li><a href="#--">締め</a></li>
+<li><a href="#%E5%89%8D%E6%8F%90">前提</a></li>
+<li><a href="#%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%82%E3%81%AE">必要なもの</a></li>
+<li><a href="#%E5%BF%85%E8%A6%81%E3%81%AA%E3%82%82%E3%81%AE%E5%82%99%E3%81%88%E4%BB%98%E3%81%91%E6%9C%89">必要なもの（備え付け有）</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p><strong>＜場所＞</strong><br>PICA秩父<br>埼玉県秩父市久那637-2 秩父ミューズパーク 内</p>
+</div>
+
+<h2><span id="前提">前提</span></h2><p><strong>＜場所＞</strong><br>PICA秩父<br>埼玉県秩父市久那637-2 秩父ミューズパーク 内</p>
 <p><strong>＜移動手段＞</strong><br>車</p>
 <p><strong>＜人数＞</strong><br>5人</p>
 <p><strong>＜予算＞</strong><br>一人当たり2.5万円</p>
 <p><strong>＜日付＞</strong><br>10月の土日</p>
-<h2 id="必要なもの"><a href="#必要なもの" class="headerlink" title="必要なもの"></a>必要なもの</h2><table>
+<h2><span id="必要なもの">必要なもの</span></h2><table>
 <thead>
 <tr>
 <th align="left">カテゴリ</th>
@@ -899,7 +1179,7 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
 炭、網はキャンプ場で購入しました
 </div>
 
-<h2 id="必要なもの（備え付け有）"><a href="#必要なもの（備え付け有）" class="headerlink" title="必要なもの（備え付け有）"></a>必要なもの（備え付け有）</h2><table>
+<h2><span id="必要なもの備え付け有">必要なもの（備え付け有）</span></h2><table>
 <thead>
 <tr>
 <th align="left">カテゴリ</th>
@@ -953,7 +1233,7 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>素泊まりだと思ったより色々そろえる必要があるので大変。。。</p>
+<h2><span id="締め">締め</span></h2><p>素泊まりだと思ったより色々そろえる必要があるので大変。。。</p>
 <p>ある程度下調べしないと痛い目にあいますね(^-^;</p>
 <p>でもバーベキューはとても楽しかったです！<br>普段PCばっかり見ている人間なので、まったりした時間を過ごして<br>うまい飯食べながら、たくさんお話しするの最高です！！</p>
 <p>やっぱり昔からの友人っていいですね(^^♪</p>
@@ -969,179 +1249,61 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
-    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
-    <url>//money/point/iherb/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
-<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
-<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
-<span id="more"></span>
-
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#----">事前準備</a><ul>
-<li><a href="#1-----------------">1.ウェブ検索でクーポンがあるか調べる</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><h3 id="1-ウェブ検索でクーポンがあるか調べる"><a href="#1-ウェブ検索でクーポンがあるか調べる" class="headerlink" title="1.ウェブ検索でクーポンがあるか調べる"></a>1.ウェブ検索でクーポンがあるか調べる</h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
-<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
-<p>使用方法については購入時の適用なので、下で説明します。</p>
-<h3 id="2-アカウント未作成の人-招待リンクを使ってアカウントを作る"><a href="#2-アカウント未作成の人-招待リンクを使ってアカウントを作る" class="headerlink" title="2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る"></a>2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
-<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
-<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
-<h3 id="3-モッピーからiHerbにアクセス"><a href="#3-モッピーからiHerbにアクセス" class="headerlink" title="3.モッピーからiHerbにアクセス"></a>3.モッピーからiHerbにアクセス</h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
-<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
-<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
-<div class="notice notice-warn">
-iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
-
-<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
-</div>
-
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<h2 id="商品を購入"><a href="#商品を購入" class="headerlink" title="商品を購入"></a>商品を購入</h2><h3 id="クーポンを適用"><a href="#クーポンを適用" class="headerlink" title="クーポンを適用"></a>クーポンを適用</h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
-<h3 id="送料を無料にする"><a href="#送料を無料にする" class="headerlink" title="送料を無料にする"></a>送料を無料にする</h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
-<h3 id="クレジットカードを選択"><a href="#クレジットカードを選択" class="headerlink" title="クレジットカードを選択"></a>クレジットカードを選択</h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
-<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
-<p>もし興味があれば是非購入してみてください。</p>
-<p>以上となります。<br>今回もお疲れさまでした。</p>
-<style>
-img[src*="/images/posts/20251116_money_iHerb/"] {
-  width: 320px;
-  height: auto;
-  object-fit: cover; /* はみ出し対策（必要なら） */
-}
-</style>]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>25歳一人暮らし年収400万が600万円貯金した方法</title>
-    <url>//money/saving/25yearsold/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>こんにちは！<br>今回は<span class="mark-y">年収400万円の私が25歳で600万円貯金した方法</span>を備忘録として残します。<br>普通に旅行も行くし、飲み会にも参加して達成したので、多分誰でもできます。</p>
-<p>それではやっていきましょう。</p>
-<span id="more"></span>
-
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
-
-<ul>
-<li><a href="#--">方法</a><ul>
-<li><a href="#---------">フリマアプリを使用</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="フリマアプリを使用"><a href="#フリマアプリを使用" class="headerlink" title="フリマアプリを使用"></a>フリマアプリを使用</h3><p>メルカリやYahoo!フリマなどで不要になったものを売却します。</p>
-<p><span class="mark-y">また長く使うものを購入するときも必ずフリマアプリを見て、</span><br><span class="mark-y">いくらで売れるのか確認してから購入します。</span><br><span class="mark-g">個人的には5割以上の金額で売れるならいいかな</span>と思います！</p>
-<div class="notice notice-info">
-結構ここまでやってる人は少ないと思いますが、年間で数10万円はこれで浮かせられるのでおすすめです！
-</div>
-
-<p>最近は販売手数料が低く割と売買も活発なYahoo!フリマがおすすめです。</p>
-<p>Yahoo!フリマは招待コードから登録すると1000ポイントくらい貰えたりします。<br>もし周りにやってる人がいなければ自分の招待コードを使用してもらえると走り回って喜びます！<br><span class="mark-g">紹介コード：VENXDI</span></p>
-<h3 id="決済で獲得するポイントを最大化"><a href="#決済で獲得するポイントを最大化" class="headerlink" title="決済で獲得するポイントを最大化"></a>決済で獲得するポイントを最大化</h3><p>基本的には日常で使用する決済を最大化すれば良いです。<br><span class="mark-r">ただ1ポイントのために広告をクリックするなどは面倒なのでやらなくていいです（タイパ悪いので）</span></p>
-<p>ここでは2つ例を出します。<br><strong>＜楽天ペイ　還元4.5%＞</strong><br>  VポイントプレミアムカードからJALペイチャージ → WAONチャージ → ミニストップで楽天ギフトカード購入 → 楽天へチャージ</p>
-<div class="notice notice-warn">
-<span class="mark-r">2025/12/1以降VポイントプレミアムカードからJALペイへのチャージができなくなります。</span>
-  
-<p>退避ルートとしては<br><strong>・PayPayクレカを使用してJALペイへチャージ</strong><br>or<br><strong>・Vポイントプレミアムカードから直接WAONへチャージ</strong><br>があります。<br>（どちらも還元0.5%落ちますが、、、）</p>
-</div>
-
-<p><strong>＜Suica 還元1.5%以上＞</strong><br>JREクレジットカードでSuicaにチャージ<br>※以上と書いているのは旅行セクションで説明します。</p>
-<p><span class="mark-y">例えば楽天ペイの場合、年間200万円使う人なら9万円手元に返ってきます！</span><br>この仕組みを作るのは0.5人日くらいかかるかもですが、<span class="mark-g">0.5人日で年間9万円なので時給18万円</span>です。<br>つまり絶対やるべきでしょう！</p>
-<h3 id="ウェルシアの日を使う"><a href="#ウェルシアの日を使う" class="headerlink" title="ウェルシアの日を使う"></a>ウェルシアの日を使う</h3><p>ウェルシアの日とは、<span class="mark-y">毎月20日にウェルシアでWAON POINTを使用して商品を購入すると、ポイントの1.5倍商品を購入できます。</span><br>例えば、<span class="mark-g">WAON POINTが1000ポイントある場合は1500円分の商品が買えます。</span></p>
-<p>普通にやらなきゃ損ですよね！</p>
-<div class="notice notice-info">
-自分の場合は楽天ペイの「VポイントプレミアムカードからJALペイチャージ」でVポイントを獲得できるので、それをWAON POINTに変換して使用してます。
-</div>
-
-<h3 id="TikTok-Lightをやる"><a href="#TikTok-Lightをやる" class="headerlink" title="TikTok Lightをやる"></a>TikTok Lightをやる</h3><p>これは動画を見ない人もやるべきです。<br>（自分もTikTokの動画には一切興味ないです）</p>
-<p>でもポイントの効率はかなり良く、<span class="mark-y">開く→ポイントページを開く→ボタンを押す　だけで2ヶ月で3000ポイント貯まったりします。</span></p>
-<p>そしてその<span class="mark-g">ポイントを使用してウェルシア日で買い物するとポイントの相乗効果を得られます！</span></p>
-<p>ちなみにTikTok Lightは招待コードから登録すると3000ポイントくらい貰えたりします。<br>友達に既にやってる方がいたら必ず声をかけて招待コードをもらいましょう。<br>もしいなければ自分の招待コードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3 id="ポイントサイトを使用"><a href="#ポイントサイトを使用" class="headerlink" title="ポイントサイトを使用"></a>ポイントサイトを使用</h3><p>例えば<span class="mark-y">クレジットカードや証券会社を契約する時に、モッピーなどのポイントサイトを経由すると1万円分のポイントがもらえたりします。</span></p>
-<p>やらない理由はないですね！</p>
-<p>また個人的には<span class="mark-y">モッピー経由でiHerbで物を購入する時に最大6%程のポイント還元が受けれるのが大きいです。</span></p>
-<p>ちなみに<span class="mark-g">モッピーポイントもVポイントに交換可能なのでウェルシアの日で使えます！</span></p>
-<div class="notice notice-warn">
-モッピーは広告メールが鬱陶しいので、登録する際のメールアドレスは新しく用意した方がいいかもです。
-</div>
-
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<h3 id="趣味"><a href="#趣味" class="headerlink" title="趣味"></a>趣味</h3><p>自分の場合、ポイント運用とプログラミングが趣味みたいな物なので、あまりお金はかかりませんでした。<br>ただこれは人によるので、無理に止めることはないです。</p>
-<p>ただ<span class="mark-r">人付き合いで続けてたりするなら勇気を持って止めるべきです！</span></p>
-<h3 id="株式投資"><a href="#株式投資" class="headerlink" title="株式投資"></a>株式投資</h3><p>当然必須です。<br>基本的には全世界株式に月5万入れて、現金が貯まったら株主優待目的で、好きな株を購入してる形です。<br>なんだかんだ<span class="mark-y">100万円くらいは含み益出てます。</span></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>もちろん人によっては事情が違ったりするので、投資系はやらなくても良いですが、<span class="mark-y">ポイントの最大化だけは全日本人がやるべきだと思ってます！</span ><br>まず損することはないので、やらないのはもったいないですよね！</p>
-<p>お金に関することで紹介したいことはまだまだたくさんあって、<br>例えば,<span class="mark-g">旅行の時のポイント最大化</span>や<span class="mark-g">物を売却する時の調べ方</span>など山積みです！<br>これからも色々あげてくので、他の記事も是非見ていってくださいねd(^_^o)</p>
-<p>ここからは自分の語りですが、<span class="mark-r">私は会社に入ってすぐの時に仮想通貨に投機して60万円ほど失ったことがあります</span><br>もちろんその時は悲しくて落ち込んだのですが、冷静になって考えてみると若いときに失敗してよかったなと思いました。<br>だって年を取ってからだと失敗する額の桁が変わりますから、、、</p>
-<p><span class="mark-g">失敗することが良いとは言えませんが、自分の場合は失敗から学べたのである意味幸せだったのかもしれないですね！</span></p>
-<p>以上、お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>貯金</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一人旅 in 茨城県 磯崎海岸、阿字ヶ浦周辺【写真付】</title>
     <url>//travel/solo/isozaki/</url>
-    <content><![CDATA[<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
 <p>結構いい感じに癒されたので、皆さんの旅の参考になりましたら幸いです！</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#------">今回のルート</a></li>
-<li><a href="#---">観光地</a><ul>
-<li><a href="#-----------">ひたちなか海浜鉄道湊線</a></li>
+<li><a href="#%E4%BB%8A%E5%9B%9E%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88">今回のルート</a></li>
+<li><a href="#%E8%A6%B3%E5%85%89%E5%9C%B0">観光地</a><ul>
+<li><a href="#%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E6%B5%B7%E6%B5%9C%E9%89%84%E9%81%93%E6%B9%8A%E7%B7%9A">ひたちなか海浜鉄道湊線</a></li>
+<li><a href="#%E7%A3%AF%E5%B4%8E%E6%B5%B7%E5%B2%B8">磯崎海岸</a></li>
+<li><a href="#%E9%85%92%E5%88%97%E7%A3%AF%E5%89%8D%E7%A5%9E%E7%A4%BE">酒列磯前神社</a></li>
+<li><a href="#%E9%98%BF%E5%AD%97%E3%83%B6%E6%B5%A6%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">阿字ヶ浦海水浴場</a></li>
+<li><a href="#%E6%B5%9C%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%82%A3%E3%83%BC-%E3%81%82%E3%81%98%E3%81%B1%E3%82%93">浜ベーカリィー あじぱん</a></li>
+<li><a href="#%E5%8B%9D%E7%94%B0%E9%A7%85-%E9%A7%85%E4%B8%AD%E3%81%AE%E8%95%8E%E9%BA%A6%E5%B1%8B%E3%81%95%E3%82%93">勝田駅 駅中の蕎麦屋さん</a></li>
 </ul>
 </li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="今回のルート"><a href="#今回のルート" class="headerlink" title="今回のルート"></a>今回のルート</h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
-<h2 id="観光地"><a href="#観光地" class="headerlink" title="観光地"></a>観光地</h2><h3 id="ひたちなか海浜鉄道湊線"><a href="#ひたちなか海浜鉄道湊線" class="headerlink" title="ひたちなか海浜鉄道湊線"></a>ひたちなか海浜鉄道湊線</h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
+</div>
+
+<h2><span id="今回のルート">今回のルート</span></h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
+<h2><span id="観光地">観光地</span></h2><h3><span id="ひたちなか海浜鉄道湊線">ひたちなか海浜鉄道湊線</span></h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
 <p>田んぼの間を電車が走るので運転席横の窓から見ると最高の景色でした。</p>
 <p>あとつり革が干し芋になっていてちょっと面白かった(^^</p>
 <p><span class="mark-y">料金については、駅員さんが「往復利用するなら一日利用券のほうが1000円だからお得だよ」と教えてくれたので、少しお得に利用できました！</span><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_1.jpg" alt="勝田駅" title="勝田駅"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_2.jpg" alt="一日利用券" title="一日利用券"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_3.jpg" alt="湊線" title="湊線"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_4.jpg" alt="湊線車内" title="湊線車内"></p>
-<h3 id="磯崎海岸"><a href="#磯崎海岸" class="headerlink" title="磯崎海岸"></a>磯崎海岸</h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
+<h3><span id="磯崎海岸">磯崎海岸</span></h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
 <p><span class="mark-g">岩の海岸、、最高です！</span><br><span class="mark-g">波音もよく聞こえ気持ちよかったです！</span></p>
 <p>一応岩の上も歩けますが、時々グラグラする箇所があり自分は転びかけました(^^;<br>皆さんも気をつけて！</p>
 <p>またGoogleマップには、ヒトデの写真とかあったので期待してましたが、季節外れでしたので今回は残念。。</p>
 <p><span class="mark-r">周辺には焼きそばなどの軽食のお店はありましたが、レストランはないように見えます。</span></p>
 <p><span class="mark-y">岩場に座って小一時間ぼーっとするのにおすすめです！</span><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_5.jpg" alt="磯崎海岸1" title="磯崎海岸1"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_6.jpg" alt="磯崎海岸2" title="磯崎海岸2"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_7.jpg" alt="磯崎海岸3" title="磯崎海岸3"></p>
-<h3 id="酒列磯前神社"><a href="#酒列磯前神社" class="headerlink" title="酒列磯前神社"></a>酒列磯前神社</h3><p>磯崎海岸から徒歩で行きました。</p>
+<h3><span id="酒列磯前神社">酒列磯前神社</span></h3><p>磯崎海岸から徒歩で行きました。</p>
 <p><span class="mark-g">横の入り口から入りましたが、鳥居が緑とマッチしてきれいでした！</span></p>
 <p>参道も自然を感じれるのでよかったです(^^<br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_8.jpg" alt="酒列磯前神社1" title="酒列磯前神社1"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_9.jpg" alt="酒列磯前神社2" title="酒列磯前神社2"></p>
-<h3 id="阿字ヶ浦海水浴場"><a href="#阿字ヶ浦海水浴場" class="headerlink" title="阿字ヶ浦海水浴場"></a>阿字ヶ浦海水浴場</h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
+<h3><span id="阿字ヶ浦海水浴場">阿字ヶ浦海水浴場</span></h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
 <p><span class="mark-y">・その割には水は透き通って綺麗！</span><br><span class="mark-y">・オフシーズンなのに砂浜にゴミが落ちてなくて綺麗！</span><br><span class="mark-y">・人があんまりいない！</span></p>
 <p><span class="mark-r">なのでござを引いて海を眺めるのに最高です(^^#</span></p>
 <p>コーヒー持ってくればよかったな、、、<br>あと11月でも日差しが強かったので、日傘は必須ですね！<br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_10.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場1"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_11.jpg" alt="阿字ヶ浦海水浴場2" title="阿字ヶ浦海水浴場2"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_12.jpg" alt="阿字ヶ浦海水浴場3" title="阿字ヶ浦海水浴場3"></p>
-<h3 id="浜ベーカリィー-あじぱん"><a href="#浜ベーカリィー-あじぱん" class="headerlink" title="浜ベーカリィー あじぱん"></a>浜ベーカリィー あじぱん</h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
+<h3><span id="浜ベーカリィー-あじぱん">浜ベーカリィー あじぱん</span></h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
 <p>カレーパンとクリームパンを購入しました(^^</p>
 <p><span class="mark-y">カレーパンはノンフライなのでパサパサするかな？と思いましたがそんなことなく、カレーの優しい味とマッチしてとてもおいしかったです！</span></p>
 <p><span class="mark-y">クリームパンはクリームが上に乗っててかわいいです！</span><br><span class="mark-y">味の方は甘さ控えめで普段食べてるクリームパンより上品な味がしました。</span></p>
 <p>個人的にはカレーパンがかなり好みでしたのでまた行きたいな(^^</p>
 <p><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_13.jpg" alt="浜ベーカリィー あじぱん" title="浜ベーカリィー あじぱん"></p>
-<h3 id="勝田駅-駅中の蕎麦屋さん"><a href="#勝田駅-駅中の蕎麦屋さん" class="headerlink" title="勝田駅 駅中の蕎麦屋さん"></a>勝田駅 駅中の蕎麦屋さん</h3><p>唐揚げそばを食べました！</p>
+<h3><span id="勝田駅-駅中の蕎麦屋さん">勝田駅 駅中の蕎麦屋さん</span></h3><p>唐揚げそばを食べました！</p>
 <p>一口目「唐揚げが冷たい？？？」ってなりましたが、これは冷たいほうがいいですね！<br><span class="mark-g">そばが温かいので、冷たい唐揚げと一緒に食べると最高に美味でした！</span></p>
 <p>勝田駅に立ち寄ったら是非食べてみてください(^^!<br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_14.jpg" alt="勝田駅 駅中の蕎麦屋さん" title="勝田駅 駅中の蕎麦屋さん"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
+<h2><span id="締め">締め</span></h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
 <p>普段パソコンばかり見てる自分からすると、<span class="mark-y">車なしで砂浜と岩場両方の海が見れるのは最高ですね(^^</span></p>
 <p>皆さんもこんな感じの一人旅をしてみてはいかがでしょうか？</p>
 <p>以上、今回もお疲れさまでした。</p>

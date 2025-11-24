@@ -117,26 +117,36 @@ GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要�
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
+        <h2><span id="概要">概要</span></h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
 <p>GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要があります。</p>
 <span id="more"></span>
 
-<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
 
 <ul>
-<li><a href="#--">手順</a><ul>
-<li><a href="#1--------">1.固定ページを生成</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.固定ページを生成</a></li>
+<li><a href="#2%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%82%92%E8%A8%98%E8%BC%89">2.プライバシーポリシーを記載</a></li>
+<li><a href="#3layoutejs%E3%82%92%E7%B7%A8%E9%9B%86">3.layout.ejsを編集</a></li>
+<li><a href="#4_configyml%E3%82%92%E7%B7%A8%E9%9B%86">4._config.ymlを編集</a></li>
+<li><a href="#5css%E3%82%92%E8%A8%98%E8%BC%89">5.cssを記載</a></li>
 </ul>
 </li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><h3 id="1-固定ページを生成"><a href="#1-固定ページを生成" class="headerlink" title="1.固定ページを生成"></a>1.固定ページを生成</h3><p>プライバシーポリシーの固定ページを生成します。</p>
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1固定ページを生成">1.固定ページを生成</span></h3><p>プライバシーポリシーの固定ページを生成します。</p>
 <p class="codeblock-filename"><span>コマンド</span></p>
 
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;privacy-policy&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-プライバシーポリシーを記載"><a href="#2-プライバシーポリシーを記載" class="headerlink" title="2.プライバシーポリシーを記載"></a>2.プライバシーポリシーを記載</h3><p>当ブログの場合は下記のような感じ</p>
+<h3><span id="2プライバシーポリシーを記載">2.プライバシーポリシーを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
 <div class="notice notice-info">
 テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
 </div>
@@ -144,23 +154,23 @@ GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要�
 
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## プライバシーポリシー</span></span><br><span class="line"><span class="section">### 個人情報の利用目的</span></span><br><span class="line">当ブログでは、お問い合わせや記事へのコメントの際、名前やメールアドレス等の個人情報を入力いただく場合がございます。</span><br><span class="line">取得した個人情報は、お問い合わせに対する回答や必要な情報を電子メールなどでご連絡する場合に利用させていただくものであり、これらの目的以外では利用いたしません。</span><br><span class="line"></span><br><span class="line"><span class="section">### 広告について</span></span><br><span class="line">当ブログでは、第三者配信の広告サービス（Googleアドセンス）を利用しており、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用しております。</span><br><span class="line">クッキーを使用することで当サイトはお客様のコンピュータを識別できるようになりますが、お客様個人を特定できるものではありません。</span><br><span class="line"></span><br><span class="line">Cookieを無効にする方法やGoogleアドセンスに関する詳細は「広告 – ポリシーと規約 – Google」をご確認ください。</span><br><span class="line"></span><br><span class="line"><span class="section">### アクセス解析ツールについて</span></span><br><span class="line">当ブログでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。トラフィックデータは匿名で収集されており、個人を特定するものではありません。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## 免責事項</span></span><br><span class="line">当ブログからのリンクやバナーなどで移動したサイトで提供される情報、サービス等について一切の責任を負いません。</span><br><span class="line"></span><br><span class="line">また当ブログのコンテンツ・情報について、できる限り正確な情報を提供するように努めておりますが、正確性や安全性を保証するものではありません。情報が古くなっていることもございます。</span><br><span class="line"></span><br><span class="line">当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## 著作権</span></span><br><span class="line">当ブログで掲載している文章や画像などにつきましては、無断転載することを禁止します。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">## リンクについて</span></span><br><span class="line">当ブログは基本的にリンクフリーです。リンクを行う場合の許可や連絡は不要です。</span><br><span class="line"></span><br><span class="line">ただし、インラインフレームの使用や画像の直リンクはご遠慮ください。</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line">article .post-content&#123;</span><br><span class="line"><span class="code">	padding:20px;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">article.page&#123;</span></span><br><span class="line"><span class="code">	padding:0;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="3-layout-ejsを編集"><a href="#3-layout-ejsを編集" class="headerlink" title="3.layout.ejsを編集"></a>3.layout.ejsを編集</h3><p>フッターに固定ページを表示するためにlayout.ejsに下記を追記</p>
+<h3><span id="3layoutejsを編集">3.layout.ejsを編集</span></h3><p>フッターに固定ページを表示するためにlayout.ejsに下記を追記</p>
 <p class="codeblock-filename"><span>site\themes\light\layout\layout.ejs</span></p>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.footer_menu &amp;&amp; theme.footer_menu.length) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;footer-menu&quot;</span>&gt;</span></span><br><span class="line">    &lt;% theme.footer_menu.forEach(function(item)&#123; %&gt;</span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%- url_for(item.url) %&gt;&quot;</span>&gt;</span>&lt;%- item.name %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &lt;% &#125;); %&gt;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_1.png" alt="layout.ejs" title="layout.ejs"></p>
-<h3 id="4-config-ymlを編集"><a href="#4-config-ymlを編集" class="headerlink" title="4._config.ymlを編集"></a>4._config.ymlを編集</h3><p>config.ymlにフッターメニュー項目を追加する</p>
+<h3><span id="4_configymlを編集">4._config.ymlを編集</span></h3><p>config.ymlにフッターメニュー項目を追加する</p>
 <p class="codeblock-filename"><span>site\themes\light\_config.yml</span></p>
 
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">footer_menu:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Home</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">プライバシーポリシー</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">/privacy-policy</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_2.png" alt="_config.yml" title="_config.yml"></p>
-<h3 id="5-cssを記載"><a href="#5-cssを記載" class="headerlink" title="5.cssを記載"></a>5.cssを記載</h3><p>見ずらいのでいい感じにレイアウトを変更してみる</p>
+<h3><span id="5cssを記載">5.cssを記載</span></h3><p>見ずらいのでいい感じにレイアウトを変更してみる</p>
 <p class="codeblock-filename"><span>site\themes\light\source\css\[任意のCSS].css</span></p>
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* フッター */</span></span><br><span class="line"><span class="selector-class">.footer-menu</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_3.png" alt="[任意のCSS].css" title="[任意のCSS].css"></p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>無事表示プライバシーポリシーが完成しました。<br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_4.png" alt="完成（フッター）" title="完成（フッター）"><br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_5.png" alt="完成（プライバシーポリシー）" title="完成（プライバシーポリシー）"></p>
-<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>プライバシーポリシーを追加するにあたり色々調べましたが、こんな面倒なこと皆さんやられてるんですね。。<br>いやー勉強になりました(^-^;</p>
+<h2><span id="完成">完成</span></h2><p>無事表示プライバシーポリシーが完成しました。<br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_4.png" alt="完成（フッター）" title="完成（フッター）"><br><img src="/images/posts/20251103_hexo_privacypolicy/hexo_privacypolicy_5.png" alt="完成（プライバシーポリシー）" title="完成（プライバシーポリシー）"></p>
+<h2><span id="締め">締め</span></h2><p>プライバシーポリシーを追加するにあたり色々調べましたが、こんな面倒なこと皆さんやられてるんですね。。<br>いやー勉強になりました(^-^;</p>
 <p>実装については、フッター機能がないことに気づき面倒だな、、と思いましたが、思ったより工数はかからず数時間で実装できました。</p>
 <p>結構いい感じなのではないでしょうか？</p>
 <p>以上お疲れさまでした。</p>
@@ -195,7 +205,7 @@ GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要�
   
     
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">Category</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>3</small></li>
