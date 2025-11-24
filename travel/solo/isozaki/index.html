@@ -46,6 +46,31 @@
       "url" : "https://shinpinoshi.com"
     }
   </script>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDP_smTXhS_mXexvBbaN8wquyID4cDpZVs",
+      authDomain: "shinpinoshiblog.firebaseapp.com",
+      projectId: "shinpinoshiblog",
+      storageBucket: "shinpinoshiblog.firebasestorage.app",
+      messagingSenderId: "319948450180",
+      appId: "1:319948450180:web:215c090abd67dd139415d1",
+      measurementId: "G-PH95TQZ11P"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
 
@@ -92,59 +117,49 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
+        <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
 <p>結構いい感じに癒されたので、皆さんの旅の参考になりましたら幸いです！</p>
 <span id="more"></span>
 
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
+<h2 id="目次"><a href="#目次" class="headerlink" title="目次"></a>目次</h2><!-- toc -->
 
 <ul>
-<li><a href="#%E4%BB%8A%E5%9B%9E%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88">今回のルート</a></li>
-<li><a href="#%E8%A6%B3%E5%85%89%E5%9C%B0">観光地</a><ul>
-<li><a href="#%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E6%B5%B7%E6%B5%9C%E9%89%84%E9%81%93%E6%B9%8A%E7%B7%9A">ひたちなか海浜鉄道湊線</a></li>
-<li><a href="#%E7%A3%AF%E5%B4%8E%E6%B5%B7%E5%B2%B8">磯崎海岸</a></li>
-<li><a href="#%E9%85%92%E5%88%97%E7%A3%AF%E5%89%8D%E7%A5%9E%E7%A4%BE">酒列磯前神社</a></li>
-<li><a href="#%E9%98%BF%E5%AD%97%E3%83%B6%E6%B5%A6%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">阿字ヶ浦海水浴場</a></li>
-<li><a href="#%E6%B5%9C%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%82%A3%E3%83%BC-%E3%81%82%E3%81%98%E3%81%B1%E3%82%93">浜ベーカリィー あじぱん</a></li>
-<li><a href="#%E5%8B%9D%E7%94%B0%E9%A7%85-%E9%A7%85%E4%B8%AD%E3%81%AE%E8%95%8E%E9%BA%A6%E5%B1%8B%E3%81%95%E3%82%93">勝田駅 駅中の蕎麦屋さん</a></li>
+<li><a href="#------">今回のルート</a></li>
+<li><a href="#---">観光地</a><ul>
+<li><a href="#-----------">ひたちなか海浜鉄道湊線</a></li>
 </ul>
 </li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
-</div>
-
-<h2><span id="今回のルート">今回のルート</span></h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
-<h2><span id="観光地">観光地</span></h2><h3><span id="ひたちなか海浜鉄道湊線">ひたちなか海浜鉄道湊線</span></h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
+<h2 id="今回のルート"><a href="#今回のルート" class="headerlink" title="今回のルート"></a>今回のルート</h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
+<h2 id="観光地"><a href="#観光地" class="headerlink" title="観光地"></a>観光地</h2><h3 id="ひたちなか海浜鉄道湊線"><a href="#ひたちなか海浜鉄道湊線" class="headerlink" title="ひたちなか海浜鉄道湊線"></a>ひたちなか海浜鉄道湊線</h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
 <p>田んぼの間を電車が走るので運転席横の窓から見ると最高の景色でした。</p>
 <p>あとつり革が干し芋になっていてちょっと面白かった(^^</p>
 <p><span class="mark-y">料金については、駅員さんが「往復利用するなら一日利用券のほうが1000円だからお得だよ」と教えてくれたので、少しお得に利用できました！</span><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_1.jpg" alt="勝田駅" title="勝田駅"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_2.jpg" alt="一日利用券" title="一日利用券"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_3.jpg" alt="湊線" title="湊線"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_4.jpg" alt="湊線車内" title="湊線車内"></p>
-<h3><span id="磯崎海岸">磯崎海岸</span></h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
+<h3 id="磯崎海岸"><a href="#磯崎海岸" class="headerlink" title="磯崎海岸"></a>磯崎海岸</h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
 <p><span class="mark-g">岩の海岸、、最高です！</span><br><span class="mark-g">波音もよく聞こえ気持ちよかったです！</span></p>
 <p>一応岩の上も歩けますが、時々グラグラする箇所があり自分は転びかけました(^^;<br>皆さんも気をつけて！</p>
 <p>またGoogleマップには、ヒトデの写真とかあったので期待してましたが、季節外れでしたので今回は残念。。</p>
 <p><span class="mark-r">周辺には焼きそばなどの軽食のお店はありましたが、レストランはないように見えます。</span></p>
 <p><span class="mark-y">岩場に座って小一時間ぼーっとするのにおすすめです！</span><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_5.jpg" alt="磯崎海岸1" title="磯崎海岸1"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_6.jpg" alt="磯崎海岸2" title="磯崎海岸2"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_7.jpg" alt="磯崎海岸3" title="磯崎海岸3"></p>
-<h3><span id="酒列磯前神社">酒列磯前神社</span></h3><p>磯崎海岸から徒歩で行きました。</p>
+<h3 id="酒列磯前神社"><a href="#酒列磯前神社" class="headerlink" title="酒列磯前神社"></a>酒列磯前神社</h3><p>磯崎海岸から徒歩で行きました。</p>
 <p><span class="mark-g">横の入り口から入りましたが、鳥居が緑とマッチしてきれいでした！</span></p>
 <p>参道も自然を感じれるのでよかったです(^^<br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_8.jpg" alt="酒列磯前神社1" title="酒列磯前神社1"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_9.jpg" alt="酒列磯前神社2" title="酒列磯前神社2"></p>
-<h3><span id="阿字ヶ浦海水浴場">阿字ヶ浦海水浴場</span></h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
+<h3 id="阿字ヶ浦海水浴場"><a href="#阿字ヶ浦海水浴場" class="headerlink" title="阿字ヶ浦海水浴場"></a>阿字ヶ浦海水浴場</h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
 <p><span class="mark-y">・その割には水は透き通って綺麗！</span><br><span class="mark-y">・オフシーズンなのに砂浜にゴミが落ちてなくて綺麗！</span><br><span class="mark-y">・人があんまりいない！</span></p>
 <p><span class="mark-r">なのでござを引いて海を眺めるのに最高です(^^#</span></p>
 <p>コーヒー持ってくればよかったな、、、<br>あと11月でも日差しが強かったので、日傘は必須ですね！<br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_10.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場1"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_11.jpg" alt="阿字ヶ浦海水浴場2" title="阿字ヶ浦海水浴場2"><br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_12.jpg" alt="阿字ヶ浦海水浴場3" title="阿字ヶ浦海水浴場3"></p>
-<h3><span id="浜ベーカリィー-あじぱん">浜ベーカリィー あじぱん</span></h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
+<h3 id="浜ベーカリィー-あじぱん"><a href="#浜ベーカリィー-あじぱん" class="headerlink" title="浜ベーカリィー あじぱん"></a>浜ベーカリィー あじぱん</h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
 <p>カレーパンとクリームパンを購入しました(^^</p>
 <p><span class="mark-y">カレーパンはノンフライなのでパサパサするかな？と思いましたがそんなことなく、カレーの優しい味とマッチしてとてもおいしかったです！</span></p>
 <p><span class="mark-y">クリームパンはクリームが上に乗っててかわいいです！</span><br><span class="mark-y">味の方は甘さ控えめで普段食べてるクリームパンより上品な味がしました。</span></p>
 <p>個人的にはカレーパンがかなり好みでしたのでまた行きたいな(^^</p>
 <p><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_13.jpg" alt="浜ベーカリィー あじぱん" title="浜ベーカリィー あじぱん"></p>
-<h3><span id="勝田駅-駅中の蕎麦屋さん">勝田駅 駅中の蕎麦屋さん</span></h3><p>唐揚げそばを食べました！</p>
+<h3 id="勝田駅-駅中の蕎麦屋さん"><a href="#勝田駅-駅中の蕎麦屋さん" class="headerlink" title="勝田駅 駅中の蕎麦屋さん"></a>勝田駅 駅中の蕎麦屋さん</h3><p>唐揚げそばを食べました！</p>
 <p>一口目「唐揚げが冷たい？？？」ってなりましたが、これは冷たいほうがいいですね！<br><span class="mark-g">そばが温かいので、冷たい唐揚げと一緒に食べると最高に美味でした！</span></p>
 <p>勝田駅に立ち寄ったら是非食べてみてください(^^!<br><img src="/images/posts/20251124_trip_isozaki/trip_isozaki_14.jpg" alt="勝田駅 駅中の蕎麦屋さん" title="勝田駅 駅中の蕎麦屋さん"></p>
-<h2><span id="締め">締め</span></h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
+<h2 id="締め"><a href="#締め" class="headerlink" title="締め"></a>締め</h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
 <p>普段パソコンばかり見てる自分からすると、<span class="mark-y">車なしで砂浜と岩場両方の海が見れるのは最高ですね(^^</span></p>
 <p>皆さんもこんな感じの一人旅をしてみてはいかがでしょうか？</p>
 <p>以上、今回もお疲れさまでした。</p>
@@ -179,7 +194,7 @@
   
     
 <div class="widget tag">
-  <h3 class="title">Category</h3>
+  <h3 class="title">Categories</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>3</small></li>

@@ -43,6 +43,31 @@
       "url" : "https://shinpinoshi.com"
     }
   </script>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDP_smTXhS_mXexvBbaN8wquyID4cDpZVs",
+      authDomain: "shinpinoshiblog.firebaseapp.com",
+      projectId: "shinpinoshiblog",
+      storageBucket: "shinpinoshiblog.firebasestorage.app",
+      messagingSenderId: "319948450180",
+      appId: "1:319948450180:web:215c090abd67dd139415d1",
+      measurementId: "G-PH95TQZ11P"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 <meta name="generator" content="Hexo 8.1.1"></head>
 
 
@@ -106,7 +131,7 @@
   
     
 <div class="widget tag">
-  <h3 class="title">Category</h3>
+  <h3 class="title">Categories</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>3</small></li>
