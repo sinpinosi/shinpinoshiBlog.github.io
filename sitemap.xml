@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shinpinoshi.com/hexo/firebase/analytics/</loc>
+    
+    <lastmod>2025-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shinpinoshi.com/travel/solo/isozaki/</loc>
     
     <lastmod>2025-11-24</lastmod>
@@ -47,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/hexo/codeblock/filename/</loc>
+    <loc>https://shinpinoshi.com/hexo/mokuji/</loc>
     
     <lastmod>2025-11-15</lastmod>
     
@@ -56,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/hexo/codeblock/langcolor/</loc>
+    <loc>https://shinpinoshi.com/hexo/codeblock/filename/</loc>
     
     <lastmod>2025-11-15</lastmod>
     
@@ -74,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/hexo/mokuji/</loc>
+    <loc>https://shinpinoshi.com/hexo/codeblock/langcolor/</loc>
     
     <lastmod>2025-11-15</lastmod>
     
@@ -221,6 +230,20 @@
   </url>
   
   <url>
+    <loc>https://shinpinoshi.com/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/</loc>
+    <lastmod>2025-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/linux/</loc>
+    <lastmod>2025-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://shinpinoshi.com/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -242,27 +265,6 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/</loc>
-    <lastmod>2025-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/linux/</loc>
-    <lastmod>2025-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/%E8%B2%AF%E9%87%91/</loc>
-    <lastmod>2025-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://shinpinoshi.com/tags/%E6%8C%81%E3%81%A1%E7%89%A9/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -270,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E4%B8%80%E4%BA%BA%E6%97%85/</loc>
+    <loc>https://shinpinoshi.com/tags/%E8%B2%AF%E9%87%91/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -285,6 +287,13 @@
   
   <url>
     <loc>https://shinpinoshi.com/tags/%E5%BF%83%E6%A7%8B%E3%81%88/</loc>
+    <lastmod>2025-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/%E4%B8%80%E4%BA%BA%E6%97%85/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
