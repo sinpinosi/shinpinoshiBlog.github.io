@@ -90,63 +90,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
-    <url>//hexo/mokuji/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
-<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
-<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
-<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h3><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md"></p>
-<h3><span id="2_configymlを変更">2._config.ymlを変更</span></h3><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
-<p class="codeblock-filename"><span>site\_config.yml</span></p>
-
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml"></p>
-<h3><span id="3cssを変更">3.cssを変更</span></h3><p>このままだとダサいのでCSSをいい感じに変更</p>
-<p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="[自分のCSS].css"></p>
-<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。<br><img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像"></p>
-<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
-
-
-<h2><span id="締め">締め</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
-<p>これでよりブログっぽくなったと思います。</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
     <url>//hexo/template/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
@@ -175,6 +118,63 @@
 <p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
 <h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
 <h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
+    <url>//hexo/sitemap/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1robotstxt%E3%82%92%E4%BD%9C%E6%88%90">1.robots.txtを作成</a></li>
+<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">2.サイトマップを自動で生成するライブラリをダウンロード</a></li>
+<li><a href="#3_configyml%E3%82%92%E7%B7%A8%E9%9B%86">3._config.ymlを編集</a></li>
+<li><a href="#4%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4">4.デプロイ</a></li>
+<li><a href="#5googlesearchconsole%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%86%8D%E7%99%BB%E9%8C%B2">5.GoogleSearchConsoleでインデックスを再登録</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1robotstxtを作成">1.robots.txtを作成</span></h3><p>「robots.txt」にサイトマップの場所を記載する</p>
+<p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
+<h3><span id="2サイトマップを自動で生成するライブラリをダウンロード">2.サイトマップを自動で生成するライブラリをダウンロード</span></h3><p>サイトマップを自動で生成するライブラリとして「hexo-generator-sitemap」をダウンロードする</p>
+<p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<h3><span id="3_configymlを編集">3._config.ymlを編集</span></h3><p class="codeblock-filename"><span>site\_config.yml</span></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
+<h3><span id="4デプロイ">4.デプロイ</span></h3><p class="codeblock-filename"><span>コマンドライン</span></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h3><span id="5googlesearchconsoleでインデックスを再登録">5.GoogleSearchConsoleでインデックスを再登録</span></h3><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
+<h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
+<h2><span id="締め">締め</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
+<p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -257,125 +257,53 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
-    <url>//hexo/sitemap/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
+    <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
+    <url>//hexo/mokuji/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
 <span id="more"></span>
-<p><img src="/images/posts/20251027/sitemap_toroku0.png" alt="GoogleSearchConsole" title="GoogleSearchConsole"></p>
+
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1robotstxt%E3%82%92%E4%BD%9C%E6%88%90">1.robots.txtを作成</a></li>
-<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">2.サイトマップを自動で生成するライブラリをダウンロード</a></li>
-<li><a href="#3_configyml%E3%82%92%E7%B7%A8%E9%9B%86">3._config.ymlを編集</a></li>
-<li><a href="#4%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4">4.デプロイ</a></li>
-<li><a href="#5googlesearchconsole%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%86%8D%E7%99%BB%E9%8C%B2">5.GoogleSearchConsoleでインデックスを再登録</a></li>
+<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
+<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
+<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
 </div>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1robotstxtを作成">1.robots.txtを作成</span></h3><p>「robots.txt」にサイトマップの場所を記載する</p>
-<p class="codeblock-filename"><span>site\themes\light\source\robots.txt</span></p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Sitemap: https://shinpinoshi.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+<h2><span id="手順">手順</span></h2><h3><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h3><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
 
-<p><img src="/images/posts/20251027/sitemap_toroku2.png" alt="robots.txt" title="robots.txt"></p>
-<h3><span id="2サイトマップを自動で生成するライブラリをダウンロード">2.サイトマップを自動で生成するライブラリをダウンロード</span></h3><p>サイトマップを自動で生成するライブラリとして「hexo-generator-sitemap」をダウンロードする</p>
-<p class="codeblock-filename"><span>コマンドライン</span></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md"></p>
+<h3><span id="2_configymlを変更">2._config.ymlを変更</span></h3><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
+<p class="codeblock-filename"><span>site\_config.yml</span></p>
 
-<h3><span id="3_configymlを編集">3._config.ymlを編集</span></h3><p class="codeblock-filename"><span>site\_config.yml</span></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml"></p>
+<h3><span id="3cssを変更">3.cssを変更</span></h3><p>このままだとダサいのでCSSをいい感じに変更</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
 
-<p><img src="/images/posts/20251027/sitemap_toroku3.png" alt="_config.yml" title="_config.yml"></p>
-<h3><span id="4デプロイ">4.デプロイ</span></h3><p class="codeblock-filename"><span>コマンドライン</span></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="[自分のCSS].css"></p>
+<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。<br><img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像"></p>
+<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
 
-<h3><span id="5googlesearchconsoleでインデックスを再登録">5.GoogleSearchConsoleでインデックスを再登録</span></h3><p>「インデックス作成 → ページ → クロール済み - インデックス未登録」を選択し、<br>開始ボタンを押下</p>
-<h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
-<h2><span id="締め">締め</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
-<p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
+
+<h2><span id="締め">締め</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
+<p>これでよりブログっぽくなったと思います。</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
-    <url>//hexo/markdown/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3">マークダウン</a><ul>
-<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
-<li><a href="#%E7%94%BB%E5%83%8F">画像</a></li>
-<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
-<li><a href="#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88">番号付きリスト</a></li>
-<li><a href="#%E6%94%B9%E8%A1%8C">改行</a></li>
-<li><a href="#%E5%A4%AA%E5%AD%97">太字</a></li>
-<li><a href="#%E7%BD%AB%E7%B7%9A">罫線</a></li>
-<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97">見出し</a></li>
-</ul>
-</li>
-<li><a href="#h2%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h2の見出し</a><ul>
-<li><a href="#h3%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h3の見出し</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="マークダウン">マークダウン</span></h2><h3><span id="リンク">リンク</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.deepl.com/ja/translator" title="翻訳サイト">DeepL</a><br><a href="/" title="HOME">ブログのHOME</a></p>
-<h3><span id="画像">画像</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/mounten_view.jpg" alt="山の画像" title="山の画像です"></p>
-<h3><span id="リスト">リスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
-<ul>
-<li>list1<ul>
-<li>hoge</li>
-</ul>
-</li>
-<li>list2<ul>
-<li>hohoge</li>
-</ul>
-</li>
-</ul>
-<h3><span id="番号付きリスト">番号付きリスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
-<ol>
-<li>リスト１</li>
-<li>リスト２</li>
-</ol>
-<h3><span id="改行">改行</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
-<p>abc</p>
-<p>efg</p>
-<p>hoge</p>
-<h3><span id="太字">太字</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
-<p>hoge<strong>hoge</strong>hoge</p>
-<h3><span id="罫線">罫線</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
-<p>hoge</p>
-<hr>
-<p>hoge</p>
-<h3><span id="見出し">見出し</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
-<h2><span id="h2の見出し">h2の見出し</span></h2><h3><span id="h3の見出し">h3の見出し</span></h3><h4><span id="h4の見出し">h4の見出し</span></h4><h5><span id="h5の見出し">h5の見出し</span></h5><h6><span id="h6の見出し">h6の見出し</span></h6>]]></content>
       <categories>
         <category>エンジニアリング</category>
       </categories>
@@ -478,67 +406,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</title>
-    <url>//hexo/noindex/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1headejs%E3%82%92%E5%A4%89%E6%9B%B4">1.head.ejsを変更</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
-<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1headejsを変更">1.head.ejsを変更</span></h3><p>ヘッダーを定義するファイルに「アーカイブ」と「タグ」ページの場合はnoindexを設定するように定義</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_archive() || is_tag()) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_1.png" alt="head.ejs" title="head.ejs"></p>
-<h2><span id="確認">確認</span></h2><p>ビルドを行いpublic内に生成されたHTMLのヘッダーを確認する。<br>下記のように指定したページだけnoindexが記載されてればOKです。</p>
-<div class="notice notice-info">
-追記：後から気づきましたが、vscodeの検索窓から「meta name="robots" 」などで検索すれば一括で簡単に見れますね。。。
-</div>
-
-<p><strong>＜アーカイブ＞</strong><br>site\public\archives\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_2.png" alt="アーカイブ" title="アーカイブ"></p>
-<p><strong>＜タグのHTML＞</strong><br>site\public\tags\Hexo\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_3.png" alt="タグ" title="タグ"></p>
-<p><strong>＜トップページのHTML＞</strong><br>site\public\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_4.png" alt="トップページ" title="トップページ"></p>
-<p><strong>＜カテゴリのHTML＞</strong><br>site\public\categories\エンジニアリング\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_5.png" alt="カテゴリ" title="カテゴリ"></p>
-<p><strong>＜記事のHTML＞</strong><br>site\public\travel\picatitibu\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_6.png" alt="記事" title="記事"></p>
-<p>問題なく設定できてますね！</p>
-<div class="notice notice-warn">
-ここで設定を失敗するとすべてのページがnoindexとなってしまい、全ページが検索エンジンから消えます。必ず確認するようにしましょう！
-</div>
-
-<h2><span id="補足">補足</span></h2><p>特定のページのみをnoindexにする場合は「is_current(‘ページ名’)」のように記載すれば可能です。</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_current(&#x27;/privacy-policy&#x27;)) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
-<h2><span id="締め">締め</span></h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
-<p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
     <url>//hexo/redirect/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
@@ -597,134 +464,6 @@
         <tag>プログラミング</tag>
         <tag>Hexo</tag>
         <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Linux】cronで不要になったジョブを削除する</title>
-    <url>//linux/cron/delete/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
-<p>これからcronの削除をリリース方は是非ご参考ください！</p>
-<span id="more"></span>
-
-<div class="notice notice-warn">
-環境によって意味が変わってくるコマンドがあるかもしれません。
-鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
-</div>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
-<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
-<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
-<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
-<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
-<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
-
-<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
-
-
-<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
-<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
-<p>以上、お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>リリース手順</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
-    <url>//mind/newcomers/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
-<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと心構えを学べるかもです！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
-<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
-<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
-<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
-<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
-<ul>
-<li>怒られることはあなたのことが嫌いってわけじゃない</li>
-<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
-<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
-</ul>
-<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
-<ul>
-<li>質問するのは悪い事じゃないし迷惑でもない<ul>
-<li>むしろミスされた方が迷惑</li>
-</ul>
-</li>
-<li>チームの人間なら迷わずいつでも質問しても良い<ul>
-<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
-</ul>
-</li>
-<li>質問しないことのデメリットを伝える<ul>
-<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
-</ul>
-</li>
-<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
-<li>まぁこういうこともあるってことですね</li>
-</ul>
-</li>
-</ul>
-<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
-<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
-<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
-<p>まぁ伝えても中々すぐに実践はしてくれませんが、後輩くんの頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
-<p>無能な後輩をジョブチェンさせて、有能な後輩育てましょう！</p>
-<p>以上、お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>メンタルヘルス</category>
-      </categories>
-      <tags>
-        <tag>新人</tag>
-        <tag>心構え</tag>
       </tags>
   </entry>
   <entry>
@@ -802,6 +541,211 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
         <tag>ポイ活</tag>
         <tag>食</tag>
         <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
+    <url>//hexo/markdown/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3">マークダウン</a><ul>
+<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
+<li><a href="#%E7%94%BB%E5%83%8F">画像</a></li>
+<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
+<li><a href="#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88">番号付きリスト</a></li>
+<li><a href="#%E6%94%B9%E8%A1%8C">改行</a></li>
+<li><a href="#%E5%A4%AA%E5%AD%97">太字</a></li>
+<li><a href="#%E7%BD%AB%E7%B7%9A">罫線</a></li>
+<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97">見出し</a></li>
+</ul>
+</li>
+<li><a href="#h2%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h2の見出し</a><ul>
+<li><a href="#h3%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h3の見出し</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="マークダウン">マークダウン</span></h2><h3><span id="リンク">リンク</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.deepl.com/ja/translator" title="翻訳サイト">DeepL</a><br><a href="/" title="HOME">ブログのHOME</a></p>
+<h3><span id="画像">画像</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/mounten_view.jpg" alt="山の画像" title="山の画像です"></p>
+<h3><span id="リスト">リスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list1<ul>
+<li>hoge</li>
+</ul>
+</li>
+<li>list2<ul>
+<li>hohoge</li>
+</ul>
+</li>
+</ul>
+<h3><span id="番号付きリスト">番号付きリスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
+<ol>
+<li>リスト１</li>
+<li>リスト２</li>
+</ol>
+<h3><span id="改行">改行</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<p>abc</p>
+<p>efg</p>
+<p>hoge</p>
+<h3><span id="太字">太字</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
+<p>hoge<strong>hoge</strong>hoge</p>
+<h3><span id="罫線">罫線</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<p>hoge</p>
+<hr>
+<p>hoge</p>
+<h3><span id="見出し">見出し</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
+<h2><span id="h2の見出し">h2の見出し</span></h2><h3><span id="h3の見出し">h3の見出し</span></h3><h4><span id="h4の見出し">h4の見出し</span></h4><h5><span id="h5の見出し">h5の見出し</span></h5><h6><span id="h6の見出し">h6の見出し</span></h6>]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
+    <url>//money/point/iherb/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
+<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
+<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
+<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
+<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
+<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
+</ul>
+</li>
+<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
+<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
+<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
+<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
+<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
+<p>使用方法については購入時の適用なので、下で説明します。</p>
+<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
+<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
+<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
+<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
+<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
+<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
+<div class="notice notice-warn">
+iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
+
+<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
+<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
+<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
+<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
+<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
+<p>もし興味があれば是非購入してみてください。</p>
+<p>以上となります。<br>今回もお疲れさまでした。</p>
+<style>
+img[src*="/images/posts/20251116_money_iHerb/"] {
+  width: 320px;
+  height: auto;
+  object-fit: cover; /* はみ出し対策（必要なら） */
+}
+</style>]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>食</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Linux】cronで不要になったジョブを削除する</title>
+    <url>//linux/cron/delete/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
+<p>これからcronの削除をリリース方は是非ご参考ください！</p>
+<span id="more"></span>
+
+<div class="notice notice-warn">
+環境によって意味が変わってくるコマンドがあるかもしれません。
+鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
+</div>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
+<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
+<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
+<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
+<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
+
+<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
+
+
+<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
+<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
+<p>以上、お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>リリース手順</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -884,6 +828,67 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       <tags>
         <tag>ポイ活</tag>
         <tag>貯金</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</title>
+    <url>//hexo/noindex/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1headejs%E3%82%92%E5%A4%89%E6%9B%B4">1.head.ejsを変更</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1headejsを変更">1.head.ejsを変更</span></h3><p>ヘッダーを定義するファイルに「アーカイブ」と「タグ」ページの場合はnoindexを設定するように定義</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_archive() || is_tag()) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_1.png" alt="head.ejs" title="head.ejs"></p>
+<h2><span id="確認">確認</span></h2><p>ビルドを行いpublic内に生成されたHTMLのヘッダーを確認する。<br>下記のように指定したページだけnoindexが記載されてればOKです。</p>
+<div class="notice notice-info">
+追記：後から気づきましたが、vscodeの検索窓から「meta name="robots" 」などで検索すれば一括で簡単に見れますね。。。
+</div>
+
+<p><strong>＜アーカイブ＞</strong><br>site\public\archives\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_2.png" alt="アーカイブ" title="アーカイブ"></p>
+<p><strong>＜タグのHTML＞</strong><br>site\public\tags\Hexo\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_3.png" alt="タグ" title="タグ"></p>
+<p><strong>＜トップページのHTML＞</strong><br>site\public\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_4.png" alt="トップページ" title="トップページ"></p>
+<p><strong>＜カテゴリのHTML＞</strong><br>site\public\categories\エンジニアリング\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_5.png" alt="カテゴリ" title="カテゴリ"></p>
+<p><strong>＜記事のHTML＞</strong><br>site\public\travel\picatitibu\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_6.png" alt="記事" title="記事"></p>
+<p>問題なく設定できてますね！</p>
+<div class="notice notice-warn">
+ここで設定を失敗するとすべてのページがnoindexとなってしまい、全ページが検索エンジンから消えます。必ず確認するようにしましょう！
+</div>
+
+<h2><span id="補足">補足</span></h2><p>特定のページのみをnoindexにする場合は「is_current(‘ページ名’)」のように記載すれば可能です。</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_current(&#x27;/privacy-policy&#x27;)) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="締め">締め</span></h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
+<p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
       </tags>
   </entry>
   <entry>
@@ -1179,76 +1184,6 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
-    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
-    <url>//money/point/iherb/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
-<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
-<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
-<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
-<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
-<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
-</ul>
-</li>
-<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
-<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
-<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
-<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
-<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
-<p>使用方法については購入時の適用なので、下で説明します。</p>
-<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
-<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
-<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
-<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
-<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
-<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
-<div class="notice notice-warn">
-iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
-
-<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
-</div>
-
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
-<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
-<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
-<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
-<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
-<p>もし興味があれば是非購入してみてください。</p>
-<p>以上となります。<br>今回もお疲れさまでした。</p>
-<style>
-img[src*="/images/posts/20251116_money_iHerb/"] {
-  width: 320px;
-  height: auto;
-  object-fit: cover; /* はみ出し対策（必要なら） */
-}
-</style>]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一人旅 in 茨城県 磯崎海岸、阿字ヶ浦周辺【写真付】</title>
     <url>//travel/solo/isozaki/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
@@ -1314,6 +1249,71 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
       <tags>
         <tag>食</tag>
         <tag>一人旅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
+    <url>//mind/newcomers/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
+<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと心構えを学べるかもです！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
+<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
+<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
+<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
+<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
+<ul>
+<li>怒られることはあなたのことが嫌いってわけじゃない</li>
+<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
+<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
+</ul>
+<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
+<ul>
+<li>質問するのは悪い事じゃないし迷惑でもない<ul>
+<li>むしろミスされた方が迷惑</li>
+</ul>
+</li>
+<li>チームの人間なら迷わずいつでも質問しても良い<ul>
+<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
+</ul>
+</li>
+<li>質問しないことのデメリットを伝える<ul>
+<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
+</ul>
+</li>
+<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
+<li>まぁこういうこともあるってことですね</li>
+</ul>
+</li>
+</ul>
+<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
+<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
+<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
+<p>まぁ伝えても中々すぐに実践はしてくれませんが、後輩くんの頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
+<p>無能な後輩をジョブチェンさせて、有能な後輩育てましょう！</p>
+<p>以上、お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>メンタルヘルス</category>
+      </categories>
+      <tags>
+        <tag>新人</tag>
+        <tag>心構え</tag>
       </tags>
   </entry>
 </search>
