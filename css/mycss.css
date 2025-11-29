@@ -284,14 +284,12 @@ article.post .icon:before {
   }
 }
 
-
 /* プロフィール */
 .profile-container {
   background: #eee;
   color: #444;
   font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   text-shadow: 0 0 1px transparent;
-  width: 900px;
   background: #fff;
   text-align: left;
   color: #333;
@@ -373,6 +371,7 @@ article.post .icon:before {
   padding: 0; 
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
   
 .footer-menu li{

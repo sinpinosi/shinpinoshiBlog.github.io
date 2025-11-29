@@ -57,8 +57,9 @@
 </div>
 
 </header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="main" class="inner">
+    <div id="content">
+      <div id="main-col" class="alignleft"><div id="wrapper">
 <article id="post-hexo-20251109-【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     <nav class="breadcrumb">
@@ -189,10 +190,69 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script></div></div>
-    <aside id="sidebar" class="alignright">
-<div class="widget-container">
-  
+      <div class="clearfix"></div>
+    </div>
     
+      <aside id="sidebar">
+        <div class="related-posts">
+  <h3>おすすめ記事</h3>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\markdown\" title="【Hexo】記事の書き方（マークダウン）について（テーマ：light）" rel="bookmark">【Hexo】記事の書き方（マークダウン）について（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\mokuji\" title="【Hexo】記事に自動で目次を付ける（テーマ：light）" rel="bookmark">【Hexo】記事に自動で目次を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\sitemap\" title="【Hexo】サイトマップを自動で作成（テーマ：light）" rel="bookmark">【Hexo】サイトマップを自動で作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\codeblock\langcolor\" title="【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" rel="bookmark">【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\privacypolicy\" title="【Hexo】プライバシーポリシーの作成（テーマ：light）" rel="bookmark">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
+<p>GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要があります。</p></p></div></li></ul>
+</div>
+      </aside>
+    
+  </article>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container profile-container-post">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+      </div>          
+    </div>
+  </div>
+
+<div id="footer-widget">
+  <div class="widget-container">
+    
+      
 <div class="widget tag">
   <h3 class="title">Category</h3>
   <ul class="entry">
@@ -208,8 +268,8 @@
   </ul>
 </div>
 
-  
     
+      
 <div class="widget tag">
   <h3 class="title">Tags</h3>
   <ul class="entry">
@@ -243,33 +303,31 @@
   </ul>
 </div>
 
-  
-</div></aside>
-    <div class="clearfix"></div>
+    
   </div>
-  <footer id="footer" class="inner">
-  
-    <!-- ↓ ここから新しいフッターメニュー -->
+</div>
+<!-- ↓ ここから新しいフッターメニュー -->
+
+  <ul class="footer-menu">
     
-      <ul class="footer-menu">
-        
-          <li><a href="/">Home</a></li>
-        
-          <li><a href="/profile">プロフィール</a></li>
-        
-          <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-        
-          <li><a href="/contact">お問い合わせ</a></li>
-        
-      </ul>
+      <li><a href="/">Home</a></li>
     
-    <!-- ↑ フッターメニューここまで -->
-    <div class="footer-copy">
+      <li><a href="/profile">プロフィール</a></li>
+    
+      <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+    
+      <li><a href="/contact">お問い合わせ</a></li>
+    
+  </ul>
+
+<!-- ↑ フッターメニューここまで -->
+<div class="footer-copy">
   
   &copy; 2025 shinpinoshi
   
 </div>
 <div class="clearfix"></div>
+
   </footer>
   
 <script src="/js/jquery-3.4.1.min.js"></script>
