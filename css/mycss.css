@@ -92,6 +92,41 @@ article.post .icon:before {
   margin: 0px 0px 0px 2px !important;
 } 
 
+
+/* 記事内のリスト */
+.nest-list{
+  margin: 10px 0 !important;
+  padding: 10px !important;
+  background: #fdf7e8;
+  border-radius: 10px;
+}
+.nest-list ul {
+  list-style: none; /* デフォルトの黒丸を消す */
+  padding-left: 0;
+  font-weight: bold;
+  margin: 2px 0 !important;
+}
+/* 親リストの li */
+.nest-list ul > li {
+  margin:5px 0;
+}
+/* ネストリスト */
+.nest-list ul li ul {
+  font-weight: normal;
+  margin-left: 10px !important;
+}
+/* ネストリスト */
+.nest-list ul li ul>li {
+  margin:2px 0;
+}
+/* ネストリストの li のマーカー（小丸） */
+.nest-list ul li ul li::before {
+  content: "–"; /* ダッシュに変更も可 */
+  color: #999;
+  margin-right: 10px;
+}
+
+
 /* info-warnボックス */
 .notice {
   padding: 10px;
@@ -203,6 +238,18 @@ article.post .icon:before {
 }
 
 /* リンクカード */
+/* リンク説明 */
+.link-comment{
+  font-weight: 1000;
+  font-size: 0.9em;
+}
+.link-comment::after{
+  content: "＞";
+}
+.link-comment::before{
+  content: "＜";
+}
+
 /* リンクカード_外部 */
 .e-content p a[target="_blank"] {
   display: block;
@@ -214,7 +261,7 @@ article.post .icon:before {
   color: #255d38;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   transition: all 0.25s ease;
-  margin: 10px 0;
+  margin: 0 0 10px 0;
   position: relative;
 }
 .e-content p a[target="_blank"]:hover {

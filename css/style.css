@@ -78,6 +78,17 @@ a:hover {
     width: 100%;
   }
 }
+.inner-width-post {
+  width: 900px;
+}
+@media screen and (max-width: 1260px) {
+  .inner-width-post {
+    width: 100%;
+  }
+}
+.inner-width-other {
+  width: 100%;
+}
 #main {
   display: -webkit-box;
   display: -moz-box;
@@ -103,7 +114,12 @@ a:hover {
 }
 @media screen and (max-width: 1260px) {
   #main {
-    display: block;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
 }
 #main #sidebar {
@@ -179,9 +195,6 @@ a:hover {
 }
 .h-entry {
   background-color: #fff;
-}
-#content {
-  width: 100%;
 }
 article.page {
   padding-left: 20px;

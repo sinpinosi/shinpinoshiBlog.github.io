@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head>
+  <meta charset="utf-8">
+  
+  <title>【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light） | shinpinoshi blog</title>
+  <meta name="author" content="shinpinoshi">
+  
+  <meta name="description" content="概要今回はブログのサイドバーに関連記事一覧を実装したので、やり方を残します。
+Hexoでは便利なプラグインを使うことで簡単に実装可能です。ただ自分の場合、他の方のやり方を真似しても想定通りに実装できなかったりしたので、そういった方の参考になると嬉しいです。">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）"/>
+  <meta property="og:site_name" content="shinpinoshi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+    
+  
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+
+</header>
+    <article id="main" class="inner">
+  
+      <div id="content" class="inner-width-post">
+  
+        <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-hexo-20251130-【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2025-11-26T13:17:42.000Z">2025-11-26</time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2><span id="概要">概要</span></h2><p>今回は<span class="mark-g">ブログのサイドバーに関連記事一覧を実装したので、やり方を残します。</span></p>
+<p><span class="mark-y">Hexoでは便利なプラグインを使うことで簡単に実装可能</span>です。<br>ただ自分の場合、他の方のやり方を真似しても想定通りに実装できなかったりしたので、そういった方の参考になると嬉しいです。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.プラグインをインストール</a></li>
+<li><a href="#2%E4%BB%BB%E6%84%8F%E5%80%8B%E6%89%80%E3%81%AB%E4%B8%8B%E8%A8%98%E3%81%AE%E8%A8%98%E8%BC%89%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">2.任意個所に下記の記載を追加する</a></li>
+<li><a href="#3css%E3%82%92%E8%A8%98%E8%BC%89%E3%81%99%E3%82%8B">3.CSSを記載する</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1プラグインをインストール">1.プラグインをインストール</span></h3><p>簡単に関連記事一覧を実装するために必要な<span class="mark-g">hexo-related-popular-postsをインストール </span></p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://github.com/tea3/hexo-related-popular-posts">https://github.com/tea3/hexo-related-popular-posts</a></p>
+<h3><span id="2任意個所に下記の記載を追加する">2.任意個所に下記の記載を追加する</span></h3><p>関連記事を追加する場所に下記を追加する。</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\sidebar.ejs</span></p>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- <span class="title function_">popular_posts</span>(&#123; <span class="attr">max</span>: <span class="number">5</span>,  <span class="attr">isExcerpt</span>: <span class="literal">true</span> &#125;, page) %&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_1.png" alt="sidebar.ejs" title="sidebar.ejs"></p>
+<div class="notice notice-info">
+自分の場合はサイドバーに表示したいので<span class="mark-y">sidebar.ejs</span>に追記してます。
+</div>
+
+<div class="nest-list">
+
+<ul>
+<li>オプションの意味<ul>
+<li>max：記事の最大表示件数</li>
+<li>isExcerpt：記事の概要を表示</li></ul></li></ul></div>
+
+
+
+<p>他にもいろいろなオプションがあります。<br>ここでは紹介しませんが、下記のサイト様がわかりやすく説明してます。<br>良ければご確認ください。</p>
+<p><span class="link-comment">参考ページ</span><br><a target="_blank" rel="noopener" href="https://photo-tea.com/p/hexo-related-popular-posts/">https://photo-tea.com/p/hexo-related-popular-posts/</a></p>
+<div class="notice notice-info">
+googleSearchConsoleから閲覧数が多い記事を取得して、
+人気記事の一覧を自動生成することもできるらしい(--b)
+</div>
+
+
+<h3><span id="3cssを記載する">3.CSSを記載する</span></h3><p>そのままだと味気ないので、いい感じにCSSを設定する</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\_partial\sidebar.styl</span></p>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.related-posts</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span></span><br><span class="line"></span><br><span class="line">  h3 </span><br><span class="line">    padding <span class="number">5px</span> <span class="number">10px</span></span><br><span class="line">    font-size <span class="number">1em</span></span><br><span class="line">    border-bottom <span class="number">1px</span> solid color-border</span><br><span class="line">    font-weight normal</span><br><span class="line"></span><br><span class="line">  .popular-posts</span><br><span class="line">    list-style: none;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.popular-posts-item</span> </span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">background</span>: <span class="number">#f7f7f7</span>;</span><br><span class="line">      <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">      <span class="attribute">transition</span>: background <span class="number">0.2s</span> ease;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-title</span> </span><br><span class="line">        <span class="selector-tag">h3</span></span><br><span class="line">          <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">          <span class="attribute">border-left</span>: none;</span><br><span class="line">          <span class="attribute">padding-left</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: underline;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-excerpt</span></span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">padding-top</span>:<span class="number">10px</span></span><br><span class="line">        h2</span><br><span class="line">          display:none</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_2.png" alt="sidebar.styl" title="sidebar.styl"></p>
+<div class="notice notice-info">
+自分の場合はサイドバーのstylファイルに実装したので、
+通常のCSSとは少し違う構造となってます。
+</div>
+
+<h3><span id="確認">確認</span></h3><p>hexoのサーバを起動すると、関連記事が5件表示されていると思います！</p>
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_3.png" alt="完成" title="完成"></p>
+<div class="notice notice-warn">
+各サイトによってレイアウトが違うと思うので、あくまで上記の画像はご参考程度にご確認ください
+</div>
+
+
+<h2><span id="注意">注意</span></h2><p><span class="mark-r">サーバ起動時に–draftsオプションを付けると下記のようなエラーが出ることがあります。</span><br>hexo cleanを叩けば一時的に消えますが、何度も再起動をすると復活します。<br>テストした感じ影響はなさそうなので放置してますが、解決方法わかる方いましたらどこかにひっそり書いていただけるととても助かります(- -;</p>
+<p class="codeblock-filename"><span>謎のエラー</span></p>
+
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hexo-related-popular-posts] error:  Because the post&#x27;s path has been changed, the link can not be created successfully. Please remove the cache with the following command.</span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2><span id="締め">締め</span></h2><p>記事内では簡単そうに書いてますが、かなり苦労しました。<br>sidebarが表示されず色々な方の記事を確認したり、、、<br>スタイルが崩れてCSSを大幅に見直したり、、、</p>
+<p>苦労はしましたが、結果的に実装できてよかったです！</p>
+<p><span class="mark-g">サイドバーが少し華やかになるだけで結構サイトの見た目もよくなった気がします。</span><br>もう少しレイアウトを整えてもいいかなと思いますが、個人的には結構満足してますので、それはまた別の機会に（^^!</p>
+<p>今回は以上となります。<br><span class="mark-g">他にもいろいろHexo関連の記事を書いているので、良かったら見ていってください！</span><br>お疲れさまでした！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a>, <a href="/tags/Hexo/">Hexo</a>, <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDP_smTXhS_mXexvBbaN8wquyID4cDpZVs",
+    authDomain: "shinpinoshiblog.firebaseapp.com",
+    projectId: "shinpinoshiblog",
+    storageBucket: "shinpinoshiblog.firebasestorage.app",
+    messagingSenderId: "319948450180",
+    appId: "1:319948450180:web:215c090abd67dd139415d1",
+    measurementId: "G-PH95TQZ11P"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script></div></div>
+        <div class="clearfix"></div>
+      </div>
+      
+        <aside id="sidebar">
+          <div class="related-posts">
+  <h3>関連記事</h3>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\mokuji\" title="【Hexo】記事に自動で目次を付ける（テーマ：light）" rel="bookmark">【Hexo】記事に自動で目次を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\codeblock\filename\" title="【Hexo】コードブロックにファイル名を入れる（テーマ：light）" rel="bookmark">【Hexo】コードブロックにファイル名を入れる（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\markdown\" title="【Hexo】記事の書き方（マークダウン）について（テーマ：light）" rel="bookmark">【Hexo】記事の書き方（マークダウン）について（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\template\" title="【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）" rel="bookmark">【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\codeblock\langcolor\" title="【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" rel="bookmark">【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p></p></div></li></ul>
+</div>
+        </aside>
+      
+    </article>
+    <footer id="footer" class="inner">
+      
+  <!-- プロフィール -->
+  <div class="profile-container profile-container-post">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+      </div>          
+    </div>
+  </div>
+
+<div id="footer-widget">
+  <div class="widget-container">
+    
+      
+<div class="widget tag">
+  <h3 class="title">Category</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>3</small></li>
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>13</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>1</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+    
+      
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>12</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/">ショッピング</a><small>2</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>12</small></li>
+  
+    <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>12</small></li>
+  
+    <li><a href="/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/">ポイ活</a><small>3</small></li>
+  
+    <li><a href="/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/">リリース手順</a><small>1</small></li>
+  
+    <li><a href="/tags/%E4%B8%80%E4%BA%BA%E6%97%85/">一人旅</a><small>1</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%8C%81%E3%81%A1%E7%89%A9/">持ち物</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E8%B2%AF%E9%87%91/">貯金</a><small>1</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+    
+  </div>
+</div>
+<!-- ↓ ここから新しいフッターメニュー -->
+
+  <ul class="footer-menu">
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/profile">プロフィール</a></li>
+    
+      <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+    
+      <li><a href="/contact">お問い合わせ</a></li>
+    
+  </ul>
+
+<!-- ↑ フッターメニューここまで -->
+<div class="footer-copy">
+  
+  &copy; 2025 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+
+    </footer>
+    
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
