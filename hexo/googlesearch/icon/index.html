@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light） | shinpinoshi blog</title>
+  <title>【簡単】Googleの検索結果にアイコンを表示する為の設定 | shinpinoshi blog</title>
   <meta name="author" content="shinpinoshi">
   
-  <meta name="description" content="概要GoogleSearchConsoleにて 「重複しています。ユーザーにより、正規ページとして選択されていません」 と表示されインデックス登録されませんでした。
-原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。
-解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。">
+  <meta name="description" content="概要Googleの検索結果にアイコンを表示させるための手順を残します。
+結構色々試行錯誤した結果ようやく表示できたものなので、同じように苦戦している方の参考になればうれしいです！">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）"/>
+  <meta property="og:title" content="【簡単】Googleの検索結果にアイコンを表示する為の設定"/>
   <meta property="og:site_name" content="shinpinoshi blog"/>
 
   
@@ -64,7 +63,7 @@
       <div id="content" class="inner-width-post">
   
         <div id="main-col" class="alignleft"><div id="wrapper">
-<article id="post-hexo-20251112-【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-hexo-20251130-Googleの検索結果にアイコンを表示する為の設定" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     <nav class="breadcrumb">
   <a href="/">Home</a>
@@ -77,7 +76,7 @@
   
   
     &nbsp;>&nbsp;
-    <span>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</span>
+    <span>【簡単】Googleの検索結果にアイコンを表示する為の設定</span>
   
 </nav>
 
@@ -87,39 +86,31 @@
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2025-11-12T13:31:20.000Z">2025-11-12</time>
+        <time class="dt-published" datetime="2025-11-30T14:34:13.000Z">2025-11-30</time>
       
       
   
-    <h1 class="p-name title" itemprop="headline name">【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</h1>
+    <h1 class="p-name title" itemprop="headline name">【簡単】Googleの検索結果にアイコンを表示する為の設定</h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
-<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
-<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
+        <h2><span id="概要">概要</span></h2><p><span class="mark-g">Googleの検索結果にアイコンを表示させるための手順</span>を残します。</p>
+<p>結構色々試行錯誤した結果ようやく表示できたものなので、同じように苦戦している方の参考になればうれしいです！</p>
 <span id="more"></span>
-<div class="notice notice-info">
-あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
-</div>
 
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
+<p>変更前は下記のようにアイコンは表示されていません。<br><img src="/images/posts/20251201_google_icon/google_icon_1.png" alt="変更前" title="変更後"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
-<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
+<li><a href="#1%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E7%94%BB%E5%83%8F%E3%82%92%E5%BD%A2%E5%BC%8F%E3%81%94%E3%81%A8%E3%81%AB%E4%BD%9C%E6%88%90">1.アイコン画像を形式ごとに作成</a></li>
+<li><a href="#2head%E8%A6%81%E7%B4%A0%E3%81%AB%E7%94%A8%E6%84%8F%E3%81%97%E3%81%9F%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B">2.head要素に用意したアイコンを設定する</a></li>
+<li><a href="#3%E6%95%B0%E6%97%A5%E5%BE%85%E3%81%A3%E3%81%A6%E3%81%8B%E3%82%89%E7%A2%BA%E8%AA%8D">3.数日待ってから確認</a></li>
+<li><a href="#4%E3%81%84%E3%81%A4%E3%81%BE%E3%81%A7%E3%81%9F%E3%81%A3%E3%81%A6%E3%82%82%E9%81%A9%E7%94%A8%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">4.いつまでたっても適用されない場合</a></li>
 </ul>
 </li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
@@ -128,23 +119,46 @@
 
 </div>
 
+<h2><span id="手順">手順</span></h2><h3><span id="1アイコン画像を形式ごとに作成">1.アイコン画像を形式ごとに作成</span></h3><p>Google検索結果表示用に設定する<span class="mark-g">画像形式は複数用意</span>する必要があります。</p>
+<div class="nest-list">
 
-<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用意する形式<ul>
+<li>svg </li>
+<li>ico<ul>
+<li>size:144×144px</li>
+</ul>
+</li>
+<li>png<ul>
+<li>size:144×144px</li></ul></li></ul></li></ul></div>
 
-<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
-<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
 
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
-<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
-<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
-<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
-<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
-<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
-<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
-<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
+
+
+<p><span class="mark-y">サイズもきっちり合わせたほうが確実</span>かと思います。<br>ちなみに<span class="mark-y">検索結果のアイコンには48px以上が推奨</span>されています。<br><span class="link-comment">ソース</span><br><a target="_blank" rel="noopener" href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=ja">https://developers.google.com/search/docs/appearance/favicon-in-search?hl=ja</a></p>
+<div class="notice notice-warn">
+複数種類用意しないとiPhoneだけ表示されないなど、プラットフォームによって表示されない可能性があります。
+場合によってはできるかもですが、自分の場合は3種類用意して表示されました。
+</div>
+
+<h3><span id="2head要素に用意したアイコンを設定する">2.head要素に用意したアイコンを設定する</span></h3><p>head要素に用意したアイコンをすべて設定します。</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/images/common/pin.svg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/svg+xml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;shortcut icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/images/common/favicon.ico&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/x-icon&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/images/common/pin.png&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;144x144&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251201_google_icon/google_icon_2.png" alt="head要素" title="head要素"></p>
+<h3><span id="3数日待ってから確認">3.数日待ってから確認</span></h3><p>数日待ってからGoogleで自分のサイトを検索すると、検索結果にアイコンが表示されます。</p>
+<p><img src="/images/posts/20251201_google_icon/google_icon_3.png" alt="完成" title="完成"></p>
+<div class="notice notice-info">
+自分の場合は、<span class="mark-y">2週間くらい</span>かかった気がします。
+GoogleのクロールBotが巡回されるまで気長に待つしかなさそうです。。。
+</div>
+
+<h3><span id="4いつまでたっても適用されない場合">4.いつまでたっても適用されない場合</span></h3><p><span class="mark-g">GoogleSearchConsoleでトップページのインデックス再登録</span>を実施すると登録されるかもしれません。<br>自分も一応やっておきました。<br>損はしないと思います！</p>
+<h2><span id="締め">締め</span></h2><p>自分の場合は、色々やり方を試しましたがなかなか表示されませんでした。。。<br>試行錯誤してようやく検索結果に表示することができたので、似たように悩んでいる方の参考になりましたらうれしいです。</p>
+<p>あとはGoogleのクロールの頻度が低いので、一発で決めれるように確実に設定していきましょう！</p>
+<p><span class="mark-g">サイトアイコンがないとクリックするときに少し不安感を覚えるので、これでさらにサイトの完成度が上がりました！</span></p>
+<p>以上。<br><span class="mark-y">他にもいろいろHexo関連の記事を書いています。よければ見ていってください(^^b</span><br>お疲れさまでした。</p>
 
       
     </div>
