@@ -262,7 +262,7 @@ article.post .icon:before {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   transition: all 0.25s ease;
   margin: 0 0 10px 0;
-  position: relative;
+  overflow-wrap: break-word;
 }
 .e-content p a[target="_blank"]:hover {
   background: linear-gradient(135deg, #e3f4e7, #d8eee0);
@@ -292,7 +292,8 @@ article.post .icon:before {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   transition: all 0.25s ease;
   margin-top: 10px;
-  position: relative;
+  overflow-wrap: break-word;
+
 }
 .e-content p a[href^="/"]:hover {
   background: linear-gradient(135deg, #e6f2f6, #d9ebf1);
