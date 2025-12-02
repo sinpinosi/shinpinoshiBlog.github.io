@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light） | shinpinoshi blog</title>
+  <title>GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法 | shinpinoshi blog</title>
   <meta name="author" content="shinpinoshi">
   
-  <meta name="description" content="概要GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。">
+  <meta name="description" content="概要今回はGoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法をお伝えします。
+GoogleAdsenseを開いたとき毎回警告が出るので、必ず対応するようにしましょう！
+それではやっていきましょう(^^">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）"/>
+  <meta property="og:title" content="GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法"/>
   <meta property="og:site_name" content="shinpinoshi blog"/>
 
   
@@ -63,7 +65,7 @@
       <div id="content" class="inner-width-post">
     
         <div id="main-col" class="alignleft"><div id="wrapper">
-<article id="post-hexo-20251109-【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-hexo-20251203-GoogleAdsenseで「ads-txtが見つかりませんでした」と表示された場合の対処法" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     <nav class="breadcrumb">
   <a href="/">Home</a>
@@ -76,7 +78,7 @@
   
   
     &nbsp;>&nbsp;
-    <span>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</span>
+    <span>GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</span>
   
 </nav>
 
@@ -86,17 +88,19 @@
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2025-11-09T11:14:39.000Z">2025-11-09</time>
+        <time class="dt-published" datetime="2025-12-02T15:21:08.000Z">2025-12-03</time>
       
       
   
-    <h1 class="p-name title" itemprop="headline name">【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</h1>
+    <h1 class="p-name title" itemprop="headline name">GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
+        <h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</span>をお伝えします。</p>
+<p>GoogleAdsenseを開いたとき毎回警告が出るので、必ず対応するようにしましょう！</p>
+<p>それではやっていきましょう(^^</p>
 <span id="more"></span>
 
 <h2><span id="目次">目次</span></h2><div class="post-toc">
@@ -104,46 +108,46 @@
 <!-- toc -->
 
 <ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1headejs%E3%82%92%E5%A4%89%E6%9B%B4">1.head.ejsを変更</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
-<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
+<li><a href="#1adsense%E3%81%8B%E3%82%89adstxt%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E5%8F%96%E5%BE%97">1.Adsenseからads.txtの内容を取得</a></li>
+<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88%E3%81%ABadstxt%E3%82%92%E4%BD%9C%E6%88%90">2.サイトのルートにads.txtを作成</a></li>
+<li><a href="#3adstxt%E3%81%AE%E7%A2%BA%E8%AA%8D">3.ads.txtの確認</a></li>
+<li><a href="#4googleadsense%E3%81%AB%E4%BF%AE%E6%AD%A3%E3%82%92%E5%8F%8D%E6%98%A0">4.GoogleAdsenseに修正を反映</a></li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
 </div>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1headejsを変更">1.head.ejsを変更</span></h3><p>ヘッダーを定義するファイルに「アーカイブ」と「タグ」ページの場合はnoindexを設定するように定義</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (is_archive() || is_tag()) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_1.png" alt="head.ejs" title="head.ejs"></p>
-<h2><span id="確認">確認</span></h2><p>ビルドを行いpublic内に生成されたHTMLのヘッダーを確認する。<br>下記のように指定したページだけnoindexが記載されてればOKです。</p>
-<div class="notice notice-info">
-追記：後から気づきましたが、vscodeの検索窓から「meta name="robots" 」などで検索すれば一括で簡単に見れますね。。。
-</div>
+<h2><span id="1adsenseからadstxtの内容を取得">1.Adsenseからads.txtの内容を取得</span></h2><p>GoogleAdsenseを開き、<span class="mark-g">「サイト → サイトのURL」で作成したサイトを選択</span>する。<br>そこに<span class="mark-g">表示されている「コピーボタン」を押下し、ads.txtに張り付ける内容を取得</span></p>
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_1.png" alt="GoogleAdsenseサイトのURL" title="GoogleAdsenseサイトのURL"></p>
+<h2><span id="2サイトのルートにadstxtを作成">2.サイトのルートにads.txtを作成</span></h2><p><span class="mark-g">サイトのルートにads.txtを作成</span>し、GoogleAdsenseから取得した内容を貼り付けます。</p>
+<p class="codeblock-filename"><span>ads.txt</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google.com, pub-[ID_1], DIRECT, [ID_2]</span><br></pre></td></tr></table></figure>
 
-<p><strong>＜アーカイブ＞</strong><br>site\public\archives\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_2.png" alt="アーカイブ" title="アーカイブ"></p>
-<p><strong>＜タグのHTML＞</strong><br>site\public\tags\Hexo\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_3.png" alt="タグ" title="タグ"></p>
-<p><strong>＜トップページのHTML＞</strong><br>site\public\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_4.png" alt="トップページ" title="トップページ"></p>
-<p><strong>＜カテゴリのHTML＞</strong><br>site\public\categories\エンジニアリング\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_5.png" alt="カテゴリ" title="カテゴリ"></p>
-<p><strong>＜記事のHTML＞</strong><br>site\public\travel\picatitibu\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_6.png" alt="記事" title="記事"></p>
-<p>問題なく設定できてますね！</p>
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_2.png" alt="ads.txt作成" title="ads.txt作成"></p>
+<h2><span id="3adstxtの確認">3.ads.txtの確認</span></h2><p>サイトをリリースし、<span class="mark-g">ads.txtがルートフォルダに存在するか確認</span>する。</p>
+<p class="codeblock-filename"><span>ads.txtのURL</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[自サイトのURL]\ads.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_3.png" alt="ads.txt確認" title="ads.txt確認"></p>
+<h2><span id="4googleadsenseに修正を反映">4.GoogleAdsenseに修正を反映</span></h2><p>GoogleAdsenseにアクセスし、<span class="mark-g">「サイト → サイトのURL」で作成したサイトを選択後、「更新を確認」を押下</span><br><span class="mark-y">「ads.txtが検出されました」と表示されれば登録完了</span>です。<br><img src="/images/posts/20251202_adsense_ads/adsense_ads_4.png" alt="GoogleAdsense修正反映" title="GoogleAdsense修正反映"></p>
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_5.png" alt="GoogleAdsense修正反映完了" title="GoogleAdsense修正反映完了"></p>
 <div class="notice notice-warn">
-ここで設定を失敗するとすべてのページがnoindexとなってしまい、全ページが検索エンジンから消えます。必ず確認するようにしましょう！
+「ads.txtが見つかりませんでした」の警告が消えるまで、しばらくかかります。
+自分の場合は30分くらい、、、気長に待ちましょう！
 </div>
 
-<h2><span id="補足">補足</span></h2><p>特定のページのみをnoindexにする場合は「is_current(‘ページ名’)」のように記載すれば可能です。</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (is_current(&#x27;/privacy-policy&#x27;)) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
-<h2><span id="締め">締め</span></h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
-<p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
-<p>以上お疲れさまでした。</p>
+<h2><span id="締め">締め</span></h2><p>こんな感じでads.txtを設定すれば問題なく登録できるはずです。<br>そんなに手間もかからないので、警告が出ている方はやっておいたほうが良いかもしれません。</p>
+<p><span class="mark-y">突然広告が剝がされたりとかあるかもなので(- -</span></p>
+<p>以上となります。<br>こんな感じで<span class="mark-g">サイトに関することや節約などお金のことなど色々紹介しております。</span><br>良ければ見ていってください(^^!</p>
+<p>お疲れさまでした！</p>
+<p>PS<br>自分のサイトもやっとGoogleAdsenseの設定が通りました！<br>結構色々試行錯誤してやっと通ったので、応用情報技術者試験の合格よりうれしかったかも(^^!</p>
+<p>これからもたくさん記事書いてくぞ！</p>
+<p>それでは今度こそお疲れさまでした。</p>
 
       
     </div>
