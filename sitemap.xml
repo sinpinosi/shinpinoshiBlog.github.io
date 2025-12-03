@@ -257,20 +257,6 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/</loc>
-    <lastmod>2025-12-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/linux/</loc>
-    <lastmod>2025-12-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://shinpinoshi.com/tags/%E6%96%B0%E4%BA%BA/</loc>
     <lastmod>2025-12-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -285,7 +271,28 @@
   </url>
   
   <url>
+    <loc>https://shinpinoshi.com/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/linux/</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://shinpinoshi.com/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/</loc>
+    <lastmod>2025-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/%E8%B2%AF%E9%87%91/</loc>
     <lastmod>2025-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -306,7 +313,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E8%B2%AF%E9%87%91/</loc>
+    <loc>https://shinpinoshi.com/tags/%E6%8C%81%E3%81%A1%E7%89%A9/</loc>
     <lastmod>2025-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -314,13 +321,6 @@
   
   <url>
     <loc>https://shinpinoshi.com/tags/%E4%B8%80%E4%BA%BA%E6%97%85/</loc>
-    <lastmod>2025-12-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/%E6%8C%81%E3%81%A1%E7%89%A9/</loc>
     <lastmod>2025-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
