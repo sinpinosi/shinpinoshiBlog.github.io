@@ -485,50 +485,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
-    <url>//hexo/template/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
-<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>ブログ</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】プライバシーポリシーの作成（テーマ：light）</title>
     <url>//hexo/privacypolicy/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
@@ -593,6 +549,50 @@
 <h2><span id="締め">締め</span></h2><p>プライバシーポリシーを追加するにあたり色々調べましたが、こんな面倒なこと皆さんやられてるんですね。。<br>いやー勉強になりました(^-^;</p>
 <p>実装については、フッター機能がないことに気づき面倒だな、、と思いましたが、思ったより工数はかからず数時間で実装できました。</p>
 <p>結構いい感じなのではないでしょうか？</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
+    <url>//hexo/template/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
+<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
+<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -705,70 +705,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
-    <url>//hexo/redirect/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
-<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
-<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
-<span id="more"></span>
-<div class="notice notice-info">
-あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
-</div>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
-<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
-
-<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
-<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
-<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
-<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
-<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
-<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
-<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
-<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>ブログ</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</title>
     <url>//hexo/noindex/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
@@ -823,6 +759,70 @@
 <h2><span id="締め">締め</span></h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
 <p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
 <p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
+    <url>//hexo/redirect/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
+<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
+<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
+<span id="more"></span>
+<div class="notice notice-info">
+あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
+</div>
+
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
+<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
+<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
+<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
+<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
+<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
+<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
+<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
+<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
         <category>エンジニアリング</category>
@@ -1330,89 +1330,6 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
       </tags>
   </entry>
   <entry>
-    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
-    <url>//money/point/vpointget/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
-<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
-<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
-<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
-<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
-<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
-<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
-<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
-<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
-<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
-<div class="notice notice-info">
-アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
-</div>
-
-<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
-<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
-<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
-<div class="notice notice-info">
-iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
-<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
-<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
-<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
-<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
-<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<div class="notice notice-warn">
-Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
-<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
-<div class="notice notice-warn">
-このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
-</div>
-
-
-<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
-<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
-<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
-<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
-<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>25歳一人暮らし年収400万が600万円貯金した方法</title>
     <url>//money/saving/25yearsold/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-y">年収400万円の私が25歳で600万円貯金した方法</span>を備忘録として残します。<br>普通に旅行も行くし、飲み会にも参加して達成したので、多分誰でもできます。</p>
@@ -1440,7 +1357,7 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
 
 </div>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="方法">方法</span></h2><h3><span id="フリマアプリを使用">フリマアプリを使用</span></h3><p>メルカリやYahoo!フリマなどで不要になったものを売却します。</p>
 <p><span class="mark-y">また長く使うものを購入するときも必ずフリマアプリを見て、</span><br><span class="mark-y">いくらで売れるのか確認してから購入します。</span><br><span class="mark-g">個人的には5割以上の金額で売れるならいいかな</span>と思います！</p>
@@ -1500,69 +1417,6 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       <tags>
         <tag>ポイ活</tag>
         <tag>貯金</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</title>
-    <url>//money/point/keiba/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
-<p>普通に券売機から買うとポイントは入らないので、どうせ同じ馬券を買うならお得に楽しみたいですよね！</p>
-<p>そのための方法を色々紹介できたらいいなとおもいます。</p>
-<p><span class="mark-g">普段コスパタイパを重視して、ポイ活をやってる身としてはかなり耳寄りな情報だと思ったので、是非見ていってください！</span></p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#jra%E3%81%AE%E5%A0%B4%E5%90%88">JRAの場合</a></li>
-<li><a href="#%E5%9C%B0%E6%96%B9%E7%AB%B6%E9%A6%AC%E3%81%AE%E5%A0%B4%E5%90%88">地方競馬の場合</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="jraの場合">JRAの場合</span></h2><p><span class="mark-y">UMACA</span>というサービスを使うことで<span class="mark-y">馬券購入時に0.5%の還元</span>を受けられます。</p>
-<p><span class="mark-g">お金をプリペイドにチャージして、競馬場の専用ブースにて購入</span>できます。</p>
-<div class="notice notice-warn">
-お金をチャージする必要があり有効期限があるので、たまにしか行かない人は注意が必要です
-</div>
-
-<p><span class="link-comment">公式ページ</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
-<p>また<span class="mark-g">ポイントを使用すると競馬場で使えるクーポンと交換できたりします！</span></p>
-<p>例えば、食堂のクーポンやオリジナルグッズとの交換などです。</p>
-<p><span class="mark-y">特に食堂のクーポンは100ポイントで90円分のクーポンがもらえる</span>ので、<br>競馬場で飲み食いする人は必見です(^^&#x2F;</p>
-<p><span class="link-comment">ポイント交換先一覧</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="地方競馬の場合">地方競馬の場合</span></h2><p><span class="mark-y">楽天競馬</span>を利用すれば、<span class="mark-y">レースごとに1〜10％程度の楽天ポイント還元</span>を受けれます。</p>
-<p>また<span class="mark-g">イベントも定期的に行なってます。</span><br>例えば、3連単を的中させると的中回数によってポイントが貰えたりします。</p>
-<p>1倍の馬券を買ってしまった時もポイント還元が受けれるので、お得感あっていいですよね(^^</p>
-<p><span class="link-comment">公式サイト</span><br><a href="https://keiba.rakuten.co.jp/">https://keiba.rakuten.co.jp/</a></p>
-<div class="notice notice-warn">
-キャンペーンについては参加しないと適用されないので注意が必要です。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>個人的には競馬場で飲み食いしながら競馬を見るのが好きなので、UMACAポイントは知れてよかったです！</p>
-<p><span class="mark-g">どうでもいいですが、東京競馬場のプリッツェル激うまなのでぜひ食べてみてください(^^</span></p>
-<p>PS<br><span class="mark-y">競馬は個人的にはかなりコスパがいい趣味</span>だと思っててます。<br>1レース500円程度なら全レース掛けても6000円、飲み食いしてもせいぜい3000円程度です。<br>タコ負けしても1万円以内でこんなに楽しめるのはコスパ良すぎです(^^*<br>居酒屋をハシゴしたらこれくらい溶けますし。。</p>
-<p><span class="mark-r">まぁもちろんヒートアップして1レースで10万円とか賭けるようになったら終わりですが、、、</span></p>
-<p>多分投資とかちゃんとやってる人ならその辺の自制心が効く人が多いのではないかと思います(^^</p>
-<p><span class="mark-g">自分はマイレース500円を賭けてまったり休日を楽しむことにしてます！</span></p>
-<p>以上となります。<br><span class="mark-g">用法容量を守って、投資もギャンブルも楽しみましょう(^^</span><br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>趣味</tag>
       </tags>
   </entry>
   <entry>
@@ -1865,6 +1719,89 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
+    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
+    <url>//money/point/vpointget/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
+<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
+<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
+<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
+<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
+<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
+<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
+<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
+<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
+<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
+<div class="notice notice-info">
+アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
+</div>
+
+<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
+<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
+<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
+<div class="notice notice-info">
+iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
+<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
+<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
+<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
+<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
+<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
+<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<div class="notice notice-warn">
+Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
+<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
+<div class="notice notice-warn">
+このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
+</div>
+
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
+<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
+<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
+<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
+<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>食</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一人旅 in 茨城県 磯崎海岸、阿字ヶ浦周辺【写真付】</title>
     <url>//travel/solo/isozaki/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
@@ -1959,6 +1896,69 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       <tags>
         <tag>食</tag>
         <tag>一人旅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</title>
+    <url>//money/point/keiba/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
+<p>普通に券売機から買うとポイントは入らないので、どうせ同じ馬券を買うならお得に楽しみたいですよね！</p>
+<p>そのための方法を色々紹介できたらいいなとおもいます。</p>
+<p><span class="mark-g">普段コスパタイパを重視して、ポイ活をやってる身としてはかなり耳寄りな情報だと思ったので、是非見ていってください！</span></p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#jra%E3%81%AE%E5%A0%B4%E5%90%88">JRAの場合</a></li>
+<li><a href="#%E5%9C%B0%E6%96%B9%E7%AB%B6%E9%A6%AC%E3%81%AE%E5%A0%B4%E5%90%88">地方競馬の場合</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="jraの場合">JRAの場合</span></h2><p><span class="mark-y">UMACA</span>というサービスを使うことで<span class="mark-y">馬券購入時に0.5%の還元</span>を受けられます。</p>
+<p><span class="mark-g">お金をプリペイドにチャージして、競馬場の専用ブースにて購入</span>できます。</p>
+<div class="notice notice-warn">
+お金をチャージする必要があり有効期限があるので、たまにしか行かない人は注意が必要です
+</div>
+
+<p><span class="link-comment">公式ページ</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
+<p>また<span class="mark-g">ポイントを使用すると競馬場で使えるクーポンと交換できたりします！</span></p>
+<p>例えば、食堂のクーポンやオリジナルグッズとの交換などです。</p>
+<p><span class="mark-y">特に食堂のクーポンは100ポイントで90円分のクーポンがもらえる</span>ので、<br>競馬場で飲み食いする人は必見です(^^&#x2F;</p>
+<p><span class="link-comment">ポイント交換先一覧</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="地方競馬の場合">地方競馬の場合</span></h2><p><span class="mark-y">楽天競馬</span>を利用すれば、<span class="mark-y">レースごとに1〜10％程度の楽天ポイント還元</span>を受けれます。</p>
+<p>また<span class="mark-g">イベントも定期的に行なってます。</span><br>例えば、3連単を的中させると的中回数によってポイントが貰えたりします。</p>
+<p>1倍の馬券を買ってしまった時もポイント還元が受けれるので、お得感あっていいですよね(^^</p>
+<p><span class="link-comment">公式サイト</span><br><a href="https://keiba.rakuten.co.jp/">https://keiba.rakuten.co.jp/</a></p>
+<div class="notice notice-warn">
+キャンペーンについては参加しないと適用されないので注意が必要です。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>個人的には競馬場で飲み食いしながら競馬を見るのが好きなので、UMACAポイントは知れてよかったです！</p>
+<p><span class="mark-g">どうでもいいですが、東京競馬場のプリッツェル激うまなのでぜひ食べてみてください(^^</span></p>
+<p>PS<br><span class="mark-y">競馬は個人的にはかなりコスパがいい趣味</span>だと思っててます。<br>1レース500円程度なら全レース掛けても6000円、飲み食いしてもせいぜい3000円程度です。<br>タコ負けしても1万円以内でこんなに楽しめるのはコスパ良すぎです(^^*<br>居酒屋をハシゴしたらこれくらい溶けますし。。</p>
+<p><span class="mark-r">まぁもちろんヒートアップして1レースで10万円とか賭けるようになったら終わりですが、、、</span></p>
+<p>多分投資とかちゃんとやってる人ならその辺の自制心が効く人が多いのではないかと思います(^^</p>
+<p><span class="mark-g">自分はマイレース500円を賭けてまったり休日を楽しむことにしてます！</span></p>
+<p>以上となります。<br><span class="mark-g">用法容量を守って、投資もギャンブルも楽しみましょう(^^</span><br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>趣味</tag>
       </tags>
   </entry>
 </search>
