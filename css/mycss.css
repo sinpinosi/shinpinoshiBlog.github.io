@@ -51,8 +51,8 @@ body {
 }
 @media screen and (max-width: 600px) {
 	.adsbygoogle{
-    display: flex;
-		width: 100%;
+    display: flex !important;
+		width: 100% !important;
 	}
 }
 
