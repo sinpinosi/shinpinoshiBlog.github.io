@@ -3,24 +3,24 @@ body {
     -webkit-text-size-adjust: 100%; /* Safari */
 }
 
-.e-content h2:first-of-type  {
+.e-content > h2:first-of-type  {
   margin-top:20px !important;
 }
-.e-content h2 {
+.e-content > h2 {
   margin-top:40px !important;
   padding-right: 30px; /* ひし形の分だけ余白を確保 */
 }
-.e-content h2::before {
+.e-content > h2::before {
   content: "◆";
   color: #f7ab35;
   padding-right: 5px;
   display: inline-block; /* transform を文字に効かせるため */
   transform: scaleX(0.7); /* 横幅80%に縮小 */
 }
-.e-content h2 + h3 {
+.e-content > h2 + h3 {
   margin-top:20px !important;
 } 
-.e-content h3 {
+.e-content > h3 {
   margin-left: 2px;
   border-left: 7px solid #0b5fa4;
   padding-left: 10px;
@@ -49,6 +49,34 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
+
+
+/* 楽天AdSense */
+.rakten-ads td{
+  border: none !important;
+}
+/* .rakten-ads table{  
+  width: none !important;
+} */
+.rakten-ads > table{
+  margin: 0px !important;
+  border: none !important;
+}
+.rakten-ads table td{
+  border: none !important;
+}
+.rakten-ads table tbody tr td{
+  padding: 0px !important;
+}
+.rakten-ads>table>tbody>tr>td>div>table{
+  width: auto !important;
+}
+@media screen and (max-width: 700px) {
+  .rakten-ads table tbody tr td div table tbody tr{
+    display: flex !important;
+    flex-direction:column
+  }
+} 
 
 
 /* imageキャプション */
@@ -259,7 +287,7 @@ article.post .icon:before {
 }
 
 /* リンクカード_外部 */
-.e-content p a[target="_blank"] {
+.e-content > p > a[target="_blank"]{
   display: block;
   border: 1px solid #bcdac2;
   background: linear-gradient(135deg, #f0f9f2, #e8f3ea);
@@ -272,13 +300,13 @@ article.post .icon:before {
   margin: 0 0 10px 0;
   overflow-wrap: break-word;
 }
-.e-content p a[target="_blank"]:hover {
+.e-content > p > a[target="_blank"]:hover {
   background: linear-gradient(135deg, #e3f4e7, #d8eee0);
   border-color: #8ec49b;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.e-content p a[target="_blank"]::before {
+.e-content > p > a[target="_blank"]::before {
   content: "🔗 外部リンク";
   display: block;
   font-size: 0.8em;
@@ -289,7 +317,7 @@ article.post .icon:before {
 }
 
 /* リンクカード_内部 */
-.e-content p a[href^="/"] {
+.e-content > p > a[href^="/"] {
   display: block;
   border: 1px solid #b9d7e0;
   background: linear-gradient(135deg, #f2f9fb, #eaf3f6);
@@ -303,13 +331,13 @@ article.post .icon:before {
   overflow-wrap: break-word;
 
 }
-.e-content p a[href^="/"]:hover {
+.e-content > p > a[href^="/"]:hover {
   background: linear-gradient(135deg, #e6f2f6, #d9ebf1);
   border-color: #8bbdcc;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.e-content p a[href^="/"]::before {
+.e-content > p > a[href^="/"]::before {
   content: "🔗 内部リンク";
   display: block;
   font-size: 0.8em;
@@ -437,3 +465,4 @@ article.post .icon:before {
 .footer-menu li:last-child {
   border-right: none;
 }
+

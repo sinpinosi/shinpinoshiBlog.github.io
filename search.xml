@@ -1,204 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
-    <url>//hexo/mokuji/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
-<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
-<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
-<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h3><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
-<img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md">
-
-<h3><span id="2_configymlを変更">2._config.ymlを変更</span></h3><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
-<p class="codeblock-filename"><span>site\_config.yml</span></p>
-
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
-
-<img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml">
-
-<h3><span id="3cssを変更">3.cssを変更</span></h3><p>このままだとダサいのでCSSをいい感じに変更</p>
-<p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="自分のCSS.css">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
-<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。</p>
-<img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像">
-
-
-<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
-<p>これでよりブログっぽくなったと思います。</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
-    <url>//hexo/markdown/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3">マークダウン</a><ul>
-<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
-<li><a href="#%E7%94%BB%E5%83%8F">画像</a></li>
-<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
-<li><a href="#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88">番号付きリスト</a></li>
-<li><a href="#%E6%94%B9%E8%A1%8C">改行</a></li>
-<li><a href="#%E5%A4%AA%E5%AD%97">太字</a></li>
-<li><a href="#%E7%BD%AB%E7%B7%9A">罫線</a></li>
-<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97">見出し</a></li>
-</ul>
-</li>
-<li><a href="#h2%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h2の見出し</a><ul>
-<li><a href="#h3%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h3の見出し</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="マークダウン">マークダウン</span></h2><h3><span id="リンク">リンク</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.deepl.com/ja/translator" title="翻訳サイト">DeepL</a><br><a href="/" title="HOME">ブログのHOME</a></p>
-<h3><span id="画像">画像</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/mounten_view.jpg" alt="山の画像" title="山の画像です"></p>
-<h3><span id="リスト">リスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
-<ul>
-<li>list1<ul>
-<li>hoge</li>
-</ul>
-</li>
-<li>list2<ul>
-<li>hohoge</li>
-</ul>
-</li>
-</ul>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="番号付きリスト">番号付きリスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
-<ol>
-<li>リスト１</li>
-<li>リスト２</li>
-</ol>
-<h3><span id="改行">改行</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
-<p>abc</p>
-<p>efg</p>
-<p>hoge</p>
-<h3><span id="太字">太字</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
-<p>hoge<strong>hoge</strong>hoge</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="罫線">罫線</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
-<p>hoge</p>
-<hr>
-<p>hoge</p>
-<h3><span id="見出し">見出し</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
-<h2><span id="h2の見出し">h2の見出し</span></h2><h3><span id="h3の見出し">h3の見出し</span></h3><h4><span id="h4の見出し">h4の見出し</span></h4><h5><span id="h5の見出し">h5の見出し</span></h5><h6><span id="h6の見出し">h6の見出し</span></h6>]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
-    <url>//hexo/codeblock/filename/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1html%E8%A6%81%E7%B4%A0%E3%82%92md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E8%A8%98%E8%BC%89">1.HTML要素を.mdファイルに記載</a></li>
-<li><a href="#2css%E3%82%92%E5%AE%9A%E7%BE%A9">2.CSSを定義</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1html要素をmdファイルに記載">1.HTML要素を.mdファイルに記載</span></h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
-<h3><span id="2cssを定義">2.CSSを定義</span></h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="完成">完成</span></h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
-<h2><span id="締め">締め</span></h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
-<p>まぁ変にバグが起こるよりはいいか(–)b</p>
-<p>以上。今回もお疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【NodeJs】サムネ用に画像の中に文字を入れるツールを作る</title>
     <url>//engineering/programming/draw_text_on_image/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">画像の中に文字を入れるツールを作るための手順</span>をお伝えします。</p>
@@ -300,8 +102,206 @@
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>ブログ</tag>
         <tag>ツール</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
+    <url>//hexo/mokuji/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
+<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
+<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h3><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md">
+
+<h3><span id="2_configymlを変更">2._config.ymlを変更</span></h3><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
+<p class="codeblock-filename"><span>site\_config.yml</span></p>
+
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
+
+<img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml">
+
+<h3><span id="3cssを変更">3.cssを変更</span></h3><p>このままだとダサいのでCSSをいい感じに変更</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="自分のCSS.css">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。</p>
+<img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像">
+
+
+<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
+<p>これでよりブログっぽくなったと思います。</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
+    <url>//hexo/markdown/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3">マークダウン</a><ul>
+<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
+<li><a href="#%E7%94%BB%E5%83%8F">画像</a></li>
+<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
+<li><a href="#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88">番号付きリスト</a></li>
+<li><a href="#%E6%94%B9%E8%A1%8C">改行</a></li>
+<li><a href="#%E5%A4%AA%E5%AD%97">太字</a></li>
+<li><a href="#%E7%BD%AB%E7%B7%9A">罫線</a></li>
+<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97">見出し</a></li>
+</ul>
+</li>
+<li><a href="#h2%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h2の見出し</a><ul>
+<li><a href="#h3%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h3の見出し</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="マークダウン">マークダウン</span></h2><h3><span id="リンク">リンク</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.deepl.com/ja/translator" title="翻訳サイト">DeepL</a><br><a href="/" title="HOME">ブログのHOME</a></p>
+<h3><span id="画像">画像</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/mounten_view.jpg" alt="山の画像" title="山の画像です"></p>
+<h3><span id="リスト">リスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list1<ul>
+<li>hoge</li>
+</ul>
+</li>
+<li>list2<ul>
+<li>hohoge</li>
+</ul>
+</li>
+</ul>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="番号付きリスト">番号付きリスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
+<ol>
+<li>リスト１</li>
+<li>リスト２</li>
+</ol>
+<h3><span id="改行">改行</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<p>abc</p>
+<p>efg</p>
+<p>hoge</p>
+<h3><span id="太字">太字</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
+<p>hoge<strong>hoge</strong>hoge</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="罫線">罫線</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<p>hoge</p>
+<hr>
+<p>hoge</p>
+<h3><span id="見出し">見出し</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
+<h2><span id="h2の見出し">h2の見出し</span></h2><h3><span id="h3の見出し">h3の見出し</span></h3><h4><span id="h4の見出し">h4の見出し</span></h4><h5><span id="h5の見出し">h5の見出し</span></h5><h6><span id="h6の見出し">h6の見出し</span></h6>]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
+    <url>//hexo/codeblock/filename/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1html%E8%A6%81%E7%B4%A0%E3%82%92md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E8%A8%98%E8%BC%89">1.HTML要素を.mdファイルに記載</a></li>
+<li><a href="#2css%E3%82%92%E5%AE%9A%E7%BE%A9">2.CSSを定義</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1html要素をmdファイルに記載">1.HTML要素を.mdファイルに記載</span></h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
+<h3><span id="2cssを定義">2.CSSを定義</span></h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="完成">完成</span></h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
+<h2><span id="締め">締め</span></h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
+<p>まぁ変にバグが起こるよりはいいか(–)b</p>
+<p>以上。今回もお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -348,8 +348,8 @@
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -411,8 +411,52 @@
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
+    <url>//hexo/template/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
+<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
+<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -487,52 +531,8 @@
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
-    <url>//hexo/template/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
-<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
         <tag>Hexo</tag>
-        <tag>ブログ</tag>
       </tags>
   </entry>
   <entry>
@@ -631,72 +631,8 @@
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
-    <url>//hexo/redirect/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
-<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
-<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
-<span id="more"></span>
-<div class="notice notice-info">
-あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
-</div>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
-<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
-
-<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
-<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
-<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
-<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
-<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
-<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
-<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
-<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
         <tag>Hexo</tag>
-        <tag>ブログ</tag>
       </tags>
   </entry>
   <entry>
@@ -760,30 +696,38 @@
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）</title>
-    <url>//hexo/list/recommended/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-g">ブログのサイドバーに関連記事一覧を実装したので、やり方を残します。</span></p>
-<p><span class="mark-y">Hexoでは便利なプラグインを使うことで簡単に実装可能</span>です。<br>ただ自分の場合、他の方のやり方を真似しても想定通りに実装できなかったりしたので、そういった方の参考になると嬉しいです。</p>
+    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
+    <url>//hexo/redirect/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
+<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
+<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
 <span id="more"></span>
+<div class="notice notice-info">
+あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
+</div>
 
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.プラグインをインストール</a></li>
-<li><a href="#2%E4%BB%BB%E6%84%8F%E5%80%8B%E6%89%80%E3%81%AB%E4%B8%8B%E8%A8%98%E3%81%AE%E8%A8%98%E8%BC%89%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">2.任意個所に下記の記載を追加する</a></li>
-<li><a href="#3css%E3%82%92%E8%A8%98%E8%BC%89%E3%81%99%E3%82%8B">3.CSSを記載する</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
+<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
 </ul>
 </li>
-<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
+</ul>
+</li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
@@ -792,76 +736,32 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1プラグインをインストール">1.プラグインをインストール</span></h3><p>簡単に関連記事一覧を実装するために必要な<span class="mark-g">hexo-related-popular-postsをインストール </span></p>
-<p class="codeblock-filename"><span>コマンド</span></p>
+<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
+<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
 
-<p><span class="link-comment">公式ページ</span><br><a href="https://github.com/tea3/hexo-related-popular-posts">https://github.com/tea3/hexo-related-popular-posts</a></p>
-<h3><span id="2任意個所に下記の記載を追加する">2.任意個所に下記の記載を追加する</span></h3><p>関連記事を追加する場所に下記を追加する。</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\sidebar.ejs</span></p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">popular_posts</span>(&#123; <span class="attr">max</span>: <span class="number">5</span>,  <span class="attr">isExcerpt</span>: <span class="literal">true</span> &#125;, page) %&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_1.png" alt="sidebar.ejs" title="sidebar.ejs"></p>
-<div class="notice notice-info">
-自分の場合はサイドバーに表示したいので<span class="mark-y">sidebar.ejs</span>に追記してます。
-</div>
-
-<div class="nest-list">
-
-<ul>
-<li>オプションの意味<ul>
-<li>max：記事の最大表示件数</li>
-<li>isExcerpt：記事の概要を表示</li></ul></li></ul></div>
-
-
-
-<p>他にもいろいろなオプションがあります。<br>ここでは紹介しませんが、下記のサイト様がわかりやすく説明してます。<br>良ければご確認ください。</p>
-<p><span class="link-comment">参考ページ</span><br><a href="https://photo-tea.com/p/hexo-related-popular-posts/">https://photo-tea.com/p/hexo-related-popular-posts/</a></p>
-<div class="notice notice-info">
-googleSearchConsoleから閲覧数が多い記事を取得して、
-人気記事の一覧を自動生成することもできるらしい(--b)
-</div>
-
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h3><span id="3cssを記載する">3.CSSを記載する</span></h3><p>そのままだと味気ないので、いい感じにCSSを設定する</p>
-<p class="codeblock-filename"><span>site\themes\light\source\css\_partial\sidebar.styl</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.related-posts</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span></span><br><span class="line"></span><br><span class="line">  h3 </span><br><span class="line">    padding <span class="number">5px</span> <span class="number">10px</span></span><br><span class="line">    font-size <span class="number">1em</span></span><br><span class="line">    border-bottom <span class="number">1px</span> solid color-border</span><br><span class="line">    font-weight normal</span><br><span class="line"></span><br><span class="line">  .popular-posts</span><br><span class="line">    list-style: none;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.popular-posts-item</span> </span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">background</span>: <span class="number">#f7f7f7</span>;</span><br><span class="line">      <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">      <span class="attribute">transition</span>: background <span class="number">0.2s</span> ease;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-title</span> </span><br><span class="line">        <span class="selector-tag">h3</span></span><br><span class="line">          <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">          <span class="attribute">border-left</span>: none;</span><br><span class="line">          <span class="attribute">padding-left</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: underline;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-excerpt</span></span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">padding-top</span>:<span class="number">10px</span></span><br><span class="line">        h2</span><br><span class="line">          display:none</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_2.png" alt="sidebar.styl" title="sidebar.styl"></p>
-<div class="notice notice-info">
-自分の場合はサイドバーのstylファイルに実装したので、
-通常のCSSとは少し違う構造となってます。
-</div>
-
-<h3><span id="確認">確認</span></h3><p>hexoのサーバを起動すると、関連記事が5件表示されていると思います！</p>
-<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_3.png" alt="完成" title="完成"></p>
-<div class="notice notice-warn">
-各サイトによってレイアウトが違うと思うので、あくまで上記の画像はご参考程度にご確認ください
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="注意">注意</span></h2><p><span class="mark-r">サーバ起動時に–draftsオプションを付けると下記のようなエラーが出ることがあります。</span><br>hexo cleanを叩けば一時的に消えますが、何度も再起動をすると復活します。<br>テストした感じ影響はなさそうなので放置してますが、解決方法わかる方いましたらどこかにひっそり書いていただけるととても助かります(- -;</p>
-<p class="codeblock-filename"><span>謎のエラー</span></p>
-
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[hexo-related-popular-posts] error:  Because the post&#x27;s path has been changed, the link can not be created successfully. Please remove the cache with the following command.</span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
-<h2><span id="締め">締め</span></h2><p>記事内では簡単そうに書いてますが、かなり苦労しました。<br>sidebarが表示されず色々な方の記事を確認したり、、、<br>スタイルが崩れてCSSを大幅に見直したり、、、</p>
-<p>苦労はしましたが、結果的に実装できてよかったです！</p>
-<p><span class="mark-g">サイドバーが少し華やかになるだけで結構サイトの見た目もよくなった気がします。</span><br>もう少しレイアウトを整えてもいいかなと思いますが、個人的には結構満足してますので、それはまた別の機会に（^^!</p>
-<p>今回は以上となります。<br><span class="mark-g">他にもいろいろHexo関連の記事を書いているので、良かったら見ていってください！</span><br>お疲れさまでした！</p>
+<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
+<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
+<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
+<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
+<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
+<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
+<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
         <category>エンジニアリング</category>
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1033,8 +933,8 @@ push後しばらくしてgithubよりシークレットが含まれていると�
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1115,8 +1015,108 @@ GoogleのクロールBotが巡回されるまで気長に待つしかなさそ�
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）</title>
+    <url>//hexo/list/recommended/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-g">ブログのサイドバーに関連記事一覧を実装したので、やり方を残します。</span></p>
+<p><span class="mark-y">Hexoでは便利なプラグインを使うことで簡単に実装可能</span>です。<br>ただ自分の場合、他の方のやり方を真似しても想定通りに実装できなかったりしたので、そういった方の参考になると嬉しいです。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.プラグインをインストール</a></li>
+<li><a href="#2%E4%BB%BB%E6%84%8F%E5%80%8B%E6%89%80%E3%81%AB%E4%B8%8B%E8%A8%98%E3%81%AE%E8%A8%98%E8%BC%89%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">2.任意個所に下記の記載を追加する</a></li>
+<li><a href="#3css%E3%82%92%E8%A8%98%E8%BC%89%E3%81%99%E3%82%8B">3.CSSを記載する</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1プラグインをインストール">1.プラグインをインストール</span></h3><p>簡単に関連記事一覧を実装するために必要な<span class="mark-g">hexo-related-popular-postsをインストール </span></p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+
+<p><span class="link-comment">公式ページ</span><br><a href="https://github.com/tea3/hexo-related-popular-posts">https://github.com/tea3/hexo-related-popular-posts</a></p>
+<h3><span id="2任意個所に下記の記載を追加する">2.任意個所に下記の記載を追加する</span></h3><p>関連記事を追加する場所に下記を追加する。</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\sidebar.ejs</span></p>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">popular_posts</span>(&#123; <span class="attr">max</span>: <span class="number">5</span>,  <span class="attr">isExcerpt</span>: <span class="literal">true</span> &#125;, page) %&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_1.png" alt="sidebar.ejs" title="sidebar.ejs"></p>
+<div class="notice notice-info">
+自分の場合はサイドバーに表示したいので<span class="mark-y">sidebar.ejs</span>に追記してます。
+</div>
+
+<div class="nest-list">
+
+<ul>
+<li>オプションの意味<ul>
+<li>max：記事の最大表示件数</li>
+<li>isExcerpt：記事の概要を表示</li></ul></li></ul></div>
+
+
+
+<p>他にもいろいろなオプションがあります。<br>ここでは紹介しませんが、下記のサイト様がわかりやすく説明してます。<br>良ければご確認ください。</p>
+<p><span class="link-comment">参考ページ</span><br><a href="https://photo-tea.com/p/hexo-related-popular-posts/">https://photo-tea.com/p/hexo-related-popular-posts/</a></p>
+<div class="notice notice-info">
+googleSearchConsoleから閲覧数が多い記事を取得して、
+人気記事の一覧を自動生成することもできるらしい(--b)
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3cssを記載する">3.CSSを記載する</span></h3><p>そのままだと味気ないので、いい感じにCSSを設定する</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\_partial\sidebar.styl</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.related-posts</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span></span><br><span class="line"></span><br><span class="line">  h3 </span><br><span class="line">    padding <span class="number">5px</span> <span class="number">10px</span></span><br><span class="line">    font-size <span class="number">1em</span></span><br><span class="line">    border-bottom <span class="number">1px</span> solid color-border</span><br><span class="line">    font-weight normal</span><br><span class="line"></span><br><span class="line">  .popular-posts</span><br><span class="line">    list-style: none;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.popular-posts-item</span> </span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">background</span>: <span class="number">#f7f7f7</span>;</span><br><span class="line">      <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">      <span class="attribute">transition</span>: background <span class="number">0.2s</span> ease;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-title</span> </span><br><span class="line">        <span class="selector-tag">h3</span></span><br><span class="line">          <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">          <span class="attribute">border-left</span>: none;</span><br><span class="line">          <span class="attribute">padding-left</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: underline;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-excerpt</span></span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">padding-top</span>:<span class="number">10px</span></span><br><span class="line">        h2</span><br><span class="line">          display:none</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_2.png" alt="sidebar.styl" title="sidebar.styl"></p>
+<div class="notice notice-info">
+自分の場合はサイドバーのstylファイルに実装したので、
+通常のCSSとは少し違う構造となってます。
+</div>
+
+<h3><span id="確認">確認</span></h3><p>hexoのサーバを起動すると、関連記事が5件表示されていると思います！</p>
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_3.png" alt="完成" title="完成"></p>
+<div class="notice notice-warn">
+各サイトによってレイアウトが違うと思うので、あくまで上記の画像はご参考程度にご確認ください
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="注意">注意</span></h2><p><span class="mark-r">サーバ起動時に–draftsオプションを付けると下記のようなエラーが出ることがあります。</span><br>hexo cleanを叩けば一時的に消えますが、何度も再起動をすると復活します。<br>テストした感じ影響はなさそうなので放置してますが、解決方法わかる方いましたらどこかにひっそり書いていただけるととても助かります(- -;</p>
+<p class="codeblock-filename"><span>謎のエラー</span></p>
+
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[hexo-related-popular-posts] error:  Because the post&#x27;s path has been changed, the link can not be created successfully. Please remove the cache with the following command.</span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2><span id="締め">締め</span></h2><p>記事内では簡単そうに書いてますが、かなり苦労しました。<br>sidebarが表示されず色々な方の記事を確認したり、、、<br>スタイルが崩れてCSSを大幅に見直したり、、、</p>
+<p>苦労はしましたが、結果的に実装できてよかったです！</p>
+<p><span class="mark-g">サイドバーが少し華やかになるだけで結構サイトの見た目もよくなった気がします。</span><br>もう少しレイアウトを整えてもいいかなと思いますが、個人的には結構満足してますので、それはまた別の機会に（^^!</p>
+<p>今回は以上となります。<br><span class="mark-g">他にもいろいろHexo関連の記事を書いているので、良かったら見ていってください！</span><br>お疲れさまでした！</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1178,91 +1178,8 @@ GoogleのクロールBotが巡回されるまで気長に待つしかなさそ�
       </categories>
       <tags>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
         <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
-    <url>//money/point/vpointget/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
-<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
-<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
-<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
-<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
-<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
-<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
-<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
-<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
-<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
-<div class="notice notice-info">
-アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
-</div>
-
-<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
-<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
-<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
-<div class="notice notice-info">
-iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
-<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
-<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
-<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
-<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
-<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<div class="notice notice-warn">
-Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
-<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
-<div class="notice notice-warn">
-このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
-</div>
-
-
-<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
-<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
-<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
-<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
-<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1416,9 +1333,12 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
 <p>ちょうどプレミアムフライデーでAmazonもセールをやってましたが、それでも<span class="mark-g">ポイントを加味すると楽天の方が安いです(^^</span></p>
 <p>大体300円くらい安く買えたはず！</p>
 <p>下記に商品の購入リンクを貼っておくのでよければご使用ください<br>自分にも少しポイントが入るので買ってもらえると嬉しいです(^^</p>
-<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10001159&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-ec.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【直営店限定カラー】【京セラ公式】セラマグ セラミック マグボトル 水筒 CERAMUG 300ml 500ml コーヒー 味の変わらない 保温 保冷 真空断熱 ボトル 限定色 サハラ ストーミーグレー</a><br><span>価格：4,290円～（税込、送料無料)</span> <span style="color:#BBB">(2025/12/7時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff!important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;"> 楽天で購入 </div></a></div></td></tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
+<div class="rakten-ads">
+<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10001159&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-ec.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt title></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【直営店限定カラー】【京セラ公式】セラマグ セラミック マグボトル 水筒 CERAMUG 300ml 500ml コーヒー 味の変わらない 保温 保冷 真空断熱 ボトル 限定色 サハラ ストーミーグレー</a></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"></a></div></td></tr></table></div></td></tr></table></div>
 
-<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10000682&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-10s-2.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【京セラ公式】セラミック マグボトル 水筒 セラマグ CERAMUG 180ml 300ml 500ml くすみカラー おしゃれ コーヒー 味の変わらない 持ち運び 保温 保冷 真空断熱 ボトル KYOCERA</a><br><span>価格：3,630円～（税込、送料別)</span> <span style="color:#BBB">(2025/12/7時点)</span></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><div style="float:right;width:41%;height:27px;background-color:#bf0000;color:#fff!important;font-size:12px;font-weight:500;line-height:27px;margin-left:1px;padding: 0 12px;border-radius:16px;cursor:pointer;text-align:center;"> 楽天で購入 </div></a></div></td></tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
+<div class="rakten-ads">
+<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10000682&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-10s-2.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt title></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【京セラ公式】セラミック マグボトル 水筒 セラマグ CERAMUG 180ml 300ml 500ml くすみカラー おしゃれ コーヒー 味の変わらない 持ち運び 保温 保冷 真空断熱 ボトル KYOCERA</a></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"></a></div></td></tr></table></div></td></tr></table>
+</div>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
@@ -1434,8 +1354,8 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
         <category>生活</category>
       </categories>
       <tags>
-        <tag>食</tag>
         <tag>おすすめ商品紹介</tag>
+        <tag>食</tag>
         <tag>趣味</tag>
       </tags>
   </entry>
@@ -1512,9 +1432,155 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
         <category>お金</category>
       </categories>
       <tags>
-        <tag>ポイ活</tag>
         <tag>食</tag>
+        <tag>ポイ活</tag>
         <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
+    <url>//money/point/vpointget/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
+<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
+<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
+<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
+<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
+<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
+<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
+<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
+<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
+<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
+<div class="notice notice-info">
+アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
+</div>
+
+<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
+<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
+<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
+<div class="notice notice-info">
+iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
+<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
+<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
+<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
+<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
+<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
+<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<div class="notice notice-warn">
+Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
+<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
+<div class="notice notice-warn">
+このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
+</div>
+
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
+<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
+<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
+<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
+<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>食</tag>
+        <tag>ポイ活</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</title>
+    <url>//money/point/keiba/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
+<p>普通に券売機から買うとポイントは入らないので、どうせ同じ馬券を買うならお得に楽しみたいですよね！</p>
+<p>そのための方法を色々紹介できたらいいなとおもいます。</p>
+<p><span class="mark-g">普段コスパタイパを重視して、ポイ活をやってる身としてはかなり耳寄りな情報だと思ったので、是非見ていってください！</span></p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#jra%E3%81%AE%E5%A0%B4%E5%90%88">JRAの場合</a></li>
+<li><a href="#%E5%9C%B0%E6%96%B9%E7%AB%B6%E9%A6%AC%E3%81%AE%E5%A0%B4%E5%90%88">地方競馬の場合</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="jraの場合">JRAの場合</span></h2><p><span class="mark-y">UMACA</span>というサービスを使うことで<span class="mark-y">馬券購入時に0.5%の還元</span>を受けられます。</p>
+<p><span class="mark-g">お金をプリペイドにチャージして、競馬場の専用ブースにて購入</span>できます。</p>
+<div class="notice notice-warn">
+お金をチャージする必要があり有効期限があるので、たまにしか行かない人は注意が必要です
+</div>
+
+<p><span class="link-comment">公式ページ</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
+<p>また<span class="mark-g">ポイントを使用すると競馬場で使えるクーポンと交換できたりします！</span></p>
+<p>例えば、食堂のクーポンやオリジナルグッズとの交換などです。</p>
+<p><span class="mark-y">特に食堂のクーポンは100ポイントで90円分のクーポンがもらえる</span>ので、<br>競馬場で飲み食いする人は必見です(^^&#x2F;</p>
+<p><span class="link-comment">ポイント交換先一覧</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="地方競馬の場合">地方競馬の場合</span></h2><p><span class="mark-y">楽天競馬</span>を利用すれば、<span class="mark-y">レースごとに1〜10％程度の楽天ポイント還元</span>を受けれます。</p>
+<p>また<span class="mark-g">イベントも定期的に行なってます。</span><br>例えば、3連単を的中させると的中回数によってポイントが貰えたりします。</p>
+<p>1倍の馬券を買ってしまった時もポイント還元が受けれるので、お得感あっていいですよね(^^</p>
+<p><span class="link-comment">公式サイト</span><br><a href="https://keiba.rakuten.co.jp/">https://keiba.rakuten.co.jp/</a></p>
+<div class="notice notice-warn">
+キャンペーンについては参加しないと適用されないので注意が必要です。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>個人的には競馬場で飲み食いしながら競馬を見るのが好きなので、UMACAポイントは知れてよかったです！</p>
+<p><span class="mark-g">どうでもいいですが、東京競馬場のプリッツェル激うまなのでぜひ食べてみてください(^^</span></p>
+<p>PS<br><span class="mark-y">競馬は個人的にはかなりコスパがいい趣味</span>だと思っててます。<br>1レース500円程度なら全レース掛けても6000円、飲み食いしてもせいぜい3000円程度です。<br>タコ負けしても1万円以内でこんなに楽しめるのはコスパ良すぎです(^^*<br>居酒屋をハシゴしたらこれくらい溶けますし。。</p>
+<p><span class="mark-r">まぁもちろんヒートアップして1レースで10万円とか賭けるようになったら終わりですが、、、</span></p>
+<p>多分投資とかちゃんとやってる人ならその辺の自制心が効く人が多いのではないかと思います(^^</p>
+<p><span class="mark-g">自分はマイレース500円を賭けてまったり休日を楽しむことにしてます！</span></p>
+<p>以上となります。<br><span class="mark-g">用法容量を守って、投資もギャンブルも楽しみましょう(^^</span><br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>趣味</tag>
+        <tag>ポイ活</tag>
       </tags>
   </entry>
   <entry>
@@ -1605,69 +1671,6 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
       <tags>
         <tag>ポイ活</tag>
         <tag>貯金</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</title>
-    <url>//money/point/keiba/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
-<p>普通に券売機から買うとポイントは入らないので、どうせ同じ馬券を買うならお得に楽しみたいですよね！</p>
-<p>そのための方法を色々紹介できたらいいなとおもいます。</p>
-<p><span class="mark-g">普段コスパタイパを重視して、ポイ活をやってる身としてはかなり耳寄りな情報だと思ったので、是非見ていってください！</span></p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#jra%E3%81%AE%E5%A0%B4%E5%90%88">JRAの場合</a></li>
-<li><a href="#%E5%9C%B0%E6%96%B9%E7%AB%B6%E9%A6%AC%E3%81%AE%E5%A0%B4%E5%90%88">地方競馬の場合</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="jraの場合">JRAの場合</span></h2><p><span class="mark-y">UMACA</span>というサービスを使うことで<span class="mark-y">馬券購入時に0.5%の還元</span>を受けられます。</p>
-<p><span class="mark-g">お金をプリペイドにチャージして、競馬場の専用ブースにて購入</span>できます。</p>
-<div class="notice notice-warn">
-お金をチャージする必要があり有効期限があるので、たまにしか行かない人は注意が必要です
-</div>
-
-<p><span class="link-comment">公式ページ</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
-<p>また<span class="mark-g">ポイントを使用すると競馬場で使えるクーポンと交換できたりします！</span></p>
-<p>例えば、食堂のクーポンやオリジナルグッズとの交換などです。</p>
-<p><span class="mark-y">特に食堂のクーポンは100ポイントで90円分のクーポンがもらえる</span>ので、<br>競馬場で飲み食いする人は必見です(^^&#x2F;</p>
-<p><span class="link-comment">ポイント交換先一覧</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="地方競馬の場合">地方競馬の場合</span></h2><p><span class="mark-y">楽天競馬</span>を利用すれば、<span class="mark-y">レースごとに1〜10％程度の楽天ポイント還元</span>を受けれます。</p>
-<p>また<span class="mark-g">イベントも定期的に行なってます。</span><br>例えば、3連単を的中させると的中回数によってポイントが貰えたりします。</p>
-<p>1倍の馬券を買ってしまった時もポイント還元が受けれるので、お得感あっていいですよね(^^</p>
-<p><span class="link-comment">公式サイト</span><br><a href="https://keiba.rakuten.co.jp/">https://keiba.rakuten.co.jp/</a></p>
-<div class="notice notice-warn">
-キャンペーンについては参加しないと適用されないので注意が必要です。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>個人的には競馬場で飲み食いしながら競馬を見るのが好きなので、UMACAポイントは知れてよかったです！</p>
-<p><span class="mark-g">どうでもいいですが、東京競馬場のプリッツェル激うまなのでぜひ食べてみてください(^^</span></p>
-<p>PS<br><span class="mark-y">競馬は個人的にはかなりコスパがいい趣味</span>だと思っててます。<br>1レース500円程度なら全レース掛けても6000円、飲み食いしてもせいぜい3000円程度です。<br>タコ負けしても1万円以内でこんなに楽しめるのはコスパ良すぎです(^^*<br>居酒屋をハシゴしたらこれくらい溶けますし。。</p>
-<p><span class="mark-r">まぁもちろんヒートアップして1レースで10万円とか賭けるようになったら終わりですが、、、</span></p>
-<p>多分投資とかちゃんとやってる人ならその辺の自制心が効く人が多いのではないかと思います(^^</p>
-<p><span class="mark-g">自分はマイレース500円を賭けてまったり休日を楽しむことにしてます！</span></p>
-<p>以上となります。<br><span class="mark-g">用法容量を守って、投資もギャンブルも楽しみましょう(^^</span><br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>趣味</tag>
       </tags>
   </entry>
   <entry>
