@@ -178,6 +178,103 @@
       </tags>
   </entry>
   <entry>
+    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
+    <url>//hexo/codeblock/langcolor/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E3%82%92%E8%A8%98%E8%BC%89">1.コードブロックに使用するプログラム言語を記載</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#hexo%E3%81%A7%E3%83%8F%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E5%8F%AF%E8%83%BD%E3%81%AA%E8%A8%80%E8%AA%9E%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Hexoでハイライト可能な言語について</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1コードブロックに使用するプログラム言語を記載">1.コードブロックに使用するプログラム言語を記載</span></h3><p>コードブロックに自分が使用するプログラム言語の略称を入れる</p>
+<div class="notice notice-info">
+下記はCSSの場合
+</div>
+
+<p><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
+<h2><span id="完了">完了</span></h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="hexoでハイライト可能な言語について">Hexoでハイライト可能な言語について</span></h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
+<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
+<h2><span id="締め">締め</span></h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
+    <url>//hexo/codeblock/filename/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1html%E8%A6%81%E7%B4%A0%E3%82%92md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E8%A8%98%E8%BC%89">1.HTML要素を.mdファイルに記載</a></li>
+<li><a href="#2css%E3%82%92%E5%AE%9A%E7%BE%A9">2.CSSを定義</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1html要素をmdファイルに記載">1.HTML要素を.mdファイルに記載</span></h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
+<h3><span id="2cssを定義">2.CSSを定義</span></h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#727272</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0.9em</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">0px</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.codeblock-filename</span> <span class="selector-tag">span</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f7f7f7</span>;</span><br><span class="line">  <span class="attribute">width</span>: fit-content;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">3px</span> <span class="number">7px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="完成">完成</span></h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
+<h2><span id="締め">締め</span></h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
+<p>まぁ変にバグが起こるよりはいいか(–)b</p>
+<p>以上。<br>力こそジャスティス<br>今回もお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
     <url>//hexo/markdown/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
@@ -256,55 +353,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】コードブロックにファイル名を入れる（テーマ：light）</title>
-    <url>//hexo/codeblock/filename/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1html%E8%A6%81%E7%B4%A0%E3%82%92md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E8%A8%98%E8%BC%89">1.HTML要素を.mdファイルに記載</a></li>
-<li><a href="#2css%E3%82%92%E5%AE%9A%E7%BE%A9">2.CSSを定義</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1html要素をmdファイルに記載">1.HTML要素を.mdファイルに記載</span></h3><p class="codeblock-filename"><span>\site\source\_posts\[任意].md</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codeblock-filename&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>[ファイルパス]<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-p.png" alt="コードブロック書き方" title="コードブロック書き方"></p>
-<h3><span id="2cssを定義">2.CSSを定義</span></h3><p class="codeblock-filename"><span>\site\themes\light\source\css\[自分の].css</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ファイル名付きコードブロック */</span></span><br><span class="line"><span class="selector-class">.codeblock-filename</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#727272</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0.9em</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">0px</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.codeblock-filename</span> + <span class="selector-class">.highlight</span>&#123;</span><br><span class="line">  <span class="attribute">border-top</span>: none;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.codeblock-filename</span> <span class="selector-tag">span</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f7f7f7</span>;</span><br><span class="line">  <span class="attribute">width</span>: fit-content;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">3px</span> <span class="number">7px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">0px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251013/codeblock-css.png" alt="コードブロックCSS" title="コードブロックCSS"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="完成">完成</span></h2><p>無事設定できました。<br><img src="/images/posts/20251013/codeblock-comp.png" alt="完成" title="完成"></p>
-<h2><span id="締め">締め</span></h2><p>jsで色々やったりしましたが、HTMLの生成タイミングの関係でうまくいかず、、<br>結局力技でやる形にしました。</p>
-<p>まぁ変にバグが起こるよりはいいか(–)b</p>
-<p>以上。<br>力こそジャスティス<br>今回もお疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>ブログ</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】サイトマップを自動で作成（テーマ：light）</title>
     <url>//hexo/sitemap/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p>
@@ -356,6 +404,50 @@
 <h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
 <h2><span id="締め">締め</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
 <p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
+    <url>//hexo/template/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
+<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
+<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -444,151 +536,100 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
-    <url>//hexo/codeblock/langcolor/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
+    <title>無料でブログの問い合わせフォームを実装する方法</title>
+    <url>//hexo/contact/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">無料で問い合わせフォームを実装する方法</span>を紹介していきます。</p>
+<p>会員登録は不要で簡単に実装できるので、小規模なサイトならこれでいいのかなと思います(^^</p>
+<p><span class="mark-g">Adsenseの申請を通すためにも必須</span>なので、必ず問い合わせフォームは実装しておきましょう。</p>
+<p>また当ブログではHEXOというHTMLジェネレータを使用しているので、少し実装方法が特殊ですが、<span class="mark-y">基本的にはHTML＆CSSだけで実装</span>できるので、どんな環境でも汎用的に実装できるはずです。</p>
+<p>それではやっていきましょう！</p>
 <span id="more"></span>
-<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
+
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
+<li><a href="#%E6%A4%9C%E8%A8%8E">検討</a></li>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E3%82%92%E8%A8%98%E8%BC%89">1.コードブロックに使用するプログラム言語を記載</a></li>
+<li><a href="#1%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.お問い合わせの固定ページを生成</a></li>
+<li><a href="#2%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E8%A8%98%E8%BC%89">2.お問い合わせフォームを記載</a></li>
+<li><a href="#3thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">3.Thanksページを生成</a></li>
+<li><a href="#4thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%B7%A8%E9%9B%86">4.Thanksページを編集</a></li>
+<li><a href="#5%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%B8%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90">5.お問い合わせページへのリンクを作成</a></li>
+<li><a href="#6%E5%88%9D%E5%9B%9E%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A1%8C%E3%81%86">6.初回認証を行う</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#hexo%E3%81%A7%E3%83%8F%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E5%8F%AF%E8%83%BD%E3%81%AA%E8%A8%80%E8%AA%9E%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Hexoでハイライト可能な言語について</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
 </div>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1コードブロックに使用するプログラム言語を記載">1.コードブロックに使用するプログラム言語を記載</span></h3><p>コードブロックに自分が使用するプログラム言語の略称を入れる</p>
+
+<h2><span id="検討">検討</span></h2><p>お問い合わせ送信サービスを検討する</p>
+<ul>
+<li><p>Formspree</p>
+<ul>
+<li>料金：月50件まで無料</li>
+<li>安定・通知機能豊富</li>
+</ul>
+</li>
+<li><p>Formsubmit</p>
+<ul>
+<li>料金：無制限（実質）</li>
+<li>とにかく簡単・メール転送のみ</li>
+</ul>
+</li>
+</ul>
+<p><strong>今回はFormsubmitを使用します。</strong></p>
+<h2><span id="手順">手順</span></h2><h3><span id="1お問い合わせの固定ページを生成">1.お問い合わせの固定ページを生成</span></h3><p>お問い合わせの固定ページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="2お問い合わせフォームを記載">2.お問い合わせフォームを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
 <div class="notice notice-info">
-下記はCSSの場合
+テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
 </div>
+<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
 
-<p><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
-<h2><span id="完了">完了</span></h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="hexoでハイライト可能な言語について">Hexoでハイライト可能な言語について</span></h2><p>下記に記載があります（多分これだと思う…）<br><a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
-<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
-<h2><span id="締め">締め</span></h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>ブログ</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
-    <url>//hexo/template/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
-<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+<h3><span id="3thanksページを生成">3.Thanksページを生成</span></h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
 
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="4thanksページを編集">4.Thanksページを編集</span></h3><p>Thanksページを記載します。</p>
+<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>ブログ</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
-    <url>//hexo/redirect/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
-<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
-<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
-<span id="more"></span>
+<h3><span id="5お問い合わせページへのリンクを作成">5.お問い合わせページへのリンクを作成</span></h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
+<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
+<p>※手順3以降で説明してます。</p>
+<h3><span id="6初回認証を行う">6.初回認証を行う</span></h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
 <div class="notice notice-info">
-あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
-</div>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
-<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
+ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
 </div>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
-
-<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
-<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
-<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
-<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
-<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
-<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
-<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
-<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
+<h2><span id="確認">確認</span></h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
+<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
+<h2><span id="締め">締め</span></h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
+<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
+<p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
         <category>エンジニアリング</category>
@@ -665,27 +706,33 @@
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】問い合わせフォームを作成する（テーマ：light）</title>
-    <url>//hexo/contact/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>お問い合わせフォームを設置すると、サイトに問題があったときなどにご連絡いただけます。<br>個人的に必須だと思うので、なるべく安くできるように実装してみました。</p>
+    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
+    <url>//hexo/redirect/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
+<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
+<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
 <span id="more"></span>
+<div class="notice notice-info">
+あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
+</div>
 
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
-<li><a href="#%E6%A4%9C%E8%A8%8E">検討</a></li>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.お問い合わせの固定ページを生成</a></li>
-<li><a href="#2%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E8%A8%98%E8%BC%89">2.お問い合わせフォームを記載</a></li>
-<li><a href="#3thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">3.Thanksページを生成</a></li>
-<li><a href="#4thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%B7%A8%E9%9B%86">4.Thanksページを編集</a></li>
-<li><a href="#5%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%B8%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90">5.お問い合わせページへのリンクを作成</a></li>
-<li><a href="#6%E5%88%9D%E5%9B%9E%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A1%8C%E3%81%86">6.初回認証を行う</a></li>
+<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
+<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
 </ul>
 </li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
+</ul>
+</li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
@@ -694,65 +741,128 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="検討">検討</span></h2><p>お問い合わせ送信サービスを検討する</p>
+<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
+<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
+<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
+<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
+<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
+<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
+<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
+<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【無料】ブログに訪問した人の操作を記録する（firebase analytics）</title>
+    <url>//hexo/firebase/analytics/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleだと<span class="mark-y">訪問人数程度しかわからず</span>正直物足りません。</p>
+<p><span class="mark-g">オンラインでどれくらい人が居るのか、どんな操作をしたのか</span>などもう少し詳しくデータを集めたいので、<br>今回は<span class="mark-r">firebase analytics</span>を使用して、確認してみたいと思います。</p>
+<p><span class="mark-y">ちなみに無料で実装できます！</span><br>便利すぎますね！  </p>
+<p>初心者にもわかりやすいように書いていくので、良ければ見ていってください。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
 <ul>
-<li><p>Formspree</p>
-<ul>
-<li>料金：月50件まで無料</li>
-<li>安定・通知機能豊富</li>
+<li><a href="#%E7%92%B0%E5%A2%83">環境</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
+<li><a href="#firebase%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">firebaseのプロジェクトを作成する</a></li>
+<li><a href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%81%ABcdn%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">サイトにCDNを追加する</a></li>
+<li><a href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B">サイトをデプロイする</a></li>
 </ul>
 </li>
-<li><p>Formsubmit</p>
-<ul>
-<li>料金：無制限（実質）</li>
-<li>とにかく簡単・メール転送のみ</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#firebase-analytics%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%8C%E5%AE%8C%E4%BA%86%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8">firebase Analyticsの設定が完了していること</a></li>
+<li><a href="#firebase-analytics%E3%81%A7%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AE%E6%93%8D%E4%BD%9C%E3%82%92%E7%A2%BA%E8%AA%8D">firebase Analyticsでユーザの操作を確認</a></li>
 </ul>
 </li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
-<p><strong>今回はFormsubmitを使用します。</strong></p>
-<h2><span id="手順">手順</span></h2><h3><span id="1お問い合わせの固定ページを生成">1.お問い合わせの固定ページを生成</span></h3><p>お問い合わせの固定ページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
+<!-- tocstop -->
 
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3><span id="2お問い合わせフォームを記載">2.お問い合わせフォームを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
-<div class="notice notice-info">
-テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
-</div>
-<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3thanksページを生成">3.Thanksページを生成</span></h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3><span id="4thanksページを編集">4.Thanksページを編集</span></h3><p>Thanksページを記載します。</p>
-<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="5お問い合わせページへのリンクを作成">5.お問い合わせページへのリンクを作成</span></h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
-<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
-<p>※手順3以降で説明してます。</p>
-<h3><span id="6初回認証を行う">6.初回認証を行う</span></h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
-<div class="notice notice-info">
-ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
 </div>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="確認">確認</span></h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
-<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
-<h2><span id="締め">締め</span></h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
-<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
+<h2><span id="環境">環境</span></h2><p><strong>＜サーバ＞</strong><br>GithubPages</p>
+<p><strong>＜ライブラリ＞</strong><br>Hexo（静的HTML生成ツール）</p>
+<div class="notice notice-info">
+基本的にはHTMLでの対応となりますので、どんな環境でも問題なく実装できると思います。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="方法">方法</span></h2><h3><span id="firebaseのプロジェクトを作成する">firebaseのプロジェクトを作成する</span></h3><h4><span id="下記urlにアクセス">＞下記URLにアクセス</span></h4><p>下記URLを押下し、firebaseにアクセスします。<br><a href="https://console.firebase.google.com/">https://console.firebase.google.com/</a></p>
+<h4><span id="プロジェクト作成を押下">＞プロジェクト作成を押下</span></h4><p><span class="mark-y">Firebaseプロジェクトを設定して開始</span>を押下します。<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_1.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<h4><span id="プロジェクト名を入れる">＞プロジェクト名を入れる</span></h4><p>プロジェクト名を入力し、続行を押下<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_2.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<h4><span id="googleアナリティクスを有効にする">＞Googleアナリティクスを有効にする</span></h4><p>ナビ通りに手順を進めると、<span class="mark-y">Googleアナリティクスの設定画面</span>が表示されます。<br><span class="mark-y">このプロジェクトでGoogleアナリティクスを有効にする</span>にチェックを入れて続行を押しましょう<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_3.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<p>※その後表示されるGoogleアナリティクスの構成は下記のような感じ<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_4.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<h4><span id="完了">＞完了</span></h4><p>下記のような画面が出ればプロジェクトの作成は完了<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_5.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="サイトにcdnを追加する">サイトにCDNを追加する</span></h3><h4><span id="プロジェクト設定を開く">＞プロジェクト設定を開く</span></h4><p><span class="mark-y">設定マーク　→　プロジェクト設定</span>を選択<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_6.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<h4><span id="マイアプリからウェブを選択">＞マイアプリからウェブを選択</span></h4><p><span class="mark-y">全般　→　マイアプリ　→　ウェブ</span>を選択<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_7.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<h4><span id="アプリのニックネームを選択">＞アプリのニックネームを選択</span></h4><p>任意の名前でアプリのニックネームを登録<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_8.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h4><span id="cdnを取得">＞CDNを取得</span></h4><p>FirebaseSDKで<span class="mark-y">&lt;script&gt;タグを使用する</span>を選択し、コードを取得する<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_9.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<h4><span id="htmlの一番下にcdnを追加">＞htmlの一番下にCDNを追加</span></h4><p>アナリティクスを取得したいhtmlの一番下に先ほど取得したCDNを追加する<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_10.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<div class="notice notice-warn">
+自分の場合、hexoを使用しているので、article.ejsにCDNを追加しました。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="サイトをデプロイする">サイトをデプロイする</span></h3><p>CDNを追加したHTMLをサーバにデプロイします。</p>
+<p>私の場合は下記コマンドを使用してgithubPagesへのデプロイをしました。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy;</span><br></pre></td></tr></table></figure>
+<div class="notice notice-warn">
+push後しばらくしてgithubよりシークレットが含まれていると警告メールが来ました。
+その場合は、GitHubを開き警告を解除しておきましょう。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="確認">確認</span></h2><h3><span id="firebase-analyticsの設定が完了していること">firebase Analyticsの設定が完了していること</span></h3><p>サイトにアクセスし、アナリティクスが機能していることを確認する<br><span class="mark-y">Analytics Dashboardのアクティブユーザに人数が表示されればOKです。</span></p>
+<p><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_11.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<div class="notice notice-info">
+反映まで結構時間かかるかもしれません。
+気長に待ちましょう！
+</div>
+
+<h3><span id="firebase-analyticsでユーザの操作を確認">firebase Analyticsでユーザの操作を確認</span></h3><p>自分のサイトでユーザがどんな操作をしているかを確認する<br><span class="mark-y">Realtime Analyticsを確認すると</span><br><span class="mark-y">・どんな場所からアクセスされたのか</span><br><span class="mark-y">・どんな操作をしたのか</span><br>など色々と確認できます。</p>
+<p><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_12.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<div class="notice notice-info">
+ちなみに画像右上の<span class="mark-g">Googleアナリティクスで表示</span>を選択するとさらに詳しい情報が見れます。
+ここでは紹介しませんが、更に詳しい情報を知りたい方は見てみると面白いと思います。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>ユーザがどんな操作をしたのか結構気になってたので、簡単に実装できてよかったです！</p>
+<p>HTMLにタグを追加するだけで実装できるのは便利ですね、<br>ユーザの操作まで見れるのは結構でかい！<br>しかも無料！！</p>
+<p>大きいウェブサイトになれば需要を確認するのに役立つので、かなり便利そうです！</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -915,211 +1025,6 @@ GoogleのクロールBotが巡回されるまで気長に待つしかなさそ�
       </tags>
   </entry>
   <entry>
-    <title>【無料】ブログに訪問した人の操作を記録する（firebase analytics）</title>
-    <url>//hexo/firebase/analytics/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleだと<span class="mark-y">訪問人数程度しかわからず</span>正直物足りません。</p>
-<p><span class="mark-g">オンラインでどれくらい人が居るのか、どんな操作をしたのか</span>などもう少し詳しくデータを集めたいので、<br>今回は<span class="mark-r">firebase analytics</span>を使用して、確認してみたいと思います。</p>
-<p><span class="mark-y">ちなみに無料で実装できます！</span><br>便利すぎますね！  </p>
-<p>初心者にもわかりやすいように書いていくので、良ければ見ていってください。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E7%92%B0%E5%A2%83">環境</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
-<li><a href="#firebase%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">firebaseのプロジェクトを作成する</a></li>
-<li><a href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%81%ABcdn%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">サイトにCDNを追加する</a></li>
-<li><a href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B">サイトをデプロイする</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#firebase-analytics%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%8C%E5%AE%8C%E4%BA%86%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8">firebase Analyticsの設定が完了していること</a></li>
-<li><a href="#firebase-analytics%E3%81%A7%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AE%E6%93%8D%E4%BD%9C%E3%82%92%E7%A2%BA%E8%AA%8D">firebase Analyticsでユーザの操作を確認</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="環境">環境</span></h2><p><strong>＜サーバ＞</strong><br>GithubPages</p>
-<p><strong>＜ライブラリ＞</strong><br>Hexo（静的HTML生成ツール）</p>
-<div class="notice notice-info">
-基本的にはHTMLでの対応となりますので、どんな環境でも問題なく実装できると思います。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="方法">方法</span></h2><h3><span id="firebaseのプロジェクトを作成する">firebaseのプロジェクトを作成する</span></h3><h4><span id="下記urlにアクセス">＞下記URLにアクセス</span></h4><p>下記URLを押下し、firebaseにアクセスします。<br><a href="https://console.firebase.google.com/">https://console.firebase.google.com/</a></p>
-<h4><span id="プロジェクト作成を押下">＞プロジェクト作成を押下</span></h4><p><span class="mark-y">Firebaseプロジェクトを設定して開始</span>を押下します。<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_1.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="プロジェクト名を入れる">＞プロジェクト名を入れる</span></h4><p>プロジェクト名を入力し、続行を押下<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_2.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="googleアナリティクスを有効にする">＞Googleアナリティクスを有効にする</span></h4><p>ナビ通りに手順を進めると、<span class="mark-y">Googleアナリティクスの設定画面</span>が表示されます。<br><span class="mark-y">このプロジェクトでGoogleアナリティクスを有効にする</span>にチェックを入れて続行を押しましょう<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_3.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<p>※その後表示されるGoogleアナリティクスの構成は下記のような感じ<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_4.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="完了">＞完了</span></h4><p>下記のような画面が出ればプロジェクトの作成は完了<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_5.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="サイトにcdnを追加する">サイトにCDNを追加する</span></h3><h4><span id="プロジェクト設定を開く">＞プロジェクト設定を開く</span></h4><p><span class="mark-y">設定マーク　→　プロジェクト設定</span>を選択<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_6.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="マイアプリからウェブを選択">＞マイアプリからウェブを選択</span></h4><p><span class="mark-y">全般　→　マイアプリ　→　ウェブ</span>を選択<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_7.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="アプリのニックネームを選択">＞アプリのニックネームを選択</span></h4><p>任意の名前でアプリのニックネームを登録<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_8.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h4><span id="cdnを取得">＞CDNを取得</span></h4><p>FirebaseSDKで<span class="mark-y">&lt;script&gt;タグを使用する</span>を選択し、コードを取得する<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_9.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="htmlの一番下にcdnを追加">＞htmlの一番下にCDNを追加</span></h4><p>アナリティクスを取得したいhtmlの一番下に先ほど取得したCDNを追加する<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_10.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<div class="notice notice-warn">
-自分の場合、hexoを使用しているので、article.ejsにCDNを追加しました。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="サイトをデプロイする">サイトをデプロイする</span></h3><p>CDNを追加したHTMLをサーバにデプロイします。</p>
-<p>私の場合は下記コマンドを使用してgithubPagesへのデプロイをしました。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy;</span><br></pre></td></tr></table></figure>
-<div class="notice notice-warn">
-push後しばらくしてgithubよりシークレットが含まれていると警告メールが来ました。
-その場合は、GitHubを開き警告を解除しておきましょう。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="確認">確認</span></h2><h3><span id="firebase-analyticsの設定が完了していること">firebase Analyticsの設定が完了していること</span></h3><p>サイトにアクセスし、アナリティクスが機能していることを確認する<br><span class="mark-y">Analytics Dashboardのアクティブユーザに人数が表示されればOKです。</span></p>
-<p><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_11.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<div class="notice notice-info">
-反映まで結構時間かかるかもしれません。
-気長に待ちましょう！
-</div>
-
-<h3><span id="firebase-analyticsでユーザの操作を確認">firebase Analyticsでユーザの操作を確認</span></h3><p>自分のサイトでユーザがどんな操作をしているかを確認する<br><span class="mark-y">Realtime Analyticsを確認すると</span><br><span class="mark-y">・どんな場所からアクセスされたのか</span><br><span class="mark-y">・どんな操作をしたのか</span><br>など色々と確認できます。</p>
-<p><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_12.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<div class="notice notice-info">
-ちなみに画像右上の<span class="mark-g">Googleアナリティクスで表示</span>を選択するとさらに詳しい情報が見れます。
-ここでは紹介しませんが、更に詳しい情報を知りたい方は見てみると面白いと思います。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>ユーザがどんな操作をしたのか結構気になってたので、簡単に実装できてよかったです！</p>
-<p>HTMLにタグを追加するだけで実装できるのは便利ですね、<br>ユーザの操作まで見れるのは結構でかい！<br>しかも無料！！</p>
-<p>大きいウェブサイトになれば需要を確認するのに役立つので、かなり便利そうです！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>ブログ</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）</title>
-    <url>//hexo/list/recommended/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-g">ブログのサイドバーに関連記事一覧を実装したので、やり方を残します。</span></p>
-<p><span class="mark-y">Hexoでは便利なプラグインを使うことで簡単に実装可能</span>です。<br>ただ自分の場合、他の方のやり方を真似しても想定通りに実装できなかったりしたので、そういった方の参考になると嬉しいです。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.プラグインをインストール</a></li>
-<li><a href="#2%E4%BB%BB%E6%84%8F%E5%80%8B%E6%89%80%E3%81%AB%E4%B8%8B%E8%A8%98%E3%81%AE%E8%A8%98%E8%BC%89%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">2.任意個所に下記の記載を追加する</a></li>
-<li><a href="#3css%E3%82%92%E8%A8%98%E8%BC%89%E3%81%99%E3%82%8B">3.CSSを記載する</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
-</ul>
-</li>
-<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1プラグインをインストール">1.プラグインをインストール</span></h3><p>簡単に関連記事一覧を実装するために必要な<span class="mark-g">hexo-related-popular-postsをインストール </span></p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
-
-<p><span class="link-comment">公式ページ</span><br><a href="https://github.com/tea3/hexo-related-popular-posts">https://github.com/tea3/hexo-related-popular-posts</a></p>
-<h3><span id="2任意個所に下記の記載を追加する">2.任意個所に下記の記載を追加する</span></h3><p>関連記事を追加する場所に下記を追加する。</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\sidebar.ejs</span></p>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">popular_posts</span>(&#123; <span class="attr">max</span>: <span class="number">5</span>,  <span class="attr">isExcerpt</span>: <span class="literal">true</span> &#125;, page) %&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_1.png" alt="sidebar.ejs" title="sidebar.ejs"></p>
-<div class="notice notice-info">
-自分の場合はサイドバーに表示したいので<span class="mark-y">sidebar.ejs</span>に追記してます。
-</div>
-
-<div class="nest-list">
-
-<ul>
-<li>オプションの意味<ul>
-<li>max：記事の最大表示件数</li>
-<li>isExcerpt：記事の概要を表示</li></ul></li></ul></div>
-
-
-
-<p>他にもいろいろなオプションがあります。<br>ここでは紹介しませんが、下記のサイト様がわかりやすく説明してます。<br>良ければご確認ください。</p>
-<p><span class="link-comment">参考ページ</span><br><a href="https://photo-tea.com/p/hexo-related-popular-posts/">https://photo-tea.com/p/hexo-related-popular-posts/</a></p>
-<div class="notice notice-info">
-googleSearchConsoleから閲覧数が多い記事を取得して、
-人気記事の一覧を自動生成することもできるらしい(--b)
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3cssを記載する">3.CSSを記載する</span></h3><p>そのままだと味気ないので、いい感じにCSSを設定する</p>
-<p class="codeblock-filename"><span>site\themes\light\source\css\_partial\sidebar.styl</span></p>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.related-posts</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span></span><br><span class="line"></span><br><span class="line">  h3 </span><br><span class="line">    padding <span class="number">5px</span> <span class="number">10px</span></span><br><span class="line">    font-size <span class="number">1em</span></span><br><span class="line">    border-bottom <span class="number">1px</span> solid color-border</span><br><span class="line">    font-weight normal</span><br><span class="line"></span><br><span class="line">  .popular-posts</span><br><span class="line">    list-style: none;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.popular-posts-item</span> </span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">background</span>: <span class="number">#f7f7f7</span>;</span><br><span class="line">      <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">      <span class="attribute">transition</span>: background <span class="number">0.2s</span> ease;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-title</span> </span><br><span class="line">        <span class="selector-tag">h3</span></span><br><span class="line">          <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">          <span class="attribute">border-left</span>: none;</span><br><span class="line">          <span class="attribute">padding-left</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: underline;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-excerpt</span></span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">padding-top</span>:<span class="number">10px</span></span><br><span class="line">        h2</span><br><span class="line">          display:none</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_2.png" alt="sidebar.styl" title="sidebar.styl"></p>
-<div class="notice notice-info">
-自分の場合はサイドバーのstylファイルに実装したので、
-通常のCSSとは少し違う構造となってます。
-</div>
-
-<h3><span id="確認">確認</span></h3><p>hexoのサーバを起動すると、関連記事が5件表示されていると思います！</p>
-<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_3.png" alt="完成" title="完成"></p>
-<div class="notice notice-warn">
-各サイトによってレイアウトが違うと思うので、あくまで上記の画像はご参考程度にご確認ください
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="注意">注意</span></h2><p><span class="mark-r">サーバ起動時に–draftsオプションを付けると下記のようなエラーが出ることがあります。</span><br>hexo cleanを叩けば一時的に消えますが、何度も再起動をすると復活します。<br>テストした感じ影響はなさそうなので放置してますが、解決方法わかる方いましたらどこかにひっそり書いていただけるととても助かります(- -;</p>
-<p class="codeblock-filename"><span>謎のエラー</span></p>
-
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[hexo-related-popular-posts] error:  Because the post&#x27;s path has been changed, the link can not be created successfully. Please remove the cache with the following command.</span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
-<h2><span id="締め">締め</span></h2><p>記事内では簡単そうに書いてますが、かなり苦労しました。<br>sidebarが表示されず色々な方の記事を確認したり、、、<br>スタイルが崩れてCSSを大幅に見直したり、、、</p>
-<p>苦労はしましたが、結果的に実装できてよかったです！</p>
-<p><span class="mark-g">サイドバーが少し華やかになるだけで結構サイトの見た目もよくなった気がします。</span><br>もう少しレイアウトを整えてもいいかなと思いますが、個人的には結構満足してますので、それはまた別の機会に（^^!</p>
-<p>今回は以上となります。<br><span class="mark-g">他にもいろいろHexo関連の記事を書いているので、良かったら見ていってください！</span><br>お疲れさまでした！</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>ブログ</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</title>
     <url>//hexo/googleadsense/adstxt/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</span>をお伝えします。</p>
@@ -1180,84 +1085,6 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
         <tag>プログラミング</tag>
         <tag>ブログ</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
-    <url>//money/point/iherb/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
-<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
-<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
-<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
-<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
-<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
-</ul>
-</li>
-<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
-<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
-<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
-<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
-<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
-<p>使用方法については購入時の適用なので、下で説明します。</p>
-<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
-<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
-<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
-<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
-<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
-<div class="notice notice-warn">
-iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
-
-<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
-</div>
-
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
-<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
-<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
-<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
-<p>もし興味があれば是非購入してみてください。</p>
-<p>以上となります。<br>今回もお疲れさまでした。</p>
-<style>
-img[src*="/images/posts/20251116_money_iHerb/"] {
-  width: 320px;
-  height: auto;
-  object-fit: cover; /* はみ出し対策（必要なら） */
-}
-</style>]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
       </tags>
   </entry>
   <entry>
@@ -1363,9 +1190,338 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
         <category>生活</category>
       </categories>
       <tags>
-        <tag>食</tag>
         <tag>おすすめ商品紹介</tag>
+        <tag>食</tag>
         <tag>趣味</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
+    <url>//mind/newcomers/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
+<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと先輩が考えていることが学べるので、参考になるかもしれません。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
+<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
+<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
+<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
+<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
+<ul>
+<li>怒られることはあなたのことが嫌いってわけじゃない</li>
+<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
+<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
+</ul>
+<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
+<ul>
+<li>質問するのは悪い事じゃないし迷惑でもない<ul>
+<li>むしろミスされた方が迷惑</li>
+</ul>
+</li>
+<li>チームの人間なら迷わずいつでも質問しても良い<ul>
+<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
+</ul>
+</li>
+<li>質問しないことのデメリットを伝える<ul>
+<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
+</ul>
+</li>
+<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
+<li>まぁこういうこともあるってことですね</li>
+</ul>
+</li>
+</ul>
+<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
+<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
+<p>まぁ伝えてもすぐに成果は出ませんが、頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
+<p>以上、<br>教える人も教えられる人も気持ちよく仕事できるように頑張りましょう！<br>お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>メンタルヘルス</category>
+      </categories>
+      <tags>
+        <tag>新人</tag>
+        <tag>心構え</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】サイドバーに関連記事一覧を実装する（テーマ：light）</title>
+    <url>//hexo/list/recommended/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-g">ブログのサイドバーに関連記事一覧を実装したので、やり方を残します。</span></p>
+<p><span class="mark-y">Hexoでは便利なプラグインを使うことで簡単に実装可能</span>です。<br>ただ自分の場合、他の方のやり方を真似しても想定通りに実装できなかったりしたので、そういった方の参考になると嬉しいです。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.プラグインをインストール</a></li>
+<li><a href="#2%E4%BB%BB%E6%84%8F%E5%80%8B%E6%89%80%E3%81%AB%E4%B8%8B%E8%A8%98%E3%81%AE%E8%A8%98%E8%BC%89%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">2.任意個所に下記の記載を追加する</a></li>
+<li><a href="#3css%E3%82%92%E8%A8%98%E8%BC%89%E3%81%99%E3%82%8B">3.CSSを記載する</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1プラグインをインストール">1.プラグインをインストール</span></h3><p>簡単に関連記事一覧を実装するために必要な<span class="mark-g">hexo-related-popular-postsをインストール </span></p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+
+<p><span class="link-comment">公式ページ</span><br><a href="https://github.com/tea3/hexo-related-popular-posts">https://github.com/tea3/hexo-related-popular-posts</a></p>
+<h3><span id="2任意個所に下記の記載を追加する">2.任意個所に下記の記載を追加する</span></h3><p>関連記事を追加する場所に下記を追加する。</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\sidebar.ejs</span></p>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">popular_posts</span>(&#123; <span class="attr">max</span>: <span class="number">5</span>,  <span class="attr">isExcerpt</span>: <span class="literal">true</span> &#125;, page) %&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_1.png" alt="sidebar.ejs" title="sidebar.ejs"></p>
+<div class="notice notice-info">
+自分の場合はサイドバーに表示したいので<span class="mark-y">sidebar.ejs</span>に追記してます。
+</div>
+
+<div class="nest-list">
+
+<ul>
+<li>オプションの意味<ul>
+<li>max：記事の最大表示件数</li>
+<li>isExcerpt：記事の概要を表示</li></ul></li></ul></div>
+
+
+
+<p>他にもいろいろなオプションがあります。<br>ここでは紹介しませんが、下記のサイト様がわかりやすく説明してます。<br>良ければご確認ください。</p>
+<p><span class="link-comment">参考ページ</span><br><a href="https://photo-tea.com/p/hexo-related-popular-posts/">https://photo-tea.com/p/hexo-related-popular-posts/</a></p>
+<div class="notice notice-info">
+googleSearchConsoleから閲覧数が多い記事を取得して、
+人気記事の一覧を自動生成することもできるらしい(--b)
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3cssを記載する">3.CSSを記載する</span></h3><p>そのままだと味気ないので、いい感じにCSSを設定する</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\_partial\sidebar.styl</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.related-posts</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span></span><br><span class="line"></span><br><span class="line">  h3 </span><br><span class="line">    padding <span class="number">5px</span> <span class="number">10px</span></span><br><span class="line">    font-size <span class="number">1em</span></span><br><span class="line">    border-bottom <span class="number">1px</span> solid color-border</span><br><span class="line">    font-weight normal</span><br><span class="line"></span><br><span class="line">  .popular-posts</span><br><span class="line">    list-style: none;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.popular-posts-item</span> </span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">15px</span>;</span><br><span class="line">      <span class="attribute">background</span>: <span class="number">#f7f7f7</span>;</span><br><span class="line">      <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line">      <span class="attribute">transition</span>: background <span class="number">0.2s</span> ease;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-title</span> </span><br><span class="line">        <span class="selector-tag">h3</span></span><br><span class="line">          <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">          <span class="attribute">border-left</span>: none;</span><br><span class="line">          <span class="attribute">padding-left</span>: <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: none;</span><br><span class="line"></span><br><span class="line">        <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span></span><br><span class="line">          <span class="attribute">text-decoration</span>: underline;</span><br><span class="line"></span><br><span class="line">      <span class="selector-class">.popular-posts-excerpt</span></span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">        <span class="attribute">padding-top</span>:<span class="number">10px</span></span><br><span class="line">        h2</span><br><span class="line">          display:none</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_2.png" alt="sidebar.styl" title="sidebar.styl"></p>
+<div class="notice notice-info">
+自分の場合はサイドバーのstylファイルに実装したので、
+通常のCSSとは少し違う構造となってます。
+</div>
+
+<h3><span id="確認">確認</span></h3><p>hexoのサーバを起動すると、関連記事が5件表示されていると思います！</p>
+<p><img src="/images/posts/20251130_hexo_list_recommended/hexo_listr_ecommended_3.png" alt="完成" title="完成"></p>
+<div class="notice notice-warn">
+各サイトによってレイアウトが違うと思うので、あくまで上記の画像はご参考程度にご確認ください
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="注意">注意</span></h2><p><span class="mark-r">サーバ起動時に–draftsオプションを付けると下記のようなエラーが出ることがあります。</span><br>hexo cleanを叩けば一時的に消えますが、何度も再起動をすると復活します。<br>テストした感じ影響はなさそうなので放置してますが、解決方法わかる方いましたらどこかにひっそり書いていただけるととても助かります(- -;</p>
+<p class="codeblock-filename"><span>謎のエラー</span></p>
+
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[hexo-related-popular-posts] error:  Because the post&#x27;s path has been changed, the link can not be created successfully. Please remove the cache with the following command.</span><br><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2><span id="締め">締め</span></h2><p>記事内では簡単そうに書いてますが、かなり苦労しました。<br>sidebarが表示されず色々な方の記事を確認したり、、、<br>スタイルが崩れてCSSを大幅に見直したり、、、</p>
+<p>苦労はしましたが、結果的に実装できてよかったです！</p>
+<p><span class="mark-g">サイドバーが少し華やかになるだけで結構サイトの見た目もよくなった気がします。</span><br>もう少しレイアウトを整えてもいいかなと思いますが、個人的には結構満足してますので、それはまた別の機会に（^^!</p>
+<p>今回は以上となります。<br><span class="mark-g">他にもいろいろHexo関連の記事を書いているので、良かったら見ていってください！</span><br>お疲れさまでした！</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
+    <url>//money/point/vpointget/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
+<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
+<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
+<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
+<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
+<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
+<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
+<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
+<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
+<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
+<div class="notice notice-info">
+アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
+</div>
+
+<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
+<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
+<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
+<div class="notice notice-info">
+iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
+<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
+<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
+<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
+<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
+<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
+<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<div class="notice notice-warn">
+Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
+<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
+<div class="notice notice-warn">
+このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
+</div>
+
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
+<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
+<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
+<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
+<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>食</tag>
+        <tag>ポイ活</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
+    <url>//money/point/iherb/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
+<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
+<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
+<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
+<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
+<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
+</ul>
+</li>
+<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
+<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
+<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
+<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
+<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
+<p>使用方法については購入時の適用なので、下で説明します。</p>
+<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
+<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
+<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
+<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
+<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
+<div class="notice notice-warn">
+iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
+
+<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
+<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
+<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
+<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
+<p>もし興味があれば是非購入してみてください。</p>
+<p>以上となります。<br>今回もお疲れさまでした。</p>
+<style>
+img[src*="/images/posts/20251116_money_iHerb/"] {
+  width: 320px;
+  height: auto;
+  object-fit: cover; /* はみ出し対策（必要なら） */
+}
+</style>]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>食</tag>
+        <tag>ポイ活</tag>
+        <tag>ショッピング</tag>
       </tags>
   </entry>
   <entry>
@@ -1459,157 +1615,6 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
       </tags>
   </entry>
   <entry>
-    <title>【簡単】ウェルシアの日で使うVポイントを無理なく大量に貯める方法</title>
-    <url>//money/point/vpointget/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
-<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
-<p><span class="mark-g">使い道としてはウェルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
-<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
-<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
-<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
-<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
-<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
-<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
-<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
-<div class="notice notice-info">
-アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
-</div>
-
-<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
-<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
-<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
-<div class="notice notice-info">
-iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
-<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
-<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
-<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
-<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
-<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<div class="notice notice-warn">
-Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
-<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウェルシアの日に使えば1.5倍分の価値がありますし！)</p>
-<div class="notice notice-warn">
-このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
-</div>
-
-
-<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
-<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
-<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
-<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
-<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
-    <url>//mind/newcomers/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
-<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと先輩が考えていることが学べるので、参考になるかもしれません。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
-<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
-<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
-<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
-<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
-<ul>
-<li>怒られることはあなたのことが嫌いってわけじゃない</li>
-<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
-<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
-</ul>
-<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
-<ul>
-<li>質問するのは悪い事じゃないし迷惑でもない<ul>
-<li>むしろミスされた方が迷惑</li>
-</ul>
-</li>
-<li>チームの人間なら迷わずいつでも質問しても良い<ul>
-<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
-</ul>
-</li>
-<li>質問しないことのデメリットを伝える<ul>
-<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
-</ul>
-</li>
-<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
-<li>まぁこういうこともあるってことですね</li>
-</ul>
-</li>
-</ul>
-<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
-<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
-<p>まぁ伝えてもすぐに成果は出ませんが、頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
-<p>以上、<br>教える人も教えられる人も気持ちよく仕事できるように頑張りましょう！<br>お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>メンタルヘルス</category>
-      </categories>
-      <tags>
-        <tag>新人</tag>
-        <tag>心構え</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</title>
     <url>//money/point/keiba/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
@@ -1668,8 +1673,8 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
         <category>お金</category>
       </categories>
       <tags>
-        <tag>ポイ活</tag>
         <tag>趣味</tag>
+        <tag>ポイ活</tag>
       </tags>
   </entry>
   <entry>
@@ -1972,82 +1977,6 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
-    <title>モッピーのポイントを等倍でVポイントに交換する方法【画像有】</title>
-    <url>//money/point/moppy/vpoint/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">モッピーで貯めたポイントを手数無しの等倍でVポイントに交換する方法</span>を紹介します！</p>
-<p><span class="mark-g">たった3ステップなのにポイントのロスを0にできる</span>ので、ポイ活ユーザとしては必ずやるべき内容となります。</p>
-<p>ちなみに<span class="mark-r">直接moppyから交換すると10%くらいのポイントが無駄になります(- -;</span></p>
-<p>その為Vポイントに交換する人は絶対にやりましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%AB%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E7%A7%BB%E7%AE%A1">1.ドットマネーにポイントを移管</a></li>
-<li><a href="#2%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%8B%E3%82%89v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%A6%E3%82%AE%E3%83%95%E3%83%88%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B">2.ドットマネーからVポイントを選択してギフトコードを交換</a></li>
-<li><a href="#3%E7%99%BA%E8%A1%8C%E3%81%95%E3%82%8C%E3%81%9Fv%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AE%E3%83%95%E3%83%88%E3%82%92v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E9%81%A9%E7%94%A8">3.発行されたVポイントギフトをVポイントカードに適用</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1ドットマネーにポイントを移管">1.ドットマネーにポイントを移管</span></h3><p><span class="mark-y">モッピーポイントをドットマネーのポイントに交換</span>します。</p>
-<p><span class="mark-g">モッピーを開き、「ポイント交換画面　→　他社ポイント　→　.money」を選択してポイントを交換</span>します。</p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_1.jpg" alt="moppy .moneyへの交換" title="moppy .moneyへの交換" width="300px">
-
-<p>あとは表示された手順に従って操作し、<span class="mark-y">最終的にドットマネーにポイントが反映されればOK</span>です！</p>
-<p>ちなみにドットマネーの登録がまだの方は、招待コードなどが気になるかもですが、<span class="mark-g">ドットマネーには招待コードが無いので、安心して登録しちゃってください(^^</span></p>
-<h3><span id="2ドットマネーからvポイントを選択してギフトコードを交換">2.ドットマネーからVポイントを選択してギフトコードを交換</span></h3><p><span class="mark-y">ドットマネーの「つかう」タブから「Vポイント」を選択、その後は画面の指示に従ってポイントを交換</span>する。<br><img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_2.jpg" alt=".money 使うタブ" title=".money 使うタブ" width="300px"></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_3.jpg" alt=".money Vポイント交換" title=".money Vポイント交換" width="300px">
-
-<div class="notice notice-warn">
-このときVポイントギフトの発行まで数時間かかることもあるので、気楽に待ちましょう！
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3発行されたvポイントギフトをvポイントカードに適用">3.発行されたVポイントギフトをVポイントカードに適用</span></h3><p><span class="mark-y">ドットマネーで発行されたVポイントギフトをアカウントに適用</span>します<br><span class="mark-g">ギフトの確認は右上のメールマークからできます。</span></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_4.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メールマーク" width="300px">
-
-<p><span class="mark-g">「ポイントの交換が完了しました」のメッセージをクリックするとVポイントギフトを確認できます。</span></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_5.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メール内容" width="300px">
-
-<p><span class="mark-g">そのあとは画面に表示されている通りに入力すれば、Vポイントに交換できます！</span></p>
-<h2><span id="確認">確認</span></h2><p><span class="mark-y">Vポイントアプリで履歴を確認すると.moneyからポイントを受け取れたことを確認できます！</span></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_6.jpg" alt=".moneyからVポイントの交換履歴" title=".moneyからVポイントの交換履歴" width="300px">
-
-<div class="notice notice-info">
-あとはそのままVポイントとして使用したり、WAON POINTに交換してウェルシアの日使うようにすればいいですね！
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>モッピーのポイントを無駄なくVポイントに交換する方法を紹介しました。<br><span class="mark-y">この手順を行うことのリスクは無いので、やり得ですよね(^^b</span></p>
-<p>モッピーでポイント貯めるのは結構大変なので、どうせならお得に交換していきましょう！</p>
-<p>PS<br>皆さんはウェルシアの日では何を購入してますか？<br>自分は日用品はもちろん買いますが、最近では<span class="mark-g">見たことないお菓子を買うのが好きです！</span></p>
-<p>この間見つけてた激辛マニアのオマージュ品は結構好きでした。<br>（ちなみにGoogle検索で商品名調べても出てこない、、、幻だったのか？）</p>
-<p>まずいものはもちろんありますが、おいしいものもあるので、皆さんも是非やってみてください！</p>
-<p>以上となります。<br>ウエルシアの日に楽しむために頑張りましょう！<br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>食</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一人旅 in 茨城県 磯崎海岸、阿字ヶ浦周辺【写真付】</title>
     <url>//travel/solo/isozaki/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
@@ -2142,6 +2071,82 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       <tags>
         <tag>食</tag>
         <tag>一人旅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>モッピーのポイントを等倍でVポイントに交換する方法【画像有】</title>
+    <url>//money/point/moppy/vpoint/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">モッピーで貯めたポイントを手数無しの等倍でVポイントに交換する方法</span>を紹介します！</p>
+<p><span class="mark-g">たった3ステップなのにポイントのロスを0にできる</span>ので、ポイ活ユーザとしては必ずやるべき内容となります。</p>
+<p>ちなみに<span class="mark-r">直接moppyから交換すると10%くらいのポイントが無駄になります(- -;</span></p>
+<p>その為Vポイントに交換する人は絶対にやりましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%AB%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E7%A7%BB%E7%AE%A1">1.ドットマネーにポイントを移管</a></li>
+<li><a href="#2%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%8B%E3%82%89v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%A6%E3%82%AE%E3%83%95%E3%83%88%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B">2.ドットマネーからVポイントを選択してギフトコードを交換</a></li>
+<li><a href="#3%E7%99%BA%E8%A1%8C%E3%81%95%E3%82%8C%E3%81%9Fv%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AE%E3%83%95%E3%83%88%E3%82%92v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E9%81%A9%E7%94%A8">3.発行されたVポイントギフトをVポイントカードに適用</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1ドットマネーにポイントを移管">1.ドットマネーにポイントを移管</span></h3><p><span class="mark-y">モッピーポイントをドットマネーのポイントに交換</span>します。</p>
+<p><span class="mark-g">モッピーを開き、「ポイント交換画面　→　他社ポイント　→　.money」を選択してポイントを交換</span>します。</p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_1.jpg" alt="moppy .moneyへの交換" title="moppy .moneyへの交換" width="300px">
+
+<p>あとは表示された手順に従って操作し、<span class="mark-y">最終的にドットマネーにポイントが反映されればOK</span>です！</p>
+<p>ちなみにドットマネーの登録がまだの方は、招待コードなどが気になるかもですが、<span class="mark-g">ドットマネーには招待コードが無いので、安心して登録しちゃってください(^^</span></p>
+<h3><span id="2ドットマネーからvポイントを選択してギフトコードを交換">2.ドットマネーからVポイントを選択してギフトコードを交換</span></h3><p><span class="mark-y">ドットマネーの「つかう」タブから「Vポイント」を選択、その後は画面の指示に従ってポイントを交換</span>する。<br><img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_2.jpg" alt=".money 使うタブ" title=".money 使うタブ" width="300px"></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_3.jpg" alt=".money Vポイント交換" title=".money Vポイント交換" width="300px">
+
+<div class="notice notice-warn">
+このときVポイントギフトの発行まで数時間かかることもあるので、気楽に待ちましょう！
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3発行されたvポイントギフトをvポイントカードに適用">3.発行されたVポイントギフトをVポイントカードに適用</span></h3><p><span class="mark-y">ドットマネーで発行されたVポイントギフトをアカウントに適用</span>します<br><span class="mark-g">ギフトの確認は右上のメールマークからできます。</span></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_4.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メールマーク" width="300px">
+
+<p><span class="mark-g">「ポイントの交換が完了しました」のメッセージをクリックするとVポイントギフトを確認できます。</span></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_5.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メール内容" width="300px">
+
+<p><span class="mark-g">そのあとは画面に表示されている通りに入力すれば、Vポイントに交換できます！</span></p>
+<h2><span id="確認">確認</span></h2><p><span class="mark-y">Vポイントアプリで履歴を確認すると.moneyからポイントを受け取れたことを確認できます！</span></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_6.jpg" alt=".moneyからVポイントの交換履歴" title=".moneyからVポイントの交換履歴" width="300px">
+
+<div class="notice notice-info">
+あとはそのままVポイントとして使用したり、WAON POINTに交換してウェルシアの日使うようにすればいいですね！
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>モッピーのポイントを無駄なくVポイントに交換する方法を紹介しました。<br><span class="mark-y">この手順を行うことのリスクは無いので、やり得ですよね(^^b</span></p>
+<p>モッピーでポイント貯めるのは結構大変なので、どうせならお得に交換していきましょう！</p>
+<p>PS<br>皆さんはウェルシアの日では何を購入してますか？<br>自分は日用品はもちろん買いますが、最近では<span class="mark-g">見たことないお菓子を買うのが好きです！</span></p>
+<p>この間見つけてた激辛マニアのオマージュ品は結構好きでした。<br>（ちなみにGoogle検索で商品名調べても出てこない、、、幻だったのか？）</p>
+<p>まずいものはもちろんありますが、おいしいものもあるので、皆さんも是非やってみてください！</p>
+<p>以上となります。<br>ウエルシアの日に楽しむために頑張りましょう！<br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>食</tag>
+        <tag>ポイ活</tag>
+        <tag>ショッピング</tag>
       </tags>
   </entry>
 </search>
