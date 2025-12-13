@@ -376,7 +376,6 @@ article.post .icon:before {
   text-shadow: 0 0 1px transparent;
   background: #fff;
   text-align: left;
-  color: #333;
   padding-bottom: 10px; 
   margin-bottom: 20px; 
 }
@@ -406,6 +405,23 @@ article.post .icon:before {
   border: 4px solid #eee;
   transition: transform 0.3s ease;
 }
+.profile-other-link{
+  border-top: #ddd 1px solid;
+  display: flex;
+  justify-content: left;
+  padding-top: 10px;
+}
+.profile-other-link img{
+  border-radius: 40%;
+  object-fit: cover;
+
+}
+@media screen and (max-width: 600px) {
+  .profile-other-link{
+    justify-content: center;
+  }
+}
+
 .profile-div{
   margin:8px 0
 }
