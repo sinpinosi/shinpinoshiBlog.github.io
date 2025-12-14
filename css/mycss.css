@@ -393,7 +393,7 @@ article.post .icon:before {
 .profile-title{
     padding: 15px 20px;
     font-size: 1em;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
     font-weight: normal;
 }
 /* アイコン画像 */
