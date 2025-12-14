@@ -72,6 +72,214 @@
       </tags>
   </entry>
   <entry>
+    <title>【簡単】無料でブログへの不信なアクセスをブロックできるようにする方法</title>
+    <url>//engineering/cloudflare/accessblock/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">無料でブログへの不信なアクセスを拒否するためにcloudflareを使用してみようと思います。</span></p>
+<p><span class="mark-g">自動でBotを検知し確認＆ブロックしてくれる</span>のでとても便利です。</p>
+<p>しかも<span class="mark-g">サーバを移したり、ドメインを移管する必要はなく、少しの設定で簡単に実装できます。</span></p>
+<p>経緯も含め、同じように困っている方もいると思うので、そのような方の参考になると嬉しいです。</p>
+<p>それではやっていきましょう。</p>
+<span id="more"></span>
+
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E7%B5%8C%E7%B7%AF">経緯</a></li>
+<li><a href="#%E7%92%B0%E5%A2%83">環境</a></li>
+<li><a href="#%E5%AE%9F%E8%A3%85%E6%96%B9%E6%B3%95">実装方法</a><ul>
+<li><a href="#1cloudflare%E3%81%AB%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E7%99%BB%E9%8C%B2">1.cloudflareにアカウント登録</a></li>
+<li><a href="#2cloudflare-ns%E6%83%85%E5%A0%B1%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B">2.cloudflare NS情報を取得する</a></li>
+<li><a href="#3%E3%81%8A%E5%90%8D%E5%89%8Dcom%E3%81%ABns%E6%83%85%E5%A0%B1%E3%82%92%E7%99%BB%E9%8C%B2">3.お名前.comにNS情報を登録</a></li>
+<li><a href="#4bot%E5%AF%BE%E7%AD%96%E7%94%A8%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A1%8C%E3%81%86">4.Bot対策用の設定を行う</a></li>
+<li><a href="#5%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%83%AB%E3%83%BC%E3%83%AB%E3%82%92%E8%A8%AD%E5%AE%9A">5.セキュリティルールを設定</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%81%ABcloudflare%E3%81%8C%E9%81%A9%E7%94%A8%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E7%A2%BA%E8%AA%8D">サイトにcloudflareが適用されていることを確認</a></li>
+<li><a href="#%E3%83%9C%E3%83%83%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%88%E3%83%A2%E3%83%BC%E3%83%89%E3%81%8C%E6%A9%9F%E8%83%BD%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E7%A2%BA%E8%AA%8D">ボットファイトモードが機能していることを確認</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="経緯">経緯</span></h2><p>実装した経緯としては、<span class="mark-r">Google AdSenseで「無効な操作: 自己クリック 」が検知され、そのままアカウント停止をされたことにあります。</span></p>
+<p>ただ自分の方では心当たりがなく、<span class="mark-y">firebase Analyticsで調査したところ、広告が停止された時間と同時刻に60並列での同時接続が確認されました。</span></p>
+<p>普段私のサイトは2並列で人が居ればいいほうなので、60並列は異常値です。<br>アクセス元も不明なので、おそらくVPNを使用したBOTかと思われます。</p>
+<p>上記を踏まえ、<span class="mark-r">不審な挙動をするBOTがサイトにアクセスできないようにしようと思いました。</span></p>
+<img src="/images/posts/20251215_cloudflare/cloudflare_1.png" alt="firebase Analytics 不審なアクセス確認 並列数" title="不審なアクセス確認 並列数">
+<img src="/images/posts/20251215_cloudflare/cloudflare_2.png" alt="firebase Analytics 不審なアクセス確認 アクセス元" title="不審なアクセス確認 アクセス元">
+
+<h2><span id="環境">環境</span></h2><div class="nest-list">
+
+<ul>
+<li>Webサーバ<ul>
+<li>Github Pages</li>
+</ul>
+</li>
+<li>ドメイン<ul>
+<li>お名前.com</li></ul></li></ul></div>
+
+
+
+<p><strong>＜対応前のアクセス順序＞</strong><br>ブラウザ　→　お名前.com　→　Github Pages</p>
+<p><strong>＜対応後のアクセス順序＞</strong><br>ブラウザ　→　お名前.com　→　<span class="mark-r">cloudflare</span> →　Github Pages</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="実装方法">実装方法</span></h2><h3><span id="1cloudflareにアカウント登録">1.cloudflareにアカウント登録</span></h3><p>下記にアクセスし、cloudflareのアカウントを作成します。<br><a href="https://www.cloudflare.com/ja-jp/">https://www.cloudflare.com/ja-jp/</a></p>
+<h3><span id="2cloudflare-ns情報を取得する">2.cloudflare NS情報を取得する</span></h3><p>登録後<span class="mark-y">cloudflareの画面に表示されているNS（ネームサーバ）情報を取得</span>しておきます。</p>
+<p>※おそらく新規登録後の画面と下記の画像は少し違うと思います。画像は参考までに自身の画面に表示されているNS情報を取得しておいてください。</p>
+<img src="/images/posts/20251215_cloudflare/cloudflare_3.png" alt="cloudflare NS情報取得" title="cloudflare NS情報取得">
+
+
+<h3><span id="3お名前comにns情報を登録">3.お名前.comにNS情報を登録</span></h3><p><span class="mark-y">お名前.comを開きNS情報を登録</span>します。</p>
+<p><span class="mark-g">「ドメイン →　ドメイン機能一覧　→　ネームサーバ設定」を開き、「その他のサービス」タブを選択</span>します。<br><span class="mark-g">ネームサーバ1,2に先ほど取得したNS情報を設定すればOK</span>です。</p>
+<img src="/images/posts/20251215_cloudflare/cloudflare_4.png" alt="お名前.com ネームサーバ設定" title="お名前.com ネームサーバ設定">
+
+<p>設定後にcloudflareを開くと、自動でDNSレコードが読み込まれていることを確認できます。<br><span class="mark-g">画像のようにクイックスタート画面が表示されればOKです！</span></p>
+<img src="/images/posts/20251215_cloudflare/cloudflare_5.png" alt="cloudflare クイックスタート画面" title="cloudflare クイックスタート画面">
+
+<div class="notice notice-info">
+自分の場合、数分で設定が適用されたので、数分待っても画面が表示されていない場合は、何か間違えてるかも？
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="4bot対策用の設定を行う">4.Bot対策用の設定を行う</span></h3><p>cloudflareに入れたら、<span class="mark-y">Bot対策として「ボットファイトモード」を設定します。</span><br><span class="mark-g">これだけでBotと疑わしきアクセスにはチャレンジを表示されるようになります。</span></p>
+<img src="/images/posts/20251215_cloudflare/cloudflare_6.png" alt="cloudflare ボットファイトモードの設定" title="cloudflare ボットファイトモードの設定">
+
+
+<h3><span id="5セキュリティルールを設定">5.セキュリティルールを設定</span></h3><p>基本的には、ボットファイトモードだけで問題ないと思いますが、一応下記も紹介しておきます。</p>
+<p><span class="mark-y">アクセスに対してより詳細に対応するために、セキュリティルールを設定します。</span><br><span class="mark-g">セキュリティの都合上詳細は語れませんが、IPアドレス、国、ヘッダー、ユーザエージェントなどアクセス元の情報によってブロックやチャレンジを設定できます。</span><br>無料でここまでできるの助かりますよね！</p>
+<img src="/images/posts/20251215_cloudflare/cloudflare_7.png" alt="cloudflare セキュリティルール" title="cloudflare セキュリティルール">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="確認">確認</span></h2><h3><span id="サイトにcloudflareが適用されていることを確認">サイトにcloudflareが適用されていることを確認</span></h3><p><span class="mark-y">セキュリティルールに自分のIPを設定して、自分のサイトにcloudflareが設定されていることを確認します。</span><br>セキュリティルールに下記のように設定すればOKです。</p>
+<div class="nest-list">
+
+<ul>
+<li>フィールド<ul>
+<li>送信元のIPアドレス</li>
+</ul>
+</li>
+<li>値<ul>
+<li>自分のIPアドレス</li></ul></li></ul></div>
+
+
+
+<img src="/images/posts/20251215_cloudflare/cloudflare_8.png" alt="cloudflare ログの確認" title="cloudflare ログの確認">
+
+
+<h3><span id="ボットファイトモードが機能していることを確認">ボットファイトモードが機能していることを確認</span></h3><p><span class="mark-y">Botを本当にアクセス拒否できているかを確認します。</span><br><span class="mark-g">ログを確認するとボットファイトモードでBotアクセスが処理されていることを確認できます。</span></p>
+<img src="/images/posts/20251215_cloudflare/cloudflare_9.png" alt="cloudflare ログの確認" title="cloudflare ログの確認">
+
+<div class="notice notice-warn">
+「User-Agent Switcher」 というChromeの拡張機能を使えば自分でもbotアクセスを実施できますが、複雑なのと、間違えて他サイトにアクセスするとBot判定され、アクセス拒否されることがあるので、自信がある人以外はやらないことをお勧めします。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで無料かつ簡単にセキュリティを高めることができます。</p>
+<p><span class="mark-r">インターネットには、悪い人たちがたくさんいるので、自分のサイトは自分で守ることが大切ですね。</span><br>自分も今回の件で改めて実感しました。</p>
+<p><span class="mark-g">広告については、Googleにお気持ち表明するフォームがあるので、情報（接続元、時間、接続数etc…）を報告しておきました。</span><br>早く停止解除されるといいな～</p>
+<p>以上となります。<br><span class="mark-y">インターネットを使うならセキュリティ意識を高めていきましょう</span><br>お疲れさまでした！</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>食</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
+    <url>//hexo/markdown/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3">マークダウン</a><ul>
+<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
+<li><a href="#%E7%94%BB%E5%83%8F">画像</a></li>
+<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
+<li><a href="#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88">番号付きリスト</a></li>
+<li><a href="#%E6%94%B9%E8%A1%8C">改行</a></li>
+<li><a href="#%E5%A4%AA%E5%AD%97">太字</a></li>
+<li><a href="#%E7%BD%AB%E7%B7%9A">罫線</a></li>
+<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97">見出し</a></li>
+</ul>
+</li>
+<li><a href="#h2%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h2の見出し</a><ul>
+<li><a href="#h3%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h3の見出し</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="マークダウン">マークダウン</span></h2><h3><span id="リンク">リンク</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.deepl.com/ja/translator" title="翻訳サイト">DeepL</a><br><a href="/" title="HOME">ブログのHOME</a></p>
+<h3><span id="画像">画像</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251012/mounten_view.jpg" alt="山の画像" title="山の画像です"></p>
+<h3><span id="リスト">リスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list1<ul>
+<li>hoge</li>
+</ul>
+</li>
+<li>list2<ul>
+<li>hohoge</li>
+</ul>
+</li>
+</ul>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="番号付きリスト">番号付きリスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
+<ol>
+<li>リスト１</li>
+<li>リスト２</li>
+</ol>
+<h3><span id="改行">改行</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<p>abc</p>
+<p>efg</p>
+<p>hoge</p>
+<h3><span id="太字">太字</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
+<p>hoge<strong>hoge</strong>hoge</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="罫線">罫線</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
+<p>hoge</p>
+<hr>
+<p>hoge</p>
+<h3><span id="見出し">見出し</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
+<h2><span id="h2の見出し">h2の見出し</span></h2><h3><span id="h3の見出し">h3の見出し</span></h3><h4><span id="h4の見出し">h4の見出し</span></h4><h5><span id="h5の見出し">h5の見出し</span></h5><h6><span id="h6の見出し">h6の見出し</span></h6>]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【NodeJs】サムネ用に画像の中に文字を入れるツールを作る</title>
     <url>//engineering/programming/draw_text_on_image/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">画像の中に文字を入れるツールを作るための手順</span>をお伝えします。</p>
@@ -227,192 +435,6 @@
       </tags>
   </entry>
   <entry>
-    <title>コーヒーをおいしく飲む為にセラミック水筒を購入した話</title>
-    <url>//introduction/waterbottle/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>先日<span class="mark-y">セラミックコーティングの水筒を購入</span>したので、レビューしていきたいと思います！</p>
-<p><span class="mark-g">明らかに幸福度が上がったので、是非見ていってください(^^</span></p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE">購入したもの</a></li>
-<li><a href="#%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F%E7%82%B9">よかった点</a><ul>
-<li><a href="#%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%81%8C%E3%81%86%E3%81%BE%E3%81%84">コーヒーがうまい</a></li>
-<li><a href="#%E7%9B%B4%E6%8E%A5%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%A7%E3%81%8D%E3%82%8B">直接コーヒーを抽出できる</a></li>
-<li><a href="#%E6%B0%B7%E3%82%92%E5%85%A5%E3%82%8C%E3%82%84%E3%81%99%E3%81%84">氷を入れやすい</a></li>
-<li><a href="#%E4%BF%9D%E5%86%B7%E6%80%A7%E3%82%82%E8%89%AF%E3%81%84">保冷性も良い</a></li>
-</ul>
-</li>
-<li><a href="#%E6%94%B9%E5%96%84%E3%81%97%E3%81%A6%E3%81%BB%E3%81%97%E3%81%84%E7%82%B9">改善してほしい点</a><ul>
-<li><a href="#%E3%82%BB%E3%83%A9%E3%83%9F%E3%83%83%E3%82%AF%E9%83%A8%E5%88%86%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84">セラミック部分が少ない</a></li>
-<li><a href="#%E5%80%A4%E6%AE%B5%E3%81%8C%E9%AB%98%E3%81%84">値段が高い</a></li>
-<li><a href="#%E9%96%8B%E3%81%91%E3%82%8B%E6%99%82%E3%81%AB%E3%81%AD%E3%81%98%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8B">開ける時にねじる必要がある</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%8F%E8%A9%95">総評</a></li>
-<li><a href="#%E3%81%8A%E5%BE%97%E3%81%AB%E8%B3%BC%E5%85%A5%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">お得に購入する方法</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="購入したもの">購入したもの</span></h2><p>京セラ　セラミックマグボトル</p>
-<img src="/images/posts/20251208_introduction_waterbottle/waterbottle_1.jpg" alt="京セラ セラミックマグボトル500ml 横からの写真" title="京セラ セラミックマグボトル500ml 横からの写真">
-
-<img src="/images/posts/20251208_introduction_waterbottle/waterbottle_6.jpg" alt="京セラ セラミックマグボトル500ml 上からの写真" title="京セラ セラミックマグボトル500ml 上からの写真">
-
-<img src="/images/posts/20251208_introduction_waterbottle/waterbottle_7.jpg" alt="京セラ セラミックマグボトル500ml 氷受け" title="京セラ セラミックマグボトル500ml 氷受け">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="よかった点">よかった点</span></h2><h3><span id="コーヒーがうまい">コーヒーがうまい</span></h3><p><span class="mark-y">時間が経ってもコーヒーが美味しく飲めます！</span></p>
-<p>自分の場合、コーヒーを水筒に入れて会社へ持って行ってますが、<br><span class="mark-r">ステンレス水筒の場合どうしても金属臭がして美味しくありませんでした。。。</span></p>
-<p>しかし<span class="mark-g">セラミックの水筒の場合、金属臭がせず、家で飲むコーヒーの味がそのまま楽しめる</span>のでよかったです(^^b</p>
-<h3><span id="直接コーヒーを抽出できる">直接コーヒーを抽出できる</span></h3><p>これは水筒によって変わりますが、<span class="mark-y">自分が購入したものだと口が大きいので、水筒の上にフィルターを置いて抽出できます。</span></p>
-<p>前は一度コップにコーヒーを入れて水筒に移してたので、洗い物が多く大変でしたが、手間はかなり改善されました！</p>
-<p><strong>コーヒー抽出時の参考画像：</strong><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_2.jpg" alt="京セラ セラミックマグボトルにコーヒーを入れる" title="京セラ セラミックマグボトルにコーヒーを入れる"></p>
-<div class="notice notice-warn">
-安定しているわけではないので、少し慎重に入れる必要があります。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="氷を入れやすい">氷を入れやすい</span></h3><p>これも水筒によって変わりますが、<span class="mark-y">口が大きいので、氷をストレスなく入れることができます(^^</span></p>
-<p>結構アイスコーヒーを持っていくことが多いので、かなり助かる！</p>
-<p><strong>氷を入れた場合の参考画像：</strong><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_3.jpg" alt="京セラ セラミックマグボトルに氷を入れる" title="京セラ セラミックマグボトルに氷を入れる"></p>
-<div class="notice notice-info">
-結構口が大きいので余裕で氷入りますよね！
-</div>
-
-<h3><span id="保冷性も良い">保冷性も良い</span></h3><p>保冷性も個人的には問題なく、<span class="mark-y">夜にコーヒーを入れて次の日の昼くらいまでは氷を保ってくれてます。</span></p>
-<p>普段は夜にコーヒーを入れて次の日会社に持っていくので、とてもありがたい(^^!</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="改善してほしい点">改善してほしい点</span></h2><h3><span id="セラミック部分が少ない">セラミック部分が少ない</span></h3><p><span class="mark-y">飲み口部分がセラミックでは無い為、時々ステンレス部分が口に当たり不快になります。</span></p>
-<p>飲み口付近をもう少しセラミックorプラスチックで覆うようにしてくれると嬉しいですね！</p>
-<h3><span id="値段が高い">値段が高い</span></h3><p><span class="mark-y">ステンレスボトルと比べて値段が1.5倍くらいします。。</span></p>
-<p>長く使うものなので、これくらいなら妥協してもいいかな？と思いますが、お財布には厳しいですよね(- -</p>
-<h3><span id="開ける時にねじる必要がある">開ける時にねじる必要がある</span></h3><p>前に使ってた水筒はワンタップで開くタイプのものだったので、<span class="mark-y">ねじる必要があるのは結構面倒です。。</span></p>
-<p><span class="mark-g">パソコンを触りながら片手で飲めたものを一度手を止めて飲む必要があるので、少し手間(- -;</span></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="総評">総評</span></h2><p>このようにメリットとデメリットがありますが、個人的には買ってみる価値があると思います。</p>
-<p><span class="mark-y">何よりコーヒーが美味しく飲めるのは大きなメリットなので！</span></p>
-<h2><span id="お得に購入する方法">お得に購入する方法</span></h2><p><span class="mark-y">購入についてはAmazonと楽天を比較</span>しました。</p>
-<p>ちょうどプレミアムフライデーでAmazonもセールをやってましたが、それでも<span class="mark-g">ポイントを加味すると楽天の方が安いです(^^</span></p>
-<p>大体300円くらい安く買えたはず！</p>
-<p>下記に商品の購入リンクを貼っておくのでよければご使用ください<br>自分にも少しポイントが入るので買ってもらえると嬉しいです(^^</p>
-<div class="rakten-ads">
-<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10001159&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-ec.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt title></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【直営店限定カラー】【京セラ公式】セラマグ セラミック マグボトル 水筒 CERAMUG 300ml 500ml コーヒー 味の変わらない 保温 保冷 真空断熱 ボトル 限定色 サハラ ストーミーグレー</a></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"></a></div></td></tr></table></div></td></tr></table></div>
-
-<div class="rakten-ads">
-<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10000682&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-10s-2.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt title></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【京セラ公式】セラミック マグボトル 水筒 セラマグ CERAMUG 180ml 300ml 500ml くすみカラー おしゃれ コーヒー 味の変わらない 持ち運び 保温 保冷 真空断熱 ボトル KYOCERA</a></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"></a></div></td></tr></table></div></td></tr></table>
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>今回はセラミック水筒の紹介でした！</p>
-<p>改善してほしい点はありましたが、概ね満足して使用できてます。<br><span class="mark-g">コーヒー好きの方は絶対に買った方がいいです(^^b</span></p>
-<p>ちなみに好きすぎてもう一つ購入してしまいました！<br>こちらは<span class="mark-g">300mlなので、飲み口に氷受けがないタイプですね。</span><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_4.jpg" alt="京セラ セラミックマグボトル300ml 横からの写真" title="京セラ セラミックマグボトル300ml 横からの写真"><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_5.jpg" alt="京セラ セラミックマグボトル300ml 上からの写真" title="京セラ セラミックマグボトル300ml 上からの写真"></p>
-<p>PS:<br>みなさんコーヒー豆何が好きですか？<br><span class="mark-g">自分はグァテマラが好きでいつも買ってます！</span></p>
-<p>カルディコーヒーでよく買ってるのですが、最近値上げしてちょっと辛いですよね。。<br>しかもセールの頻度もだいぶ下がってる気がする(- -;</p>
-<p>まぁフェアトレードという話もあるし、今までが安すぎたのかな〜<br>他の購入先も見つけたいなと思います！</p>
-<p>以上となります。<br><span class="mark-r">コーヒーは飲む時間と量を気をつけて飲みましょう！</span><br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>おすすめ商品紹介</tag>
-        <tag>食</tag>
-        <tag>趣味</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】記事の書き方（マークダウン）について（テーマ：light）</title>
-    <url>//hexo/markdown/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>マークダウンについて自分用にメモをする</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3">マークダウン</a><ul>
-<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
-<li><a href="#%E7%94%BB%E5%83%8F">画像</a></li>
-<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
-<li><a href="#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88">番号付きリスト</a></li>
-<li><a href="#%E6%94%B9%E8%A1%8C">改行</a></li>
-<li><a href="#%E5%A4%AA%E5%AD%97">太字</a></li>
-<li><a href="#%E7%BD%AB%E7%B7%9A">罫線</a></li>
-<li><a href="#%E8%A6%8B%E5%87%BA%E3%81%97">見出し</a></li>
-</ul>
-</li>
-<li><a href="#h2%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h2の見出し</a><ul>
-<li><a href="#h3%E3%81%AE%E8%A6%8B%E5%87%BA%E3%81%97">h3の見出し</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="マークダウン">マークダウン</span></h2><h3><span id="リンク">リンク</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[DeepL](https://www.deepl.com/ja/translator &quot;翻訳サイト&quot;)</span><br><span class="line">[ブログのHOME](/ &quot;HOME&quot;)</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.deepl.com/ja/translator" title="翻訳サイト">DeepL</a><br><a href="/" title="HOME">ブログのHOME</a></p>
-<h3><span id="画像">画像</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![山の画像](/images/posts/20251012/mounten_view.jpg &quot;山の画像です&quot;)</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251012/mounten_view.jpg" alt="山の画像" title="山の画像です"></p>
-<h3><span id="リスト">リスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* list1</span><br><span class="line">	- hoge</span><br><span class="line">* list2</span><br><span class="line">	- hohoge</span><br></pre></td></tr></table></figure>
-<ul>
-<li>list1<ul>
-<li>hoge</li>
-</ul>
-</li>
-<li>list2<ul>
-<li>hohoge</li>
-</ul>
-</li>
-</ul>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="番号付きリスト">番号付きリスト</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. リスト１</span><br><span class="line">2. リスト２</span><br></pre></td></tr></table></figure>
-<ol>
-<li>リスト１</li>
-<li>リスト２</li>
-</ol>
-<h3><span id="改行">改行</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc</span><br><span class="line">  </span><br><span class="line">efg</span><br><span class="line">  </span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
-<p>abc</p>
-<p>efg</p>
-<p>hoge</p>
-<h3><span id="太字">太字</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge**hoge**hoge</span><br></pre></td></tr></table></figure>
-<p>hoge<strong>hoge</strong>hoge</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="罫線">罫線</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hoge</span><br><span class="line">***</span><br><span class="line">hoge</span><br></pre></td></tr></table></figure>
-<p>hoge</p>
-<hr>
-<p>hoge</p>
-<h3><span id="見出し">見出し</span></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## h2の見出し</span><br><span class="line">### h3の見出し</span><br><span class="line">#### h4の見出し</span><br><span class="line">##### h5の見出し</span><br><span class="line">###### h6の見出し</span><br></pre></td></tr></table></figure>
-<h2><span id="h2の見出し">h2の見出し</span></h2><h3><span id="h3の見出し">h3の見出し</span></h3><h4><span id="h4の見出し">h4の見出し</span></h4><h5><span id="h5の見出し">h5の見出し</span></h5><h6><span id="h6の見出し">h6の見出し</span></h6>]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
     <url>//hexo/codeblock/langcolor/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
@@ -512,6 +534,111 @@
 <h2><span id="完了">完了</span></h2><p>無事「クロール済み - インデックス未登録」が設定されました！<br><img src="/images/posts/20251027/sitemap_toroku4.png" alt="インデックス登録" title="インデックス登録"></p>
 <h2><span id="締め">締め</span></h2><p>sitemapは必須なんですね。。なるほど！</p>
 <p>少し面倒ですが、やっておいたほうが確実に良いですね(^^)&#x2F;</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>Hexo</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>無料でブログの問い合わせフォームを実装する方法</title>
+    <url>//hexo/contact/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">無料で問い合わせフォームを実装する方法</span>を紹介していきます。</p>
+<p>会員登録は不要で簡単に実装できるので、小規模なサイトならこれでいいのかなと思います(^^</p>
+<p><span class="mark-g">Adsenseの申請を通すためにも必須</span>なので、必ず問い合わせフォームは実装しておきましょう。</p>
+<p>また当ブログではHEXOというHTMLジェネレータを使用しているので、少し実装方法が特殊ですが、<span class="mark-y">基本的にはHTML＆CSSだけで実装</span>できるので、どんな環境でも汎用的に実装できるはずです。</p>
+<p>それではやっていきましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%A4%9C%E8%A8%8E">検討</a></li>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.お問い合わせの固定ページを生成</a></li>
+<li><a href="#2%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E8%A8%98%E8%BC%89">2.お問い合わせフォームを記載</a></li>
+<li><a href="#3thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">3.Thanksページを生成</a></li>
+<li><a href="#4thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%B7%A8%E9%9B%86">4.Thanksページを編集</a></li>
+<li><a href="#5%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%B8%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90">5.お問い合わせページへのリンクを作成</a></li>
+<li><a href="#6%E5%88%9D%E5%9B%9E%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A1%8C%E3%81%86">6.初回認証を行う</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h2><span id="検討">検討</span></h2><p>お問い合わせ送信サービスを検討する</p>
+<ul>
+<li><p>Formspree</p>
+<ul>
+<li>料金：月50件まで無料</li>
+<li>安定・通知機能豊富</li>
+</ul>
+</li>
+<li><p>Formsubmit</p>
+<ul>
+<li>料金：無制限（実質）</li>
+<li>とにかく簡単・メール転送のみ</li>
+</ul>
+</li>
+</ul>
+<p><strong>今回はFormsubmitを使用します。</strong></p>
+<h2><span id="手順">手順</span></h2><h3><span id="1お問い合わせの固定ページを生成">1.お問い合わせの固定ページを生成</span></h3><p>お問い合わせの固定ページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="2お問い合わせフォームを記載">2.お問い合わせフォームを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
+<div class="notice notice-info">
+テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
+</div>
+<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3thanksページを生成">3.Thanksページを生成</span></h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3><span id="4thanksページを編集">4.Thanksページを編集</span></h3><p>Thanksページを記載します。</p>
+<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="5お問い合わせページへのリンクを作成">5.お問い合わせページへのリンクを作成</span></h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
+<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
+<p>※手順3以降で説明してます。</p>
+<h3><span id="6初回認証を行う">6.初回認証を行う</span></h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
+<div class="notice notice-info">
+ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="確認">確認</span></h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
+<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
+<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
+<h2><span id="締め">締め</span></h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
+<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
 <p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
@@ -644,31 +771,33 @@
       </tags>
   </entry>
   <entry>
-    <title>無料でブログの問い合わせフォームを実装する方法</title>
-    <url>//hexo/contact/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">無料で問い合わせフォームを実装する方法</span>を紹介していきます。</p>
-<p>会員登録は不要で簡単に実装できるので、小規模なサイトならこれでいいのかなと思います(^^</p>
-<p><span class="mark-g">Adsenseの申請を通すためにも必須</span>なので、必ず問い合わせフォームは実装しておきましょう。</p>
-<p>また当ブログではHEXOというHTMLジェネレータを使用しているので、少し実装方法が特殊ですが、<span class="mark-y">基本的にはHTML＆CSSだけで実装</span>できるので、どんな環境でも汎用的に実装できるはずです。</p>
-<p>それではやっていきましょう！</p>
+    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
+    <url>//hexo/redirect/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
+<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
+<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
 <span id="more"></span>
+<div class="notice notice-info">
+あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
+</div>
 
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
-<li><a href="#%E6%A4%9C%E8%A8%8E">検討</a></li>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%AE%E5%9B%BA%E5%AE%9A%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">1.お問い合わせの固定ページを生成</a></li>
-<li><a href="#2%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E8%A8%98%E8%BC%89">2.お問い合わせフォームを記載</a></li>
-<li><a href="#3thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%94%9F%E6%88%90">3.Thanksページを生成</a></li>
-<li><a href="#4thanks%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%B7%A8%E9%9B%86">4.Thanksページを編集</a></li>
-<li><a href="#5%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%B8%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%9C%E6%88%90">5.お問い合わせページへのリンクを作成</a></li>
-<li><a href="#6%E5%88%9D%E5%9B%9E%E8%AA%8D%E8%A8%BC%E3%82%92%E8%A1%8C%E3%81%86">6.初回認証を行う</a></li>
+<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
+<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
 </ul>
 </li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
+</ul>
+</li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
@@ -677,67 +806,24 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
+<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
 
-<h2><span id="検討">検討</span></h2><p>お問い合わせ送信サービスを検討する</p>
-<ul>
-<li><p>Formspree</p>
-<ul>
-<li>料金：月50件まで無料</li>
-<li>安定・通知機能豊富</li>
-</ul>
-</li>
-<li><p>Formsubmit</p>
-<ul>
-<li>料金：無制限（実質）</li>
-<li>とにかく簡単・メール転送のみ</li>
-</ul>
-</li>
-</ul>
-<p><strong>今回はFormsubmitを使用します。</strong></p>
-<h2><span id="手順">手順</span></h2><h3><span id="1お問い合わせの固定ページを生成">1.お問い合わせの固定ページを生成</span></h3><p>お問い合わせの固定ページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
+<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
+<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
 
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;contact&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
 
-<h3><span id="2お問い合わせフォームを記載">2.お問い合わせフォームを記載</span></h3><p>当ブログの場合は下記のような感じ</p>
-<div class="notice notice-info">
-テーマがlightの場合、左に余計な余白が入るためCSSでpaddingを調整してます。
-</div>
-<p class="codeblock-filename"><span>site\source\contact\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ</span><br><span class="line"><span class="section">date: 2025-11-09 22:43:38</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;contact-form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;https://formsubmit.co/[自分のメールアドレス]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;!-- 自動リダイレクト先 --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;hidden&quot; name=&quot;_next&quot; value=&quot;https://[自ドメイン]]/thanks/&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;!-- スパム対策（任意） --&gt;</span></span><br><span class="line"><span class="code">	&lt;input type=&quot;text&quot; name=&quot;_honey&quot; style=&quot;display:none&quot;&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;hidden&quot; name=&quot;_captcha&quot; value=&quot;false&quot;&gt;</span></span><br><span class="line"><span class="code">	&lt;!-- 問い合わせフォーム --&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;name&quot;&gt;お名前&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; placeholder=&quot;山田 太郎&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;email&quot;&gt;メールアドレス&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;example@mail.com&quot; required&gt;</span></span><br><span class="line"><span class="code">    &lt;label for=&quot;message&quot;&gt;お問い合わせ内容&lt;/label&gt;</span></span><br><span class="line"><span class="code">    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; placeholder=&quot;ご用件を入力してください&quot; required&gt;&lt;/textarea&gt;</span></span><br><span class="line"><span class="code">    &lt;button type=&quot;submit&quot;&gt;送信する&lt;/button&gt;</span></span><br><span class="line"><span class="code">&lt;/form&gt;</span></span><br><span class="line"><span class="code">&lt;style&gt;</span></span><br><span class="line"><span class="code">	.e-content&#123;</span></span><br><span class="line"><span class="code">		margin: 20px 0 20px 0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form label &#123;</span></span><br><span class="line"><span class="code">		display: block;</span></span><br><span class="line"><span class="code">		margin-bottom: 6px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input,</span></span><br><span class="line"><span class="code">	.contact-form textarea &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px 14px;</span></span><br><span class="line"><span class="code">		margin-bottom: 20px;</span></span><br><span class="line"><span class="code">		border: 1px solid #ccc;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		transition: border 0.2s, box-shadow 0.2s;</span></span><br><span class="line"><span class="code">	    box-sizing: border-box;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form input:focus,</span></span><br><span class="line"><span class="code">	.contact-form textarea:focus &#123;</span></span><br><span class="line"><span class="code">		border-color: #0078d7;</span></span><br><span class="line"><span class="code">		box-shadow: 0 0 0 2px rgba(0,120,215,0.2);</span></span><br><span class="line"><span class="code">		outline: none;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button &#123;</span></span><br><span class="line"><span class="code">		width: 100%;</span></span><br><span class="line"><span class="code">		padding: 12px;</span></span><br><span class="line"><span class="code">		background: #0078d7;</span></span><br><span class="line"><span class="code">		border: none;</span></span><br><span class="line"><span class="code">		color: #fff;</span></span><br><span class="line"><span class="code">		border-radius: 8px;</span></span><br><span class="line"><span class="code">		cursor: pointer;</span></span><br><span class="line"><span class="code">		transition: background 0.2s, transform 0.1s;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:hover &#123;</span></span><br><span class="line"><span class="code">		background: #005ea3;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	.contact-form button:active &#123;</span></span><br><span class="line"><span class="code">		transform: scale(0.98);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_1.png" alt="問い合わせページのmd" title="問い合わせページのmd"></p>
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h3><span id="3thanksページを生成">3.Thanksページを生成</span></h3><p>お問い合わせ後に表示させるThankページを生成します。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;thanks&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3><span id="4thanksページを編集">4.Thanksページを編集</span></h3><p>Thanksページを記載します。</p>
-<p class="codeblock-filename"><span>site\source\thanks\index.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: お問い合わせ完了</span><br><span class="line"><span class="section">date: 2025-11-09 22:51:44</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">お問い合わせいただきありがとうございます。</span><br><span class="line">担当者より内容を精査の上ご返信いたします。</span><br><span class="line">[<span class="string">TOPページへ移動</span>](<span class="link">/ &quot;TOPページへ移動&quot;</span>)</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="code">	article .post-content&#123;</span></span><br><span class="line"><span class="code">		padding:20px;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	article.page&#123;</span></span><br><span class="line"><span class="code">		padding:0;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_2.png" alt="thanksページのmd" title="thanksページのmd"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="5お問い合わせページへのリンクを作成">5.お問い合わせページへのリンクを作成</span></h3><p>自分の場合はフッターに設定してます。<br>やり方は下記にて説明してるのでよければ見てみてください！</p>
-<p><a href="/hexo/privacypolicy" title="【Hexo】プライバシーポリシーの作成（テーマ：light）">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></p>
-<p>※手順3以降で説明してます。</p>
-<h3><span id="6初回認証を行う">6.初回認証を行う</span></h3><p>画面を起動し、一度フォームを使用して初回認証メールを飛ばします。<br>届いた認証メールに従って認証を完了させてください。</p>
-<div class="notice notice-info">
-ちなみに問い合わせフォームへの入力内容は英語でないと駄目でした。。。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="確認">確認</span></h2><p>認証後にもう一度問い合わせフォームを入力すると、下記のように「お問い合わせフォーム」→「thanksページ」といった画面遷移が確認できます。</p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_3.png" alt="問い合わせフォーム" title="問い合わせフォーム"></p>
-<p><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_4.png" alt="thanksページ" title="thanksページ"></p>
-<p>ちなみにメールアドレスに受信する内容は下記のような感じです。<br><img src="/images/posts/20251110_hexo_otoiawase/hexo_otoiawase_5.png" alt="問い合わせ" title="問い合わせ"></p>
-<h2><span id="締め">締め</span></h2><p>最初結構面倒だなと思い手を付けてなかったのですが、<br>会員登録などの面倒なことをせずに登録できて便利ですね！<br>しかもスパム防止などの基本的な機能もあるので、個人的には困らなそうです。</p>
-<p>サイトの評価を上げるためにも早急に導入したいですね！</p>
-<p>以上お疲れさまでした。</p>
+<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
+<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
+<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
+<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
+<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
+<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
+<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
         <category>エンジニアリング</category>
@@ -811,138 +897,6 @@
         <tag>プログラミング</tag>
         <tag>Hexo</tag>
         <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
-    <url>//hexo/redirect/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
-<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
-<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
-<span id="more"></span>
-<div class="notice notice-info">
-あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
-</div>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
-<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
-
-<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
-<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
-<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
-<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
-<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
-<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
-<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
-<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Linux】cronで不要になったジョブを削除する</title>
-    <url>//linux/cron/delete/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
-<p>これからcronの削除をリリース方は是非ご参考ください！</p>
-<span id="more"></span>
-
-<div class="notice notice-warn">
-環境によって意味が変わってくるコマンドがあるかもしれません。
-鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
-</div>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
-<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
-<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
-<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
-<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
-<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
-
-<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
-
-<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
-<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
-<p>以上、お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>リリース手順</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1048,6 +1002,74 @@ push後しばらくしてgithubよりシークレットが含まれていると�
         <tag>プログラミング</tag>
         <tag>Hexo</tag>
         <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Linux】cronで不要になったジョブを削除する</title>
+    <url>//linux/cron/delete/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
+<p>これからcronの削除をリリース方は是非ご参考ください！</p>
+<span id="more"></span>
+
+<div class="notice notice-warn">
+環境によって意味が変わってくるコマンドがあるかもしれません。
+鵜呑みにして下記の手順を実行するのは絶対にやめましょう。
+</div>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E4%BD%9C%E6%88%90">退避ディレクトリ作成</a></li>
+<li><a href="#%E9%80%80%E9%81%BF%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95">退避ディレクトリ移動</a></li>
+<li><a href="#%E7%8F%BE%E5%9C%A8%E5%AE%9A%E7%BE%A9%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8Bcron%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E7%A2%BA%E8%AA%8D">現在定義されているcronの設定を確認</a></li>
+<li><a href="#cron%E3%81%AE%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">cronのバックアップと編集用ファイル作成</a></li>
+<li><a href="#%E7%B7%A8%E9%9B%86%E7%94%A8%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">編集用ファイルを編集</a></li>
+<li><a href="#cron%E3%82%92%E9%81%A9%E7%94%A8">cronを適用</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="退避ディレクトリ移動">退避ディレクトリ移動</span></h3><p>退避ディレクトリにcdコマンドで移動します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">表示されるディレクトリが「退避ディレクトリ」であること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
+
+<h3><span id="編集用ファイルを編集">編集用ファイルを編集</span></h3><p>編集用ファイルから削除対象のcronを削除する。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">## viエディタで行う手順</span></span><br><span class="line"><span class="string">&quot;I&quot;</span>キー押下（編集モードに変更）</span><br><span class="line"></span><br><span class="line">削除したいcronを削除</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;ESC&quot;</span>キー押下（編集モードを抜ける）　</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;:wq&quot;</span>入力（ファイルを保存し終了）</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l | diff crontab.edit -</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除した行が表示されること</span><br></pre></td></tr></table></figure>
+
+<h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
+<p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
+<p>以上、お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>リリース手順</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1364,11 +1386,10 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
       </tags>
   </entry>
   <entry>
-    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
-    <url>//money/point/iherb/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
-<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
-<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
+    <title>コーヒーをおいしく飲む為にセラミック水筒を購入した話</title>
+    <url>//introduction/waterbottle/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>先日<span class="mark-y">セラミックコーティングの水筒を購入</span>したので、レビューしていきたいと思います！</p>
+<p><span class="mark-g">明らかに幸福度が上がったので、是非見ていってください(^^</span></p>
 <span id="more"></span>
 
 <h2><span id="目次">目次</span></h2><div class="post-toc">
@@ -1376,18 +1397,22 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
 <!-- toc -->
 
 <ul>
-<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
-<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
-<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
-<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
+<li><a href="#%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE">購入したもの</a></li>
+<li><a href="#%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F%E7%82%B9">よかった点</a><ul>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%81%8C%E3%81%86%E3%81%BE%E3%81%84">コーヒーがうまい</a></li>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%A7%E3%81%8D%E3%82%8B">直接コーヒーを抽出できる</a></li>
+<li><a href="#%E6%B0%B7%E3%82%92%E5%85%A5%E3%82%8C%E3%82%84%E3%81%99%E3%81%84">氷を入れやすい</a></li>
+<li><a href="#%E4%BF%9D%E5%86%B7%E6%80%A7%E3%82%82%E8%89%AF%E3%81%84">保冷性も良い</a></li>
 </ul>
 </li>
-<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
-<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
-<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
-<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
+<li><a href="#%E6%94%B9%E5%96%84%E3%81%97%E3%81%A6%E3%81%BB%E3%81%97%E3%81%84%E7%82%B9">改善してほしい点</a><ul>
+<li><a href="#%E3%82%BB%E3%83%A9%E3%83%9F%E3%83%83%E3%82%AF%E9%83%A8%E5%88%86%E3%81%8C%E5%B0%91%E3%81%AA%E3%81%84">セラミック部分が少ない</a></li>
+<li><a href="#%E5%80%A4%E6%AE%B5%E3%81%8C%E9%AB%98%E3%81%84">値段が高い</a></li>
+<li><a href="#%E9%96%8B%E3%81%91%E3%82%8B%E6%99%82%E3%81%AB%E3%81%AD%E3%81%98%E3%82%8B%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8B">開ける時にねじる必要がある</a></li>
 </ul>
 </li>
+<li><a href="#%E7%B7%8F%E8%A9%95">総評</a></li>
+<li><a href="#%E3%81%8A%E5%BE%97%E3%81%AB%E8%B3%BC%E5%85%A5%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">お得に購入する方法</a></li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
@@ -1396,49 +1421,76 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
-<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
-<p>使用方法については購入時の適用なので、下で説明します。</p>
-<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
-<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
-<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
+<h2><span id="購入したもの">購入したもの</span></h2><p>京セラ　セラミックマグボトル</p>
+<img src="/images/posts/20251208_introduction_waterbottle/waterbottle_1.jpg" alt="京セラ セラミックマグボトル500ml 横からの写真" title="京セラ セラミックマグボトル500ml 横からの写真">
+
+<img src="/images/posts/20251208_introduction_waterbottle/waterbottle_6.jpg" alt="京セラ セラミックマグボトル500ml 上からの写真" title="京セラ セラミックマグボトル500ml 上からの写真">
+
+<img src="/images/posts/20251208_introduction_waterbottle/waterbottle_7.jpg" alt="京セラ セラミックマグボトル500ml 氷受け" title="京セラ セラミックマグボトル500ml 氷受け">
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
-<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
-<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
+<h2><span id="よかった点">よかった点</span></h2><h3><span id="コーヒーがうまい">コーヒーがうまい</span></h3><p><span class="mark-y">時間が経ってもコーヒーが美味しく飲めます！</span></p>
+<p>自分の場合、コーヒーを水筒に入れて会社へ持って行ってますが、<br><span class="mark-r">ステンレス水筒の場合どうしても金属臭がして美味しくありませんでした。。。</span></p>
+<p>しかし<span class="mark-g">セラミックの水筒の場合、金属臭がせず、家で飲むコーヒーの味がそのまま楽しめる</span>のでよかったです(^^b</p>
+<h3><span id="直接コーヒーを抽出できる">直接コーヒーを抽出できる</span></h3><p>これは水筒によって変わりますが、<span class="mark-y">自分が購入したものだと口が大きいので、水筒の上にフィルターを置いて抽出できます。</span></p>
+<p>前は一度コップにコーヒーを入れて水筒に移してたので、洗い物が多く大変でしたが、手間はかなり改善されました！</p>
+<p><strong>コーヒー抽出時の参考画像：</strong><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_2.jpg" alt="京セラ セラミックマグボトルにコーヒーを入れる" title="京セラ セラミックマグボトルにコーヒーを入れる"></p>
 <div class="notice notice-warn">
-iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
-
-<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
+安定しているわけではないので、少し慎重に入れる必要があります。
 </div>
 
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
-<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
-<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
+<h3><span id="氷を入れやすい">氷を入れやすい</span></h3><p>これも水筒によって変わりますが、<span class="mark-y">口が大きいので、氷をストレスなく入れることができます(^^</span></p>
+<p>結構アイスコーヒーを持っていくことが多いので、かなり助かる！</p>
+<p><strong>氷を入れた場合の参考画像：</strong><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_3.jpg" alt="京セラ セラミックマグボトルに氷を入れる" title="京セラ セラミックマグボトルに氷を入れる"></p>
+<div class="notice notice-info">
+結構口が大きいので余裕で氷入りますよね！
+</div>
+
+<h3><span id="保冷性も良い">保冷性も良い</span></h3><p>保冷性も個人的には問題なく、<span class="mark-y">夜にコーヒーを入れて次の日の昼くらいまでは氷を保ってくれてます。</span></p>
+<p>普段は夜にコーヒーを入れて次の日会社に持っていくので、とてもありがたい(^^!</p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
-<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
-<p>もし興味があれば是非購入してみてください。</p>
-<p>以上となります。<br>今回もお疲れさまでした。</p>
-<style>
-img[src*="/images/posts/20251116_money_iHerb/"] {
-  width: 320px;
-  height: auto;
-  object-fit: cover; /* はみ出し対策（必要なら） */
-}
-</style>]]></content>
+<h2><span id="改善してほしい点">改善してほしい点</span></h2><h3><span id="セラミック部分が少ない">セラミック部分が少ない</span></h3><p><span class="mark-y">飲み口部分がセラミックでは無い為、時々ステンレス部分が口に当たり不快になります。</span></p>
+<p>飲み口付近をもう少しセラミックorプラスチックで覆うようにしてくれると嬉しいですね！</p>
+<h3><span id="値段が高い">値段が高い</span></h3><p><span class="mark-y">ステンレスボトルと比べて値段が1.5倍くらいします。。</span></p>
+<p>長く使うものなので、これくらいなら妥協してもいいかな？と思いますが、お財布には厳しいですよね(- -</p>
+<h3><span id="開ける時にねじる必要がある">開ける時にねじる必要がある</span></h3><p>前に使ってた水筒はワンタップで開くタイプのものだったので、<span class="mark-y">ねじる必要があるのは結構面倒です。。</span></p>
+<p><span class="mark-g">パソコンを触りながら片手で飲めたものを一度手を止めて飲む必要があるので、少し手間(- -;</span></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="総評">総評</span></h2><p>このようにメリットとデメリットがありますが、個人的には買ってみる価値があると思います。</p>
+<p><span class="mark-y">何よりコーヒーが美味しく飲めるのは大きなメリットなので！</span></p>
+<h2><span id="お得に購入する方法">お得に購入する方法</span></h2><p><span class="mark-y">購入についてはAmazonと楽天を比較</span>しました。</p>
+<p>ちょうどプレミアムフライデーでAmazonもセールをやってましたが、それでも<span class="mark-g">ポイントを加味すると楽天の方が安いです(^^</span></p>
+<p>大体300円くらい安く買えたはず！</p>
+<p>下記に商品の購入リンクを貼っておくのでよければご使用ください<br>自分にも少しポイントが入るので買ってもらえると嬉しいです(^^</p>
+<div class="rakten-ads">
+<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10001159&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-ec.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt title></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【直営店限定カラー】【京セラ公式】セラマグ セラミック マグボトル 水筒 CERAMUG 300ml 500ml コーヒー 味の変わらない 保温 保冷 真空断熱 ボトル 限定色 サハラ ストーミーグレー</a></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-ec%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"></a></div></td></tr></table></div></td></tr></table></div>
+
+<div class="rakten-ads">
+<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="background-color:#FFFFFF;width:504px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:240px"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?me_id=1380509&item_id=10000682&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_gold%2Fkyocera-apd%2Fimg%2Fthumb%2F20251203%2Fmb-10s-2.jpg%3F_ex%3D240x240&s=240x240&t=picttext" border="0" style="margin:2px" alt title></a></td><td style="vertical-align:top;width:248px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">【京セラ公式】セラミック マグボトル 水筒 セラマグ CERAMUG 180ml 300ml 500ml くすみカラー おしゃれ コーヒー 味の変わらない 持ち運び 保温 保冷 真空断熱 ボトル KYOCERA</a></p><div style="margin:10px;"><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://static.affiliate.rakuten.co.jp/makelink/rl.svg" style="float:left;max-height:27px;width:auto;margin-top:0"></a><a href="https://hb.afl.rakuten.co.jp/ichiba/4ef287cc.7bd2b527.4ef287cd.c1b7c98d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkyocera-apd%2Fmb-10s-2%2F%3Fscid%3Daf_pc_bbtn&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjAsImNvbXAiOiJkb3duIiwicHJpY2UiOjAsImJvciI6MCwiY29sIjowLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ==" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"></a></div></td></tr></table></div></td></tr></table>
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>今回はセラミック水筒の紹介でした！</p>
+<p>改善してほしい点はありましたが、概ね満足して使用できてます。<br><span class="mark-g">コーヒー好きの方は絶対に買った方がいいです(^^b</span></p>
+<p>ちなみに好きすぎてもう一つ購入してしまいました！<br>こちらは<span class="mark-g">300mlなので、飲み口に氷受けがないタイプですね。</span><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_4.jpg" alt="京セラ セラミックマグボトル300ml 横からの写真" title="京セラ セラミックマグボトル300ml 横からの写真"><br><img src="/images/posts/20251208_introduction_waterbottle/waterbottle_5.jpg" alt="京セラ セラミックマグボトル300ml 上からの写真" title="京セラ セラミックマグボトル300ml 上からの写真"></p>
+<p>PS:<br>みなさんコーヒー豆何が好きですか？<br><span class="mark-g">自分はグァテマラが好きでいつも買ってます！</span></p>
+<p>カルディコーヒーでよく買ってるのですが、最近値上げしてちょっと辛いですよね。。<br>しかもセールの頻度もだいぶ下がってる気がする(- -;</p>
+<p>まぁフェアトレードという話もあるし、今までが安すぎたのかな〜<br>他の購入先も見つけたいなと思います！</p>
+<p>以上となります。<br><span class="mark-r">コーヒーは飲む時間と量を気をつけて飲みましょう！</span><br>お疲れ様でした！</p>
+]]></content>
       <categories>
-        <category>お金</category>
+        <category>生活</category>
       </categories>
       <tags>
         <tag>食</tag>
-        <tag>ポイ活</tag>
-        <tag>ショッピング</tag>
+        <tag>おすすめ商品紹介</tag>
+        <tag>趣味</tag>
       </tags>
   </entry>
   <entry>
@@ -1573,6 +1625,230 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
       </tags>
   </entry>
   <entry>
+    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
+    <url>//money/point/iherb/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
+<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
+<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
+<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
+<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
+<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
+</ul>
+</li>
+<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
+<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
+<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
+<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
+<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
+<p>使用方法については購入時の適用なので、下で説明します。</p>
+<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
+<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
+<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
+<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
+<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
+<div class="notice notice-warn">
+iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
+
+<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
+<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
+<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
+<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
+<p>もし興味があれば是非購入してみてください。</p>
+<p>以上となります。<br>今回もお疲れさまでした。</p>
+<style>
+img[src*="/images/posts/20251116_money_iHerb/"] {
+  width: 320px;
+  height: auto;
+  object-fit: cover; /* はみ出し対策（必要なら） */
+}
+</style>]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>食</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ウエルシアで使うVポイントを簡単かつ大量に貯める方法</title>
+    <url>//money/point/vpointget/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
+<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
+<p><span class="mark-g">使い道としてはウエルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
+<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
+<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
+<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
+<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
+<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
+<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
+<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
+<div class="notice notice-info">
+アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
+</div>
+
+<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
+<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
+<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
+<div class="notice notice-info">
+iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
+<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
+<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
+<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
+<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
+<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
+<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<div class="notice notice-warn">
+Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
+<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウエルシアの日に使えば1.5倍分の価値がありますし！)</p>
+<div class="notice notice-warn">
+このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
+</div>
+
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
+<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
+<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
+<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
+<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>食</tag>
+        <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</title>
+    <url>//money/point/keiba/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
+<p>普通に券売機から買うとポイントは入らないので、どうせ同じ馬券を買うならお得に楽しみたいですよね！</p>
+<p>そのための方法を色々紹介できたらいいなとおもいます。</p>
+<p><span class="mark-g">普段コスパタイパを重視して、ポイ活をやってる身としてはかなり耳寄りな情報だと思ったので、是非見ていってください！</span></p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#jra%E3%81%AE%E5%A0%B4%E5%90%88">JRAの場合</a></li>
+<li><a href="#%E5%9C%B0%E6%96%B9%E7%AB%B6%E9%A6%AC%E3%81%AE%E5%A0%B4%E5%90%88">地方競馬の場合</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="jraの場合">JRAの場合</span></h2><p><span class="mark-y">UMACA</span>というサービスを使うことで<span class="mark-y">馬券購入時に0.5%の還元</span>を受けられます。</p>
+<p><span class="mark-g">お金をプリペイドにチャージして、競馬場の専用ブースにて購入</span>できます。</p>
+<div class="notice notice-warn">
+お金をチャージする必要があり有効期限があるので、たまにしか行かない人は注意が必要です
+</div>
+
+<p><span class="link-comment">公式ページ</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
+<p>また<span class="mark-g">ポイントを使用すると競馬場で使えるクーポンと交換できたりします！</span></p>
+<p>例えば、食堂のクーポンやオリジナルグッズとの交換などです。</p>
+<p><span class="mark-y">特に食堂のクーポンは100ポイントで90円分のクーポンがもらえる</span>ので、<br>競馬場で飲み食いする人は必見です(^^&#x2F;</p>
+<p><span class="link-comment">ポイント交換先一覧</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="地方競馬の場合">地方競馬の場合</span></h2><p><span class="mark-y">楽天競馬</span>を利用すれば、<span class="mark-y">レースごとに1〜10％程度の楽天ポイント還元</span>を受けれます。</p>
+<p>また<span class="mark-g">イベントも定期的に行なってます。</span><br>例えば、3連単を的中させると的中回数によってポイントが貰えたりします。</p>
+<p>1倍の馬券を買ってしまった時もポイント還元が受けれるので、お得感あっていいですよね(^^</p>
+<p><span class="link-comment">公式サイト</span><br><a href="https://keiba.rakuten.co.jp/">https://keiba.rakuten.co.jp/</a></p>
+<div class="notice notice-warn">
+キャンペーンについては参加しないと適用されないので注意が必要です。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>個人的には競馬場で飲み食いしながら競馬を見るのが好きなので、UMACAポイントは知れてよかったです！</p>
+<p><span class="mark-g">どうでもいいですが、東京競馬場のプリッツェル激うまなのでぜひ食べてみてください(^^</span></p>
+<p>PS<br><span class="mark-y">競馬は個人的にはかなりコスパがいい趣味</span>だと思っててます。<br>1レース500円程度なら全レース掛けても6000円、飲み食いしてもせいぜい3000円程度です。<br>タコ負けしても1万円以内でこんなに楽しめるのはコスパ良すぎです(^^*<br>居酒屋をハシゴしたらこれくらい溶けますし。。</p>
+<p><span class="mark-r">まぁもちろんヒートアップして1レースで10万円とか賭けるようになったら終わりですが、、、</span></p>
+<p>多分投資とかちゃんとやってる人ならその辺の自制心が効く人が多いのではないかと思います(^^</p>
+<p><span class="mark-g">自分はマイレース500円を賭けてまったり休日を楽しむことにしてます！</span></p>
+<p>以上となります。<br><span class="mark-g">用法容量を守って、投資もギャンブルも楽しみましょう(^^</span><br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>ポイ活</tag>
+        <tag>趣味</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>25歳一人暮らし年収400万が600万円貯金した方法</title>
     <url>//money/saving/25yearsold/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-y">年収400万円の私が25歳で600万円貯金した方法</span>を備忘録として残します。<br>普通に旅行も行くし、飲み会にも参加して達成したので、多分誰でもできます。</p>
@@ -1663,152 +1939,6 @@ img[src*="/images/posts/20251116_money_iHerb/"] {
       </tags>
   </entry>
   <entry>
-    <title>【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</title>
-    <url>//money/point/keiba/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
-<p>普通に券売機から買うとポイントは入らないので、どうせ同じ馬券を買うならお得に楽しみたいですよね！</p>
-<p>そのための方法を色々紹介できたらいいなとおもいます。</p>
-<p><span class="mark-g">普段コスパタイパを重視して、ポイ活をやってる身としてはかなり耳寄りな情報だと思ったので、是非見ていってください！</span></p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#jra%E3%81%AE%E5%A0%B4%E5%90%88">JRAの場合</a></li>
-<li><a href="#%E5%9C%B0%E6%96%B9%E7%AB%B6%E9%A6%AC%E3%81%AE%E5%A0%B4%E5%90%88">地方競馬の場合</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="jraの場合">JRAの場合</span></h2><p><span class="mark-y">UMACA</span>というサービスを使うことで<span class="mark-y">馬券購入時に0.5%の還元</span>を受けられます。</p>
-<p><span class="mark-g">お金をプリペイドにチャージして、競馬場の専用ブースにて購入</span>できます。</p>
-<div class="notice notice-warn">
-お金をチャージする必要があり有効期限があるので、たまにしか行かない人は注意が必要です
-</div>
-
-<p><span class="link-comment">公式ページ</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
-<p>また<span class="mark-g">ポイントを使用すると競馬場で使えるクーポンと交換できたりします！</span></p>
-<p>例えば、食堂のクーポンやオリジナルグッズとの交換などです。</p>
-<p><span class="mark-y">特に食堂のクーポンは100ポイントで90円分のクーポンがもらえる</span>ので、<br>競馬場で飲み食いする人は必見です(^^&#x2F;</p>
-<p><span class="link-comment">ポイント交換先一覧</span><br><a href="https://www.jra.go.jp/kouza/beginner/umaca/point/">https://www.jra.go.jp/kouza/beginner/umaca/point/</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="地方競馬の場合">地方競馬の場合</span></h2><p><span class="mark-y">楽天競馬</span>を利用すれば、<span class="mark-y">レースごとに1〜10％程度の楽天ポイント還元</span>を受けれます。</p>
-<p>また<span class="mark-g">イベントも定期的に行なってます。</span><br>例えば、3連単を的中させると的中回数によってポイントが貰えたりします。</p>
-<p>1倍の馬券を買ってしまった時もポイント還元が受けれるので、お得感あっていいですよね(^^</p>
-<p><span class="link-comment">公式サイト</span><br><a href="https://keiba.rakuten.co.jp/">https://keiba.rakuten.co.jp/</a></p>
-<div class="notice notice-warn">
-キャンペーンについては参加しないと適用されないので注意が必要です。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>個人的には競馬場で飲み食いしながら競馬を見るのが好きなので、UMACAポイントは知れてよかったです！</p>
-<p><span class="mark-g">どうでもいいですが、東京競馬場のプリッツェル激うまなのでぜひ食べてみてください(^^</span></p>
-<p>PS<br><span class="mark-y">競馬は個人的にはかなりコスパがいい趣味</span>だと思っててます。<br>1レース500円程度なら全レース掛けても6000円、飲み食いしてもせいぜい3000円程度です。<br>タコ負けしても1万円以内でこんなに楽しめるのはコスパ良すぎです(^^*<br>居酒屋をハシゴしたらこれくらい溶けますし。。</p>
-<p><span class="mark-r">まぁもちろんヒートアップして1レースで10万円とか賭けるようになったら終わりですが、、、</span></p>
-<p>多分投資とかちゃんとやってる人ならその辺の自制心が効く人が多いのではないかと思います(^^</p>
-<p><span class="mark-g">自分はマイレース500円を賭けてまったり休日を楽しむことにしてます！</span></p>
-<p>以上となります。<br><span class="mark-g">用法容量を守って、投資もギャンブルも楽しみましょう(^^</span><br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>趣味</tag>
-        <tag>ポイ活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ウエルシアで使うVポイントを簡単かつ大量に貯める方法</title>
-    <url>//money/point/vpointget/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
-<p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
-<p><span class="mark-g">使い道としてはウエルシアの日に日用品や食料品、お菓子などを購入</span>して楽しく使用しています。</p>
-<p>「全部知ってるよ！」という方も多いと思いますが、「盲点だった…」ということもあるかもなので、是非見ていってください！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E8%B2%AF%E3%82%81%E6%96%B9">貯め方</a><ul>
-<li><a href="#1v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E5%88%A9%E7%94%A8">1.Vポイントカードアプリを利用</a></li>
-<li><a href="#2%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E3%82%84%E3%82%AB%E3%83%95%E3%82%A7-%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AC%E3%82%B9%E3%81%A7%E4%B8%89%E4%BA%95%E4%BD%8F%E5%8F%8B%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</a></li>
-<li><a href="#3tiktok-lite%E3%82%92%E5%88%A9%E7%94%A8">3.TikTok Liteを利用</a></li>
-<li><a href="#4%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%82%92%E5%88%A9%E7%94%A8">4.モッピーを利用</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%AC%E3%83%81%E5%8B%A2%E3%83%9D%E3%82%A4%E6%B4%BB%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%B8%E3%81%AE%E6%B3%A8%E6%84%8F">ガチ勢ポイ活ユーザーへの注意</a><ul>
-<li><a href="#v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88prime%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">VポイントPrimeクレジットカードについて</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="貯め方">貯め方</span></h2><h3><span id="1vポイントカードアプリを利用">1.Vポイントカードアプリを利用</span></h3><p>Vポイントアプリを利用することで、クーポンなどを利用してより多くポイントをもらえます。<br>例えば<span class="mark-y">ドトールコーヒーでお会計時にクーポンをセットするとポイントが3倍(1.5%)</span>もらえたりします！</p>
-<p>利用するクーポンによっては数100ポイント貰えたりするので、やっておきましょう！</p>
-<div class="notice notice-info">
-アプリの「クーポンタブ」から「セットする」を押下し、バーコードを読み取ることでクーポンを使用できます。
-</div>
-
-<h3><span id="2コンビニやカフェ-ファミレスで三井住友カードを利用する">2.コンビニやカフェ、ファミレスで三井住友カードを利用する</span></h3><p><span class="mark-y">コンビニやカフェ、ファミレスなどで三井住友カードを利用して買い物をすると7%以上還元</span>を受けられます。</p>
-<p>コンビニでよく買い物する人は絶対使った方がいいです！<br>個人的にはドトールコーヒーによく行くので、還元を受けれるのが嬉しい(^^</p>
-<p>ちなみに還元を受けられる一覧は下記の通りです。<br><a href="https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp">https://www.smbc-card.com/mem/cardinfo/cardinfo9001629.jsp</a></p>
-<div class="notice notice-info">
-iPhoneのウォレットアプリに三井住友カードを登録すれば、カードを持ち歩く必要がないので楽です
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3tiktok-liteを利用">3.TikTok Liteを利用</span></h3><p><span class="mark-g">TikTok Liteではポイントを”選べるPay”に交換</span>できます。<br>選べるPayは色々なポイントに交換することができ、その中にVポイントがあるので、おすすめです。</p>
-<p><span class="mark-y">大体月1000ポイント</span>くらいは貯められます！</p>
-<p>ちなみに<span class="mark-y">動画視聴とかはあまりせず、チェックインだけでも月600ポイント</span>くらいは稼げるので、これだけでもやった方がいいです！</p>
-<p>もし登録はまだの方は招待コードから登録するとお得です！<br>多分3000ポイントくらいは貰えるはず？<br>周りに声をかけてやってる方がいたら絶対にコードを貰って始めましょう。<br>もし周りにやってる人がいなかったら自分のコードをご使用いただけると泣いて喜びます！<br><span class="mark-g">紹介リンク：</span><br><a href="https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/">https://lite.tiktok.com/t/ZSH3myCnF6TP1-ToE6n/</a></p>
-<h3><span id="4モッピーを利用">4.モッピーを利用</span></h3><p>モッピーを経由して、<span class="mark-y">クレジットカード、証券口座、銀行口座を契約すれば、1万ポイント</span>をもらえたりします。<br>しかも等価交換なので、1万Vポイントをゲットできます！</p>
-<p>カードや証券口座、銀行口座を契約する時は絶対に見た方がいいです！<br>また<span class="mark-y">iHerbなどで買い物をするときも6%くらい還元を受けれる</span>ので倹約家の必須アイテムです！</p>
-<p>もし登録がまだの方がいたら、招待コードを利用して登録すると最大数千ポイントくらい貰えるようです。<br>もし周りにやってる方がいたら招待コードをもらってから始めた方がお得です！<br>もし周りにやってる方がいなければ、下記にある自分のコードを使用してもらえると跳んで喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<div class="notice notice-warn">
-Vポイントを等価交換する時は工夫が必要で.moneyにポイントを交換してからVポイントに交換する必要があります。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="ガチ勢ポイ活ユーザーへの注意">ガチ勢ポイ活ユーザーへの注意</span></h2><h3><span id="vポイントprimeクレジットカードについて">VポイントPrimeクレジットカードについて</span></h3><p>毎週日曜日に決済すると1.5%Vポイント還元を受けられる最強のカードです。<br>ただ<span class="mark-r">12&#x2F;1以降このカードはJALペイへのチャージは還元無し</span>となります。<br>(僕のパーフェクト還元ルートが無くなった。。)</p>
-<p>とはいえ直接WAONカードに入れるなどまだまだ他ルートは健在なので優秀であることには変わらないです。<br>(なんせVポイントはウエルシアの日に使えば1.5倍分の価値がありますし！)</p>
-<div class="notice notice-warn">
-このカードはすでに新規発行を停止しているので、すでに持っている方は大切に使いましょう！
-</div>
-
-
-<h2><span id="締め">締め</span></h2><p>こんな感じで沢山得する方法がありますよね！</p>
-<p>個人的には<span class="mark-y">Vポイントのクーポンは簡単に還元を受けれるわりに忘れられがちなので、会計前にチラ見するくらいの習慣</span>はつけた方がいいかもですね！</p>
-<p>普段友達とかにも語れないのでこういうお話できてスッキリしました！<br>見ていただいた方の生活が少しでも豊かになったら嬉しい限りです。</p>
-<p>他にもお金やポイ活に関わる投稿を上げてくので気が向いたら見ていってください。</p>
-<p>以上で終わりとさせていただきます。<br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>食</tag>
-        <tag>ポイ活</tag>
-        <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>モッピーのポイントを等倍でVポイントに交換する方法【画像有】</title>
     <url>//money/point/moppy/vpoint/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">モッピーで貯めたポイントを手数無しの等倍でVポイントに交換する方法</span>を紹介します！</p>
@@ -1879,8 +2009,8 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
         <category>お金</category>
       </categories>
       <tags>
-        <tag>食</tag>
         <tag>ポイ活</tag>
+        <tag>食</tag>
         <tag>ショッピング</tag>
       </tags>
   </entry>
