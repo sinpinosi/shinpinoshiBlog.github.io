@@ -1,6 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【NodeJs】サムネ用に画像の中に文字を入れるツールを作る</title>
+    <url>//engineering/programming/draw_text_on_image/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">画像の中に文字を入れるツールを作るための手順</span>をお伝えします。</p>
+<p>というのも<span class="mark-y">記事を作るためにサムネイルを作成する必要があり「画像編集ツールを開く → 編集 → 出力 → アップロード」という作業を毎回やるのが超絶面倒(- -;</span></p>
+<p>「せや！コマンドラインだけで実行できたら楽やん！」って思ったののがきっかけです。</p>
+<p><span class="mark-g">NodeJsだけで完結するので、誰でも簡単に実装できる</span>と思います。</p>
+<p>それではやっていきましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1npm%E3%81%A7%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.npmでライブラリをインストール</a></li>
+<li><a href="#2%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E3%81%84%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97">2.使用したいフォントを取得</a></li>
+<li><a href="#3javascript%E3%82%92%E6%9B%B8%E3%81%8F">3.JavaScriptを書く</a></li>
+<li><a href="#4%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%81%AB%E9%85%8D%E7%BD%AE">4.フォルダに配置</a></li>
+<li><a href="#5%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E5%AE%9F%E8%A1%8C">5.プログラムを実行</a></li>
+<li><a href="#6%E7%A2%BA%E8%AA%8D">6.確認</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8B%95%E4%BD%9C%E3%81%97%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">動作しない場合</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1npmでライブラリをインストール">1.npmでライブラリをインストール</span></h3><p><span class="mark-y">今回の実装で使用するライブラリをnpmでインストールします。</span><br><span class="mark-g">sharpとcanvas</span>を使用してます。</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install sharp @napi-rs/canvas</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2使用したいフォントを取得">2.使用したいフォントを取得</span></h3><p><span class="mark-y">画像に配置する文字のフォントをダウンロードします。</span><br>自分の好きなフォントでOKです！</p>
+<p>自分の場合は<span class="mark-g">「SourceHanSansJP-Bold.otf」</span>を使用しました。</p>
+<p>ファイルの形式はttfやotfなら無問題です(^^b</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="3javascriptを書く">3.JavaScriptを書く</span></h3><p>JavaScriptで下記のようにソースコードを書きます。</p>
+<p class="codeblock-filename"><span>image_text.js</span></p>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sharp <span class="keyword">from</span> <span class="string">&quot;sharp&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createCanvas, registerFont, loadImage &#125; <span class="keyword">from</span> <span class="string">&quot;canvas&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&quot;path&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">&quot;url&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// 定数定義</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">const</span> bgPath = <span class="string">&quot;background.jpg&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> fontPath = <span class="string">&quot;SourceHanSansJP-Bold.otf&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> outPath = <span class="string">&quot;C:\\cover&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> fontSize = <span class="number">128</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 半角判定（英数字・記号）</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isHalfWidth</span>(<span class="params">ch</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^[\x00-\x7F]$/</span>.<span class="title function_">test</span>(ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// 1行分を1文字ずつ描画する関数</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">drawTextLine</span>(<span class="params">ctx, text, xCenter, y, fontSize</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> x = xCenter - ctx.<span class="title function_">measureText</span>(text).<span class="property">width</span> / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> ch <span class="keyword">of</span> text) &#123;</span><br><span class="line">    <span class="keyword">const</span> w = ctx.<span class="title function_">measureText</span>(ch).<span class="property">width</span>;</span><br><span class="line"></span><br><span class="line">    ctx.<span class="title function_">fillText</span>(ch, x + w / <span class="number">2</span>, y);</span><br><span class="line"></span><br><span class="line">    x += w;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// テキスト内に&quot;\n&quot;という文字列があった場合、改行を付与</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">splitTextWithNewline</span>(<span class="params">ctx, text, maxWidth</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> rawLines = text.<span class="title function_">split</span>(<span class="string">&quot;\\n&quot;</span>);   <span class="comment">// ← &quot;\\n&quot; という文字列で区切る</span></span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line"></span><br><span class="line">  rawLines.<span class="title function_">forEach</span>(<span class="function"><span class="params">segment</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> wrappedLines = <span class="title function_">wrapText</span>(ctx, segment, maxWidth);</span><br><span class="line">    result.<span class="title function_">push</span>(...wrappedLines);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// テキストを画像幅に合わせて自動改行</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">wrapText</span>(<span class="params">ctx, text, maxWidth</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> lines = [];</span><br><span class="line">  <span class="keyword">let</span> line = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> char <span class="keyword">of</span> text) &#123;</span><br><span class="line">    <span class="keyword">const</span> testLine = line + char;</span><br><span class="line">    <span class="keyword">const</span> &#123; <span class="attr">width</span>: testWidth &#125; = ctx.<span class="title function_">measureText</span>(testLine);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (testWidth &gt; maxWidth &amp;&amp; line !== <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">      lines.<span class="title function_">push</span>(line);</span><br><span class="line">      line = char;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      line = testLine;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (line) lines.<span class="title function_">push</span>(line);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> lines;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// メイン処理</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">drawTextOnImage</span>(<span class="params">backgroundFile, text, ouputPath,filename, fontFile</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> __filename = <span class="title function_">fileURLToPath</span>(<span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">const</span> __dirname = path.<span class="title function_">dirname</span>(__filename);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> backgroundPath = path.<span class="title function_">join</span>(__dirname, backgroundFile);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> image = <span class="title function_">sharp</span>(backgroundPath);</span><br><span class="line">  <span class="keyword">const</span> &#123; width, height &#125; = <span class="keyword">await</span> image.<span class="title function_">metadata</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> fontPath = path.<span class="title function_">join</span>(__dirname, fontFile);</span><br><span class="line">  <span class="title function_">registerFont</span>(fontPath, &#123; <span class="attr">family</span>: <span class="string">&quot;SHSJP&quot;</span> &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> canvas = <span class="title function_">createCanvas</span>(width, height);</span><br><span class="line">  <span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> bgImage = <span class="keyword">await</span> <span class="title function_">loadImage</span>(backgroundPath);</span><br><span class="line">  ctx.<span class="title function_">drawImage</span>(bgImage, <span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line"></span><br><span class="line">  ctx.<span class="property">font</span> = <span class="string">`<span class="subst">$&#123;fontSize&#125;</span>px &#x27;SHSJP&#x27;`</span>;</span><br><span class="line">  ctx.<span class="property">fillStyle</span> = <span class="string">&quot;black&quot;</span>;</span><br><span class="line">  ctx.<span class="property">textAlign</span> = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">  ctx.<span class="property">textBaseline</span> = <span class="string">&quot;middle&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// 自動改行処理（最大横幅は余裕を持たせて 90% に設定）</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="keyword">const</span> maxTextWidth = width * <span class="number">0.9</span>;</span><br><span class="line">  <span class="keyword">const</span> lines = <span class="title function_">splitTextWithNewline</span>(ctx, text, maxTextWidth);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// すべての行を中央に配置するための Y 計算</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="keyword">const</span> lineHeight = fontSize * <span class="number">1.2</span>;</span><br><span class="line">  <span class="keyword">const</span> totalHeight = lines.<span class="property">length</span> * lineHeight;</span><br><span class="line">  <span class="keyword">const</span> startY = height / <span class="number">2</span> - totalHeight / <span class="number">2</span> + lineHeight / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// 行ごとに描画</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// メイン描画部分に組み込む</span></span><br><span class="line">  lines.<span class="title function_">forEach</span>(<span class="function">(<span class="params">line, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> y = startY + i * lineHeight;</span><br><span class="line">    <span class="title function_">drawTextLine</span>(ctx, line, width / <span class="number">2</span>, y, fontSize);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// 画像に出力</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// const filename = filename.replace(/[\\/:*?&quot;&lt;&gt;|]/g, &quot;_&quot;);</span></span><br><span class="line">  <span class="keyword">const</span> outputImagePath = path.<span class="title function_">join</span>(ouputPath, filename + <span class="string">&quot;.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> outBuffer = canvas.<span class="title function_">toBuffer</span>(<span class="string">&quot;image/png&quot;</span>);</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">sharp</span>(outBuffer)</span><br><span class="line">    .<span class="title function_">jpeg</span>(&#123; <span class="attr">quality</span>: <span class="number">90</span> &#125;)</span><br><span class="line">    .<span class="title function_">toFile</span>(outputImagePath);</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;出力完了:&quot;</span>, outputImagePath);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// 実行</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">const</span> [, , filename, text] = process.<span class="property">argv</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!filename || !text) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;使い方: node image_text.js &lt;出力ファイル名&gt; &lt;テキスト&gt;&quot;</span>);</span><br><span class="line">  process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">drawTextOnImage</span>(bgPath, text, outPath,filename, fontPath);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>また<span class="mark-g">定数定義部分については、個人の環境によってご変更ください</span></p>
+<div class="nest-list">
+
+<ul>
+<li>変更箇所<ul>
+<li>const bgPath &#x3D; “[背景に使用する画像]”;</li>
+<li>const fontPath &#x3D; “[フォント（otfなど）]”;</li>
+<li>const outPath &#x3D; “[完成画像の出力フォルダ]”;</li></ul></li></ul></div>
+
+
+
+<h3><span id="4フォルダに配置">4.フォルダに配置</span></h3><p><span class="mark-y">任意のフォルダに「手順.2のフォント」と「手順.3のプログラム」を配置します。</span></p>
+<p>自分の場合は下記の画像のようなフォルダ構成<br><img src="/images/posts/20251207_engineering_programming_draw_text_on_image/engineering_programming_draw_text_on_image_1.png" alt="サムネイルの出力結果" title="サムネイルの出力結果"></p>
+<div class="notice notice-info">
+この記事のプログラムをそのまま使用するなら、
+同じフォルダにすべてのファイルを配置しましょう！
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="5プログラムを実行">5.プログラムを実行</span></h3><p><span class="mark-y">プログラムを実行して画像を生成してみます。</span></p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">node C:/tool/image_text.js &quot;test_test&quot; &quot;テストですよ\nテスト１２３テストhogeテスト<span class="number">123</span>テスト&quot;</span><br></pre></td></tr></table></figure>
+
+<div class="notice notice-warn">
+実行時に自分の場合は<span class="mark-r">「couldn't load font」</span>エラーが発生しました。<br>
+うまくフォントが読み込めて無いようです。。。<br>
+本当は修正したいのですが、今回の場合は問題なく画像出力できたのでここでは無視してます。
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="6確認">6.確認</span></h3><p><span class="mark-y">出力された画像を確認します。<br>無事出力されてそうですね！</span></p>
+<img src="/images/posts/20251207_engineering_programming_draw_text_on_image/engineering_programming_draw_text_on_image_2.png" alt="サムネイルの出力結果" title="サムネイルの出力結果">
+
+<h2><span id="動作しない場合">動作しない場合</span></h2><p><span class="mark-y">動作しない場合はcanvasの再インストール</span>を試してみると動作するかもしれません</p>
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall @napi-rs/canvas</span><br><span class="line">npm install canvas</span><br></pre></td></tr></table></figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>こんな感じでサムネ生成ツールを作ってみました。</p>
+<p>結構サムネイルを作る効率が上がったのではないでしょうか？</p>
+<p><span class="mark-g">10分程度の作業時間が1分にできるんですから、塵積で大幅な時間短縮になりますよね！</span></p>
+<p>最初はpythonで実装しようとしたのですが、自分のブログでの使用言語がjsだったので、こっちで実装してみました。<br>結構苦労はしましたが、無事実装できてよかったです(^^</p>
+<p><span class="mark-g">こんな感じの便利ツールは実際の業務とかでも作ったりしているので、できる範囲でどんどん記事にしてきますね！</span></p>
+<p>今回は以上となります。<br>ツール作りは楽しいので、是非皆さんもやりましょう！<br>お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ツール</tag>
+        <tag>ブログ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【簡単】無料でブログへの不信なアクセスを確認＆拒否する方法</title>
     <url>//engineering/cloudflare/accessblock/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">無料でブログへの不信なアクセスを拒否するためにcloudflareを使用してみようと思います。</span></p>
@@ -130,114 +236,8 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
+        <tag>ブログ</tag>
         <tag>インフラ</tag>
-        <tag>ブログ</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【NodeJs】サムネ用に画像の中に文字を入れるツールを作る</title>
-    <url>//engineering/programming/draw_text_on_image/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">画像の中に文字を入れるツールを作るための手順</span>をお伝えします。</p>
-<p>というのも<span class="mark-y">記事を作るためにサムネイルを作成する必要があり「画像編集ツールを開く → 編集 → 出力 → アップロード」という作業を毎回やるのが超絶面倒(- -;</span></p>
-<p>「せや！コマンドラインだけで実行できたら楽やん！」って思ったののがきっかけです。</p>
-<p><span class="mark-g">NodeJsだけで完結するので、誰でも簡単に実装できる</span>と思います。</p>
-<p>それではやっていきましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1npm%E3%81%A7%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.npmでライブラリをインストール</a></li>
-<li><a href="#2%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E3%81%84%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97">2.使用したいフォントを取得</a></li>
-<li><a href="#3javascript%E3%82%92%E6%9B%B8%E3%81%8F">3.JavaScriptを書く</a></li>
-<li><a href="#4%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%81%AB%E9%85%8D%E7%BD%AE">4.フォルダに配置</a></li>
-<li><a href="#5%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%82%92%E5%AE%9F%E8%A1%8C">5.プログラムを実行</a></li>
-<li><a href="#6%E7%A2%BA%E8%AA%8D">6.確認</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8B%95%E4%BD%9C%E3%81%97%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">動作しない場合</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1npmでライブラリをインストール">1.npmでライブラリをインストール</span></h3><p><span class="mark-y">今回の実装で使用するライブラリをnpmでインストールします。</span><br><span class="mark-g">sharpとcanvas</span>を使用してます。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install sharp @napi-rs/canvas</span><br></pre></td></tr></table></figure>
-
-<h3><span id="2使用したいフォントを取得">2.使用したいフォントを取得</span></h3><p><span class="mark-y">画像に配置する文字のフォントをダウンロードします。</span><br>自分の好きなフォントでOKです！</p>
-<p>自分の場合は<span class="mark-g">「SourceHanSansJP-Bold.otf」</span>を使用しました。</p>
-<p>ファイルの形式はttfやotfなら無問題です(^^b</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3javascriptを書く">3.JavaScriptを書く</span></h3><p>JavaScriptで下記のようにソースコードを書きます。</p>
-<p class="codeblock-filename"><span>image_text.js</span></p>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sharp <span class="keyword">from</span> <span class="string">&quot;sharp&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createCanvas, registerFont, loadImage &#125; <span class="keyword">from</span> <span class="string">&quot;canvas&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&quot;path&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; fileURLToPath &#125; <span class="keyword">from</span> <span class="string">&quot;url&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// 定数定義</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">const</span> bgPath = <span class="string">&quot;background.jpg&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> fontPath = <span class="string">&quot;SourceHanSansJP-Bold.otf&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> outPath = <span class="string">&quot;C:\\cover&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> fontSize = <span class="number">128</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 半角判定（英数字・記号）</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isHalfWidth</span>(<span class="params">ch</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^[\x00-\x7F]$/</span>.<span class="title function_">test</span>(ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// 1行分を1文字ずつ描画する関数</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">drawTextLine</span>(<span class="params">ctx, text, xCenter, y, fontSize</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> x = xCenter - ctx.<span class="title function_">measureText</span>(text).<span class="property">width</span> / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> ch <span class="keyword">of</span> text) &#123;</span><br><span class="line">    <span class="keyword">const</span> w = ctx.<span class="title function_">measureText</span>(ch).<span class="property">width</span>;</span><br><span class="line"></span><br><span class="line">    ctx.<span class="title function_">fillText</span>(ch, x + w / <span class="number">2</span>, y);</span><br><span class="line"></span><br><span class="line">    x += w;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// テキスト内に&quot;\n&quot;という文字列があった場合、改行を付与</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">splitTextWithNewline</span>(<span class="params">ctx, text, maxWidth</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> rawLines = text.<span class="title function_">split</span>(<span class="string">&quot;\\n&quot;</span>);   <span class="comment">// ← &quot;\\n&quot; という文字列で区切る</span></span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line"></span><br><span class="line">  rawLines.<span class="title function_">forEach</span>(<span class="function"><span class="params">segment</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> wrappedLines = <span class="title function_">wrapText</span>(ctx, segment, maxWidth);</span><br><span class="line">    result.<span class="title function_">push</span>(...wrappedLines);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// テキストを画像幅に合わせて自動改行</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">wrapText</span>(<span class="params">ctx, text, maxWidth</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> lines = [];</span><br><span class="line">  <span class="keyword">let</span> line = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> char <span class="keyword">of</span> text) &#123;</span><br><span class="line">    <span class="keyword">const</span> testLine = line + char;</span><br><span class="line">    <span class="keyword">const</span> &#123; <span class="attr">width</span>: testWidth &#125; = ctx.<span class="title function_">measureText</span>(testLine);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (testWidth &gt; maxWidth &amp;&amp; line !== <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">      lines.<span class="title function_">push</span>(line);</span><br><span class="line">      line = char;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      line = testLine;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (line) lines.<span class="title function_">push</span>(line);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> lines;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// メイン処理</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">drawTextOnImage</span>(<span class="params">backgroundFile, text, ouputPath,filename, fontFile</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> __filename = <span class="title function_">fileURLToPath</span>(<span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">const</span> __dirname = path.<span class="title function_">dirname</span>(__filename);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> backgroundPath = path.<span class="title function_">join</span>(__dirname, backgroundFile);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> image = <span class="title function_">sharp</span>(backgroundPath);</span><br><span class="line">  <span class="keyword">const</span> &#123; width, height &#125; = <span class="keyword">await</span> image.<span class="title function_">metadata</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> fontPath = path.<span class="title function_">join</span>(__dirname, fontFile);</span><br><span class="line">  <span class="title function_">registerFont</span>(fontPath, &#123; <span class="attr">family</span>: <span class="string">&quot;SHSJP&quot;</span> &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> canvas = <span class="title function_">createCanvas</span>(width, height);</span><br><span class="line">  <span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> bgImage = <span class="keyword">await</span> <span class="title function_">loadImage</span>(backgroundPath);</span><br><span class="line">  ctx.<span class="title function_">drawImage</span>(bgImage, <span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line"></span><br><span class="line">  ctx.<span class="property">font</span> = <span class="string">`<span class="subst">$&#123;fontSize&#125;</span>px &#x27;SHSJP&#x27;`</span>;</span><br><span class="line">  ctx.<span class="property">fillStyle</span> = <span class="string">&quot;black&quot;</span>;</span><br><span class="line">  ctx.<span class="property">textAlign</span> = <span class="string">&quot;center&quot;</span>;</span><br><span class="line">  ctx.<span class="property">textBaseline</span> = <span class="string">&quot;middle&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// 自動改行処理（最大横幅は余裕を持たせて 90% に設定）</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="keyword">const</span> maxTextWidth = width * <span class="number">0.9</span>;</span><br><span class="line">  <span class="keyword">const</span> lines = <span class="title function_">splitTextWithNewline</span>(ctx, text, maxTextWidth);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// すべての行を中央に配置するための Y 計算</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="keyword">const</span> lineHeight = fontSize * <span class="number">1.2</span>;</span><br><span class="line">  <span class="keyword">const</span> totalHeight = lines.<span class="property">length</span> * lineHeight;</span><br><span class="line">  <span class="keyword">const</span> startY = height / <span class="number">2</span> - totalHeight / <span class="number">2</span> + lineHeight / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// 行ごとに描画</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// メイン描画部分に組み込む</span></span><br><span class="line">  lines.<span class="title function_">forEach</span>(<span class="function">(<span class="params">line, i</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> y = startY + i * lineHeight;</span><br><span class="line">    <span class="title function_">drawTextLine</span>(ctx, line, width / <span class="number">2</span>, y, fontSize);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// 画像に出力</span></span><br><span class="line">  <span class="comment">// --------------------------------------------------</span></span><br><span class="line">  <span class="comment">// const filename = filename.replace(/[\\/:*?&quot;&lt;&gt;|]/g, &quot;_&quot;);</span></span><br><span class="line">  <span class="keyword">const</span> outputImagePath = path.<span class="title function_">join</span>(ouputPath, filename + <span class="string">&quot;.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> outBuffer = canvas.<span class="title function_">toBuffer</span>(<span class="string">&quot;image/png&quot;</span>);</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">sharp</span>(outBuffer)</span><br><span class="line">    .<span class="title function_">jpeg</span>(&#123; <span class="attr">quality</span>: <span class="number">90</span> &#125;)</span><br><span class="line">    .<span class="title function_">toFile</span>(outputImagePath);</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;出力完了:&quot;</span>, outputImagePath);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="comment">// 実行</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------</span></span><br><span class="line"><span class="keyword">const</span> [, , filename, text] = process.<span class="property">argv</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!filename || !text) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;使い方: node image_text.js &lt;出力ファイル名&gt; &lt;テキスト&gt;&quot;</span>);</span><br><span class="line">  process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">drawTextOnImage</span>(bgPath, text, outPath,filename, fontPath);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>また<span class="mark-g">定数定義部分については、個人の環境によってご変更ください</span></p>
-<div class="nest-list">
-
-<ul>
-<li>変更箇所<ul>
-<li>const bgPath &#x3D; “[背景に使用する画像]”;</li>
-<li>const fontPath &#x3D; “[フォント（otfなど）]”;</li>
-<li>const outPath &#x3D; “[完成画像の出力フォルダ]”;</li></ul></li></ul></div>
-
-
-
-<h3><span id="4フォルダに配置">4.フォルダに配置</span></h3><p><span class="mark-y">任意のフォルダに「手順.2のフォント」と「手順.3のプログラム」を配置します。</span></p>
-<p>自分の場合は下記の画像のようなフォルダ構成<br><img src="/images/posts/20251207_engineering_programming_draw_text_on_image/engineering_programming_draw_text_on_image_1.png" alt="サムネイルの出力結果" title="サムネイルの出力結果"></p>
-<div class="notice notice-info">
-この記事のプログラムをそのまま使用するなら、
-同じフォルダにすべてのファイルを配置しましょう！
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="5プログラムを実行">5.プログラムを実行</span></h3><p><span class="mark-y">プログラムを実行して画像を生成してみます。</span></p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">node C:/tool/image_text.js &quot;test_test&quot; &quot;テストですよ\nテスト１２３テストhogeテスト<span class="number">123</span>テスト&quot;</span><br></pre></td></tr></table></figure>
-
-<div class="notice notice-warn">
-実行時に自分の場合は<span class="mark-r">「couldn't load font」</span>エラーが発生しました。<br>
-うまくフォントが読み込めて無いようです。。。<br>
-本当は修正したいのですが、今回の場合は問題なく画像出力できたのでここでは無視してます。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="6確認">6.確認</span></h3><p><span class="mark-y">出力された画像を確認します。<br>無事出力されてそうですね！</span></p>
-<img src="/images/posts/20251207_engineering_programming_draw_text_on_image/engineering_programming_draw_text_on_image_2.png" alt="サムネイルの出力結果" title="サムネイルの出力結果">
-
-<h2><span id="動作しない場合">動作しない場合</span></h2><p><span class="mark-y">動作しない場合はcanvasの再インストール</span>を試してみると動作するかもしれません</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm uninstall @napi-rs/canvas</span><br><span class="line">npm install canvas</span><br></pre></td></tr></table></figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>こんな感じでサムネ生成ツールを作ってみました。</p>
-<p>結構サムネイルを作る効率が上がったのではないでしょうか？</p>
-<p><span class="mark-g">10分程度の作業時間が1分にできるんですから、塵積で大幅な時間短縮になりますよね！</span></p>
-<p>最初はpythonで実装しようとしたのですが、自分のブログでの使用言語がjsだったので、こっちで実装してみました。<br>結構苦労はしましたが、無事実装できてよかったです(^^</p>
-<p><span class="mark-g">こんな感じの便利ツールは実際の業務とかでも作ったりしているので、できる範囲でどんどん記事にしてきますね！</span></p>
-<p>今回は以上となります。<br>ツール作りは楽しいので、是非皆さんもやりましょう！<br>お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>ブログ</tag>
-        <tag>プログラミング</tag>
-        <tag>ツール</tag>
       </tags>
   </entry>
   <entry>
@@ -313,8 +313,8 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -384,8 +384,8 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -432,8 +432,52 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
+    <url>//hexo/template/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
+<span id="more"></span>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
+<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
+<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
+<p>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -481,8 +525,8 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -544,117 +588,8 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
-    <url>//hexo/template/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
-<span id="more"></span>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
-<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
-
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
         <tag>ブログ</tag>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</title>
-    <url>//hexo/noindex/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1headejs%E3%82%92%E5%A4%89%E6%9B%B4">1.head.ejsを変更</a></li>
-</ul>
-</li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
-<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="手順">手順</span></h2><h3><span id="1headejsを変更">1.head.ejsを変更</span></h3><p>ヘッダーを定義するファイルに「アーカイブ」と「タグ」ページの場合はnoindexを設定するように定義</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_archive() || is_tag()) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_1.png" alt="head.ejs" title="head.ejs"></p>
-<h2><span id="確認">確認</span></h2><p>ビルドを行いpublic内に生成されたHTMLのヘッダーを確認する。<br>下記のように指定したページだけnoindexが記載されてればOKです。</p>
-<div class="notice notice-info">
-追記：後から気づきましたが、vscodeの検索窓から「meta name="robots" 」などで検索すれば一括で簡単に見れますね。。。
-</div>
-
-<p><strong>＜アーカイブ＞</strong><br>site\public\archives\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_2.png" alt="アーカイブ" title="アーカイブ"></p>
-<p><strong>＜タグのHTML＞</strong><br>site\public\tags\Hexo\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_3.png" alt="タグ" title="タグ"></p>
-<p><strong>＜トップページのHTML＞</strong><br>site\public\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_4.png" alt="トップページ" title="トップページ"></p>
-<p><strong>＜カテゴリのHTML＞</strong><br>site\public\categories\エンジニアリング\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_5.png" alt="カテゴリ" title="カテゴリ"></p>
-<p><strong>＜記事のHTML＞</strong><br>site\public\travel\picatitibu\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_6.png" alt="記事" title="記事"></p>
-<p>問題なく設定できてますね！</p>
-<div class="notice notice-warn">
-ここで設定を失敗するとすべてのページがnoindexとなってしまい、全ページが検索エンジンから消えます。必ず確認するようにしましょう！
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="補足">補足</span></h2><p>特定のページのみをnoindexにする場合は「is_current(‘ページ名’)」のように記載すれば可能です。</p>
-<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_current(&#x27;/privacy-policy&#x27;)) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
-<h2><span id="締め">締め</span></h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
-<p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
-<p>以上お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>エンジニアリング</category>
-      </categories>
-      <tags>
-        <tag>ブログ</tag>
-        <tag>プログラミング</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -729,39 +664,28 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
-    <url>//hexo/redirect/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
-<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
-<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
+    <title>【Hexo】特定のページだけインデックス登録しないように設定する（テーマ：light）</title>
+    <url>//hexo/noindex/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにアーカイブやタグのページがインデックス登録されて、うまく登録されなかったりするので、noindexを設定してインデックス登録されないようする。</p>
 <span id="more"></span>
-<div class="notice notice-info">
-あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
-</div>
 
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
-<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
+<li><a href="#1headejs%E3%82%92%E5%A4%89%E6%9B%B4">1.head.ejsを変更</a></li>
 </ul>
 </li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
-<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
-</ul>
-</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a></li>
+<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
@@ -770,31 +694,43 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
+<h2><span id="手順">手順</span></h2><h3><span id="1headejsを変更">1.head.ejsを変更</span></h3><p>ヘッダーを定義するファイルに「アーカイブ」と「タグ」ページの場合はnoindexを設定するように定義</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
 
-<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
-<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_archive() || is_tag()) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_1.png" alt="head.ejs" title="head.ejs"></p>
+<h2><span id="確認">確認</span></h2><p>ビルドを行いpublic内に生成されたHTMLのヘッダーを確認する。<br>下記のように指定したページだけnoindexが記載されてればOKです。</p>
+<div class="notice notice-info">
+追記：後から気づきましたが、vscodeの検索窓から「meta name="robots" 」などで検索すれば一括で簡単に見れますね。。。
+</div>
 
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
+<p><strong>＜アーカイブ＞</strong><br>site\public\archives\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_2.png" alt="アーカイブ" title="アーカイブ"></p>
+<p><strong>＜タグのHTML＞</strong><br>site\public\tags\Hexo\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_3.png" alt="タグ" title="タグ"></p>
+<p><strong>＜トップページのHTML＞</strong><br>site\public\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_4.png" alt="トップページ" title="トップページ"></p>
+<p><strong>＜カテゴリのHTML＞</strong><br>site\public\categories\エンジニアリング\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_5.png" alt="カテゴリ" title="カテゴリ"></p>
+<p><strong>＜記事のHTML＞</strong><br>site\public\travel\picatitibu\index.html<br><img src="/images/posts/20251109_hexo_noindex/hexo_noindex_6.png" alt="記事" title="記事"></p>
+<p>問題なく設定できてますね！</p>
+<div class="notice notice-warn">
+ここで設定を失敗するとすべてのページがnoindexとなってしまい、全ページが検索エンジンから消えます。必ず確認するようにしましょう！
+</div>
 
-<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
-<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
-<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
-<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
-<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
-<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
-<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
+<h2><span id="補足">補足</span></h2><p>特定のページのみをnoindexにする場合は「is_current(‘ページ名’)」のように記載すれば可能です。</p>
+<p class="codeblock-filename"><span>site\themes\light\layout\_partial\head.ejs</span></p>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;% if (is_current(&#x27;/privacy-policy&#x27;)) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, follow&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="締め">締め</span></h2><p>こういった設定を忘れるとユーザライクでないページとして登録され、サイトの評価が下がるかもしれません。<br>私個人としてはやっておいたほうが良いかと思います。</p>
+<p>ただ設定ミスをするとサイトの運営に致命的な影響を与えるのでかなり慎重にチェックしたほうが良いかもしれないですね！</p>
+<p>以上お疲れさまでした。</p>
 ]]></content>
       <categories>
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -898,8 +834,72 @@
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Hexo】URLを変更するためにリダイレクトを設定（テーマ：light）</title>
+    <url>//hexo/redirect/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleにて <strong>「重複しています。ユーザーにより、正規ページとして選択されていません」</strong> と表示されインデックス登録されませんでした。</p>
+<p>原因はURLを新しいものに変更したが、Googleには前のURLが登録されているので、重複と判断されたようです。</p>
+<p>解決方法としては、古いページから新しいページへリダイレクトを設定すればよいとのことなので実装してみます。</p>
+<span id="more"></span>
+<div class="notice notice-info">
+あくまでHexo＆GithubPages環境での最適解になります。他の環境には他のやり方があると思うので、ご了承ください。
+</div>
+
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_1.png" alt="GoogleSearchConsoleの重複エラー" title="GoogleSearchConsoleの重複エラー"></p>
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_2.png" alt="GoogleSearchConsoleにindex登録されているページ" title="GoogleSearchConsoleにindex登録されているページ"></p>
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1hexo-generator-alias%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">1.hexo-generator-aliasをダウンロード</a></li>
+<li><a href="#2md%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%B7%A8%E9%9B%86">2.mdファイルを編集</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E6%96%B9%E6%B3%95">確認方法</a></li>
+<li><a href="#%E7%A2%BA%E8%AA%8D%E5%AE%9F%E6%96%BD">確認実施</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1hexo-generator-aliasをダウンロード">1.hexo-generator-aliasをダウンロード</span></h3><p>リダイレクトを簡単に実装するためのライブラリをダウンロード</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-alias --save</span><br></pre></td></tr></table></figure>
+
+<h3><span id="2mdファイルを編集">2.mdファイルを編集</span></h3><p>mdファイルにリダイレクト元のURLを記載する（今回の場合は変更前のURL）</p>
+<p class="codeblock-filename"><span>site\source\_posts\[記事].md</span></p>
+
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> [変更前のURL]</span><br><span class="line"></span><br><span class="line">&lt;!-- 例 --&gt;</span><br><span class="line">alias:</span><br><span class="line"><span class="bullet">  -</span> /【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br><span class="line"><span class="bullet">  -</span> /2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251112_hexo_redilect/google_redilect_3.png" alt="記事.md" title="記事.md"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="確認">確認</span></h2><h3><span id="確認方法">確認方法</span></h3><p>私のサイトの場合は下記のリダイレクト元URLにアクセスすれば、リダイレクト先URLへアクセスされます。<br><strong>＜リダイレクト元URL＞</strong><br><a href="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a><br><a href="https://shinpinoshi.com/2025/10/12/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/">https://shinpinoshi.com/2025/10/12/【Hexo】記事に自動で目次を付ける（テーマ：light）/</a></p>
+<p><strong>＜リダイレクト先URL＞</strong><br><a href="https://shinpinoshi.com/hexo/mokuji/">https://shinpinoshi.com/hexo/mokuji/</a></p>
+<h3><span id="確認実施">確認実施</span></h3><p><strong>＞リダイレクト元URLでページへアクセス</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_4.png" alt="リダイレクト元検索" title="リダイレクト元検索"></p>
+<p><strong>＞元ページからリダイレクトされ、新ページへアクセスされる</strong><br><img src="/images/posts/20251112_hexo_redilect/google_redilect_5.png" alt="リダイレクト先ページ" title="リダイレクト先ページ"></p>
+<h2><span id="締め">締め</span></h2><p>いい感じに実装＆確認できたのではないでしょうか？<br>記事が少なく結構困りましたが、割と簡単に実装できてよかったです。</p>
+<p>Hexoは元のURLだと日付だったりして結構ださっっｹﾞﾌﾝ ナンセンスなので後追いでURLを変更する人もいると思うんですよね。<br>そういった方の助けになったらうれしいです！</p>
+<p>今回はこれで終了です。<br>以上お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -1071,8 +1071,8 @@ push後しばらくしてgithubよりシークレットが含まれていると�
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -1153,8 +1153,8 @@ GoogleのクロールBotが巡回されるまで気長に待つしかなさそ�
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -1253,9 +1253,272 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
         <category>エンジニアリング</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
         <tag>プログラミング</tag>
+        <tag>ブログ</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</title>
+    <url>//hexo/googleadsense/adstxt/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</span>をお伝えします。</p>
+<p>GoogleAdsenseを開いたとき毎回警告が出るので、必ず対応するようにしましょう！</p>
+<p>それではやっていきましょう(^^</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#1adsense%E3%81%8B%E3%82%89adstxt%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E5%8F%96%E5%BE%97">1.Adsenseからads.txtの内容を取得</a></li>
+<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88%E3%81%ABadstxt%E3%82%92%E4%BD%9C%E6%88%90">2.サイトのルートにads.txtを作成</a></li>
+<li><a href="#3adstxt%E3%81%AE%E7%A2%BA%E8%AA%8D">3.ads.txtの確認</a></li>
+<li><a href="#4googleadsense%E3%81%AB%E4%BF%AE%E6%AD%A3%E3%82%92%E5%8F%8D%E6%98%A0">4.GoogleAdsenseに修正を反映</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="1adsenseからadstxtの内容を取得">1.Adsenseからads.txtの内容を取得</span></h2><p>GoogleAdsenseを開き、<span class="mark-g">「サイト → サイトのURL」で作成したサイトを選択</span>する。<br>そこに<span class="mark-g">表示されている「コピーボタン」を押下し、ads.txtに張り付ける内容を取得</span></p>
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_1.png" alt="GoogleAdsenseサイトのURL" title="GoogleAdsenseサイトのURL"></p>
+<h2><span id="2サイトのルートにadstxtを作成">2.サイトのルートにads.txtを作成</span></h2><p><span class="mark-g">サイトのルートにads.txtを作成</span>し、GoogleAdsenseから取得した内容を貼り付けます。</p>
+<p class="codeblock-filename"><span>ads.txt</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">google.com, pub-[ID_1], DIRECT, [ID_2]</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_2.png" alt="ads.txt作成" title="ads.txt作成"></p>
+<h2><span id="3adstxtの確認">3.ads.txtの確認</span></h2><p>サイトをリリースし、<span class="mark-g">ads.txtがルートフォルダに存在するか確認</span>する。</p>
+<p class="codeblock-filename"><span>ads.txtのURL</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[自サイトのURL]\ads.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_3.png" alt="ads.txt確認" title="ads.txt確認"></p>
+<h2><span id="4googleadsenseに修正を反映">4.GoogleAdsenseに修正を反映</span></h2><p>GoogleAdsenseにアクセスし、<span class="mark-g">「サイト → サイトのURL」で作成したサイトを選択後、「更新を確認」を押下</span><br><span class="mark-y">「ads.txtが検出されました」と表示されれば登録完了</span>です。<br><img src="/images/posts/20251202_adsense_ads/adsense_ads_4.png" alt="GoogleAdsense修正反映" title="GoogleAdsense修正反映"></p>
+<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_5.png" alt="GoogleAdsense修正反映完了" title="GoogleAdsense修正反映完了"></p>
+<div class="notice notice-warn">
+「ads.txtが見つかりませんでした」の警告が消えるまで、しばらくかかります。
+自分の場合は30分くらい、、、気長に待ちましょう！
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>こんな感じでads.txtを設定すれば問題なく登録できるはずです。<br>そんなに手間もかからないので、警告が出ている方はやっておいたほうが良いかもしれません。</p>
+<p><span class="mark-y">突然広告が剝がされたりとかあるかもなので(- -</span></p>
+<p>以上となります。<br>こんな感じで<span class="mark-g">サイトに関することや節約などお金のことなど色々紹介しております。</span><br>良ければ見ていってください(^^!</p>
+<p>お疲れさまでした！</p>
+<p>PS<br>自分のサイトもやっとGoogleAdsenseの設定が通りました！<br>結構色々試行錯誤してやっと通ったので、応用情報技術者試験の合格よりうれしかったかも(^^!</p>
+<p>これからもたくさん記事書いてくぞ！</p>
+<p>それでは今度こそお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>エンジニアリング</category>
+      </categories>
+      <tags>
+        <tag>プログラミング</tag>
+        <tag>ブログ</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SE5年目の先輩が新人くんに教えたいこと</title>
+    <url>//mind/newcomers/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
+<p>技術というよりは、仕事のやり方や心構えの内容が多めです。</p>
+<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと先輩が考えていることが学べるので、参考になるかもしれません。</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BC%9D%E3%81%88%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8">伝えたいこと</a><ul>
+<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
+<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
+<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
+<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="伝えたいこと">伝えたいこと</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
+<ul>
+<li>怒られることはあなたのことが嫌いってわけじゃない</li>
+<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
+<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
+</ul>
+<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
+<ul>
+<li>質問するのは悪い事じゃないし迷惑でもない<ul>
+<li>むしろミスされた方が迷惑</li>
+</ul>
+</li>
+<li>チームの人間なら迷わずいつでも質問しても良い<ul>
+<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
+</ul>
+</li>
+<li>質問しないことのデメリットを伝える<ul>
+<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
+</ul>
+</li>
+<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
+<li>まぁこういうこともあるってことですね</li>
+</ul>
+</li>
+</ul>
+<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
+<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
+<p>まぁ伝えてもすぐに成果は出ませんが、頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
+<p>以上、<br>教える人も教えられる人も気持ちよく仕事できるように頑張りましょう！<br>お疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>メンタルヘルス</category>
+      </categories>
+      <tags>
+        <tag>新人</tag>
+        <tag>心構え</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自己啓発本の要点まとめ</title>
+    <url>//mind/selfhelpbooks/summary/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自己啓発本の読み聞かせを大量に聞いた自分が思う、<span class="mark-y">色々な自己啓発本に書かれている共通点</span>をまとめていきたいと思います。</p>
+<p><span class="mark-g">色々な自己啓発本の要約を聞いてますが、結構似たようなことを言ってることが多いんですよね。。。</span><br>何回も出てくるってことは大事なことだと思うので、自分用にまとめたものになります。</p>
+<p><span class="mark-y">一応200冊分程度は聞いているので間違いないかと思います(^^</span></p>
+<p>それでは見ていきましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E5%85%B1%E9%80%9A%E7%82%B9">共通点</a><ul>
+<li><a href="#%E6%97%A9%E8%B5%B7%E3%81%8D">早起き</a></li>
+<li><a href="#%E9%81%8B%E5%8B%95">運動</a></li>
+<li><a href="#%E8%A9%B1%E3%82%92%E6%9C%80%E5%BE%8C%E3%81%BE%E3%81%A7%E8%81%9E%E3%81%8F">話を最後まで聞く</a></li>
+<li><a href="#%E8%A9%B1%E3%82%92%E8%81%9E%E3%81%8F%E6%99%82%E3%81%AF%E3%82%B9%E3%83%9E%E3%83%9B%E3%82%92%E9%9A%A0%E3%81%99">話を聞く時はスマホを隠す</a></li>
+<li><a href="#%E3%82%A2%E3%83%89%E3%83%90%E3%82%A4%E3%82%B9%E3%81%AF%E3%81%97%E3%81%AA%E3%81%84">アドバイスはしない</a></li>
+<li><a href="#%E9%A3%9F%E4%BA%8B">食事</a></li>
+<li><a href="#%E6%99%82%E9%96%93%E3%82%92%E5%BE%97%E3%82%8B">時間を得る</a></li>
+<li><a href="#%E3%81%8A%E9%87%91%E3%82%92%E8%B2%AF%E3%82%81%E3%82%8B">お金を貯める</a></li>
+<li><a href="#%E6%8A%95%E8%B3%87%E3%82%92%E3%81%99%E3%82%8B">投資をする</a></li>
+<li><a href="#%E3%81%8A%E9%87%91%E3%82%92%E4%BD%BF%E3%81%86">お金を使う</a></li>
+<li><a href="#%E5%91%A8%E3%82%8A%E3%81%AB%E3%81%84%E3%82%8B%E4%BA%BA%E3%81%8C%E8%87%AA%E5%88%86%E3%81%AE%E5%B9%B3%E5%9D%87">周りにいる人が自分の平均</a></li>
+<li><a href="#%E6%8C%91%E6%88%A6%E3%81%97%E7%B6%9A%E3%81%91%E3%82%8B">挑戦し続ける</a></li>
+<li><a href="#%E5%A5%BD%E3%81%8D%E3%82%92%E7%A3%A8%E3%81%8F">好きを磨く</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="共通点">共通点</span></h2><h3><span id="早起き">早起き</span></h3><p><span class="mark-y">優秀な人は早起きしていることが多いそうです。</span></p>
+<p>アップルCEOのティム・クック3：45に起きるようです。</p>
+<p><span class="mark-g">朝は脳の疲労がない為、作業効率が1番良い</span>とのことです！<br>効率が数倍と書いてある本も少なくないです。</p>
+<p>また<span class="mark-y">昼だと行動している人が多い為、話しかけられて邪魔されることも多いですが、朝はそれがありません。</span></p>
+<p>早起きするメリットは大きいですね(^^</p>
+<p><span class="mark-r">注意として、睡眠を削るのはダメとのことです。</span><br>これは科学的にも証明されていることなので、<span class="mark-r">7,8時間は必ず寝るようにしましょう！</span></p>
+<h3><span id="運動">運動</span></h3><p><span class="mark-y">運動をすることで体力をつけて長く健康な体でいることができます。</span></p>
+<p>病気が1番お金も時間も使うので、健康には気をつけた方がいいですね(^^</p>
+<p>また<span class="mark-g">朝早く起きて運動をすることで集中力を高める効果もあるようです！</span></p>
+<h3><span id="話を最後まで聞く">話を最後まで聞く</span></h3><p><span class="mark-y">人の話を最後まで聞くことが大切</span>とのことです。</p>
+<p>まぁ当然ですよね。<span class="mark-g">話を途中で切られたら「自分と話してもつまらないのかな？」って思っちゃいますし、、</span></p>
+<p>人の話を聞く時は最後まで聞きましょう！</p>
+<h3><span id="話を聞く時はスマホを隠す">話を聞く時はスマホを隠す</span></h3><p>人と話す時スマホを持ってたらもちろんダメですが、<span class="mark-y">相手の視界にスマホが入るだけでも会話の幸福度が下がるようです。</span></p>
+<p>これは結構驚きですね(^^!</p>
+<p><span class="mark-g">確かにスマホが置いてあったら通知が来た時に見ちゃうので、「会話に集中していない」って思われるのかもですね！</span></p>
+<p>人と話す時はスマホをバックに入れておきましょう。</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h3><span id="アドバイスはしない">アドバイスはしない</span></h3><p><span class="mark-y">人と話す時は極力アドバイスっぽくならないように話す</span>と良いとのことです。</p>
+<p><span class="mark-r">特に異性との会話の時は気をつけた方が良いとのこと</span></p>
+<p>これは自分もよくやっちゃいますね(- -;</p>
+<p><span class="mark-g">そもそも悩み事があったらAIやネットで検索すれば出てくるので、わざわざ人に聞かなくてもいいですし、、、</span></p>
+<p>相手は答えを求めていないのかもですね！<br>指示厨っていう言葉もありますし</p>
+<p><span class="mark-g">本当に求められている時だけ自分の”意見”を言うくらいが良い</span>のかもですね。</p>
+<h3><span id="食事">食事</span></h3><p><span class="mark-y">ビタミンや食物繊維、タンパク質は不足しがちなので、適切に食べるべきです！</span></p>
+<p>避けるべき食べ物としては</p>
+<div class="nest-list">
+
+<ul>
+<li>トランス脂肪酸<ul>
+<li>スナック菓子や揚げ物に多く含まれます。心筋梗塞や肥満の原因になります</li>
+</ul>
+</li>
+<li>添加物<ul>
+<li>菓子パンやコンビニ弁当に多く含まれます。ガンや肝臓・腎臓の悪化の原因になります</li></ul></li></ul></div>
+
+
+
+<p>また個人的には、<span class="mark-y">健康食品は添加物が含まれたり、流行り物は値段が高い&amp;続かないことが多いので、おすすめはしません。</span><br>水素水とか高いだけで、科学的根拠とか無いですし(- -</p>
+<h3><span id="時間を得る">時間を得る</span></h3><p><span class="mark-y">時間は全員に平等にあるものなので、時間を得られるものには積極的に投資すべきです。</span></p>
+<p>例えば、ドラム式洗濯機や食洗機、移動にタクシーを使うなどが挙げられます。</p>
+<p>とはいえお金がかかるので、自分のお財布と相談してやるべきだと思います。</p>
+<p><span class="mark-r">また時間を浪費するものとして、SNSはだらだら見てしまうので控えるべき</span>と書かれているものが多いです！</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="お金を貯める">お金を貯める</span></h3><p><span class="mark-y">お金を貯めるとメンタルの安定や不労所得で生活が豊かになる</span>ので、可能な限りお金は貯める方が良いです。</p>
+<p>お金がないと、月々の支払いでお金の心配をしてメンタルがすり減ります。<br>（多分お店の店員さんとかにキレてる人はこう言う人だと思います。ダサいですよね(^^ ）</p>
+<p>また何かを買う時にお金がなくて買えず、後で後悔したりもします。</p>
+<p><span class="mark-g">資本主義社会では、お金は生きてく上で必要不可欠なので、心身の安定のためにも絶対に貯めておくべきだと思います。</span></p>
+<h3><span id="投資をする">投資をする</span></h3><p>お金を貯めるに内包されますが、<span class="mark-y">投資をすることで人生を豊かにすることができます。</span></p>
+<p><span class="mark-g">例えば100万円をインデックス投資の全世界株式に投資した場合、5年後には128万円になります。(年利5%で計算)</span><br>何もせず28万円が手に入ったのは嬉しいですよね！</p>
+<p><span class="mark-g">ちなみに銀行預金だと最近の相場だと良くて年利0.5%程度なので、10倍以上差がつきます。</span></p>
+<p><span class="mark-r">ただ投資の場合、元本割れ(先ほどの例だと、100万円を下回る)可能性がある</span>ので、自分が許容できる範囲でやるのが正解です。<br>例えば、戦争が始まったら株価は底値になる可能性が高いです。</p>
+<p>そのための<span class="mark-g">回避策として、金や不動産も同時に投資すべき</span>と書かれていることが多いですね！</p>
+<p>不動産も高額と言われますが、<span class="mark-y">J-REITという商品を使えば投資のように不動産を購入できます。</span><br>そう言ったものを活用するのも手かと思います。</p>
+<p>いい時代ですよね(^^</p>
+<h3><span id="お金を使う">お金を使う</span></h3><p>さっき言ってたことと逆やん！って思うかもですが、<span class="mark-y">お金を使うことも大切です。</span></p>
+<p>例えば、絵が苦手な人がいたとします。<br>自分で書くとあまり良い評価を得られませんが、お金を払ってプロに依頼することで、良い評価を得られる可能性が高まります。</p>
+<p><span class="mark-g">自分が苦手なことはお金を払って他の人にやってもらう</span>のが生産性を出す上で大切だと思います。</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="周りにいる人が自分の平均">周りにいる人が自分の平均</span></h3><p><span class="mark-y">周りにいる5人の平均が自分のステータスという言葉をよく耳にします。</span></p>
+<p>だからなんだって話ですよね(^^</p>
+<p>とはいえ<span class="mark-g">自分のレベルを測るのは結構大事で、今後の計画を立てやすくなります。</span></p>
+<p>例えば、今自分はブログをやってますが、これは周りにいる人はやってません。<br>これをやれば少しはレベルアップにつながるのではないかと思います。</p>
+<p>そういう意味では良い指標なのかもしれません。</p>
+<h3><span id="挑戦し続ける">挑戦し続ける</span></h3><p><span class="mark-y">エジソンはこう言ってます「私は失敗したことはない。うまくいかないやり方を10,000通り見つけただけだ。」つまり挑戦し続けないと成功はないと言うことです。</span></p>
+<p>挑戦し続けることを周りから笑われることもあるかもしれませんが、これは挑戦しない人の戯言です。</p>
+<p><span class="mark-g">恐れずそんな人たちを無視して挑戦し続けることが大切</span>だと色々な本では書いてあります。</p>
+<h3><span id="好きを磨く">好きを磨く</span></h3><p><span class="mark-y">好きを磨くことでより成功しやすくなります。</span></p>
+<p>確かに走るのが嫌いな人は頑張れませんし、本を読むのが苦手な人が本は読めません</p>
+<p>そう言った意味でも好きなことを伸ばすべきだと言うことですね！</p>
+<p><span class="mark-y">それはなんでもいいです、話すのが好き、絵を描くのが好き、ゲームが好きなど。</span></p>
+<p><span class="mark-g">幸い現代はYouTubeやブログなど、好きなことを共有できたり、お金を稼ぐこともできます。</span></p>
+<p>良い世の中です。</p>
+<p>ちなみに自分は、節約が大好きで子供の頃からずっと意識してやってたので、これで食べていけたらいいなと思いこのブログを始めました。</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>今回は<span class="mark-y">多くの自己啓発本に書かれていることをまとめてみました。</span></p>
+<p>個人的にこの中のものを一気に始めるのはお勧めしてません。<br><span class="mark-g">1つずつ着実にやって、習慣にしてから徐々にできることを増やしていくのがいいと思います。</span></p>
+<p>だって急にサッカーと野球、バスケ全部マスターしろって無視ですよね(^^;</p>
+<p>ちなみに自分は朝早く起きるのを頑張りたいと思ってます。<br>早く寝るのって意外と難しいんですよね。。<br>実際ブログの投稿って夜やってますし(- -<br>少しずつ寝る時間を早くして朝活できるよう頑張りたいと思います。</p>
+<p>以上となります。<br><span class="mark-g">ゆるーく生活を改善して、少しでも豊かになれたらいいなと思います。</span><br>それではお疲れ様でした。</p>
+]]></content>
+      <categories>
+        <category>メンタルヘルス</category>
+      </categories>
+      <tags>
+        <tag>心構え</tag>
+        <tag>まとめ</tag>
       </tags>
   </entry>
   <entry>
@@ -1433,11 +1696,11 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
       </tags>
   </entry>
   <entry>
-    <title>GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</title>
-    <url>//hexo/googleadsense/adstxt/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">GoogleAdsenseで「ads.txtが見つかりませんでした」と表示された場合の対処法</span>をお伝えします。</p>
-<p>GoogleAdsenseを開いたとき毎回警告が出るので、必ず対応するようにしましょう！</p>
-<p>それではやっていきましょう(^^</p>
+    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
+    <url>//money/point/iherb/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
+<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
+<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
 <span id="more"></span>
 
 <h2><span id="目次">目次</span></h2><div class="post-toc">
@@ -1445,10 +1708,18 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
 <!-- toc -->
 
 <ul>
-<li><a href="#1adsense%E3%81%8B%E3%82%89adstxt%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E5%8F%96%E5%BE%97">1.Adsenseからads.txtの内容を取得</a></li>
-<li><a href="#2%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88%E3%81%ABadstxt%E3%82%92%E4%BD%9C%E6%88%90">2.サイトのルートにads.txtを作成</a></li>
-<li><a href="#3adstxt%E3%81%AE%E7%A2%BA%E8%AA%8D">3.ads.txtの確認</a></li>
-<li><a href="#4googleadsense%E3%81%AB%E4%BF%AE%E6%AD%A3%E3%82%92%E5%8F%8D%E6%98%A0">4.GoogleAdsenseに修正を反映</a></li>
+<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
+<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
+<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
+<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
+</ul>
+</li>
+<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
+<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
+<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
+<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
+</ul>
+</li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
@@ -1457,42 +1728,49 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="1adsenseからadstxtの内容を取得">1.Adsenseからads.txtの内容を取得</span></h2><p>GoogleAdsenseを開き、<span class="mark-g">「サイト → サイトのURL」で作成したサイトを選択</span>する。<br>そこに<span class="mark-g">表示されている「コピーボタン」を押下し、ads.txtに張り付ける内容を取得</span></p>
-<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_1.png" alt="GoogleAdsenseサイトのURL" title="GoogleAdsenseサイトのURL"></p>
-<h2><span id="2サイトのルートにadstxtを作成">2.サイトのルートにads.txtを作成</span></h2><p><span class="mark-g">サイトのルートにads.txtを作成</span>し、GoogleAdsenseから取得した内容を貼り付けます。</p>
-<p class="codeblock-filename"><span>ads.txt</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">google.com, pub-[ID_1], DIRECT, [ID_2]</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_2.png" alt="ads.txt作成" title="ads.txt作成"></p>
-<h2><span id="3adstxtの確認">3.ads.txtの確認</span></h2><p>サイトをリリースし、<span class="mark-g">ads.txtがルートフォルダに存在するか確認</span>する。</p>
-<p class="codeblock-filename"><span>ads.txtのURL</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[自サイトのURL]\ads.txt</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_3.png" alt="ads.txt確認" title="ads.txt確認"></p>
-<h2><span id="4googleadsenseに修正を反映">4.GoogleAdsenseに修正を反映</span></h2><p>GoogleAdsenseにアクセスし、<span class="mark-g">「サイト → サイトのURL」で作成したサイトを選択後、「更新を確認」を押下</span><br><span class="mark-y">「ads.txtが検出されました」と表示されれば登録完了</span>です。<br><img src="/images/posts/20251202_adsense_ads/adsense_ads_4.png" alt="GoogleAdsense修正反映" title="GoogleAdsense修正反映"></p>
-<p><img src="/images/posts/20251202_adsense_ads/adsense_ads_5.png" alt="GoogleAdsense修正反映完了" title="GoogleAdsense修正反映完了"></p>
-<div class="notice notice-warn">
-「ads.txtが見つかりませんでした」の警告が消えるまで、しばらくかかります。
-自分の場合は30分くらい、、、気長に待ちましょう！
-</div>
-
+<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
+<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
+<p>使用方法については購入時の適用なので、下で説明します。</p>
+<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
+<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
+<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="締め">締め</span></h2><p>こんな感じでads.txtを設定すれば問題なく登録できるはずです。<br>そんなに手間もかからないので、警告が出ている方はやっておいたほうが良いかもしれません。</p>
-<p><span class="mark-y">突然広告が剝がされたりとかあるかもなので(- -</span></p>
-<p>以上となります。<br>こんな感じで<span class="mark-g">サイトに関することや節約などお金のことなど色々紹介しております。</span><br>良ければ見ていってください(^^!</p>
-<p>お疲れさまでした！</p>
-<p>PS<br>自分のサイトもやっとGoogleAdsenseの設定が通りました！<br>結構色々試行錯誤してやっと通ったので、応用情報技術者試験の合格よりうれしかったかも(^^!</p>
-<p>これからもたくさん記事書いてくぞ！</p>
-<p>それでは今度こそお疲れさまでした。</p>
-]]></content>
+<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
+<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
+<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
+<div class="notice notice-warn">
+iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
+
+<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
+</div>
+
+<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
+<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
+<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
+<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
+<p>もし興味があれば是非購入してみてください。</p>
+<p>以上となります。<br>今回もお疲れさまでした。</p>
+<style>
+img[src*="/images/posts/20251116_money_iHerb/"] {
+  width: 320px;
+  height: auto;
+  object-fit: cover; /* はみ出し対策（必要なら） */
+}
+</style>]]></content>
       <categories>
-        <category>エンジニアリング</category>
+        <category>お金</category>
       </categories>
       <tags>
-        <tag>ブログ</tag>
-        <tag>プログラミング</tag>
-        <tag>Hexo</tag>
+        <tag>食</tag>
+        <tag>ポイ活</tag>
+        <tag>ショッピング</tag>
       </tags>
   </entry>
   <entry>
@@ -1601,283 +1879,6 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
         <tag>おすすめ商品紹介</tag>
         <tag>食</tag>
         <tag>趣味</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自己啓発本の要点まとめ</title>
-    <url>//mind/selfhelpbooks/summary/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自己啓発本の読み聞かせを大量に聞いた自分が思う、<span class="mark-y">色々な自己啓発本に書かれている共通点</span>をまとめていきたいと思います。</p>
-<p><span class="mark-g">色々な自己啓発本の要約を聞いてますが、結構似たようなことを言ってることが多いんですよね。。。</span><br>何回も出てくるってことは大事なことだと思うので、自分用にまとめたものになります。</p>
-<p><span class="mark-y">一応200冊分程度は聞いているので間違いないかと思います(^^</span></p>
-<p>それでは見ていきましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E5%85%B1%E9%80%9A%E7%82%B9">共通点</a><ul>
-<li><a href="#%E6%97%A9%E8%B5%B7%E3%81%8D">早起き</a></li>
-<li><a href="#%E9%81%8B%E5%8B%95">運動</a></li>
-<li><a href="#%E8%A9%B1%E3%82%92%E6%9C%80%E5%BE%8C%E3%81%BE%E3%81%A7%E8%81%9E%E3%81%8F">話を最後まで聞く</a></li>
-<li><a href="#%E8%A9%B1%E3%82%92%E8%81%9E%E3%81%8F%E6%99%82%E3%81%AF%E3%82%B9%E3%83%9E%E3%83%9B%E3%82%92%E9%9A%A0%E3%81%99">話を聞く時はスマホを隠す</a></li>
-<li><a href="#%E3%82%A2%E3%83%89%E3%83%90%E3%82%A4%E3%82%B9%E3%81%AF%E3%81%97%E3%81%AA%E3%81%84">アドバイスはしない</a></li>
-<li><a href="#%E9%A3%9F%E4%BA%8B">食事</a></li>
-<li><a href="#%E6%99%82%E9%96%93%E3%82%92%E5%BE%97%E3%82%8B">時間を得る</a></li>
-<li><a href="#%E3%81%8A%E9%87%91%E3%82%92%E8%B2%AF%E3%82%81%E3%82%8B">お金を貯める</a></li>
-<li><a href="#%E6%8A%95%E8%B3%87%E3%82%92%E3%81%99%E3%82%8B">投資をする</a></li>
-<li><a href="#%E3%81%8A%E9%87%91%E3%82%92%E4%BD%BF%E3%81%86">お金を使う</a></li>
-<li><a href="#%E5%91%A8%E3%82%8A%E3%81%AB%E3%81%84%E3%82%8B%E4%BA%BA%E3%81%8C%E8%87%AA%E5%88%86%E3%81%AE%E5%B9%B3%E5%9D%87">周りにいる人が自分の平均</a></li>
-<li><a href="#%E6%8C%91%E6%88%A6%E3%81%97%E7%B6%9A%E3%81%91%E3%82%8B">挑戦し続ける</a></li>
-<li><a href="#%E5%A5%BD%E3%81%8D%E3%82%92%E7%A3%A8%E3%81%8F">好きを磨く</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="共通点">共通点</span></h2><h3><span id="早起き">早起き</span></h3><p><span class="mark-y">優秀な人は早起きしていることが多いそうです。</span></p>
-<p>アップルCEOのティム・クック3：45に起きるようです。</p>
-<p><span class="mark-g">朝は脳の疲労がない為、作業効率が1番良い</span>とのことです！<br>効率が数倍と書いてある本も少なくないです。</p>
-<p>また<span class="mark-y">昼だと行動している人が多い為、話しかけられて邪魔されることも多いですが、朝はそれがありません。</span></p>
-<p>早起きするメリットは大きいですね(^^</p>
-<p><span class="mark-r">注意として、睡眠を削るのはダメとのことです。</span><br>これは科学的にも証明されていることなので、<span class="mark-r">7,8時間は必ず寝るようにしましょう！</span></p>
-<h3><span id="運動">運動</span></h3><p><span class="mark-y">運動をすることで体力をつけて長く健康な体でいることができます。</span></p>
-<p>病気が1番お金も時間も使うので、健康には気をつけた方がいいですね(^^</p>
-<p>また<span class="mark-g">朝早く起きて運動をすることで集中力を高める効果もあるようです！</span></p>
-<h3><span id="話を最後まで聞く">話を最後まで聞く</span></h3><p><span class="mark-y">人の話を最後まで聞くことが大切</span>とのことです。</p>
-<p>まぁ当然ですよね。<span class="mark-g">話を途中で切られたら「自分と話してもつまらないのかな？」って思っちゃいますし、、</span></p>
-<p>人の話を聞く時は最後まで聞きましょう！</p>
-<h3><span id="話を聞く時はスマホを隠す">話を聞く時はスマホを隠す</span></h3><p>人と話す時スマホを持ってたらもちろんダメですが、<span class="mark-y">相手の視界にスマホが入るだけでも会話の幸福度が下がるようです。</span></p>
-<p>これは結構驚きですね(^^!</p>
-<p><span class="mark-g">確かにスマホが置いてあったら通知が来た時に見ちゃうので、「会話に集中していない」って思われるのかもですね！</span></p>
-<p>人と話す時はスマホをバックに入れておきましょう。</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
-<h3><span id="アドバイスはしない">アドバイスはしない</span></h3><p><span class="mark-y">人と話す時は極力アドバイスっぽくならないように話す</span>と良いとのことです。</p>
-<p><span class="mark-r">特に異性との会話の時は気をつけた方が良いとのこと</span></p>
-<p>これは自分もよくやっちゃいますね(- -;</p>
-<p><span class="mark-g">そもそも悩み事があったらAIやネットで検索すれば出てくるので、わざわざ人に聞かなくてもいいですし、、、</span></p>
-<p>相手は答えを求めていないのかもですね！<br>指示厨っていう言葉もありますし</p>
-<p><span class="mark-g">本当に求められている時だけ自分の”意見”を言うくらいが良い</span>のかもですね。</p>
-<h3><span id="食事">食事</span></h3><p><span class="mark-y">ビタミンや食物繊維、タンパク質は不足しがちなので、適切に食べるべきです！</span></p>
-<p>避けるべき食べ物としては</p>
-<div class="nest-list">
-
-<ul>
-<li>トランス脂肪酸<ul>
-<li>スナック菓子や揚げ物に多く含まれます。心筋梗塞や肥満の原因になります</li>
-</ul>
-</li>
-<li>添加物<ul>
-<li>菓子パンやコンビニ弁当に多く含まれます。ガンや肝臓・腎臓の悪化の原因になります</li></ul></li></ul></div>
-
-
-
-<p>また個人的には、<span class="mark-y">健康食品は添加物が含まれたり、流行り物は値段が高い&amp;続かないことが多いので、おすすめはしません。</span><br>水素水とか高いだけで、科学的根拠とか無いですし(- -</p>
-<h3><span id="時間を得る">時間を得る</span></h3><p><span class="mark-y">時間は全員に平等にあるものなので、時間を得られるものには積極的に投資すべきです。</span></p>
-<p>例えば、ドラム式洗濯機や食洗機、移動にタクシーを使うなどが挙げられます。</p>
-<p>とはいえお金がかかるので、自分のお財布と相談してやるべきだと思います。</p>
-<p><span class="mark-r">また時間を浪費するものとして、SNSはだらだら見てしまうので控えるべき</span>と書かれているものが多いです！</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="お金を貯める">お金を貯める</span></h3><p><span class="mark-y">お金を貯めるとメンタルの安定や不労所得で生活が豊かになる</span>ので、可能な限りお金は貯める方が良いです。</p>
-<p>お金がないと、月々の支払いでお金の心配をしてメンタルがすり減ります。<br>（多分お店の店員さんとかにキレてる人はこう言う人だと思います。ダサいですよね(^^ ）</p>
-<p>また何かを買う時にお金がなくて買えず、後で後悔したりもします。</p>
-<p><span class="mark-g">資本主義社会では、お金は生きてく上で必要不可欠なので、心身の安定のためにも絶対に貯めておくべきだと思います。</span></p>
-<h3><span id="投資をする">投資をする</span></h3><p>お金を貯めるに内包されますが、<span class="mark-y">投資をすることで人生を豊かにすることができます。</span></p>
-<p><span class="mark-g">例えば100万円をインデックス投資の全世界株式に投資した場合、5年後には128万円になります。(年利5%で計算)</span><br>何もせず28万円が手に入ったのは嬉しいですよね！</p>
-<p><span class="mark-g">ちなみに銀行預金だと最近の相場だと良くて年利0.5%程度なので、10倍以上差がつきます。</span></p>
-<p><span class="mark-r">ただ投資の場合、元本割れ(先ほどの例だと、100万円を下回る)可能性がある</span>ので、自分が許容できる範囲でやるのが正解です。<br>例えば、戦争が始まったら株価は底値になる可能性が高いです。</p>
-<p>そのための<span class="mark-g">回避策として、金や不動産も同時に投資すべき</span>と書かれていることが多いですね！</p>
-<p>不動産も高額と言われますが、<span class="mark-y">J-REITという商品を使えば投資のように不動産を購入できます。</span><br>そう言ったものを活用するのも手かと思います。</p>
-<p>いい時代ですよね(^^</p>
-<h3><span id="お金を使う">お金を使う</span></h3><p>さっき言ってたことと逆やん！って思うかもですが、<span class="mark-y">お金を使うことも大切です。</span></p>
-<p>例えば、絵が苦手な人がいたとします。<br>自分で書くとあまり良い評価を得られませんが、お金を払ってプロに依頼することで、良い評価を得られる可能性が高まります。</p>
-<p><span class="mark-g">自分が苦手なことはお金を払って他の人にやってもらう</span>のが生産性を出す上で大切だと思います。</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="周りにいる人が自分の平均">周りにいる人が自分の平均</span></h3><p><span class="mark-y">周りにいる5人の平均が自分のステータスという言葉をよく耳にします。</span></p>
-<p>だからなんだって話ですよね(^^</p>
-<p>とはいえ<span class="mark-g">自分のレベルを測るのは結構大事で、今後の計画を立てやすくなります。</span></p>
-<p>例えば、今自分はブログをやってますが、これは周りにいる人はやってません。<br>これをやれば少しはレベルアップにつながるのではないかと思います。</p>
-<p>そういう意味では良い指標なのかもしれません。</p>
-<h3><span id="挑戦し続ける">挑戦し続ける</span></h3><p><span class="mark-y">エジソンはこう言ってます「私は失敗したことはない。うまくいかないやり方を10,000通り見つけただけだ。」つまり挑戦し続けないと成功はないと言うことです。</span></p>
-<p>挑戦し続けることを周りから笑われることもあるかもしれませんが、これは挑戦しない人の戯言です。</p>
-<p><span class="mark-g">恐れずそんな人たちを無視して挑戦し続けることが大切</span>だと色々な本では書いてあります。</p>
-<h3><span id="好きを磨く">好きを磨く</span></h3><p><span class="mark-y">好きを磨くことでより成功しやすくなります。</span></p>
-<p>確かに走るのが嫌いな人は頑張れませんし、本を読むのが苦手な人が本は読めません</p>
-<p>そう言った意味でも好きなことを伸ばすべきだと言うことですね！</p>
-<p><span class="mark-y">それはなんでもいいです、話すのが好き、絵を描くのが好き、ゲームが好きなど。</span></p>
-<p><span class="mark-g">幸い現代はYouTubeやブログなど、好きなことを共有できたり、お金を稼ぐこともできます。</span></p>
-<p>良い世の中です。</p>
-<p>ちなみに自分は、節約が大好きで子供の頃からずっと意識してやってたので、これで食べていけたらいいなと思いこのブログを始めました。</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>今回は<span class="mark-y">多くの自己啓発本に書かれていることをまとめてみました。</span></p>
-<p>個人的にこの中のものを一気に始めるのはお勧めしてません。<br><span class="mark-g">1つずつ着実にやって、習慣にしてから徐々にできることを増やしていくのがいいと思います。</span></p>
-<p>だって急にサッカーと野球、バスケ全部マスターしろって無視ですよね(^^;</p>
-<p>ちなみに自分は朝早く起きるのを頑張りたいと思ってます。<br>早く寝るのって意外と難しいんですよね。。<br>実際ブログの投稿って夜やってますし(- -<br>少しずつ寝る時間を早くして朝活できるよう頑張りたいと思います。</p>
-<p>以上となります。<br><span class="mark-g">ゆるーく生活を改善して、少しでも豊かになれたらいいなと思います。</span><br>それではお疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>メンタルヘルス</category>
-      </categories>
-      <tags>
-        <tag>まとめ</tag>
-        <tag>心構え</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SE職社会人5年目の先輩が新人くんに言いたいこと</title>
-    <url>//mind/newcomers/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
-<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと先輩が考えていることが学べるので、参考になるかもしれません。</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E5%BF%83%E6%A7%8B%E3%81%88">心構え</a><ul>
-<li><a href="#%E6%80%92%E3%82%89%E3%82%8C%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AF%E6%82%AA%E3%81%84%E3%81%93%E3%81%A8%E3%81%98%E3%82%83%E3%81%AA%E3%81%84">怒られることは悪いことじゃない</a></li>
-<li><a href="#%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%89%E5%BF%85%E3%81%9A%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E6%AC%B2%E3%81%97%E3%81%84">わからなかったら必ず質問して欲しい</a></li>
-<li><a href="#%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%82%92%E8%A7%A6%E3%82%8B%E6%99%82%E3%81%AF%E3%83%9F%E3%82%B9%E3%81%97%E3%81%9F%E3%82%89%E6%AD%BB%E3%81%AC%E8%A6%9A%E6%82%9F%E3%81%A7">本番環境を触る時はミスしたら死ぬ覚悟で</a></li>
-<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%BF%E3%81%88">ショートカットキーを使え</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="心構え">心構え</span></h2><h3><span id="怒られることは悪いことじゃない">怒られることは悪いことじゃない</span></h3><p>新人は怒られるのが怖いと思ってることが多いので、心構えを伝えるようにしてます。</p>
-<ul>
-<li>怒られることはあなたのことが嫌いってわけじゃない</li>
-<li>怒る理由としては、成長してもらって一緒に効率よく仕事して欲しいから怒る</li>
-<li>理不尽に怒られたり納得いかない場合は、上司や相談できる人に相談しましょう。私たちも失敗することはあります。</li>
-</ul>
-<h3><span id="わからなかったら必ず質問して欲しい">わからなかったら必ず質問して欲しい</span></h3><p>質問する事の大切さや心構えを伝えます。<br>具体的には</p>
-<ul>
-<li>質問するのは悪い事じゃないし迷惑でもない<ul>
-<li>むしろミスされた方が迷惑</li>
-</ul>
-</li>
-<li>チームの人間なら迷わずいつでも質問しても良い<ul>
-<li>調べるより早かったり信頼関係が生まれやすいという効果もある</li>
-</ul>
-</li>
-<li>質問しないことのデメリットを伝える<ul>
-<li>自分の仕事が終わらない。怒られる。会社からの評価も下がる etc…</li>
-</ul>
-</li>
-<li>質問して怒られる時は、レベルが低い質問をしたか、タイミングが悪い可能性が高いので、少し考えてからもう一度質問してみる<ul>
-<li>まぁこういうこともあるってことですね</li>
-</ul>
-</li>
-</ul>
-<h3><span id="本番環境を触る時はミスしたら死ぬ覚悟で">本番環境を触る時はミスしたら死ぬ覚悟で</span></h3><p>本番環境を触る時はミスったら死ぬくらいの緊張感で行うよう伝えてます。<br>(実際ミスが仇となりボーナス無くなったりしますしね笑)</p>
-<h3><span id="ショートカットキーを使え">ショートカットキーを使え</span></h3><p>例えばAlt+TABなど、作業効率が格段に上がるので必ず使うように言います。</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>個人的には上記のようなことを伝えるようにしてます。</p>
-<p>まぁ伝えてもすぐに成果は出ませんが、頭に少しでも残れば、仕事やメンタル的にも良いと思うので伝えるべきだと思ってます。</p>
-<p>以上、<br>教える人も教えられる人も気持ちよく仕事できるように頑張りましょう！<br>お疲れ様でした。</p>
-]]></content>
-      <categories>
-        <category>メンタルヘルス</category>
-      </categories>
-      <tags>
-        <tag>心構え</tag>
-        <tag>新人</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【簡単】iHerbで20%以上安く商品を買う方法</title>
-    <url>//money/point/iherb/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>自分は普段から<span class="mark-y">iHerbで健康食品を買う機会が多いのですが、</span><br><span class="mark-y">売値の20～30%引きくらいで購入</span>しています。</p>
-<p>友人に聞いたら知らないことが結構あったので、ここで紹介してみようと思います。</p>
-<p>誰でも簡単にできる方法なので、やらなきゃ損です！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99">事前準備</a><ul>
-<li><a href="#1%E3%82%A6%E3%82%A7%E3%83%96%E6%A4%9C%E7%B4%A2%E3%81%A7%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%81%8C%E3%81%82%E3%82%8B%E3%81%8B%E8%AA%BF%E3%81%B9%E3%82%8B">1.ウェブ検索でクーポンがあるか調べる</a></li>
-<li><a href="#2%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E6%9C%AA%E4%BD%9C%E6%88%90%E3%81%AE%E4%BA%BA-%E6%8B%9B%E5%BE%85%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</a></li>
-<li><a href="#3%E3%83%A2%E3%83%83%E3%83%94%E3%83%BC%E3%81%8B%E3%82%89iherb%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9">3.モッピーからiHerbにアクセス</a></li>
-</ul>
-</li>
-<li><a href="#%E5%95%86%E5%93%81%E3%82%92%E8%B3%BC%E5%85%A5">商品を購入</a><ul>
-<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E9%81%A9%E7%94%A8">クーポンを適用</a></li>
-<li><a href="#%E9%80%81%E6%96%99%E3%82%92%E7%84%A1%E6%96%99%E3%81%AB%E3%81%99%E3%82%8B">送料を無料にする</a></li>
-<li><a href="#%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E9%81%B8%E6%8A%9E">クレジットカードを選択</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="事前準備">事前準備</span></h2><h3><span id="1ウェブ検索でクーポンがあるか調べる">1.ウェブ検索でクーポンがあるか調べる</span></h3><p><span class="mark-g">「iHerbプロモコード」で調べると、お得なプロモコードが見つかったりします。</span></p>
-<p><span class="mark-y">20%割引など見逃したら大損なので必ず調べましょう！</span><br>（無い場合は購入しないのも一つの手です）</p>
-<p>使用方法については購入時の適用なので、下で説明します。</p>
-<h3><span id="2アカウント未作成の人-招待リンクを使ってアカウントを作る">2.(アカウント未作成の人) 招待リンクを使ってアカウントを作る</span></h3><p>友達やネットに転がってる<span class="mark-y">招待リンクからアカウントを作ると、初回購入金額の10%分還元を受けれる</span>ようです。</p>
-<p>一応私の招待コード貼っときます。<br>ご使用いただけると跳んで喜びます。</p>
-<p><span class="mark-g">紹介コード：CFJ8827</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://www.iherb.com/?rcode=CFJ8827">https://www.iherb.com?rcode=CFJ8827</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="3モッピーからiherbにアクセス">3.モッピーからiHerbにアクセス</span></h3><p>モッピーでiHerbを検索<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_1.PNG" alt="モッピーでiHerbと検索" title="モッピーでiHerbと検索"></p>
-<p>表示されたiHerbの広告をクリックし、iHerbのサイトへ移動する<br><img src="/images/posts/20251116_money_iHerb/money_iHerb_2.PNG" alt="iHerb広告をクリック" title="iHerb広告をクリック"></p>
-<p><span class="mark-g">広告クリック後に表示されたiHerbの画面で商品を購入すれば、購入後にモッピーポイントが付与</span>されます。</p>
-<div class="notice notice-warn">
-iHerbアプリから購入するとポイント付与対象外となることがあるので、iHerbアプリを消してから実施することをお勧めします。
-
-<p>またiHerbの画面表示後にブラウザを消したり別アプリを開いたりすると、ポイント付与対象外になることがあるので、注意しましょう。</p>
-</div>
-
-<p>ちなみにモッピーでは招待コードを利用して登録すると最大数千ポイントくらい貰えます。<br>もし周りにやってる方がいたら招待コードをもらってから始めましょう！<br>いなければ、下記にある自分のコードを使用してもらえると泣いて喜びます！<br><span class="mark-g">紹介コード：Umf5e1c9</span><br><span class="mark-g">紹介リンク：</span><br><a href="https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9">https://pc.moppy.jp/entry/invite.php?invite=Umf5e1c9</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="商品を購入">商品を購入</span></h2><h3><span id="クーポンを適用">クーポンを適用</span></h3><p><span class="mark-y">「1.ウェブ検索でクーポンがあるか調べる」で取得したプロモコードを適用</span>します。<br><span class="mark-g">お会計金額に割引が適用されればOK</span>です！</p>
-<h3><span id="送料を無料にする">送料を無料にする</span></h3><p><span class="mark-y">一定金額以上購入すれば送料が無料になります。</span><br>できる限りまとめ買いをして必ず送料無料で購入しましょう！</p>
-<h3><span id="クレジットカードを選択">クレジットカードを選択</span></h3><p><span class="mark-y">できるだけ還元率が高いクレジットカードで決済</span>しましょう。<br>例えば、JALペイなど</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>手順は面倒かもですが、これをやることで実際かなり安く購入できたのではないでしょうか？</p>
-<p>ちなみに自分がよくiHerbで購入するものは、spry（ガム）やフッ素なしの歯磨き粉です。<br>spry（ガム）は国内産のガムだと色々余計な添加物が入っていたりするので、純粋なキシリトールガムを求めている方にはお勧めです。</p>
-<p>もし興味があれば是非購入してみてください。</p>
-<p>以上となります。<br>今回もお疲れさまでした。</p>
-<style>
-img[src*="/images/posts/20251116_money_iHerb/"] {
-  width: 320px;
-  height: auto;
-  object-fit: cover; /* はみ出し対策（必要なら） */
-}
-</style>]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>食</tag>
-        <tag>ポイ活</tag>
-        <tag>ショッピング</tag>
       </tags>
   </entry>
   <entry>
@@ -2193,6 +2194,103 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
         <tag>食</tag>
         <tag>ポイ活</tag>
         <tag>ショッピング</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一人旅 in 茨城県 磯崎海岸、阿字ヶ浦周辺【写真付】</title>
+    <url>//travel/solo/isozaki/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
+<p>結構いい感じに癒されたので、皆さんの旅の参考になりましたら幸いです！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BB%8A%E5%9B%9E%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88">今回のルート</a></li>
+<li><a href="#%E8%A6%B3%E5%85%89%E5%9C%B0">観光地</a><ul>
+<li><a href="#%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E6%B5%B7%E6%B5%9C%E9%89%84%E9%81%93%E6%B9%8A%E7%B7%9A">ひたちなか海浜鉄道湊線</a></li>
+<li><a href="#%E7%A3%AF%E5%B4%8E%E6%B5%B7%E5%B2%B8">磯崎海岸</a></li>
+<li><a href="#%E9%85%92%E5%88%97%E7%A3%AF%E5%89%8D%E7%A5%9E%E7%A4%BE">酒列磯前神社</a></li>
+<li><a href="#%E9%98%BF%E5%AD%97%E3%83%B6%E6%B5%A6%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">阿字ヶ浦海水浴場</a></li>
+<li><a href="#%E6%B5%9C%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%82%A3%E3%83%BC-%E3%81%82%E3%81%98%E3%81%B1%E3%82%93">浜ベーカリィー あじぱん</a></li>
+<li><a href="#%E5%8B%9D%E7%94%B0%E9%A7%85-%E9%A7%85%E4%B8%AD%E3%81%AE%E8%95%8E%E9%BA%A6%E5%B1%8B%E3%81%95%E3%82%93">勝田駅 駅中の蕎麦屋さん</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="今回のルート">今回のルート</span></h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="観光地">観光地</span></h2><h3><span id="ひたちなか海浜鉄道湊線">ひたちなか海浜鉄道湊線</span></h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
+<p>田んぼの間を電車が走るので運転席横の窓から見ると最高の景色でした。</p>
+<p>あとつり革が干し芋になっていてちょっと面白かった(^^</p>
+<p><span class="mark-y">料金については、駅員さんが「往復利用するなら一日利用券のほうが1000円だからお得だよ」と教えてくれたので、少しお得に利用できました！</span></p>
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_1.jpg" alt="勝田駅" title="勝田駅">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_2.jpg" alt="湊線一日フリー切符" title="湊線一日フリー切符">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_3.jpg" alt="湊線" title="湊線">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_4.jpg" alt="湊線車内" title="湊線車内">
+
+<h3><span id="磯崎海岸">磯崎海岸</span></h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
+<p><span class="mark-g">岩の海岸、、最高です！</span><br><span class="mark-g">波音もよく聞こえ気持ちよかったです！</span></p>
+<p>一応岩の上も歩けますが、時々グラグラする箇所があり自分は転びかけました(^^;<br>皆さんも気をつけて！</p>
+<p>またGoogleマップには、ヒトデの写真とかあったので期待してましたが、季節外れでしたので今回は残念。。</p>
+<p><span class="mark-r">周辺には焼きそばなどの軽食のお店はありましたが、レストランはないように見えます。</span></p>
+<p><span class="mark-y">岩場に座って小一時間ぼーっとするのにおすすめです！</span></p>
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_5.jpg" alt="磯崎海岸上から" title="磯崎海岸上から">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_6.jpg" alt="磯崎海岸の浜" title="磯崎海岸の浜">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_7.jpg" alt="磯崎海岸の石浜" title="磯崎の石浜>
+
+<script async src=" https: pagead2.googlesyndication.com pagead js adsbygoogle.js?client="ca-pub-8290631609177926"" crossorigin="anonymous"><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="酒列磯前神社">酒列磯前神社</span></h3><p>磯崎海岸から徒歩で行きました。</p>
+<p><span class="mark-g">横の入り口から入りましたが、鳥居が緑とマッチしてきれいでした！</span></p>
+<p>参道も自然を感じれるのでよかったです(^^</p>
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_8.jpg" alt="酒列磯前神社裏鳥居" title="酒列磯前神社裏鳥居">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_9.jpg" alt="酒列磯前神社鳥居" title="酒列磯前神社鳥居">
+
+<h3><span id="阿字ヶ浦海水浴場">阿字ヶ浦海水浴場</span></h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
+<p><span class="mark-y">・その割には水は透き通って綺麗！</span><br><span class="mark-y">・オフシーズンなのに砂浜にゴミが落ちてなくて綺麗！</span><br><span class="mark-y">・人があんまりいない！</span></p>
+<p><span class="mark-r">なのでござを引いて海を眺めるのに最高です(^^#</span></p>
+<p>コーヒー持ってくればよかったな、、、<br>あと11月でも日差しが強かったので、日傘は必須ですね！</p>
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_10.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場全体">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_11.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場砂浜">
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_12.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場海">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="浜ベーカリィー-あじぱん">浜ベーカリィー あじぱん</span></h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
+<p>カレーパンとクリームパンを購入しました(^^</p>
+<p><span class="mark-y">カレーパンはノンフライなのでパサパサするかな？と思いましたがそんなことなく、カレーの優しい味とマッチしてとてもおいしかったです！</span></p>
+<p><span class="mark-y">クリームパンはクリームが上に乗っててかわいいです！</span><br><span class="mark-y">味の方は甘さ控えめで普段食べてるクリームパンより上品な味がしました。</span></p>
+<p>個人的にはカレーパンがかなり好みでしたのでまた行きたいな(^^</p>
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_13.jpg" alt="浜ベーカリィー あじぱん" title="浜ベーカリィー あじぱん">
+
+<h3><span id="勝田駅-駅中の蕎麦屋さん">勝田駅 駅中の蕎麦屋さん</span></h3><p>唐揚げそばを食べました！</p>
+<p>一口目「唐揚げが冷たい？？？」ってなりましたが、これは冷たいほうがいいですね！<br><span class="mark-g">そばが温かいので、冷たい唐揚げと一緒に食べると最高に美味でした！</span></p>
+<p>勝田駅に立ち寄ったら是非食べてみてください(^^!</p>
+<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_14.jpg" alt="勝田駅 駅中の蕎麦屋さん" title="勝田駅 駅中の蕎麦屋さん">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
+<p>普段パソコンばかり見てる自分からすると、<span class="mark-y">車なしで砂浜と岩場両方の海が見れるのは最高ですね(^^</span></p>
+<p>皆さんもこんな感じの一人旅をしてみてはいかがでしょうか？</p>
+<p>以上、今回もお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>旅</category>
+      </categories>
+      <tags>
+        <tag>食</tag>
+        <tag>一人旅</tag>
       </tags>
   </entry>
   <entry>
@@ -2728,103 +2826,6 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
         <tag>食</tag>
         <tag>ポイ活</tag>
         <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一人旅 in 茨城県 磯崎海岸、阿字ヶ浦周辺【写真付】</title>
-    <url>//travel/solo/isozaki/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに突発一人旅</span>をしてきました。</p>
-<p>結構いい感じに癒されたので、皆さんの旅の参考になりましたら幸いです！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%BB%8A%E5%9B%9E%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88">今回のルート</a></li>
-<li><a href="#%E8%A6%B3%E5%85%89%E5%9C%B0">観光地</a><ul>
-<li><a href="#%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E6%B5%B7%E6%B5%9C%E9%89%84%E9%81%93%E6%B9%8A%E7%B7%9A">ひたちなか海浜鉄道湊線</a></li>
-<li><a href="#%E7%A3%AF%E5%B4%8E%E6%B5%B7%E5%B2%B8">磯崎海岸</a></li>
-<li><a href="#%E9%85%92%E5%88%97%E7%A3%AF%E5%89%8D%E7%A5%9E%E7%A4%BE">酒列磯前神社</a></li>
-<li><a href="#%E9%98%BF%E5%AD%97%E3%83%B6%E6%B5%A6%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">阿字ヶ浦海水浴場</a></li>
-<li><a href="#%E6%B5%9C%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%82%A3%E3%83%BC-%E3%81%82%E3%81%98%E3%81%B1%E3%82%93">浜ベーカリィー あじぱん</a></li>
-<li><a href="#%E5%8B%9D%E7%94%B0%E9%A7%85-%E9%A7%85%E4%B8%AD%E3%81%AE%E8%95%8E%E9%BA%A6%E5%B1%8B%E3%81%95%E3%82%93">勝田駅 駅中の蕎麦屋さん</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="今回のルート">今回のルート</span></h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="観光地">観光地</span></h2><h3><span id="ひたちなか海浜鉄道湊線">ひたちなか海浜鉄道湊線</span></h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
-<p>田んぼの間を電車が走るので運転席横の窓から見ると最高の景色でした。</p>
-<p>あとつり革が干し芋になっていてちょっと面白かった(^^</p>
-<p><span class="mark-y">料金については、駅員さんが「往復利用するなら一日利用券のほうが1000円だからお得だよ」と教えてくれたので、少しお得に利用できました！</span></p>
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_1.jpg" alt="勝田駅" title="勝田駅">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_2.jpg" alt="湊線一日フリー切符" title="湊線一日フリー切符">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_3.jpg" alt="湊線" title="湊線">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_4.jpg" alt="湊線車内" title="湊線車内">
-
-<h3><span id="磯崎海岸">磯崎海岸</span></h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
-<p><span class="mark-g">岩の海岸、、最高です！</span><br><span class="mark-g">波音もよく聞こえ気持ちよかったです！</span></p>
-<p>一応岩の上も歩けますが、時々グラグラする箇所があり自分は転びかけました(^^;<br>皆さんも気をつけて！</p>
-<p>またGoogleマップには、ヒトデの写真とかあったので期待してましたが、季節外れでしたので今回は残念。。</p>
-<p><span class="mark-r">周辺には焼きそばなどの軽食のお店はありましたが、レストランはないように見えます。</span></p>
-<p><span class="mark-y">岩場に座って小一時間ぼーっとするのにおすすめです！</span></p>
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_5.jpg" alt="磯崎海岸上から" title="磯崎海岸上から">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_6.jpg" alt="磯崎海岸の浜" title="磯崎海岸の浜">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_7.jpg" alt="磯崎海岸の石浜" title="磯崎の石浜>
-
-<script async src=" https: pagead2.googlesyndication.com pagead js adsbygoogle.js?client="ca-pub-8290631609177926"" crossorigin="anonymous"><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="酒列磯前神社">酒列磯前神社</span></h3><p>磯崎海岸から徒歩で行きました。</p>
-<p><span class="mark-g">横の入り口から入りましたが、鳥居が緑とマッチしてきれいでした！</span></p>
-<p>参道も自然を感じれるのでよかったです(^^</p>
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_8.jpg" alt="酒列磯前神社裏鳥居" title="酒列磯前神社裏鳥居">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_9.jpg" alt="酒列磯前神社鳥居" title="酒列磯前神社鳥居">
-
-<h3><span id="阿字ヶ浦海水浴場">阿字ヶ浦海水浴場</span></h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
-<p><span class="mark-y">・その割には水は透き通って綺麗！</span><br><span class="mark-y">・オフシーズンなのに砂浜にゴミが落ちてなくて綺麗！</span><br><span class="mark-y">・人があんまりいない！</span></p>
-<p><span class="mark-r">なのでござを引いて海を眺めるのに最高です(^^#</span></p>
-<p>コーヒー持ってくればよかったな、、、<br>あと11月でも日差しが強かったので、日傘は必須ですね！</p>
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_10.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場全体">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_11.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場砂浜">
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_12.jpg" alt="阿字ヶ浦海水浴場1" title="阿字ヶ浦海水浴場海">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="浜ベーカリィー-あじぱん">浜ベーカリィー あじぱん</span></h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
-<p>カレーパンとクリームパンを購入しました(^^</p>
-<p><span class="mark-y">カレーパンはノンフライなのでパサパサするかな？と思いましたがそんなことなく、カレーの優しい味とマッチしてとてもおいしかったです！</span></p>
-<p><span class="mark-y">クリームパンはクリームが上に乗っててかわいいです！</span><br><span class="mark-y">味の方は甘さ控えめで普段食べてるクリームパンより上品な味がしました。</span></p>
-<p>個人的にはカレーパンがかなり好みでしたのでまた行きたいな(^^</p>
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_13.jpg" alt="浜ベーカリィー あじぱん" title="浜ベーカリィー あじぱん">
-
-<h3><span id="勝田駅-駅中の蕎麦屋さん">勝田駅 駅中の蕎麦屋さん</span></h3><p>唐揚げそばを食べました！</p>
-<p>一口目「唐揚げが冷たい？？？」ってなりましたが、これは冷たいほうがいいですね！<br><span class="mark-g">そばが温かいので、冷たい唐揚げと一緒に食べると最高に美味でした！</span></p>
-<p>勝田駅に立ち寄ったら是非食べてみてください(^^!</p>
-<img src="/images/posts/20251124_trip_isozaki/trip_isozaki_14.jpg" alt="勝田駅 駅中の蕎麦屋さん" title="勝田駅 駅中の蕎麦屋さん">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
-<p>普段パソコンばかり見てる自分からすると、<span class="mark-y">車なしで砂浜と岩場両方の海が見れるのは最高ですね(^^</span></p>
-<p>皆さんもこんな感じの一人旅をしてみてはいかがでしょうか？</p>
-<p>以上、今回もお疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>旅</category>
-      </categories>
-      <tags>
-        <tag>食</tag>
-        <tag>一人旅</tag>
       </tags>
   </entry>
 </search>
