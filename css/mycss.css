@@ -88,6 +88,16 @@ body {
   font-size: 0.8em !important;
   color: #aaa !important;
 }
+figure{
+  margin-bottom: 10px;
+}
+figcaption{
+  font-size: 0.8em !important;
+} 
+figcaption::before{
+  content: '> ';
+} 
+
 
 /* パンくずリスト */
 .breadcrumb {
