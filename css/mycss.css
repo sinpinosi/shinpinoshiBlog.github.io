@@ -150,6 +150,9 @@ article.post .icon:before {
   background: #fdf7e8;
   border-radius: 10px;
 }
+.nest-list-g{
+  background: #e8fdef;
+}
 .nest-list ul {
   list-style: none; /* デフォルトの黒丸を消す */
   padding-left: 0;
