@@ -88,13 +88,13 @@ body {
   font-size: 0.8em !important;
   color: #aaa !important;
 }
-figure{
+.image-figure{
   margin-bottom: 10px;
 }
-figcaption{
+.image-figure figcaption{
   font-size: 0.8em !important;
 } 
-figcaption::before{
+.image-figure figcaption::before{
   content: '> ';
 } 
 
@@ -249,6 +249,19 @@ article.post .icon:before {
   margin-top: 0px;
   border-radius: 5px;
 }
+/* 行番号なしコードブロック */
+.codeblock-nonum table{
+  margin-bottom: 0px !important;
+}
+.codeblock-nonum .gutter {
+  display: none;
+}
+.codeblock-nonum .code {
+  border-left: none !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
 
 /* 検索ボックス */
 #local-search-result {

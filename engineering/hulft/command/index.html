@@ -1,0 +1,602 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+  <meta charset="utf-8">
+  
+  <title>HULFTでよく使うコマンドまとめ</title>
+  <meta name="author" content="shinpinoshi">
+  
+    <meta name="description" content="概要今回はHULFTでよく使用するコマンドを紹介していこうと思います。
+テストや実務で実際に使用しているコマンドですので、初心者の人はもちろん、玄人も幅広く使用可能です。
+是非見ていってください。
+
+あくまで自分が実務で使用するオプションしか記載していません。
+もしオプションを確認したい場合はコマンド別で公式のURLを貼っています。
+そちらをご確認ください。
+
+
+
+また当たり前ですが、ここに記載されているコマンドはシステムに何かしらの影響を与えるものです、そのことをよく理解し、本番環境で安易に実行しないように注意しましょう">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+  
+  <meta name="robots" content="max-image-preview:large">
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+  
+  <meta property="og:url" content="https://shinpinoshi.com/engineering/hulft/command/" />
+  <meta property="og:title" content="HULFTでよく使うコマンドまとめ" />
+
+  
+    <meta property="og:type" content="article">
+  
+
+  
+    <meta property="og:image" content="https://shinpinoshi.com/images/cover/engineering_hulft_command_.jpg" />
+    <meta property="og:description" content="概要今回はHULFTでよく使用するコマンドを紹介していこうと思います。
+テストや実務で実際に使用しているコマンドですので、初心者の人はもちろん、玄人も幅広く使用可能です。
+是非見ていってください。
+
+あくまで自分が実務で使用するオプションしか記載していません。
+もしオプションを確認したい場合はコマンド別で公式のURLを貼っています。
+そちらをご確認ください。
+
+
+
+また当たり前ですが、ここに記載されているコマンドはシステムに何かしらの影響を与えるものです、そのことをよく理解し、本番環境で安易に実行しないように注意しましょう" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@shinpinoshi" />
+  <meta property="og:site_name" content="shinpinoshi blog" />
+  <meta property="og:locale" content="ja_JP" />
+
+  
+    <meta name="thumbnail" content="https://shinpinoshi.com/images/cover/engineering_hulft_command_.jpg" />
+  
+
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+
+</header>
+  <article id="main" class="inner">
+    
+      <div id="content" class="inner-width-post">
+    
+        <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-HULFTでよく使うコマンドまとめ" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>HULFTでよく使うコマンドまとめ</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2025-12-20T14:38:44.000Z">2025-12-20</time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">HULFTでよく使うコマンドまとめ</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">HULFTでよく使用するコマンドを紹介していこうと思います。</span></p>
+<p><span class="mark-g">テストや実務で実際に使用しているコマンドですので、初心者の人はもちろん、玄人も幅広く使用可能です。</span></p>
+<p>是非見ていってください。</p>
+<div class="notice notice-warn">
+あくまで自分が実務で使用するオプションしか記載していません。<br>
+もしオプションを確認したい場合はコマンド別で公式のURLを貼っています。<br>
+そちらをご確認ください。
+</div>
+
+<div class="notice notice-warn">
+また当たり前ですが、ここに記載されているコマンドはシステムに何かしらの影響を与えるものです、そのことをよく理解し、本番環境で安易に実行しないように注意しましょう  
+</div>
+
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E8%A6%A7">コマンド一覧</a><ul>
+<li><a href="#hulft%E5%AE%9A%E7%BE%A9%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88utliupdt">HULFT定義のインポート（utliupdt）</a></li>
+<li><a href="#hulft%E5%AE%9A%E7%BE%A9%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88utligen">HULFT定義のエクスポート（utligen）</a></li>
+<li><a href="#%E9%9B%86%E9%85%8D%E4%BF%A1%E5%B1%A5%E6%AD%B4%E7%A2%BA%E8%AA%8Dutllist">集配信履歴確認（utllist）</a></li>
+<li><a href="#hulft%E9%85%8D%E4%BF%A1utlsend">HULFT配信（utlsend）</a></li>
+<li><a href="#hulft%E9%9B%86%E4%BF%A1utlrecv">HULFT集信（utlrecv）</a></li>
+<li><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E7%B5%90%E5%90%88utljoin">ファイル結合（utljoin）</a></li>
+<li><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%88%86%E8%A7%A3utlbreak">ファイル分解（utlbreak）</a></li>
+<li><a href="#hulft%E5%AE%9A%E7%BE%A9%E5%89%8A%E9%99%A4utlirm">hulft定義削除（utlirm）</a></li>
+<li><a href="#hulft%E5%AE%9A%E7%BE%A9%E7%A2%BA%E8%AA%8Dutlidlist">hulft定義確認（utlidlist）</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="コマンド一覧">コマンド一覧</span></h2><h3><span id="hulft定義のインポートutliupdt">HULFT定義のインポート（utliupdt）</span></h3><p>テキストファイルに書かれたHULFT定義をインポートします。<br><span class="mark-r">配信定義、集信定義、詳細ホスト、転送グループすべて同じコマンドでインポートします。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utliupdt -f [ファイル名] -r</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utliupdt -f send_teigi.txt -r</span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-f：HULFT定義が記載されたファイル名を記載</li>
+<li>-r：定義が存在した場合、定義を上書きする</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoBatchReg.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoBatchReg.htm</a></p>
+<h3><span id="hulft定義のエクスポートutligen">HULFT定義のエクスポート（utligen）</span></h3><p>テキストファイルにHULFT定義をエクスポートします。</p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utligen -f [出力ファイル名] -i [snd,rcv,job,tgrp,hst] -<span class="built_in">id</span> <span class="string">&quot;[HULFTID]&quot;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utligen -f rcv_teigi.txt -i rcv -<span class="built_in">id</span> <span class="string">&quot;RCV001&quot;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>一括エクスポートしたい場合</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utligen -f rcv_all.txt -i rcv -<span class="built_in">id</span> <span class="string">&quot;*&quot;</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-f：HULFT定義を出力するファイル名</li>
+<li>-i：エクスポート対象の指定 <ul>
+<li>snd：配信定義</li>
+<li>rcv：集信定義 </li>
+<li>job：ジョブ</li>
+<li>tgrp：転送グループ</li>
+<li>hst：詳細ホスト</li>
+</ul>
+</li>
+<li>-id：エクスポート対象のHULFTID</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoParaFGenCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoParaFGenCmd.htm</a></p>
+<h3><span id="集配信履歴確認utllist">集配信履歴確認（utllist）</span></h3><p>HULFTで集信＆配信した履歴を確認できます。<br><span class="mark-r">エラーコードを確認する時によく使います。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utllist [-r,-s ] -f [HULFTID] -from [日付(YYYYMMDD)] -to [日付(YYYYMMDD)]</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utllist -r -f SND001 -from 20251210 -to  20251212</span><br></pre></td></tr></table></figure>
+</div>
+
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>[-r,-s]：確認する履歴<ul>
+<li>-r：集信履歴の確認 </li>
+<li>-s：配信履歴の確認</li>
+</ul>
+</li>
+<li>-f：履歴を確認したいHULFTID </li>
+<li>-from：指定した日付以降を確認（例：20251210以降の履歴を確認 ）</li>
+<li>-to：指定した日付以前を確認 （例：20251212以前の履歴を確認）</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/SndLog_RcvLogListDipCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/SndLog_RcvLogListDipCmd.htm</a></p>
+<h3><span id="hulft配信utlsend">HULFT配信（utlsend）</span></h3><p>HULFTの配信処理を実行します。<br><span class="mark-r">実際にファイルを配信するときに使用します。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlsend -f [HULFTID] -<span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlsend -f SND001 -<span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-f：配信するHULFTID </li>
+<li>-sync：同期処理として実行（エラー発生時にメッセージが表示され、調査が楽なのでお勧めします）</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-HELP/Content/HULFT_OPE/HULFTOpeCmd/SndFCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-HELP/Content/HULFT_OPE/HULFTOpeCmd/SndFCmd.htm</a></p>
+<h3><span id="hulft集信utlrecv">HULFT集信（utlrecv）</span></h3><p>HULFTの集信処理を実行します。<br><span class="mark-r">実際に外部からファイルを取得するときに使用します。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlrecv -f [HULFT_ID] -<span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlrecv -f RCV001 -<span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-f：集信するHULFTID </li>
+<li>-sync：同期処理として実行（エラー発生時にメッセージが表示され、調査が楽なのでお勧めします）</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/SndReqCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/SndReqCmd.htm</a></p>
+<h3><span id="ファイル結合utljoin">ファイル結合（utljoin）</span></h3><p>HULFTの配信用ファイルを結合します。<br><span class="mark-r">HULFTが入っている端末で共通して動くtarみたいなものです。</span></p>
+<p>Linux同士ならtarのほうが使いやすいと思いますが、<br><span class="mark-g">Windows対Linuxなど、別々のOSで通信する可能性がある場合は、使用したほうが良いかもしれません。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utljoin -infile [結合対象] [b,t] -outfile [結合後ファイル名] [-r,-n,-m]</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utljoin -infile ./*.gz b -infile ./*.csv b -outfile ./FILE1 -r</span><br></pre></td></tr></table></figure>
+</div>
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-infile：結合対象のファイルパスとファイルのタイプ（b：バイナリ , t：テキスト）</li>
+<li>-outfile：結合ファイルの出力先ファイルパス</li>
+<li>[-r,-n,-m]：結合先のファイルが存在した場合の扱い<ul>
+<li>-r：置換する </li>
+<li>-n：エラーとする</li>
+<li>-m：追加で結合する</li></ul></li></ul></div>
+
+
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/UX-OPE/Content/HULFT_OPE/HULFTOpeUtl/MulFJoinCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/UX-OPE/Content/HULFT_OPE/HULFTOpeUtl/MulFJoinCmd.htm</a></p>
+<h3><span id="ファイル分解utlbreak">ファイル分解（utlbreak）</span></h3><p>HULFTで集信したファイルを分解します。<br>要は<span class="mark-r">utljoinしたファイルを分解するコマンドです。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlbreak -infile [分解対象] -from 1 -<span class="built_in">dir</span> [分解先] -r </span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlbreak -infile ./FILE1 -from 1 -<span class="built_in">dir</span> ./ -r </span><br></pre></td></tr></table></figure>
+</div>
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-infile：分解対象のファイルパス</li>
+<li>-from：結合順にすべて分解</li>
+<li>-r：分解後時に同名のファイルが存在した場合、置換する</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/UX-OPE/Content/HULFT_OPE/HULFTOpeUtl/JoinedFBreakCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/UX-OPE/Content/HULFT_OPE/HULFTOpeUtl/JoinedFBreakCmd.htm</a></p>
+<h3><span id="hulft定義削除utlirm">hulft定義削除（utlirm）</span></h3><p>HULFT定義を削除します。<br><span class="mark-r">登録されているHULFTの定義を削除します。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlirm -i [snd,rcv,job,tgrp,hst] -<span class="built_in">id</span> <span class="string">&quot;[任意の文字列]&quot;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlirm -i snd -<span class="built_in">id</span> <span class="string">&quot;HULID123&quot;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-i：削除対象の指定<ul>
+<li>snd：配信定義</li>
+<li>rcv：集信定義 </li>
+<li>job：ジョブ</li>
+<li>tgrp：転送グループ</li>
+<li>hst：詳細ホスト</li>
+</ul>
+</li>
+<li>-id：削除するHULFTID</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoDelCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoDelCmd.htm</a></p>
+<h3><span id="hulft定義確認utlidlist">hulft定義確認（utlidlist）</span></h3><p>HULFT定義の内容を確認できます。<br><span class="mark-r">「実際に配信されるファイル名ってなんだっけ？」などのケースで使用します。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlidlist -i [snd,rcv,job,tgrp,hst] -<span class="built_in">id</span> [hulftId]</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utlidlist -i snd -<span class="built_in">id</span> HULID123</span><br></pre></td></tr></table></figure>
+</div>
+<div class="nest-list">
+＜オプション＞
+
+<ul>
+<li>-i：確認対象の指定 <ul>
+<li>snd：配信定義</li>
+<li>rcv：集信定義 </li>
+<li>job：ジョブ</li>
+<li>tgrp：転送グループ</li>
+<li>hst：詳細ホスト</li>
+</ul>
+</li>
+<li>-id：確認するHULFTID</li></ul></div>
+
+<p>公式：<br><a target="_blank" rel="noopener" href="https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoRelatedCmd.htm">https://www.hulft.com/help/ja-jp/HULFT-V8/WIN-OPE/Content/HULFT_OPE/HULFTOpeCmd/MngmntInfoRelatedCmd.htm</a></p>
+<h2><span id="締め">締め</span></h2><p>自分が実際に実務で使用しているHULFTコマンドたちを紹介しました。</p>
+<p>結構簡単にファイルの転送ができるので便利なシステムですよね！<br><span class="mark-g">個人的にはエラーの原因が結構わかりやすい点が好きです。</span></p>
+<p>以上となります。<br>HULFTのオレンジ色が結構好きです(^^<br>それではお疲れさまでした。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/">コマンド</a>, <a href="/tags/linux/">linux</a>, <a href="/tags/%E4%BE%BF%E5%88%A9/">便利</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDP_smTXhS_mXexvBbaN8wquyID4cDpZVs",
+    authDomain: "shinpinoshiblog.firebaseapp.com",
+    projectId: "shinpinoshiblog",
+    storageBucket: "shinpinoshiblog.firebasestorage.app",
+    messagingSenderId: "319948450180",
+    appId: "1:319948450180:web:215c090abd67dd139415d1",
+    measurementId: "G-PH95TQZ11P"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script></div></div>
+        <div class="clearfix"></div>
+      </div>
+      
+        <aside id="sidebar">
+          <div class="related-posts">
+  <h3>関連記事</h3>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\linux\cron\delete\" title="【Linux】cronで不要になったジョブを削除する" rel="bookmark">【Linux】cronで不要になったジョブを削除する</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
+<p>これからcronの削除をリリース方は是非ご参考ください！</p></p></div></li></ul>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+        </aside>
+      
+  </article>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container profile-container-post">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+        <div class="profile-other-link">
+          <a href="https://x.com/shinpinoshi" target="_blank" rel="noopener">
+            <img src="/images/common/icon_x.svg" alt="X" width="40" height="40">
+          </a>
+        </div>
+
+      </div>          
+    </div>
+  </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div id="footer-widget">
+  <div class="widget-container">
+    
+      
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>6</small></li>
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>18</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>2</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>2</small></li>
+  
+    <li><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+    
+      
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>14</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>2</small></li>
+  
+    <li><a href="/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E5%95%86%E5%93%81%E7%B4%B9%E4%BB%8B/">おすすめ商品紹介</a><small>2</small></li>
+  
+    <li><a href="/tags/%E3%81%BE%E3%81%A8%E3%82%81/">まとめ</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/">インフラ</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/">コマンド</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/">ショッピング</a><small>4</small></li>
+  
+    <li><a href="/tags/%E3%83%84%E3%83%BC%E3%83%AB/">ツール</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>16</small></li>
+  
+    <li><a href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a><small>15</small></li>
+  
+    <li><a href="/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/">ポイ活</a><small>6</small></li>
+  
+    <li><a href="/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%89%8B%E9%A0%86/">リリース手順</a><small>1</small></li>
+  
+    <li><a href="/tags/%E4%B8%80%E4%BA%BA%E6%97%85/">一人旅</a><small>1</small></li>
+  
+    <li><a href="/tags/%E4%BE%BF%E5%88%A9/">便利</a><small>1</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>2</small></li>
+  
+    <li><a href="/tags/%E6%8C%81%E3%81%A1%E7%89%A9/">持ち物</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E8%B2%AF%E9%87%91/">貯金</a><small>1</small></li>
+  
+    <li><a href="/tags/%E8%B6%A3%E5%91%B3/">趣味</a><small>3</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>8</small></li>
+  
+  </ul>
+</div>
+
+    
+  </div>
+</div>
+<!-- ↓ ここから新しいフッターメニュー -->
+
+  <ul class="footer-menu">
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/profile">プロフィール</a></li>
+    
+      <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+    
+      <li><a href="/contact">お問い合わせ</a></li>
+    
+  </ul>
+
+<!-- ↑ フッターメニューここまで -->
+<div class="footer-copy">
+  
+  &copy; 2025 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+
+  </footer>
+</body>
+</html>
