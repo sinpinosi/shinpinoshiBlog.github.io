@@ -253,7 +253,7 @@ article.post .icon:before {
   border-radius: 5px;
 }
 /* 行番号なしコードブロック */
-.codeblock-nonum table{
+.highlight table{
   margin-bottom: 0px !important;
 }
 .codeblock-nonum .gutter {
