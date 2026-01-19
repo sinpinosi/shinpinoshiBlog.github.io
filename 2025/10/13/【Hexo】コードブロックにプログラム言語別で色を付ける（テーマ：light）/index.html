@@ -3,10 +3,10 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
   <meta charset="utf-8">
   
-  <title>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</title>
+  <title>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</title>
   <meta name="author" content="shinpinoshi">
   
-    <meta name="description" content="概要Hexoで新しい記事を書くときに「 hexo new [記事名] 」を使用すると下記のような内容が生成されるが、大項目などはある程度固定なので、自動的に自分用のテンプレートが適用されるようにしたい">
+    <meta name="description" content="概要Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける※下記は変更前">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -40,16 +40,16 @@
     }
   </script>
   
-  <meta property="og:url" content="https://shinpinoshi.com/hexo/template/" />
-  <meta property="og:title" content="【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）" />
+  <meta property="og:url" content="https://shinpinoshi.com/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/" />
+  <meta property="og:title" content="【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" />
 
   
     <meta property="og:type" content="article">
   
 
   
-    <meta property="og:image" content="https://shinpinoshi.com/images/cover/hexo_template_.jpg" />
-    <meta property="og:description" content="概要Hexoで新しい記事を書くときに「 hexo new [記事名] 」を使用すると下記のような内容が生成されるが、大項目などはある程度固定なので、自動的に自分用のテンプレートが適用されるようにしたい" />
+    <meta property="og:image" content="https://shinpinoshi.com/images/cover/2025_10_13_%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89_.jpg" />
+    <meta property="og:description" content="概要Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける※下記は変更前" />
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@shinpinoshi" />
@@ -57,7 +57,7 @@
   <meta property="og:locale" content="ja_JP" />
 
   
-    <meta name="thumbnail" content="https://shinpinoshi.com/images/cover/hexo_template_.jpg" />
+    <meta name="thumbnail" content="https://shinpinoshi.com/images/cover/2025_10_13_%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89_.jpg" />
   
 
 <meta name="generator" content="Hexo 8.1.1"></head>
@@ -76,7 +76,7 @@
       <div id="content" class="inner-width-post">
     
         <div id="main-col" class="alignleft"><div id="wrapper">
-<article id="post-hexo-20251103-【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-hexo-20251013-【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     <nav class="breadcrumb">
   <a href="/">Home</a>
@@ -89,7 +89,7 @@
   
   
     &nbsp;>&nbsp;
-    <span>【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</span>
+    <span>【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</span>
   
 </nav>
 
@@ -99,46 +99,50 @@
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2025-11-03T05:46:36.000Z">2025-11-03</time>
+        <time class="dt-published" datetime="2025-10-13T13:39:53.000Z">2025-10-13</time>
       
       
   
-    <h1 class="p-name title" itemprop="headline name">【Hexo】新しい記事を作るときにテンプレートを適用する（テーマ：light）</h1>
+    <h1 class="p-name title" itemprop="headline name">【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2><span id="概要">概要</span></h2><p>Hexoで新しい記事を書くときに「 <strong>hexo new [記事名]</strong> 」を使用すると<br>下記のような内容が生成されるが、大項目などはある程度固定なので、<br>自動的に自分用のテンプレートが適用されるようにしたい</p>
+        <h2><span id="概要">概要</span></h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p>
 <span id="more"></span>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_1.png" alt="TMP適用前" title="TMP適用前"></p>
+<p><img src="/images/posts/20251013/befor.png" alt="変更前" title="変更前"></p>
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
 
 <ul>
 <li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
-<li><a href="#1postmd%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">1.post.mdを変更する</a></li>
+<li><a href="#1%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E3%82%92%E8%A8%98%E8%BC%89">1.コードブロックに使用するプログラム言語を記載</a></li>
 </ul>
 </li>
 <li><a href="#%E5%AE%8C%E4%BA%86">完了</a></li>
+<li><a href="#hexo%E3%81%A7%E3%83%8F%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88%E5%8F%AF%E8%83%BD%E3%81%AA%E8%A8%80%E8%AA%9E%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Hexoでハイライト可能な言語について</a></li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
 </ul>
 <!-- tocstop -->
 
 </div>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1postmdを変更する">1.post.mdを変更する</span></h3><p>このファイルにテンプレートを記載する。<br>自分の場合は下記のように記載してます。</p>
-<p class="codeblock-filename"><span>site\scaffolds\post.md</span></p>
+<h2><span id="手順">手順</span></h2><h3><span id="1コードブロックに使用するプログラム言語を記載">1.コードブロックに使用するプログラム言語を記載</span></h3><p>コードブロックに自分が使用するプログラム言語の略称を入れる</p>
+<div class="notice notice-info">
+下記はCSSの場合
+</div>
 
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> プログラミング</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"><span class="bullet">  -</span> ブログ</span><br><span class="line">category: </span><br><span class="line"><span class="section">  - エンジニアリング</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">## 概要</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 目次</span></span><br><span class="line">&lt;!-- toc --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 締め</span></span><br><span class="line"></span><br><span class="line">以上お疲れさまでした。</span><br></pre></td></tr></table></figure>
-<p><img src="/images/posts/20251103_hexo_template_change/tmplate_change_2.png" alt="post.md" title="post.md"></p>
-<h2><span id="完了">完了</span></h2><p>「hexo new [記事名]\」を実行すると、下記のように自動的にテンプレートが適用されました！<br><img src="/images/posts/20251103_hexo_template_change/tmplate_change_3.png" alt="TMP適用後" title="TMP適用後"></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<p><img src="/images/posts/20251013/change.png" alt="変更箇所" title="変更箇所"></p>
+<h2><span id="完了">完了</span></h2><p>無事適用できました！<br><img src="/images/posts/20251013/after.png" alt="変更後" title="変更後"></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="締め">締め</span></h2><p>さすがHexoやりたいことは大抵できますね。<br>毎回コピペする必要がなくなったのはでかい(*^^)v</p>
+<h2><span id="hexoでハイライト可能な言語について">Hexoでハイライト可能な言語について</span></h2><p>下記に記載があります（多分これだと思う…）<br><a target="_blank" rel="noopener" href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" title="highlightjs公式">highlightjs公式</a></p>
+<p>例：<br>・css<br>・java<br>・sql<br>・yml<br>・cmd</p>
+<h2><span id="締め">締め</span></h2><p>本来ならば、highlight.jsなどを使用してやるそうですが、Hexoはデフォルトでライブラリが入っているようなので楽ですね！</p>
 <p>以上お疲れさまでした。</p>
 
       
@@ -195,7 +199,8 @@
         <aside id="sidebar">
           <div class="related-posts">
   <h3>関連記事</h3>
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\mokuji\" title="【Hexo】記事に自動で目次を付ける（テーマ：light）" rel="bookmark">【Hexo】記事に自動で目次を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\markdown\" title="【Hexo】記事の書き方（マークダウン）について（テーマ：light）" rel="bookmark">【Hexo】記事の書き方（マークダウン）について（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\codeblock\filename\" title="【Hexo】コードブロックにファイル名を入れる（テーマ：light）" rel="bookmark">【Hexo】コードブロックにファイル名を入れる（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\codeblock\langcolor\" title="【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" rel="bookmark">【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\sitemap\" title="【Hexo】サイトマップを自動で作成（テーマ：light）" rel="bookmark">【Hexo】サイトマップを自動で作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p></p></div></li></ul>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事の書き方（マークダウン）について（テーマ：light）\" title="【Hexo】記事の書き方（マークダウン）について（テーマ：light）" rel="bookmark">【Hexo】記事の書き方（マークダウン）について（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事に自動で目次を付ける（テーマ：light）\" title="【Hexo】記事に自動で目次を付ける（テーマ：light）" rel="bookmark">【Hexo】記事に自動で目次を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】コードブロックにファイル名を入れる（テーマ：light）\" title="【Hexo】コードブロックにファイル名を入れる（テーマ：light）" rel="bookmark">【Hexo】コードブロックにファイル名を入れる（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】サイトマップを自動で作成（テーマ：light）\" title="【Hexo】サイトマップを自動で作成（テーマ：light）" rel="bookmark">【Hexo】サイトマップを自動で作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\privacypolicy\" title="【Hexo】プライバシーポリシーの作成（テーマ：light）" rel="bookmark">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
+<p>GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要があります。</p></p></div></li></ul>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
         </aside>
@@ -261,7 +266,7 @@
     
       
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">Categorías</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
@@ -280,7 +285,7 @@
     
       
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Cloudflare/">Cloudflare</a><small>1</small></li>

@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+  <meta charset="utf-8">
+  
+  <title>【Hexo】記事に自動で目次を付ける（テーマ：light）</title>
+  <meta name="author" content="shinpinoshi">
+  
+    <meta name="description" content="概要Webページにどんなことが書いてあるかわかりにくいので、記事に目次を付けてみる">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+  
+  <meta name="robots" content="max-image-preview:large">
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+  
+  <meta property="og:url" content="https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/" />
+  <meta property="og:title" content="【Hexo】記事に自動で目次を付ける（テーマ：light）" />
+
+  
+    <meta property="og:type" content="article">
+  
+
+  
+    <meta property="og:image" content="https://shinpinoshi.com/images/cover/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89_.jpg" />
+    <meta property="og:description" content="概要Webページにどんなことが書いてあるかわかりにくいので、記事に目次を付けてみる" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@shinpinoshi" />
+  <meta property="og:site_name" content="shinpinoshi blog" />
+  <meta property="og:locale" content="ja_JP" />
+
+  
+    <meta name="thumbnail" content="https://shinpinoshi.com/images/cover/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89_.jpg" />
+  
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+
+</header>
+  <article id="main" class="inner">
+    
+      <div id="content" class="inner-width-post">
+    
+        <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-hexo-20251012-【Hexo】記事に自動で目次を付ける（テーマ：light）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>【Hexo】記事に自動で目次を付ける（テーマ：light）</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2025-10-12T12:31:00.000Z">2025-10-12</time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">【Hexo】記事に自動で目次を付ける（テーマ：light）</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2><span id="概要">概要</span></h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#1%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E3%81%AB%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0">1.マークダウンにコメントを追加</a></li>
+<li><a href="#2_configyml%E3%82%92%E5%A4%89%E6%9B%B4">2._config.ymlを変更</a></li>
+<li><a href="#3css%E3%82%92%E5%A4%89%E6%9B%B4">3.cssを変更</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E6%88%90">完成</a></li>
+<li><a href="#%E5%8F%8D%E6%98%A0%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88">反映されない場合</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="手順">手順</span></h2><h3><span id="1マークダウンにコメントを追加">1.マークダウンにコメントを追加</span></h3><p class="codeblock-filename"><span>site\source\_posts\[記事名].md</span></p>
+
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure>
+<img src="/images/posts/20251012/kiji.png" alt="記事名.md" title="記事名.md">
+
+<h3><span id="2_configymlを変更">2._config.ymlを変更</span></h3><p>手順1のみの場合、h2～h5要素すべてが目次に設定される為、<br>h2要素のみ目次に表示されるように_config.yml変更</p>
+<p class="codeblock-filename"><span>site\_config.yml</span></p>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">maxdepth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">class:</span> <span class="string">post-toc</span></span><br></pre></td></tr></table></figure>
+
+<img src="/images/posts/20251012/config.png" alt="_config.yml" title="_config.yml">
+
+<h3><span id="3cssを変更">3.cssを変更</span></h3><p>このままだとダサいのでCSSをいい感じに変更</p>
+<p class="codeblock-filename"><span>site\themes\light\source\css\[自分のCSS].css</span></p>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 目次 */</span></span><br><span class="line"><span class="selector-class">.post-toc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e0e0e0</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">1em</span> <span class="number">0em</span> <span class="number">1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-toc</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.1em</span> <span class="number">0em</span> <span class="number">0.1em</span> <span class="number">1em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0.3em</span> <span class="number">0em</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">2px</span> solid <span class="number">#e5e5e5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="/images/posts/20251012/css.png" alt="自分のCSS.css" title="自分のCSS.css">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h2><span id="完成">完成</span></h2><p>無事目次が作成されました。</p>
+<img src="/images/posts/20251012/complete.png" alt="完成画像" title="完成画像">
+
+
+<h2><span id="反映されない場合">反映されない場合</span></h2><p>hexo-tocのライブラリが存在しない場合や壊れている可能性があるので、<br>再インストールを試すといいかも</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-toc --save</span><br><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>WordPressでは目次を自動生成してくれたような気がするので、<br>Hexoでも実装できるかなと思いましたが、<br>普通にできましたね！</p>
+<p>これでよりブログっぽくなったと思います。</p>
+<p>以上お疲れさまでした。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>, <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a>, <a href="/tags/Hexo/">Hexo</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDP_smTXhS_mXexvBbaN8wquyID4cDpZVs",
+    authDomain: "shinpinoshiblog.firebaseapp.com",
+    projectId: "shinpinoshiblog",
+    storageBucket: "shinpinoshiblog.firebasestorage.app",
+    messagingSenderId: "319948450180",
+    appId: "1:319948450180:web:215c090abd67dd139415d1",
+    measurementId: "G-PH95TQZ11P"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script></div></div>
+        <div class="clearfix"></div>
+      </div>
+      
+        <aside id="sidebar">
+          <div class="related-posts">
+  <h3>関連記事</h3>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事の書き方（マークダウン）について（テーマ：light）\" title="【Hexo】記事の書き方（マークダウン）について（テーマ：light）" rel="bookmark">【Hexo】記事の書き方（マークダウン）について（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】コードブロックにファイル名を入れる（テーマ：light）\" title="【Hexo】コードブロックにファイル名を入れる（テーマ：light）" rel="bookmark">【Hexo】コードブロックにファイル名を入れる（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】サイトマップを自動で作成（テーマ：light）\" title="【Hexo】サイトマップを自動で作成（テーマ：light）" rel="bookmark">【Hexo】サイトマップを自動で作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\hexo\privacypolicy\" title="【Hexo】プライバシーポリシーの作成（テーマ：light）" rel="bookmark">【Hexo】プライバシーポリシーの作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Hexoで生成したブログにプライバシーポリシーや免責事項を追加します。</p>
+<p>GoogleAdsenseなどの評価にも影響するので、ちゃんと作る必要があります。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2025\10\13\【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）\" title="【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" rel="bookmark">【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p></p></div></li></ul>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+        </aside>
+      
+  </article>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container profile-container-post">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+        <div class="profile-other-link">
+          <a href="https://x.com/shinpinoshi" target="_blank" rel="noopener">
+            <img src="/images/common/icon_x.svg" alt="X" width="40" height="40">
+          </a>
+        </div>
+
+      </div>          
+    </div>
+  </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div id="footer-widget">
+  <div class="widget-container">
+    
+      
+<div class="widget tag">
+  <h3 class="title">Categorías</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>26</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>3</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>5</small></li>
+  
+    <li><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+    
+      
+<div class="widget tag">
+  <h3 class="title">Etiquetas</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Cloudflare/">Cloudflare</a><small>1</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>3</small></li>
+  
+    <li><a href="/tags/HULFT/">HULFT</a><small>3</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>11</small></li>
+  
+    <li><a href="/tags/NodeJs/">NodeJs</a><small>1</small></li>
+  
+    <li><a href="/tags/firebase/">firebase</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>2</small></li>
+  
+    <li><a href="/tags/windows/">windows</a><small>4</small></li>
+  
+    <li><a href="/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E5%95%86%E5%93%81%E7%B4%B9%E4%BB%8B/">おすすめ商品紹介</a><small>3</small></li>
+  
+    <li><a href="/tags/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
+  
+    <li><a href="/tags/%E3%81%BE%E3%81%A8%E3%82%81/">まとめ</a><small>2</small></li>
+  
+    <li><a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>26</small></li>
+  
+    <li><a href="/tags/%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%94%E3%83%B3%E3%82%B0/">グランピング</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/">コマンド</a><small>6</small></li>
+  
+    <li><a href="/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/">ショッピング</a><small>4</small></li>
+  
+    <li><a href="/tags/%E3%83%84%E3%82%A2%E3%83%BC/">ツアー</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%83%84%E3%83%BC%E3%83%AB/">ツール</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>13</small></li>
+  
+    <li><a href="/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/">ポイ活</a><small>7</small></li>
+  
+    <li><a href="/tags/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>3</small></li>
+  
+    <li><a href="/tags/%E4%B8%80%E4%BA%BA%E6%97%85/">一人旅</a><small>2</small></li>
+  
+    <li><a href="/tags/%E4%B8%8D%E5%8B%95%E7%94%A3/">不動産</a><small>1</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>3</small></li>
+  
+    <li><a href="/tags/%E6%89%8B%E9%A0%86/">手順</a><small>6</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%97%85/">旅</a><small>5</small></li>
+  
+    <li><a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a><small>4</small></li>
+  
+    <li><a href="/tags/%E7%AB%B6%E9%A6%AC/">競馬</a><small>2</small></li>
+  
+    <li><a href="/tags/%E8%B2%AF%E9%87%91/">貯金</a><small>4</small></li>
+  
+    <li><a href="/tags/%E8%B6%A3%E5%91%B3/">趣味</a><small>9</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+    
+  </div>
+</div>
+<!-- ↓ ここから新しいフッターメニュー -->
+
+  <ul class="footer-menu">
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/profile">プロフィール</a></li>
+    
+      <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+    
+      <li><a href="/contact">お問い合わせ</a></li>
+    
+  </ul>
+
+<!-- ↑ フッターメニューここまで -->
+<div class="footer-copy">
+  
+  &copy; 2026 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+
+  </footer>
+</body>
+</html>
