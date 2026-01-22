@@ -74,12 +74,19 @@ powershellでコマンドを2つ叩くだけなので、誰でも簡単にファ
   
   
     <script>
-    setTimeout(() => {
-      const ad = document.getElementById('adsbygoogle');
-      if (!ad || ad.offsetHeight === 0) {
-        document.getElementById('adblock-overlay').style.display = 'flex';
-      }
-    }, 1000);
+      setTimeout(() => {
+        const ads = document.getElementsByClassName('adsbygoogle');
+        console.log(ads.length);
+        // 広告要素が存在しない or すべて高さ0なら Adblock と判断
+        const blocked =
+          ads.length === 0 ||
+          Array.from(ads).every(ad => ad.offsetHeight === 0);
+
+        if (blocked) {
+          document.getElementById('adblock-overlay').style.display = 'flex';
+        }
+      }, 1000);
+
     </script>
     <div id="adblock-overlay">
       <div id="adblock-modal">
@@ -342,10 +349,7 @@ powershellでコマンドを2つ叩くだけなので、誰でも簡単にファ
         <aside id="sidebar">
           <div class="related-posts">
   <h3>関連記事</h3>
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\sakura\replace\" title="正規表現を使用してCSVからSQLを生成する【サクラエディタ】" rel="bookmark">正規表現を使用してCSVからSQLを生成する【サクラエディタ】</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">サクラエディタで正規表現に当てはまる内容を変数のように扱い置換する方法を紹介していきます。</span></p>
-<p>主な使用例としては、タイトルにもあるように<span class="mark-g">CSVのkey-value形式をSQLのupdate文に一括置換するため</span>に使用したりしてます。</p>
-<p>その他にも正規表現で取得した値を変数のように使用できるので非常に便利です。</p>
-<p>論より証拠！かなり便利なので是非皆さんも見ていってください！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\powershell\filesearch\" title="【windows】高速でフォルダ内のファイルを再帰的に検索する方法（図解）" rel="bookmark">【windows】高速でフォルダ内のファイルを再帰的に検索する方法（図解）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">windowsでフォルダ内を再帰的にファイル探査する方法を紹介していきます。</span></p>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\powershell\filesearch\" title="【windows】高速でフォルダ内のファイルを再帰的に検索する方法（図解）" rel="bookmark">【windows】高速でフォルダ内のファイルを再帰的に検索する方法（図解）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">windowsでフォルダ内を再帰的にファイル探査する方法を紹介していきます。</span></p>
 <p>フォルダの直下ならばすぐに調べられますが、<span class="mark-g">階層が深いフォルダだと一つ一つ見ていくのは日が暮れますよね(- -:</span></p>
 <p><span class="mark-r">今回紹介するコマンドを使用すれば、特定の文字列を含むファイル名を一発で探査することができます！</span></p>
 <p>パソコンが苦手な方でもわかるように図解で紹介していきます。<br>それではやっていきましょう</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\powershell\move\fileprefix\" title="【簡単】拡張子単位でファイルを移動する方法（windows）" rel="bookmark">【簡単】拡張子単位でファイルを移動する方法（windows）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">windowsでファイルを拡張子単位で移動する方法</span>を紹介していきます。</p>
@@ -353,7 +357,10 @@ powershellでコマンドを2つ叩くだけなので、誰でも簡単にファ
 <p>というのもGoogleTakeoutを使用し、GooglePhotoの画像を一括ダウンロードしたところ、<br>フォルダが分割されていたり、jsonファイルがあったりと非常に加工しにくい状態にありました。</p>
 <p>そのためまずは<span class="mark-g">画像と動画だけ別のフォルダに移動しようと思い</span>やり方を手順化してみました。</p>
 <p><span class="mark-r">powershellのコマンドラインだけで完結</span>するように手順を組んでます。<br>簡単に移動できるので是非皆さんも使ってみてください！</p>
-<p>それでは見ていきましょう</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\command\" title="HULFTでよく使うコマンドまとめ" rel="bookmark">HULFTでよく使うコマンドまとめ</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">HULFTでよく使用するコマンドの一覧を紹介していこうと思います。</span></p>
+<p>それでは見ていきましょう</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\sakura\replace\" title="正規表現を使用してCSVからSQLを生成する【サクラエディタ】" rel="bookmark">正規表現を使用してCSVからSQLを生成する【サクラエディタ】</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">サクラエディタで正規表現に当てはまる内容を変数のように扱い置換する方法を紹介していきます。</span></p>
+<p>主な使用例としては、タイトルにもあるように<span class="mark-g">CSVのkey-value形式をSQLのupdate文に一括置換するため</span>に使用したりしてます。</p>
+<p>その他にも正規表現で取得した値を変数のように使用できるので非常に便利です。</p>
+<p>論より証拠！かなり便利なので是非皆さんも見ていってください！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\command\" title="HULFTでよく使うコマンドまとめ" rel="bookmark">HULFTでよく使うコマンドまとめ</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">HULFTでよく使用するコマンドの一覧を紹介していこうと思います。</span></p>
 <p><span class="mark-g">テストや実務で実際に使用しているコマンドですので、初心者の人はもちろん、玄人も幅広く使用可能です。</span></p>
 <p>是非見ていってください。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\linux\filesqlit\" title="【Linux】ファイルを行単位で分割し、別ファイルに出力させる方法（sed,split）" rel="bookmark">【Linux】ファイルを行単位で分割し、別ファイルに出力させる方法（sed,split）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">ファイル内の文字列を行単位で分割し、別ファイルに出力する方法をお伝えします。</span></p>
 <p>自分の現場では、<span class="mark-g">1ファイル数Gバイトあるファイルを扱うことが多く、ファイルを開くと重くてまともに操作できない</span>といったことが良くあります。<br>そこで<span class="mark-r">行数ごとにファイルを分割することでファイルを軽量化し、作業しやすくしよう！というのが今回の経緯</span>です。</p>
@@ -426,7 +433,7 @@ powershellでコマンドを2つ叩くだけなので、誰でも簡単にファ
   <h3 class="title">Category</h3>
   <ul class="entry">
   
-    <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
+    <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>10</small></li>
   
     <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>27</small></li>
   
@@ -465,7 +472,7 @@ powershellでコマンドを2つ叩くだけなので、誰でも簡単にファ
   
     <li><a href="/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E5%95%86%E5%93%81%E7%B4%B9%E4%BB%8B/">おすすめ商品紹介</a><small>3</small></li>
   
-    <li><a href="/tags/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
+    <li><a href="/tags/%E3%81%8A%E9%87%91/">お金</a><small>10</small></li>
   
     <li><a href="/tags/%E3%81%BE%E3%81%A8%E3%82%81/">まとめ</a><small>2</small></li>
   
@@ -475,7 +482,7 @@ powershellでコマンドを2つ叩くだけなので、誰でも簡単にファ
   
     <li><a href="/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/">コマンド</a><small>6</small></li>
   
-    <li><a href="/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/">ショッピング</a><small>4</small></li>
+    <li><a href="/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/">ショッピング</a><small>5</small></li>
   
     <li><a href="/tags/%E3%83%84%E3%82%A2%E3%83%BC/">ツアー</a><small>1</small></li>
   
@@ -483,7 +490,7 @@ powershellでコマンドを2つ叩くだけなので、誰でも簡単にファ
   
     <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>13</small></li>
   
-    <li><a href="/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/">ポイ活</a><small>7</small></li>
+    <li><a href="/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/">ポイ活</a><small>8</small></li>
   
     <li><a href="/tags/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>3</small></li>
   
