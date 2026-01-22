@@ -82,6 +82,49 @@ body {
   }
 } 
 
+/* 広告ブロック */
+/* ===== Adblock modal overlay ===== */
+#adblock-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+  display: none;
+
+  /* 中央寄せ */
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Modal box ===== */
+#adblock-modal {
+  background: #ffffff;
+  border: #ffdb77 10px solid;
+  color: #222;
+  padding: 24px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+/* ===== Title ===== */
+#adblock-modal img {
+  height: 40px;
+  margin: 0 0 12px;
+}
+#adblock-modal h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+/* ===== Text ===== */
+#adblock-modal p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
 
 /* imageキャプション */
 .caption{
