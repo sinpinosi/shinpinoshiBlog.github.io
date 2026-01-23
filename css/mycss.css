@@ -124,6 +124,17 @@ body {
   line-height: 1.6;
   color: #555;
 }
+/* Secondary */
+#adblock-modal .btn-secondary {
+  font-weight: bold;
+  font-size: 16px;  
+  background: #40abfd;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 30px;
+  border: none;
+
+}
 
 
 /* imageキャプション */

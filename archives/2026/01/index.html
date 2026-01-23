@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
   <meta charset="utf-8">
   
-  <title>Archives: 2026/1 | shinpinoshi blog</title>
+  <title>Archive: 2026/1 | shinpinoshi blog</title>
   <meta name="author" content="shinpinoshi">
   
     <meta name="description" content="金融系SEが投資、節約、プログラミング、旅行について発信してます(^^">
@@ -41,7 +41,7 @@
   </script>
   
   <meta property="og:url" content="https://shinpinoshi.com/archives/2026/01/index.html" />
-  <meta property="og:title" content="Archives: 2026/1 | shinpinoshi blog" />
+  <meta property="og:title" content="Archive: 2026/1 | shinpinoshi blog" />
 
   
     <meta property="og:type" content="article">
@@ -330,7 +330,7 @@
 <nav id="pagination">
   
   
-    <a href="/archives/2026/01/page/2/" class="alignright next">Next</a>
+    <a href="/archives/2026/01/page/2/" class="alignright next">Next page</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -349,7 +349,7 @@
     
       
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">Category</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
@@ -466,8 +466,25 @@
   </footer>
 
   
+    <div id="adblock-overlay">
+      <div id="adblock-modal">
+        <image src="/images/common/header_logo.png" alt="site-logo"></image>
+        <h2>広告ブロックが検出されました</h2>
+        <p>
+          このサイトは広告収益で運営されています。<br>
+          広告ブロックの解除に何卒ご協力お願いします(^^          
+        </p>
+        <div class="buttons">
+          <button class="btn-secondary" id="close-adblock">閉じる</button>
+        </div>
+      </div>
+    </div>
     <script>
-      setTimeout(() => {
+
+      const SHOW_INTERVAL = 5000; // 再表示までの時間（ms）
+      let adblockTimer = null;
+
+      function checkAdblockAndShow() {
         const ads = document.getElementsByClassName('adsbygoogle');
         // 広告要素が存在しない or すべて高さ0なら Adblock と判断
         const blocked =
@@ -476,20 +493,22 @@
 
         if (blocked) {
           document.getElementById('adblock-overlay').style.display = 'flex';
+          // 次回チェック予約（1回だけ）
+          if (!adblockTimer) {
+            adblockTimer = setTimeout(() => {
+              adblockTimer = null;
+              checkAdblockAndShow();
+            }, SHOW_INTERVAL);
+          }
         }
-      }, 300);
-
+      }
+      // 初回チェック
+      setTimeout(checkAdblockAndShow, SHOW_INTERVAL);
+      
+      document.getElementById('close-adblock').onclick = () => {
+        document.getElementById('adblock-overlay').style.display = 'none';
+      };
     </script>
-    <div id="adblock-overlay">
-      <div id="adblock-modal">
-        <image src="/images/common/header_logo.png" alt="site-logo"></image>
-        <h2>広告ブロックが検出されました</h2>
-        <p>
-          このサイトは広告収益で運営されています。<br>
-          広告ブロックの解除に何卒ご協力お願いします(^^
-        </p>
-      </div>
-    </div>
   
 </body>
 </html>

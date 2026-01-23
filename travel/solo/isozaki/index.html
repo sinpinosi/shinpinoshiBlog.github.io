@@ -254,7 +254,7 @@
         
   
   <div class="tags">
-    <a href="/tags/%E8%B6%A3%E5%91%B3/">趣味</a>, <a href="/tags/%E4%B8%80%E4%BA%BA%E6%97%85/">一人旅</a>, <a href="/tags/%E6%97%85/">旅</a>
+    <a href="/tags/%E8%B6%A3%E5%91%B3/">趣味</a>, <a href="/tags/%E6%97%85/">旅</a>, <a href="/tags/%E4%B8%80%E4%BA%BA%E6%97%85/">一人旅</a>
   </div>
 
       
@@ -304,10 +304,8 @@
 <p><span class="mark-g">場所は御殿場アウトレットアウトレットから徒歩10分ほどとなります。</span></p>
 <p>今回ベタ褒めしてますが、案件とかではないので、安心してみていってください(^^<br>本当文句ないくらい楽しくて癒されて最高でした！</p>
 <p>それではやっていきましょう！</p>
-<p>これから行く人のために写真は最低限としてます。<br>ここで全てを見てしまうとネタバレ感出て悲しいですよね！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\money\point\keiba\" title="【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）" rel="bookmark">【節約】競馬でお得に楽しむ方法（中央競馬,地方競馬）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">競馬で馬券を買う時にポイント還元を受けてお得に楽しむ方法</span>を紹介します。</p>
-<p>普通に券売機から買うとポイントは入らないので、どうせ同じ馬券を買うならお得に楽しみたいですよね！</p>
-<p>そのための方法を色々紹介できたらいいなとおもいます。</p>
-<p><span class="mark-g">普段コスパタイパを重視して、ポイ活をやってる身としてはかなり耳寄りな情報だと思ったので、是非見ていってください！</span></p></p></div></li></ul>
+<p>これから行く人のために写真は最低限としてます。<br>ここで全てを見てしまうとネタバレ感出て悲しいですよね！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\introduction\waterbottle\" title="コーヒーをおいしく飲む為にセラミック水筒を購入した話" rel="bookmark">コーヒーをおいしく飲む為にセラミック水筒を購入した話</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>先日<span class="mark-y">セラミックコーティングの水筒を購入</span>したので、レビューしていきたいと思います！</p>
+<p><span class="mark-g">明らかに幸福度が上がったので、是非見ていってください(^^</span></p></p></div></li></ul>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
         </aside>
@@ -373,7 +371,7 @@
     
       
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">Category</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
@@ -490,8 +488,25 @@
   </footer>
 
   
+    <div id="adblock-overlay">
+      <div id="adblock-modal">
+        <image src="/images/common/header_logo.png" alt="site-logo"></image>
+        <h2>広告ブロックが検出されました</h2>
+        <p>
+          このサイトは広告収益で運営されています。<br>
+          広告ブロックの解除に何卒ご協力お願いします(^^          
+        </p>
+        <div class="buttons">
+          <button class="btn-secondary" id="close-adblock">閉じる</button>
+        </div>
+      </div>
+    </div>
     <script>
-      setTimeout(() => {
+
+      const SHOW_INTERVAL = 5000; // 再表示までの時間（ms）
+      let adblockTimer = null;
+
+      function checkAdblockAndShow() {
         const ads = document.getElementsByClassName('adsbygoogle');
         // 広告要素が存在しない or すべて高さ0なら Adblock と判断
         const blocked =
@@ -500,20 +515,22 @@
 
         if (blocked) {
           document.getElementById('adblock-overlay').style.display = 'flex';
+          // 次回チェック予約（1回だけ）
+          if (!adblockTimer) {
+            adblockTimer = setTimeout(() => {
+              adblockTimer = null;
+              checkAdblockAndShow();
+            }, SHOW_INTERVAL);
+          }
         }
-      }, 300);
-
+      }
+      // 初回チェック
+      setTimeout(checkAdblockAndShow, SHOW_INTERVAL);
+      
+      document.getElementById('close-adblock').onclick = () => {
+        document.getElementById('adblock-overlay').style.display = 'none';
+      };
     </script>
-    <div id="adblock-overlay">
-      <div id="adblock-modal">
-        <image src="/images/common/header_logo.png" alt="site-logo"></image>
-        <h2>広告ブロックが検出されました</h2>
-        <p>
-          このサイトは広告収益で運営されています。<br>
-          広告ブロックの解除に何卒ご協力お願いします(^^
-        </p>
-      </div>
-    </div>
   
 </body>
 </html>
