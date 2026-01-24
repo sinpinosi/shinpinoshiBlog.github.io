@@ -281,7 +281,7 @@
     </div>
     <script>
 
-      const SHOW_INTERVAL = 5000; // 再表示までの時間（ms）
+      const SHOW_INTERVAL = 3000; // 再表示までの時間（ms）
       let adblockTimer = null;
 
       function checkAdblockAndShow() {
@@ -293,13 +293,6 @@
 
         if (blocked) {
           document.getElementById('adblock-overlay').style.display = 'flex';
-          // 次回チェック予約（1回だけ）
-          if (!adblockTimer) {
-            adblockTimer = setTimeout(() => {
-              adblockTimer = null;
-              checkAdblockAndShow();
-            }, SHOW_INTERVAL);
-          }
         }
       }
       // 初回チェック
@@ -307,6 +300,13 @@
       
       document.getElementById('close-adblock').onclick = () => {
         document.getElementById('adblock-overlay').style.display = 'none';
+        // 次回チェック予約（1回だけ）
+        if (!adblockTimer) {
+          adblockTimer = setTimeout(() => {
+            adblockTimer = null;
+            checkAdblockAndShow();
+          }, SHOW_INTERVAL);
+        }
       };
     </script>
   
