@@ -231,7 +231,7 @@
           <div class="related-posts">
   <h3>関連記事</h3>
   <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\introduction\waterbottle\" title="京セラのセラミック水筒でおいしくコーヒーを飲めるようになった話" rel="bookmark">京セラのセラミック水筒でおいしくコーヒーを飲めるようになった話</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>先日<span class="mark-y">京セラのセラミックコーティングの水筒を購入したので、レビューしていきたいと思います！</span></p>
-<p><span class="mark-g">明らかに幸福度が上がったので、是非見ていってください(^^</span></p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\introduction\roadbike\buy\" title="初めてのロードバイク購入時に気を付けたこと" rel="bookmark">初めてのロードバイク購入時に気を付けたこと</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>先日ロードバイクを購入したので、<span class="mark-y">購入時に気を付けたことをまとめていきたいと思います。</span></p>
+<p><span class="mark-g">明らかに幸福度が上がったので、是非見ていってください(^^</span></p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\introduction\roadbike\buy\" title="ロードバイク初心者が購入時に注意したこと" rel="bookmark">ロードバイク初心者が購入時に注意したこと</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>先日ロードバイクを購入したので、<span class="mark-y">購入時に気を付けたことをまとめていきたいと思います。</span></p>
 <p>知識ゼロから勉強して購入しましたが、<span class="mark-g">購入したロードバイクには概ね満足しているので、間違いはないかと思います。</span><br><span class="mark-g">一部「失敗したな～」という点もありますが、それについても書いているので、ご参考までに！</span></p>
 <p>また<span class="mark-y">「購入後にやったこと」や「おすすめのガジェット」についても記載してます。</span><br>よければ見ていってください。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\introduction\keiba\arimakinen\" title="有馬記念の混雑状況と立ち回り（写真有）" rel="bookmark">有馬記念の混雑状況と立ち回り（写真有）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">年の瀬の大勝負、G1有馬記念に行ってきたので、混雑状況や入場後の動き方をメモしていきます。</span></p>
 <p><span class="mark-g">個人的には満足に立ち回れたのかと思います！</span></p>
@@ -245,6 +245,7 @@
 </div>
         </aside>
       
+      <div class="ad adsbox" id="ad-bait"></div>
   </article>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <footer id="footer" class="inner">
@@ -437,34 +438,53 @@
       </div>
     </div>
     <script>
+      const CHECK_DELAY = 2000;
+      let checkTimer = null;
 
-      const SHOW_INTERVAL = 3000; // 再表示までの時間（ms）
-      let adblockTimer = null;
-
-      function checkAdblockAndShow() {
+      function isAdBlocked() {
         const ads = document.getElementsByClassName('adsbygoogle');
-        // 広告要素が存在しない or すべて高さ0なら Adblock と判断
-        const blocked =
-          ads.length === 0 ||
-          Array.from(ads).every(ad => ad.offsetHeight === 0);
+        const bait = document.getElementById('ad-bait');
 
-        if (blocked) {
-          document.getElementById('adblock-overlay').style.display = 'flex';
-        }
+        const adsenseBlocked =
+          ads.length === 0 ||
+          Array.from(ads).every(ad =>
+            ad.offsetHeight === 0 ||
+            ad.offsetParent === null
+          );
+
+        const baitBlocked =
+          !bait ||
+          bait.offsetHeight === 0 ||
+          bait.offsetParent === null;
+
+        return adsenseBlocked || baitBlocked;
       }
-      // 初回チェック
-      setTimeout(checkAdblockAndShow, SHOW_INTERVAL);
-      
-      document.getElementById('close-adblock').onclick = () => {
+      function showAdblockModal() {
+        document.getElementById('adblock-overlay').style.display = 'flex';
+      }
+
+      function hideAdblockModal() {
         document.getElementById('adblock-overlay').style.display = 'none';
-        // 次回チェック予約（1回だけ）
-        if (!adblockTimer) {
-          adblockTimer = setTimeout(() => {
-            adblockTimer = null;
-            checkAdblockAndShow();
-          }, SHOW_INTERVAL);
-        }
+      }
+      function scheduleAdblockCheck() {
+        // 二重予約防止
+        if (checkTimer) return;
+
+        checkTimer = setTimeout(() => {
+          checkTimer = null;
+
+          if (isAdBlocked()) {
+            showAdblockModal();
+          }
+        }, CHECK_DELAY);
+      }
+      document.getElementById('close-adblock').onclick = () => {
+        hideAdblockModal();
+        scheduleAdblockCheck(); // 再判定
       };
+
+      scheduleAdblockCheck();
+      
     </script>
   
 </body>

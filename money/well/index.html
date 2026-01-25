@@ -400,8 +400,8 @@
 <p><span class="mark-y">どうせなら安く良いものを買いたいので、今回はその方法を紹介していけたらと思います。</span></p>
 <p>すでに安く買う方法を知ってる方でも知らないことがあるかもしれません。<br>よければ見ていってください。</p>
 <p><span class="mark-y">ちなみに2000円クーポンなどは有名且つサイトを開けば表示されるので、当サイトでは書いてません(- -;</span></p>
-<p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\money\saving\25yearsold\" title="【ポイ活歴15年】25歳一人暮らしの簡単貯金術" rel="bookmark">【ポイ活歴15年】25歳一人暮らしの簡単貯金術</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>こんにちは！<br>今回は<span class="mark-y">25歳一人暮らし年収400万の自分が簡単にできる貯金術</span>を残します。<br>ポイ活歴15年、小学生の時からですね。。。お金をどう得するかを考えてました。</p>
-<p><span class="mark-g">普通に旅行も行くし、飲み会にも参加してますが、無理せず普通に貯金もできてるので、この方法を使えば多分誰でも簡単にお金を貯めれます。</span></p>
+<p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\money\saving\25yearsold\" title="25歳で貯金を増やす具体テクニック｜ポイ活歴15年の実践術" rel="bookmark">25歳で貯金を増やす具体テクニック｜ポイ活歴15年の実践術</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>こんにちは！<br>今回は<span class="mark-y">25歳一人暮らし年収400万の自分が簡単にできる貯金術</span>を残します。<br>ポイ活歴は15年、小学生の時からですね。。。お金をどう増やすのか、安くものを買うのかを考えてました。</p>
+<p><span class="mark-g">節約するといっても普通に旅行も行くし、飲み会にも参加してますが、無理せず普通に貯金もできてるので、この方法を使えば多分誰でも簡単にお金を貯めれます。</span></p>
 <p><span class="mark-y">実績として、現在の自分の資産額は600万円ほどとなります。</span><br>相続とかは無く、0からコツコツやってるので、自分の貯金術は間違えていないと思ってます。</p>
 <p>それではやっていきましょう。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\money\point\vpointget\" title="ウエルシアで使うVポイントを簡単かつ大量に貯める方法" rel="bookmark">ウエルシアで使うVポイントを簡単かつ大量に貯める方法</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Vポイントを無理なく貯める方法をお伝えします。</p>
 <p><span class="mark-y">年収400万くらいの自分の実績としては、毎月大体5000ポイント</span>くらいは貯めます。</p>
@@ -414,6 +414,7 @@
 </div>
         </aside>
       
+      <div class="ad adsbox" id="ad-bait"></div>
   </article>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <footer id="footer" class="inner">
@@ -606,34 +607,53 @@
       </div>
     </div>
     <script>
+      const CHECK_DELAY = 2000;
+      let checkTimer = null;
 
-      const SHOW_INTERVAL = 3000; // 再表示までの時間（ms）
-      let adblockTimer = null;
-
-      function checkAdblockAndShow() {
+      function isAdBlocked() {
         const ads = document.getElementsByClassName('adsbygoogle');
-        // 広告要素が存在しない or すべて高さ0なら Adblock と判断
-        const blocked =
-          ads.length === 0 ||
-          Array.from(ads).every(ad => ad.offsetHeight === 0);
+        const bait = document.getElementById('ad-bait');
 
-        if (blocked) {
-          document.getElementById('adblock-overlay').style.display = 'flex';
-        }
+        const adsenseBlocked =
+          ads.length === 0 ||
+          Array.from(ads).every(ad =>
+            ad.offsetHeight === 0 ||
+            ad.offsetParent === null
+          );
+
+        const baitBlocked =
+          !bait ||
+          bait.offsetHeight === 0 ||
+          bait.offsetParent === null;
+
+        return adsenseBlocked || baitBlocked;
       }
-      // 初回チェック
-      setTimeout(checkAdblockAndShow, SHOW_INTERVAL);
-      
-      document.getElementById('close-adblock').onclick = () => {
+      function showAdblockModal() {
+        document.getElementById('adblock-overlay').style.display = 'flex';
+      }
+
+      function hideAdblockModal() {
         document.getElementById('adblock-overlay').style.display = 'none';
-        // 次回チェック予約（1回だけ）
-        if (!adblockTimer) {
-          adblockTimer = setTimeout(() => {
-            adblockTimer = null;
-            checkAdblockAndShow();
-          }, SHOW_INTERVAL);
-        }
+      }
+      function scheduleAdblockCheck() {
+        // 二重予約防止
+        if (checkTimer) return;
+
+        checkTimer = setTimeout(() => {
+          checkTimer = null;
+
+          if (isAdBlocked()) {
+            showAdblockModal();
+          }
+        }, CHECK_DELAY);
+      }
+      document.getElementById('close-adblock').onclick = () => {
+        hideAdblockModal();
+        scheduleAdblockCheck(); // 再判定
       };
+
+      scheduleAdblockCheck();
+      
     </script>
   
 </body>

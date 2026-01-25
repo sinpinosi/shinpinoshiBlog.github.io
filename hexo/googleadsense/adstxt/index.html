@@ -232,6 +232,7 @@ GoogleAdsenseを開いたとき毎回警告が出るので、必ず対応する�
 </div>
         </aside>
       
+      <div class="ad adsbox" id="ad-bait"></div>
   </article>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <footer id="footer" class="inner">
@@ -424,34 +425,53 @@ GoogleAdsenseを開いたとき毎回警告が出るので、必ず対応する�
       </div>
     </div>
     <script>
+      const CHECK_DELAY = 2000;
+      let checkTimer = null;
 
-      const SHOW_INTERVAL = 3000; // 再表示までの時間（ms）
-      let adblockTimer = null;
-
-      function checkAdblockAndShow() {
+      function isAdBlocked() {
         const ads = document.getElementsByClassName('adsbygoogle');
-        // 広告要素が存在しない or すべて高さ0なら Adblock と判断
-        const blocked =
-          ads.length === 0 ||
-          Array.from(ads).every(ad => ad.offsetHeight === 0);
+        const bait = document.getElementById('ad-bait');
 
-        if (blocked) {
-          document.getElementById('adblock-overlay').style.display = 'flex';
-        }
+        const adsenseBlocked =
+          ads.length === 0 ||
+          Array.from(ads).every(ad =>
+            ad.offsetHeight === 0 ||
+            ad.offsetParent === null
+          );
+
+        const baitBlocked =
+          !bait ||
+          bait.offsetHeight === 0 ||
+          bait.offsetParent === null;
+
+        return adsenseBlocked || baitBlocked;
       }
-      // 初回チェック
-      setTimeout(checkAdblockAndShow, SHOW_INTERVAL);
-      
-      document.getElementById('close-adblock').onclick = () => {
+      function showAdblockModal() {
+        document.getElementById('adblock-overlay').style.display = 'flex';
+      }
+
+      function hideAdblockModal() {
         document.getElementById('adblock-overlay').style.display = 'none';
-        // 次回チェック予約（1回だけ）
-        if (!adblockTimer) {
-          adblockTimer = setTimeout(() => {
-            adblockTimer = null;
-            checkAdblockAndShow();
-          }, SHOW_INTERVAL);
-        }
+      }
+      function scheduleAdblockCheck() {
+        // 二重予約防止
+        if (checkTimer) return;
+
+        checkTimer = setTimeout(() => {
+          checkTimer = null;
+
+          if (isAdBlocked()) {
+            showAdblockModal();
+          }
+        }, CHECK_DELAY);
+      }
+      document.getElementById('close-adblock').onclick = () => {
+        hideAdblockModal();
+        scheduleAdblockCheck(); // 再判定
       };
+
+      scheduleAdblockCheck();
+      
     </script>
   
 </body>
