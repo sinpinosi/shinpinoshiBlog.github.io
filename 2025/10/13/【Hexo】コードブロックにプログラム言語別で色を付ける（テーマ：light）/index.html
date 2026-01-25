@@ -204,7 +204,6 @@
 </div>
         </aside>
       
-      <div class="ad adsbox" id="ad-bait"></div>
   </article>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <footer id="footer" class="inner">
@@ -266,7 +265,7 @@
     
       
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">Category</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>9</small></li>
@@ -402,21 +401,20 @@
 
       function isAdBlocked() {
         const ads = document.getElementsByClassName('adsbygoogle');
-        const bait = document.getElementById('ad-bait');
 
-        const adsenseBlocked =
-          ads.length === 0 ||
-          Array.from(ads).every(ad =>
+        if (ads.length === 0) return true;
+
+        return Array.from(ads).every(ad => {
+          const style = window.getComputedStyle(ad);
+
+          return (
+            style.display === 'none' ||
+            style.visibility === 'hidden' ||
+            style.opacity === '0' ||
             ad.offsetHeight === 0 ||
-            ad.offsetParent === null
+            ad.getClientRects().length === 0
           );
-
-        const baitBlocked =
-          !bait ||
-          bait.offsetHeight === 0 ||
-          bait.offsetParent === null;
-
-        return adsenseBlocked || baitBlocked;
+        });
       }
       function showAdblockModal() {
         document.getElementById('adblock-overlay').style.display = 'flex';

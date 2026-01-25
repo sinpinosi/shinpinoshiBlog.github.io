@@ -134,12 +134,6 @@ body {
   padding: 10px 30px;
   border: none;
 }
-/* 広告ブロック */
-.adsbox {
-  height: 1px;
-  position: absolute;
-  left: -9999px;
-}
 
 
 /* imageキャプション */
