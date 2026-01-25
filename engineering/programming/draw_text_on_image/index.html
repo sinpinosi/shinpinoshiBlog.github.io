@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
   <meta charset="utf-8">
   
-  <title>【NodeJs】サムネ用に画像の中に文字を入れるツールを作る</title>
+  <title>Node.js ツールでサムネ画像に文字入れする方法【sharp,canvas】</title>
   <meta name="author" content="shinpinoshi">
   
     <meta name="description" content="概要今回は画像の中に文字を入れるツールを作るための手順をお伝えします。
@@ -45,7 +45,7 @@ NodeJsだけで完結するので、誰でも簡単に実装できると思い�
   </script>
   
   <meta property="og:url" content="https://shinpinoshi.com/engineering/programming/draw_text_on_image/" />
-  <meta property="og:title" content="【NodeJs】サムネ用に画像の中に文字を入れるツールを作る" />
+  <meta property="og:title" content="Node.js ツールでサムネ画像に文字入れする方法【sharp,canvas】" />
 
   
     <meta property="og:type" content="article">
@@ -97,7 +97,7 @@ NodeJsだけで完結するので、誰でも簡単に実装できると思い�
   
   
     &nbsp;>&nbsp;
-    <span>【NodeJs】サムネ用に画像の中に文字を入れるツールを作る</span>
+    <span>Node.js ツールでサムネ画像に文字入れする方法【sharp,canvas】</span>
   
 </nav>
 
@@ -111,7 +111,7 @@ NodeJsだけで完結するので、誰でも簡単に実装できると思い�
       
       
   
-    <h1 class="p-name title" itemprop="headline name">【NodeJs】サムネ用に画像の中に文字を入れるツールを作る</h1>
+    <h1 class="p-name title" itemprop="headline name">Node.js ツールでサムネ画像に文字入れする方法【sharp,canvas】</h1>
   
 
     </header>
@@ -129,7 +129,7 @@ NodeJsだけで完結するので、誰でも簡単に実装できると思い�
 <!-- toc -->
 
 <ul>
-<li><a href="#%E6%89%8B%E9%A0%86">手順</a><ul>
+<li><a href="#%E5%AE%9F%E8%A3%85%E6%89%8B%E9%A0%86">実装手順</a><ul>
 <li><a href="#1npm%E3%81%A7%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">1.npmでライブラリをインストール</a></li>
 <li><a href="#2%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E3%81%84%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%92%E5%8F%96%E5%BE%97">2.使用したいフォントを取得</a></li>
 <li><a href="#3javascript%E3%82%92%E6%9B%B8%E3%81%8F">3.JavaScriptを書く</a></li>
@@ -147,7 +147,7 @@ NodeJsだけで完結するので、誰でも簡単に実装できると思い�
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="手順">手順</span></h2><h3><span id="1npmでライブラリをインストール">1.npmでライブラリをインストール</span></h3><p><span class="mark-y">今回の実装で使用するライブラリをnpmでインストールします。</span><br><span class="mark-g">sharpとcanvas</span>を使用してます。</p>
+<h2><span id="実装手順">実装手順</span></h2><h3><span id="1npmでライブラリをインストール">1.npmでライブラリをインストール</span></h3><p><span class="mark-y">今回の実装で使用するライブラリをnpmでインストールします。</span><br><span class="mark-g">sharpとcanvas</span>を使用してます。</p>
 <p class="codeblock-filename"><span>コマンド</span></p>
 
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install sharp @napi-rs/canvas</span><br></pre></td></tr></table></figure>
@@ -265,20 +265,20 @@ NodeJsだけで完結するので、誰でも簡単に実装できると思い�
         <aside id="sidebar">
           <div class="related-posts">
   <h3>関連記事</h3>
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\python\convertheic\" title="【python】heicをjpegに変換してブログ用に写真を軽量化する" rel="bookmark">【python】heicをjpegに変換してブログ用に写真を軽量化する</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回はiPhoneで撮影した写真をブログに挙げるために、<br><span class="mark-y">写真を加工するためのツールをPythonで作成したので紹介していきます。</span></p>
-<p><span class="mark-g">iPhoneで撮影した画像はheicという形式で保存されるので、windowsやLinuxだと少し扱いずらい形式になってしまうんですよね。。。</span></p>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\python\convertheic\" title="Python で HEIC 画像を JPG/PNG に変換する方法（サンプルコード付き）" rel="bookmark">Python で HEIC 画像を JPG/PNG に変換する方法（サンプルコード付き）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回はiPhoneで撮影した写真をブログに挙げるために、<span class="mark-y">写真を加工するためのツールをPythonで作成したので紹介していきます。</span></p>
+<p><span class="mark-g">iPhoneで撮影した画像はheicという形式で保存されるので、windowsやLinuxだと少し扱いずらい形式になってしまうんですよね。。。</span><br>やはりwindowsで扱うならJPGを使用したいところ</p>
 <p>しかも自分の保存用写真としても撮るので、高画質で容量が大きくブログには不向きとなります。</p>
 <p><span class="mark-g">今まではこれをオンラインツールを使い頑張って変換してたのですが、この度pythonでツールを作ることに成功したので、紹介していきます。</span></p>
 <p>めちゃくちゃ簡単にできますので、是非皆さんも試してみてください！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\linux\cron\delete\" title="【Linux】cronで不要になったジョブを削除する" rel="bookmark">【Linux】cronで不要になったジョブを削除する</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>リリース後に不要となるcronのジョブを削除する為の手順です。<br>バックアップから削除までを安全に行うようにしています。</p>
-<p>これからcronの削除をリリース方は是非ご参考ください！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\cloudflare\accessblock\" title="googleアドセンスが停止されたので無料でブログへの不信なアクセスを確認＆拒否する方法を確立" rel="bookmark">googleアドセンスが停止されたので無料でブログへの不信なアクセスを確認＆拒否する方法を確立</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">無料でブログへの不信なアクセスを拒否するためにcloudflareを使用してみようと思います。</span></p>
+<p>これからcronの削除をリリース方は是非ご参考ください！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\command\" title="HULFTでよく使うコマンドまとめ" rel="bookmark">HULFTでよく使うコマンドまとめ</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">HULFTでよく使用するコマンドの一覧を紹介していこうと思います。</span></p>
+<p><span class="mark-g">テストや実務で実際に使用しているコマンドですので、初心者の人はもちろん、玄人も幅広く使用可能です。</span></p>
+<p>是非見ていってください。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\cloudflare\accessblock\" title="アドセンスが停止されたのでCloudflareで不正アクセスを拒否する方法" rel="bookmark">アドセンスが停止されたのでCloudflareで不正アクセスを拒否する方法</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">無料でブログへの不信なアクセスを拒否するためにcloudflareを使用してみようと思います。</span></p>
 <p><span class="mark-g">自動でBotを検知し確認＆ブロックしてくれる</span>のでとても便利です。</p>
 <p>しかも<span class="mark-g">サーバを移したり、ドメインを移管する必要はなく、少しの設定で簡単に実装できます。</span></p>
 <p>経緯も含め、同じように困っている方もいると思うので、そのような方の参考になると嬉しいです。</p>
-<p>それではやっていきましょう。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\command\" title="HULFTでよく使うコマンドまとめ" rel="bookmark">HULFTでよく使うコマンドまとめ</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">HULFTでよく使用するコマンドの一覧を紹介していこうと思います。</span></p>
-<p><span class="mark-g">テストや実務で実際に使用しているコマンドですので、初心者の人はもちろん、玄人も幅広く使用可能です。</span></p>
-<p>是非見ていってください。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\error\" title="HULFTでエラーが出た時の調査手順" rel="bookmark">HULFTでエラーが出た時の調査手順</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">HULFT集配信にてエラーが発生したときの原因特定方法を紹介していきます。</span></p>
-<p><span class="mark-g">HULFTの異常終了は、原因が多岐にわたり切り分けが難航することがあります。</span><br>例えばネットワークが悪かったり、HULFT定義自体が間違えていたりと結構厄介なんですよね。。。</p>
-<p><span class="mark-y">ここでは手順に沿って誰でも原因の切り分けができるよう書いてみたので、良ければ見ていってください。</span></p></p></div></li></ul>
+<p>それではやっていきましょう。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\linux\filesqlit\" title="Linuxで巨大ファイルを行単位で分割する方法（split と sed）" rel="bookmark">Linuxで巨大ファイルを行単位で分割する方法（split と sed）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">ファイル内の文字列を行単位で分割し、別ファイルに出力する方法をお伝えします。</span></p>
+<p>自分の現場では、<span class="mark-g">1ファイル数Gバイトある巨大なファイルを扱うことが多く、ファイルを開くと重くてまともに操作できない</span>といったことが良くあります。<br>そこで<span class="mark-r">行数ごとにファイルを分割することでファイルを軽量化し、作業しやすくしよう！というのが今回の経緯</span>です。</p>
+<p>同じようなケースは割とあると思う？のでどなたかの参考になりましたらうれしいです！</p></p></div></li></ul>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
         </aside>

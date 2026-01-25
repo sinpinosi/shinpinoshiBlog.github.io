@@ -80,18 +80,18 @@
 
 <div class="archive">
   
-    <article id="post-engineering-20251222-【Linux】ファイルを行単位で分割し、別ファイルに出力させる方法（sed-split）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-engineering-20251222-Linuxで巨大ファイルを行単位で分割する方法（split-と-sed）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
       <div class="post-content">
         <header>
           
             <div class="icon"></div>
             <time class="dt-published" datetime="2025-12-22T13:46:53.000Z">2025-12-22</time>
           
-          <h1 class="title"><a href="/engineering/linux/filesqlit/">linuxでファイルを行単位で分割し、別ファイルに出力させる方法（sed,split）</a></h1>
+          <h1 class="title"><a href="/engineering/linux/filesqlit/">Linuxで巨大ファイルを行単位で分割する方法（split と sed）</a></h1>
         </header>
         <div class="e-content entry" itemprop="articleBody">
             <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">ファイル内の文字列を行単位で分割し、別ファイルに出力する方法をお伝えします。</span></p>
-<p>自分の現場では、<span class="mark-g">1ファイル数Gバイトあるファイルを扱うことが多く、ファイルを開くと重くてまともに操作できない</span>といったことが良くあります。<br>そこで<span class="mark-r">行数ごとにファイルを分割することでファイルを軽量化し、作業しやすくしよう！というのが今回の経緯</span>です。</p>
+<p>自分の現場では、<span class="mark-g">1ファイル数Gバイトある巨大なファイルを扱うことが多く、ファイルを開くと重くてまともに操作できない</span>といったことが良くあります。<br>そこで<span class="mark-r">行数ごとにファイルを分割することでファイルを軽量化し、作業しやすくしよう！というのが今回の経緯</span>です。</p>
 <p>同じようなケースは割とあると思う？のでどなたかの参考になりましたらうれしいです！</p>
         </div>
         <footer>
