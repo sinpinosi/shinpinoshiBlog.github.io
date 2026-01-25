@@ -378,8 +378,8 @@
   </footer>
 
   
-    <div id="adblock-overlay">
-      <div id="adblock-modal">
+    <div id="comm-overlay">
+      <div id="comm-modal">
         <image src="/images/common/header_logo.png" alt="site-logo"></image>
         <h2>広告ブロックが検出されました</h2>
         <p>
@@ -387,7 +387,7 @@
           広告ブロックの解除に何卒ご協力お願いします(^^          
         </p>
         <div class="buttons">
-          <button class="btn-secondary" id="close-adblock">閉じる</button>
+          <button class="btn-secondary" id="close-comm">閉じる</button>
         </div>
       </div>
     </div>
@@ -395,7 +395,7 @@
       const CHECK_DELAY = 2000;
       let checkTimer = null;
 
-      function isAdBlocked() {
+      function isComm() {
         const ads = document.getElementsByClassName('adsbygoogle');
 
         if (ads.length === 0) return true;
@@ -412,31 +412,34 @@
           );
         });
       }
-      function showAdblockModal() {
-        document.getElementById('adblock-overlay').style.display = 'flex';
+      function showcommModal() {
+        document.getElementById('comm-overlay').style.display = 'flex';
       }
 
-      function hideAdblockModal() {
-        document.getElementById('adblock-overlay').style.display = 'none';
+      function hideCommModal() {
+        document.getElementById('comm-overlay').style.display = 'none';
       }
-      function scheduleAdblockCheck() {
+      function scheduleCommCheck() {
         // 二重予約防止
         if (checkTimer) return;
 
         checkTimer = setTimeout(() => {
           checkTimer = null;
 
-          if (isAdBlocked()) {
-            showAdblockModal();
+          if (isComm()) {
+            showcommModal();
           }
         }, CHECK_DELAY);
       }
-      document.getElementById('close-adblock').onclick = () => {
-        hideAdblockModal();
-        scheduleAdblockCheck(); // 再判定
+      document.addEventListener('scroll', () => {
+        scheduleCommCheck();
+      }, { once: true });
+      
+      document.getElementById('close-comm').onclick = () => {
+        hideCommModal();
+        scheduleCommCheck(); // 再判定
       };
 
-      scheduleAdblockCheck();
       
     </script>
   

@@ -289,11 +289,11 @@
         <aside id="sidebar">
           <div class="related-posts">
   <h3>関連記事</h3>
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\mind\why\invest\" title="【節約歴15年】なぜ節約＆投資をするのか" rel="bookmark">【節約歴15年】なぜ節約＆投資をするのか</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">自分がなぜ投資、節約をするのか少しまとめてみます。</span></p>
-<p>自分の頭の中にあるものを言語化するためにやってます。</p>
-<p>もし需要がありましたら、よかったら見ていってください！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\mind\newcomers\" title="SEの自分が新人に伝えたいこと" rel="bookmark">SEの自分が新人に伝えたいこと</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\mind\newcomers\" title="SEの自分が新人に伝えたいこと" rel="bookmark">SEの自分が新人に伝えたいこと</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>SEの自分に後輩君ができたときに、なかなか意思疎通がうまくいかず困ってましたが、<br>この記事に書かれていることを伝えたらうまくいったので、<br>メモとして残ります。</p>
 <p>技術というよりは、仕事のやり方や心構えの内容が多めです。</p>
-<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと先輩が考えていることが学べるので、参考になるかもしれません。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\yougo\" title="HULFT初心者用用語集まとめ" rel="bookmark">HULFT初心者用用語集まとめ</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>自分が5年間HULFTを運用していて、<span class="mark-y">基本的だと思うHULFTの用語をまとめてみました。</span></p>
+<p>同じようなことに悩んでたら見てみてください！<br>新人の方も見ておくと先輩が考えていることが学べるので、参考になるかもしれません。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\mind\why\invest\" title="【節約歴15年】なぜ節約＆投資をするのか" rel="bookmark">【節約歴15年】なぜ節約＆投資をするのか</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">自分がなぜ投資、節約をするのか少しまとめてみます。</span></p>
+<p>自分の頭の中にあるものを言語化するためにやってます。</p>
+<p>もし需要がありましたら、よかったら見ていってください！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\yougo\" title="HULFT初心者用用語集まとめ" rel="bookmark">HULFT初心者用用語集まとめ</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>自分が5年間HULFTを運用していて、<span class="mark-y">基本的だと思うHULFTの用語をまとめてみました。</span></p>
 <p><span class="mark-g">HULFTの大枠をとらえる上で重要な単語をピックアップしている形になります。</span></p>
 <p>初心者の方向けに作成してますが、玄人の方も初心者に説明する時に使用可能なので、よければ見ていってください！</p>
 <p>それではやっていきましょう！</p></p></div></li></ul>
@@ -479,8 +479,8 @@
   </footer>
 
   
-    <div id="adblock-overlay">
-      <div id="adblock-modal">
+    <div id="comm-overlay">
+      <div id="comm-modal">
         <image src="/images/common/header_logo.png" alt="site-logo"></image>
         <h2>広告ブロックが検出されました</h2>
         <p>
@@ -488,7 +488,7 @@
           広告ブロックの解除に何卒ご協力お願いします(^^          
         </p>
         <div class="buttons">
-          <button class="btn-secondary" id="close-adblock">閉じる</button>
+          <button class="btn-secondary" id="close-comm">閉じる</button>
         </div>
       </div>
     </div>
@@ -496,7 +496,7 @@
       const CHECK_DELAY = 2000;
       let checkTimer = null;
 
-      function isAdBlocked() {
+      function isComm() {
         const ads = document.getElementsByClassName('adsbygoogle');
 
         if (ads.length === 0) return true;
@@ -513,31 +513,34 @@
           );
         });
       }
-      function showAdblockModal() {
-        document.getElementById('adblock-overlay').style.display = 'flex';
+      function showcommModal() {
+        document.getElementById('comm-overlay').style.display = 'flex';
       }
 
-      function hideAdblockModal() {
-        document.getElementById('adblock-overlay').style.display = 'none';
+      function hideCommModal() {
+        document.getElementById('comm-overlay').style.display = 'none';
       }
-      function scheduleAdblockCheck() {
+      function scheduleCommCheck() {
         // 二重予約防止
         if (checkTimer) return;
 
         checkTimer = setTimeout(() => {
           checkTimer = null;
 
-          if (isAdBlocked()) {
-            showAdblockModal();
+          if (isComm()) {
+            showcommModal();
           }
         }, CHECK_DELAY);
       }
-      document.getElementById('close-adblock').onclick = () => {
-        hideAdblockModal();
-        scheduleAdblockCheck(); // 再判定
+      document.addEventListener('scroll', () => {
+        scheduleCommCheck();
+      }, { once: true });
+      
+      document.getElementById('close-comm').onclick = () => {
+        hideCommModal();
+        scheduleCommCheck(); // 再判定
       };
 
-      scheduleAdblockCheck();
       
     </script>
   
