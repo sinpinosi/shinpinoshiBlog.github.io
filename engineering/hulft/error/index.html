@@ -3,10 +3,10 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
   <meta charset="utf-8">
   
-  <title>HULFTでエラーが発生したときの調査手順まとめ（原因切り分けの考え方）</title>
+  <title>HULFTのファイル転送時にエラーが発生した場合の調査手順（原因切り分け）</title>
   <meta name="author" content="shinpinoshi">
   
-    <meta name="description" content="概要今回はHULFT集配信にてエラーが発生したときの原因特定方法を紹介していきます。
+    <meta name="description" content="概要今回はHULFT集信＆配信（utlsend,utlrecv）にてエラーが発生したときの原因特定方法を紹介していきます。
 HULFTの異常終了は、原因が多岐にわたり切り分けが難航することがあります。例えばネットワークが悪かったり、HULFT定義自体が間違えていたりと結構厄介なんですよね。。。
 ここでは手順に沿って誰でも原因の切り分けができるよう書いてみたので、良ければ見ていってください。">
   
@@ -43,7 +43,7 @@ HULFTの異常終了は、原因が多岐にわたり切り分けが難航する
   </script>
   
   <meta property="og:url" content="https://shinpinoshi.com/engineering/hulft/error/" />
-  <meta property="og:title" content="HULFTでエラーが発生したときの調査手順まとめ（原因切り分けの考え方）" />
+  <meta property="og:title" content="HULFTのファイル転送時にエラーが発生した場合の調査手順（原因切り分け）" />
 
   
     <meta property="og:type" content="article">
@@ -51,7 +51,7 @@ HULFTの異常終了は、原因が多岐にわたり切り分けが難航する
 
   
     <meta property="og:image" content="https://shinpinoshi.com/images/cover/engineering_hulft_error_.jpg" />
-    <meta property="og:description" content="概要今回はHULFT集配信にてエラーが発生したときの原因特定方法を紹介していきます。
+    <meta property="og:description" content="概要今回はHULFT集信＆配信（utlsend,utlrecv）にてエラーが発生したときの原因特定方法を紹介していきます。
 HULFTの異常終了は、原因が多岐にわたり切り分けが難航することがあります。例えばネットワークが悪かったり、HULFT定義自体が間違えていたりと結構厄介なんですよね。。。
 ここでは手順に沿って誰でも原因の切り分けができるよう書いてみたので、良ければ見ていってください。" />
   
@@ -80,7 +80,7 @@ HULFTの異常終了は、原因が多岐にわたり切り分けが難航する
       <div id="content" class="inner-width-post">
     
         <div id="main-col" class="alignleft"><div id="wrapper">
-<article id="post-engineering-20251221-HULFTでエラーが発生したときの調査手順まとめ（原因切り分けの考え方）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-engineering-20251221-HULFTのファイル転送時にエラーが発生した場合の調査手順（原因切り分け）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     <nav class="breadcrumb">
   <a href="/">Home</a>
@@ -93,7 +93,7 @@ HULFTの異常終了は、原因が多岐にわたり切り分けが難航する
   
   
     &nbsp;>&nbsp;
-    <span>HULFTでエラーが発生したときの調査手順まとめ（原因切り分けの考え方）</span>
+    <span>HULFTのファイル転送時にエラーが発生した場合の調査手順（原因切り分け）</span>
   
 </nav>
 
@@ -107,13 +107,13 @@ HULFTの異常終了は、原因が多岐にわたり切り分けが難航する
       
       
   
-    <h1 class="p-name title" itemprop="headline name">HULFTでエラーが発生したときの調査手順まとめ（原因切り分けの考え方）</h1>
+    <h1 class="p-name title" itemprop="headline name">HULFTのファイル転送時にエラーが発生した場合の調査手順（原因切り分け）</h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">HULFT集配信にてエラーが発生したときの原因特定方法を紹介していきます。</span></p>
+        <h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">HULFT集信＆配信（utlsend,utlrecv）にてエラーが発生したときの原因特定方法を紹介していきます。</span></p>
 <p><span class="mark-g">HULFTの異常終了は、原因が多岐にわたり切り分けが難航することがあります。</span><br>例えばネットワークが悪かったり、HULFT定義自体が間違えていたりと結構厄介なんですよね。。。</p>
 <p><span class="mark-y">ここでは手順に沿って誰でも原因の切り分けができるよう書いてみたので、良ければ見ていってください。</span></p>
 <span id="more"></span>
