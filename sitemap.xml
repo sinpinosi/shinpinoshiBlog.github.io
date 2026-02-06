@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://shinpinoshi.com/engineering/systemwalker/command/</loc>
+    <loc>https://shinpinoshi.com/engineering/hulft/command/</loc>
     
     <lastmod>2026-02-06</lastmod>
     
@@ -11,7 +11,268 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/engineering/hulft/command/</loc>
+    <loc>https://shinpinoshi.com/money/point/zozotown/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/python/convertheic/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/linux/filesqlit/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/powershell/move/fileprefix/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/powershell/filesearch/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/hulft/yougo/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/powershell/search/filestring/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/sakura/replace/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/cloudflare/accessblock/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/hulft/error/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/googlesearch/images/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/linux/cron/delete/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/engineering/programming/draw_text_on_image/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/life/bike/buy/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/googleadsense/adstxt/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%EF%BC%88%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%EF%BC%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E4%BD%9C%E6%88%90%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E6%96%B0%E3%81%97%E3%81%84%E8%A8%98%E4%BA%8B%E3%82%92%E4%BD%9C%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%92%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/noindex/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/contact/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/redirect/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/firebase/analytics/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/googlesearch/icon/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/hexo/list/recommended/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/travel/solo/oomika/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/travel/tour/asikaga/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/travel/trip/granping/relam/</loc>
     
     <lastmod>2026-02-06</lastmod>
     
@@ -22,250 +283,7 @@
   <url>
     <loc>https://shinpinoshi.com/introduction/3coins/chair/</loc>
     
-    <lastmod>2026-02-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/life/bike/buy/</loc>
-    
-    <lastmod>2026-02-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/introduction/waterbottle/</loc>
-    
-    <lastmod>2026-02-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/jreast/shinkansen/</loc>
-    
-    <lastmod>2026-02-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/travel/tour/asikaga/</loc>
-    
-    <lastmod>2026-02-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/keiba/umaca/</loc>
-    
-    <lastmod>2026-02-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/python/convertheic/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/point/zozotown/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/sbi/shinseibank/norikae/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/powershell/search/filestring/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/powershell/move/fileprefix/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/travel/solo/oomika/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/point/kurazushi/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/introduction/keiba/arimakinen/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/powershell/filesearch/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/linux/filesqlit/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/hulft/error/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/googlesearch/images/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/cloudflare/accessblock/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/well/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/point/keiba/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/firebase/analytics/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/point/vpointget/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/googleadsense/adstxt/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/mind/newcomers/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/linux/cron/delete/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/money/point/iherb/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/travel/picatitibu/</loc>
-    
-    <lastmod>2026-01-31</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -274,34 +292,34 @@
   <url>
     <loc>https://shinpinoshi.com/travel/solo/isozaki/</loc>
     
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/money/point/moppy/vpoint/</loc>
+    <loc>https://shinpinoshi.com/travel/picatitibu/</loc>
     
-    <lastmod>2026-01-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/contact/</loc>
-    
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/money/point/lindt/</loc>
+    <loc>https://shinpinoshi.com/introduction/keiba/arimakinen/</loc>
     
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/introduction/waterbottle/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -310,61 +328,61 @@
   <url>
     <loc>https://shinpinoshi.com/introduction/gam/</loc>
     
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/travel/trip/granping/relam/</loc>
+    <loc>https://shinpinoshi.com/money/sbi/shinseibank/norikae/</loc>
     
-    <lastmod>2026-01-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/engineering/hulft/yougo/</loc>
-    
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/hexo/googlesearch/icon/</loc>
+    <loc>https://shinpinoshi.com/money/jreast/shinkansen/</loc>
     
-    <lastmod>2026-01-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/noindex/</loc>
-    
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    <loc>https://shinpinoshi.com/money/keiba/umaca/</loc>
     
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/engineering/sakura/replace/</loc>
+    <loc>https://shinpinoshi.com/money/well/</loc>
     
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/money/point/kurazushi/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/money/point/lindt/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -373,43 +391,43 @@
   <url>
     <loc>https://shinpinoshi.com/money/zyutakuloan/</loc>
     
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/mind/why/invest/</loc>
+    <loc>https://shinpinoshi.com/money/point/moppy/vpoint/</loc>
     
-    <lastmod>2026-01-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/mind/selfhelpbooks/summary/</loc>
-    
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/engineering/programming/draw_text_on_image/</loc>
+    <loc>https://shinpinoshi.com/money/point/keiba/</loc>
     
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/hexo/list/recommended/</loc>
+    <loc>https://shinpinoshi.com/money/point/vpointget/</loc>
     
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/money/point/iherb/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -418,34 +436,43 @@
   <url>
     <loc>https://shinpinoshi.com/money/saving/25yearsold/</loc>
     
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AB%E8%87%AA%E5%8B%95%E3%81%A7%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    <loc>https://shinpinoshi.com/mind/selfhelpbooks/summary/</loc>
     
-    <lastmod>2026-01-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E8%A8%98%E4%BA%8B%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9%EF%BC%88%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%EF%BC%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
-    
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
+    <loc>https://shinpinoshi.com/engineering/systemwalker/command/</loc>
     
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/mind/newcomers/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/mind/why/invest/</loc>
+    
+    <lastmod>2026-02-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -455,33 +482,6 @@
     <loc>https://shinpinoshi.com/2025/10/13/%E3%80%90Hexo%E3%80%91%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E8%A8%80%E8%AA%9E%E5%88%A5%E3%81%A7%E8%89%B2%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
     
     <lastmod>2026-01-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E4%BD%9C%E6%88%90%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
-    
-    <lastmod>2026-01-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/%E3%80%90Hexo%E3%80%91%E6%96%B0%E3%81%97%E3%81%84%E8%A8%98%E4%BA%8B%E3%82%92%E4%BD%9C%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%92%E9%81%A9%E7%94%A8%E3%81%99%E3%82%8B%EF%BC%88%E3%83%86%E3%83%BC%E3%83%9E%EF%BC%9Alight%EF%BC%89/</loc>
-    
-    <lastmod>2026-01-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/hexo/redirect/</loc>
-    
-    <lastmod>2026-01-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -589,14 +589,14 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/Google/</loc>
+    <loc>https://shinpinoshi.com/tags/HULFT/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/HULFT/</loc>
+    <loc>https://shinpinoshi.com/tags/Google/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -645,20 +645,6 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/%E7%AB%B6%E9%A6%AC/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://shinpinoshi.com/tags/Hexo/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -673,21 +659,14 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E6%96%B0%E4%BA%BA/</loc>
+    <loc>https://shinpinoshi.com/tags/%E7%AB%B6%E9%A6%AC/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E5%BF%83%E6%A7%8B%E3%81%88/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/</loc>
+    <loc>https://shinpinoshi.com/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -756,6 +735,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://shinpinoshi.com/tags/%E6%96%B0%E4%BA%BA/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/%E5%BF%83%E6%A7%8B%E3%81%88/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -773,13 +773,6 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://shinpinoshi.com/categories/%E3%81%8A%E9%87%91/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -788,6 +781,13 @@
   
   <url>
     <loc>https://shinpinoshi.com/categories/%E6%97%85/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
