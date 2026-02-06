@@ -1,0 +1,866 @@
+<!DOCTYPE HTML>
+<html lang="jp">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+  <meta charset="utf-8">
+  
+  <title>systemwalkerでよく使うコマンド一覧（jobschprint,jobschcontrol など）</title>
+  <meta name="author" content="shinpinoshi">
+  
+    <meta name="description" content="概要今回はsystemwalker（システムウォーカー）でよく使用するコマンドを紹介していこうと思います。
+バッチの順番を視覚的に確認出来て、いつでも簡単に構成を変更できるシステムウォーカーですが、意外とCUIのコマンドラインでも色々できます。
+コマンドを使う機会も多く、ここで紹介しているコマンドは4年以上実務をしており、実際に使用しているコマンドです。初心者の人はもちろん、玄人も幅広く使用可能です。
+結構マイナーなコマンドも扱っていたりするので少しでも皆さんの助けになったらうれしいです！
+それではやっていきましょう。
+
+「&gt;」を使用しているコマンドがありますが、結果をファイル出力する為につけているので、無くても動作します。">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+  
+  <meta name="robots" content="max-image-preview:large">
+
+  <link rel="icon" href="/images/common/pin.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/common/pin.png" type="image/png" sizes="144x144">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/mycss.css">
+
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "SHINPINOSHI BLOG",
+      "alternateName" : ["SHINPINOSHI", "SHINO"],
+      "url" : "https://shinpinoshi.com"
+    }
+  </script>
+  
+  <meta property="og:url" content="https://shinpinoshi.com/engineering/systemwalker/command/" />
+  <meta property="og:title" content="systemwalkerでよく使うコマンド一覧（jobschprint,jobschcontrol など）" />
+
+  
+    <meta property="og:type" content="article">
+  
+
+  
+    <meta property="og:image" content="https://shinpinoshi.com/images/cover/engineering_systemwalker_command_.jpg" />
+    <meta property="og:description" content="概要今回はsystemwalker（システムウォーカー）でよく使用するコマンドを紹介していこうと思います。
+バッチの順番を視覚的に確認出来て、いつでも簡単に構成を変更できるシステムウォーカーですが、意外とCUIのコマンドラインでも色々できます。
+コマンドを使う機会も多く、ここで紹介しているコマンドは4年以上実務をしており、実際に使用しているコマンドです。初心者の人はもちろん、玄人も幅広く使用可能です。
+結構マイナーなコマンドも扱っていたりするので少しでも皆さんの助けになったらうれしいです！
+それではやっていきましょう。
+
+「&gt;」を使用しているコマンドがありますが、結果をファイル出力する為につけているので、無くても動作します。" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@shinpinoshi" />
+  <meta property="og:site_name" content="shinpinoshi blog" />
+  <meta property="og:locale" content="ja_JP" />
+
+  
+    <meta name="thumbnail" content="https://shinpinoshi.com/images/cover/engineering_systemwalker_command_.jpg" />
+  
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>  
+  <header id="header" class="inner"><div class="header_logo alignleft">
+  <a href="/">
+    <img src="/images/common/header_logo.png" alt="header_logo">
+  </a>
+</div>
+</header>
+  <article id="main" class="inner">
+    
+      <div id="content" class="inner-width-post">
+    
+        <div id="main-col" class="alignleft"><div id="wrapper">
+<article id="post-systemwalkerでよく使うコマンド一覧（jobschprint,jobschcontrol など）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <nav class="breadcrumb">
+  <a href="/">Home</a>
+  
+    
+    
+	  &nbsp;>&nbsp;
+      <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+    
+  
+  
+    &nbsp;>&nbsp;
+    <span>systemwalkerでよく使うコマンド一覧（jobschprint,jobschcontrol など）</span>
+  
+</nav>
+
+  
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2026-02-06T08:23:22.000Z">2026-02-06</time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">systemwalkerでよく使うコマンド一覧（jobschprint,jobschcontrol など）</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h2><span id="概要">概要</span></h2><p>今回は<span class="mark-r">systemwalker（システムウォーカー）でよく使用するコマンドを紹介していこうと思います。</span></p>
+<p>バッチの順番を視覚的に確認出来て、いつでも簡単に構成を変更できるシステムウォーカーですが、意外とCUIのコマンドラインでも色々できます。</p>
+<p>コマンドを使う機会も多く、ここで紹介しているコマンドは<span class="mark-y">4年以上実務をしており、実際に使用しているコマンドです。</span><br><span class="mark-y">初心者の人はもちろん、玄人も幅広く使用可能です。</span></p>
+<p>結構マイナーなコマンドも扱っていたりするので少しでも皆さんの助けになったらうれしいです！</p>
+<p>それではやっていきましょう。</p>
+<div class="notice notice-info">
+「>」を使用しているコマンドがありますが、結果をファイル出力する為につけているので、無くても動作します。
+</div>
+
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E8%A6%A7%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E7%B3%BB">コマンド一覧（情報取得系）</a><ul>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%A8%E3%82%B8%E3%83%A7%E3%83%96%E3%81%AE%E4%B8%80%E8%A6%A7%E5%8F%96%E5%BE%97jobschprint-j">ジョブネットとジョブの一覧取得（jobschprint -j）</a></li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%81%AE%E7%8A%B6%E6%85%8B%E3%82%92%E5%8F%96%E5%BE%97jobschprint-p">ジョブの状態を取得（jobschprint -p）</a></li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E7%8A%B6%E6%85%8B%E3%82%92%E5%8F%96%E5%BE%97jobschprint-n">ジョブネットの状態を取得（jobschprint -n）</a></li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E7%8A%B6%E6%85%8B%E3%82%92csv%E5%BD%A2%E5%BC%8F%E3%81%A7%E5%8F%96%E5%BE%97jobschprintcsv">ジョブネットの状態をCSV形式で取得（jobschprintcsv）</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E8%A6%A7%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E7%B3%BB">コマンド一覧（セットアップ系）</a><ul>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88jobschprint-r">ジョブネットのエクスポート（jobschprint -r）</a></li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88jobschsetnet">ジョブネットのインポート（jobschsetnet）</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E4%B8%80%E8%A6%A7%E6%93%8D%E4%BD%9C%E7%B3%BB">コマンド一覧（操作系）</a><ul>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%ABjobschctljob">ジョブのコントロール（jobschctljob）</a></li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%8D%E3%83%83%E3%83%88%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%ABjobschcontrol">ジョブネットのコントロール（jobschcontrol）</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h2><span id="コマンド一覧情報取得系">コマンド一覧（情報取得系）</span></h2><h3><span id="ジョブネットとジョブの一覧取得jobschprint-j">ジョブネットとジョブの一覧取得（jobschprint -j）</span></h3><p>“<strong>jobschprint -j</strong>“は<span class="mark-r">システムウォーカーに登録されているすべてのジョブネットとジョブの一覧を取得します。</span></p>
+<p><span class="mark-y">ジョブネットの一覧とその詳細情報を知りたい場合</span>はこのコマンドを使用します。</p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -j &gt; [出力ファイル].txt</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -j &gt; systemwalker_list.txt</span><br></pre></td></tr></table></figure>
+</div>
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M070173/J2X13160/04Z200/jmref05/jmref081.html">https://software.fujitsu.com/jp/manual/manualfiles/M070173/J2X13160/04Z200/jmref05/jmref081.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="ジョブの状態を取得jobschprint-p">ジョブの状態を取得（jobschprint -p）</span></h3><p>“<strong>jobschprint -p</strong>“は<span class="mark-r">ジョブの実行状態を取得します。</span></p>
+<p>正常終了や異常終了だけでなく幅広いエラーが出力されます。</p>
+<p><span class="mark-y">ジョブの正常終了や異常終了を検知したい場合に使用します。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -p -long &gt; [ファイル名].txt</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -p -long &gt; systemwalker_list.txt</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>出力されるジョブの状態は下記の通りです。</p>
+<div class="nest-list">
+＜ジョブ状態の一覧＞
+
+<ul>
+<li>Normal<ul>
+<li>正常終了</li>
+</ul>
+</li>
+<li>Pseudo<ul>
+<li>疑似正常</li>
+</ul>
+</li>
+<li>Abend<ul>
+<li>異常終了</li>
+</ul>
+</li>
+<li>Forced<ul>
+<li>強制終了</li>
+</ul>
+</li>
+<li>Execute<ul>
+<li>実行中</li>
+</ul>
+</li>
+<li>Delay<ul>
+<li>実行遅延</li>
+</ul>
+</li>
+<li>Warning<ul>
+<li>警告</li>
+</ul>
+</li>
+<li>Wait<ul>
+<li>実行待ち</li>
+</ul>
+</li>
+<li>Pause<ul>
+<li>停止中</li>
+</ul>
+</li>
+<li>Disable<ul>
+<li>無効状態</li>
+</ul>
+</li>
+<li>Pass &amp; W<ul>
+<li>実行待ちのジョブがパスされた状態</li>
+</ul>
+</li>
+<li>Pass &amp; P<ul>
+<li>停止中のジョブがパスされた状態</li>
+</ul>
+</li>
+<li>Pass &amp; D<ul>
+<li>無効状態のジョブがパスされた状態</li></ul></li></ul></div>
+
+
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M100011/J2X13160/06Z201/J3160-00-05-11-00.html">https://software.fujitsu.com/jp/manual/manualfiles/M100011/J2X13160/06Z201/J3160-00-05-11-00.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h3><span id="ジョブネットの状態を取得jobschprint-n">ジョブネットの状態を取得（jobschprint -n）</span></h3><p>“<strong>jobschprint -n</strong>“は<span class="mark-y">ジョブネットの状態を取得します。</span></p>
+<p>こちらも正常終了や異常終了だけでなく幅広いエラーが出力されます。<br><span class="mark-r">プログラムの処理で「～ジョブネットの終了状態によって処理を分岐したい場合」などに使用できます。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -n &gt; [出力ファイル名].txt</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -n &gt; jobnet_status.txt</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>出力されるジョブネットの状態は下記のとおりです。</p>
+<div class="nest-list">
+＜ジョブネット状態一覧＞
+
+<ul>
+<li>Normal<ul>
+<li>正常終了</li>
+</ul>
+</li>
+<li>Pseudo<ul>
+<li>疑似正常</li>
+</ul>
+</li>
+<li>Abend<ul>
+<li>異常終了</li>
+</ul>
+</li>
+<li>Forced<ul>
+<li>強制終了</li>
+</ul>
+</li>
+<li>Warning<ul>
+<li>警告</li>
+</ul>
+</li>
+<li>Execute<ul>
+<li>実行中</li>
+</ul>
+</li>
+<li>Wait<ul>
+<li>実行待ち</li>
+</ul>
+</li>
+<li>Pause<ul>
+<li>停止中</li>
+</ul>
+</li>
+<li>Disable<ul>
+<li>無効状態</li>
+</ul>
+</li>
+<li>Coped<ul>
+<li>確認済</li>
+</ul>
+</li>
+<li>CarryOver<ul>
+<li>持ち越し</li>
+</ul>
+</li>
+<li>StartDelay<ul>
+<li>開始遅延</li>
+</ul>
+</li>
+<li>EndDelay<ul>
+<li>終了遅延</li></ul></li></ul></div>
+
+
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref082.html">https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref082.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h3><span id="ジョブネットの状態をcsv形式で取得jobschprintcsv">ジョブネットの状態をCSV形式で取得（jobschprintcsv）</span></h3><p>“<strong>jobschprintcsv</strong>“は<span class="mark-r">ジョブネットの状態をCSV形式で取得します。</span></p>
+<p>CSVで出力されるので加工しやすいのでおすすめです！</p>
+<p><span class="mark-y">Excelなどでお手軽に確認したい場合にご使用ください（^^b</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprintcsv -n &gt; [出力ファイル名].txt</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -n &gt; jobnet_status.txt</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>CSV形式で出力される項目は下記の通りです。</p>
+<div class="nest-list">
+＜CSV出力項目＞
+
+<ul>
+<li>Sub System<ul>
+<li>サブシステム番号</li>
+</ul>
+</li>
+<li>Project Name<ul>
+<li>プロジェクト名</li>
+</ul>
+</li>
+<li>Job Net<ul>
+<li>ジョブネット名</li>
+</ul>
+</li>
+<li>Job Net Comment<ul>
+<li>ジョブネット名称</li>
+</ul>
+</li>
+<li>Status<ul>
+<li>ジョブネットの状態です。</li>
+<li>※【ジョブネットの状態を取得（jobschprint -n）】の「＜ジョブネット状態一覧＞」をご確認ください</li>
+</ul>
+</li>
+<li>Scheduled Time<ul>
+<li>起動予定時刻</li>
+</ul>
+</li>
+<li>Start Time<ul>
+<li>ジョブネット開始時刻</li>
+</ul>
+</li>
+<li>End Time<ul>
+<li>ジョブネット終了時刻</li>
+</ul>
+</li>
+<li>Completion Code<ul>
+<li>ジョブネットの終了コード</li></ul></li></ul></div>
+
+
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M070173/J2X13160/04Z200/jmref05/jmref105.html">https://software.fujitsu.com/jp/manual/manualfiles/M070173/J2X13160/04Z200/jmref05/jmref105.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h2><span id="コマンド一覧セットアップ系">コマンド一覧（セットアップ系）</span></h2><h3><span id="ジョブネットのエクスポートjobschprint-r">ジョブネットのエクスポート（jobschprint -r）</span></h3><p>“<strong>jobschprint -r</strong>“は登録されている<span class="mark-r">ジョブネットをエクスポートします。</span></p>
+<p>正確には制御情報を出力する処理ですが、後続で紹介する<span class="mark-y">「jobschsetnet」コマンドでインポートできるので、定義変更や削除前のバックアップとしてこのコマンドを使用します。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -r [プロジェクト名]/[ジョブネット名] -detail &gt; [バックアップファイル名].txt</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschprint -r APRO/JOBNET1 -detail &gt; APRO_JOBNET1.txt</span><br></pre></td></tr></table></figure>
+</div>
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref093.html">https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref093.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h3><span id="ジョブネットのインポートjobschsetnet">ジョブネットのインポート（jobschsetnet）</span></h3><p>“<strong>jobschsetnet</strong>“は<span class="mark-r">テキストファイルに定義されているジョブネット定義をインポートを行います。</span></p>
+<p><span class="mark-y">「jobschprint -r」でエクスポートしたデータをインポートすることができます。</span></p>
+<p><span class="mark-y">「jobschprint -r」でバックアップしたファイルを「jobschsetnet」で取り込みすることでリリースの切り戻しや定義の変更を容易に行うことができます。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschsetnet -n[登録方法] [プロジェクト名] [インポートファイル].txt</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例（新規追加のジョブネットの場合）</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschsetnet -nent APRO JOBNET1.txt</span><br></pre></td></tr></table></figure>
+</div>
+
+<p>登録方法は下記のものが選択可能です。</p>
+<div class="nest-list">
+＜登録方法一覧＞
+
+<ul>
+<li>ent<ul>
+<li>追加</li>
+</ul>
+</li>
+<li>che<ul>
+<li>変更</li>
+</ul>
+</li>
+<li>del <ul>
+<li>削除</li>
+</ul>
+</li>
+<li>cop<ul>
+<li>複写</li></ul></li></ul></div>
+
+
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M100011/J2X13160/06Z201/J3160-00-04-09-00.html">https://software.fujitsu.com/jp/manual/manualfiles/M100011/J2X13160/06Z201/J3160-00-04-09-00.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="コマンド一覧操作系">コマンド一覧（操作系）</span></h2><h3><span id="ジョブのコントロールjobschctljob">ジョブのコントロール（jobschctljob）</span></h3><p>“<strong>jobschctljob</strong>“は<span class="mark-r">ジョブの再起動や強制終了、無効化などのコントロールを行います。</span></p>
+<p><span class="mark-y">運用中にエラーなどでジョブが停止した場合のリカバリとして使用します。</span><br><span class="mark-y">また特定のジョブだけを動かしたくない（無効化したい）場合にも使用可能です。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschctljob  [プロジェクト名]/[ジョブネット名]/[ジョブ名] [コントロール]</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例（ジョブを無効化する場合）</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschctljob  APRO/JOBNET1/JOB1 <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>ジョブのコントロールに設定できるものは下記のとおりです。</p>
+<div class="nest-list">
+＜コントロール＞
+
+<ul>
+<li>cancel<ul>
+<li>強制終了</li>
+</ul>
+</li>
+<li>rerun<ul>
+<li>再起動</li>
+</ul>
+</li>
+<li>pause<ul>
+<li>停止</li>
+</ul>
+</li>
+<li>continue<ul>
+<li>停止解除</li>
+</ul>
+</li>
+<li>disable<ul>
+<li>無効化</li>
+</ul>
+</li>
+<li>enable<ul>
+<li>無効解除</li></ul></li></ul></div>
+
+
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M070066/J2X13160/03Z200/jmref04/jmref065.html">https://software.fujitsu.com/jp/manual/manualfiles/M070066/J2X13160/03Z200/jmref04/jmref065.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="ジョブネットのコントロールjobschcontrol">ジョブネットのコントロール（jobschcontrol）</span></h3><p>“<strong>jobschcontrol</strong>“は<span class="mark-r">ジョブネットの起動や停止、無効化などをコントロールします。</span></p>
+<p><span class="mark-y">「ジョブネットを手動で起動したい場合」や「動かしたくないジョブネットがある場合」などに使用します。</span></p>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>コマンド</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschcontrol [プロジェクト名]/[ジョブネット名] [コントロール]</span><br></pre></td></tr></table></figure>
+</div>
+<div class="codeblock-nonum">
+<p class="codeblock-filename"><span>例（ジョブを無効化する場合）</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobschcontrol APRO/JOBNET1 <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<p>ジョブネットのコントロールに設定できるものは下記のとおりです。</p>
+<div class="nest-list">
+＜コントロール＞
+
+<ul>
+<li>cancel<ul>
+<li>強制終了</li>
+</ul>
+</li>
+<li>start<ul>
+<li>起動</li>
+</ul>
+</li>
+<li>rerun<ul>
+<li>再起動</li>
+</ul>
+</li>
+<li>pause<ul>
+<li>停止</li>
+</ul>
+</li>
+<li>continue<ul>
+<li>停止解除</li>
+</ul>
+</li>
+<li>disable<ul>
+<li>無効化</li>
+</ul>
+</li>
+<li>enable<ul>
+<li>有効化</li>
+</ul>
+</li>
+<li>cope<ul>
+<li>確認済状態</li>
+</ul>
+</li>
+<li>reinstate<ul>
+<li>終了取消</li>
+</ul>
+</li>
+<li>revoke<ul>
+<li>持越解除</li></ul></li></ul></div>
+
+
+
+<p><span class="link-comment">公式ページ</span><br><a target="_blank" rel="noopener" href="https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref04/jmref066.html">https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref04/jmref066.html</a></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>新人の時は正直わけわからないコマンドばかりでしたが、使用してみると便利です！</p>
+<p>特にコマンドで無効化、無効化解除できる「jobschctljob」コマンドはかなり便利です。<br>テストなどで設計書に書いてあるジョブネットを全部無効化したいということが結構あり、簡単に必要なジョブネットだけを無効化できるのでかなりと重宝しています！</p>
+<p>他にもshellに埋め込んだりなどしていますが、色々使い勝手は様々です。<br>是非皆さんも使ってみてください（^^&#x2F;</p>
+<p><span class="mark-r">自分のブログでは実務で実際に使用可能なレベルのナレッジを共有しています。</span><br><span class="mark-r">良ければ他の記事も見ていってください！</span></p>
+<p>以上<br>GUIだと押し間違いなど発生しますが、CUIだと発生しずらいのでよいですよね！<br>それではお疲れさまでした。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/">コマンド</a>, <a href="/tags/linux/">linux</a>, <a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+
+    </footer>
+  </div>
+</article>
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDP_smTXhS_mXexvBbaN8wquyID4cDpZVs",
+    authDomain: "shinpinoshiblog.firebaseapp.com",
+    projectId: "shinpinoshiblog",
+    storageBucket: "shinpinoshiblog.firebasestorage.app",
+    messagingSenderId: "319948450180",
+    appId: "1:319948450180:web:215c090abd67dd139415d1",
+    measurementId: "G-PH95TQZ11P"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script></div></div>
+        <div class="clearfix"></div>
+      </div>
+      
+        <aside id="sidebar">
+          <div class="related-posts">
+  <h3>関連記事</h3>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\linux\filesqlit\" title="Linuxでテキストファイルを分割する方法【サンプル有】（split と sed）" rel="bookmark">Linuxでテキストファイルを分割する方法【サンプル有】（split と sed）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">ファイル内の文字列を行単位で分割し、別ファイルに出力する方法をお伝えします。</span></p>
+<p>自分の現場では、<span class="mark-g">1ファイル数Gバイトある巨大なファイルを扱うことが多く、ファイルを開くと重くてまともに操作できない</span>といったことが良くあります。<br>そこで<span class="mark-r">行数ごとにファイルを分割することでファイルを軽量化し、作業しやすくしよう！というのが今回の経緯</span>です。</p>
+<p>同じようなケースは割とあると思う？のでどなたかの参考になりましたらうれしいです！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\hulft\command\" title="HULFTでよく使うコマンドまとめ（utljoin,utliupdt,utlidlist 等）" rel="bookmark">HULFTでよく使うコマンドまとめ（utljoin,utliupdt,utlidlist 等）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">HULFTでよく使用するコマンドの一覧を紹介していこうと思います。</span></p>
+<p><span class="mark-g">テストや実務で実際に使用しているコマンドですので、初心者の人はもちろん、玄人も幅広く使用可能です。</span></p>
+<p>是非見ていってください。</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\powershell\move\fileprefix\" title="PowerShellで拡張子別でファイルを移動する方法（robocopy）" rel="bookmark">PowerShellで拡張子別でファイルを移動する方法（robocopy）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">windowsでファイルを拡張子単位で移動する方法</span>を紹介していきます。</p>
+<p>要は<span class="mark-y">.txtや.jpgなどの拡張子でファイルの種類を判別して、必要な種類のファイルだけを移動する方法</span>ですね。</p>
+<p>というのもGoogleTakeoutを使用し、GooglePhotoの画像を一括ダウンロードしたところ、<br>フォルダが分割されていたり、jsonファイルがあったりと非常に加工しにくい状態にありました。</p>
+<p>そのためまずは<span class="mark-g">画像と動画だけ別のフォルダに移動しようと思い</span>やり方を手順化してみました。</p>
+<p><span class="mark-r">powershellのコマンドラインだけで完結</span>するように手順を組んでます。<br>簡単に移動できるので是非皆さんも使ってみてください！</p>
+<p>それでは見ていきましょう</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\powershell\filesearch\" title="PowerShellのget-childitemでフォルダ内のファイルを高速で再帰検索する方法" rel="bookmark">PowerShellのget-childitemでフォルダ内のファイルを高速で再帰検索する方法</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">windowsでフォルダ内を再帰的にファイル探査する方法を紹介していきます。</span></p>
+<p>フォルダの直下ならばすぐに調べられますが、<span class="mark-g">階層が深いフォルダだと一つ一つ見ていくのは日が暮れますよね(- -:</span></p>
+<p><span class="mark-r">今回紹介するコマンドを使用すれば、特定の文字列を含むファイル名を一発で探査することができます！</span></p>
+<p>パソコンが苦手な方でもわかるように図解で紹介していきます。<br>それではやっていきましょう</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\powershell\search\filestring\" title="PowerShellでファイル名と内容から検索する方法（Get-ChildItem,Select-String）" rel="bookmark">PowerShellでファイル名と内容から検索する方法（Get-ChildItem,Select-String）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">windowsでpowershellを使用してフォルダ内のファイル名とファイル内のテキストから特定の文字列が含まれるファイルを検索する方法</span>を紹介していきます。</p>
+<p>ある用語が含まれるファイルを抽出するというタスクがあり、そのために使用したコマンドになります。</p>
+<p><span class="mark-r">powershellでコマンドを2つ叩くだけ</span>なので、誰でも簡単にファイル名とファイルの中身を検索することができます。</p>
+<p>また<span class="mark-r">windowsの標準機能のみで実施可能なので、ツールなどの導入も不要です。</span><br>是非見ていってください。</p></p></div></li></ul>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+        </aside>
+      
+  </article>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <footer id="footer" class="inner">
+    
+  <!-- プロフィール -->
+  <div class="profile-container profile-container-post">
+    <p class="profile-title">Profile</p>
+    <div class="profile-flex">
+      <div class="profile-section">
+        <img src="/images/common/profile.jpg" alt="プロフィール画像" class="profile-avatar">
+      </div>
+      <div class="profile-section">
+        <p class="profile-name">神秘ノシ</p>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜年齢・職業＞
+          </p>
+          <p class="profile-bio">
+          25歳・金融系SE
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜保有資格＞
+          </p>
+          <p class="profile-bio">
+          応用情報技術者、AWS Certified Cloud Practitioner、全商簿記1級、日商簿記3級
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜趣味＞
+          </p>
+          <p class="profile-bio">
+          プログラミング、カフェ、バー、旅行、株、仮想通貨
+          </p>
+        </div>
+        <div class="profile-div">
+          <p class="profile-sub-title">
+          ＜コメント＞
+          </p>
+          <p class="profile-bio">
+          東京のSES企業で金融系のSEをやってます。<br>
+          業務としては後輩の育成をしながら設計～テストまでを一通り行ってます。            </p>
+        </div>
+        <div class="profile-other-link">
+          <a href="https://x.com/shinpinoshi" target="_blank" rel="noopener">
+            <img src="/images/common/icon_x.svg" alt="X" width="40" height="40">
+          </a>
+        </div>
+
+      </div>          
+    </div>
+  </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div id="footer-widget">
+  <div class="widget-container">
+    
+      
+<div class="widget tag">
+  <h3 class="title">Category</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>13</small></li>
+  
+    <li><a href="/categories/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>28</small></li>
+  
+    <li><a href="/categories/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>3</small></li>
+  
+    <li><a href="/categories/%E6%97%85/">旅</a><small>5</small></li>
+  
+    <li><a href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+    
+      
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Cloudflare/">Cloudflare</a><small>1</small></li>
+  
+    <li><a href="/tags/Google/">Google</a><small>3</small></li>
+  
+    <li><a href="/tags/HULFT/">HULFT</a><small>3</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>11</small></li>
+  
+    <li><a href="/tags/NodeJs/">NodeJs</a><small>1</small></li>
+  
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/tags/firebase/">firebase</a><small>1</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>3</small></li>
+  
+    <li><a href="/tags/windows/">windows</a><small>4</small></li>
+  
+    <li><a href="/tags/%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E5%95%86%E5%93%81%E7%B4%B9%E4%BB%8B/">おすすめ商品紹介</a><small>3</small></li>
+  
+    <li><a href="/tags/%E3%81%8A%E9%87%91/">お金</a><small>13</small></li>
+  
+    <li><a href="/tags/%E3%81%BE%E3%81%A8%E3%82%81/">まとめ</a><small>2</small></li>
+  
+    <li><a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a><small>28</small></li>
+  
+    <li><a href="/tags/%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%94%E3%83%B3%E3%82%B0/">グランピング</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/">コマンド</a><small>7</small></li>
+  
+    <li><a href="/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/">ショッピング</a><small>6</small></li>
+  
+    <li><a href="/tags/%E3%83%84%E3%82%A2%E3%83%BC/">ツアー</a><small>1</small></li>
+  
+    <li><a href="/tags/%E3%83%84%E3%83%BC%E3%83%AB/">ツール</a><small>2</small></li>
+  
+    <li><a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a><small>13</small></li>
+  
+    <li><a href="/tags/%E3%83%9D%E3%82%A4%E6%B4%BB/">ポイ活</a><small>10</small></li>
+  
+    <li><a href="/tags/%E3%83%A1%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%98%E3%83%AB%E3%82%B9/">メンタルヘルス</a><small>3</small></li>
+  
+    <li><a href="/tags/%E4%B8%80%E4%BA%BA%E6%97%85/">一人旅</a><small>2</small></li>
+  
+    <li><a href="/tags/%E4%B8%8D%E5%8B%95%E7%94%A3/">不動産</a><small>1</small></li>
+  
+    <li><a href="/tags/%E5%BF%83%E6%A7%8B%E3%81%88/">心構え</a><small>3</small></li>
+  
+    <li><a href="/tags/%E6%89%8B%E9%A0%86/">手順</a><small>7</small></li>
+  
+    <li><a href="/tags/%E6%96%B0%E4%BA%BA/">新人</a><small>1</small></li>
+  
+    <li><a href="/tags/%E6%97%85/">旅</a><small>5</small></li>
+  
+    <li><a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a><small>5</small></li>
+  
+    <li><a href="/tags/%E7%AB%B6%E9%A6%AC/">競馬</a><small>2</small></li>
+  
+    <li><a href="/tags/%E8%B2%AF%E9%87%91/">貯金</a><small>5</small></li>
+  
+    <li><a href="/tags/%E8%B6%A3%E5%91%B3/">趣味</a><small>12</small></li>
+  
+    <li><a href="/tags/%E9%A3%9F/">食</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+    
+  </div>
+</div>
+<!-- ↓ ここから新しいフッターメニュー -->
+
+  <ul class="footer-menu">
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/profile">プロフィール</a></li>
+    
+      <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+    
+      <li><a href="/contact">お問い合わせ</a></li>
+    
+  </ul>
+
+<!-- ↑ フッターメニューここまで -->
+<div class="footer-copy">
+  
+  &copy; 2026 shinpinoshi
+  
+</div>
+<div class="clearfix"></div>
+
+  </footer>
+
+  
+    <div id="comm-overlay">
+      <div id="comm-modal">
+        <image src="/images/common/header_logo.png" alt="site-logo"></image>
+        <h2>広告ブロックが検出されました</h2>
+        <p>
+          このサイトは広告収益で運営されています。<br>
+          広告ブロックの解除に何卒ご協力お願いします(^^          
+        </p>
+        <div class="buttons">
+          <button class="btn-secondary" id="close-comm">閉じる</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const CHECK_DELAY = 2000;
+      let checkTimer = null;
+
+      function isComm() {
+        const ads = document.getElementsByClassName('adsbygoogle');
+
+        if (ads.length === 0) return true;
+
+        return Array.from(ads).every(ad => {
+          const style = window.getComputedStyle(ad);
+
+          return (
+            style.display === 'none' ||
+            style.visibility === 'hidden' ||
+            style.opacity === '0' ||
+            ad.offsetHeight === 0 ||
+            ad.getClientRects().length === 0
+          );
+        });
+      }
+      function showcommModal() {
+        document.getElementById('comm-overlay').style.display = 'flex';
+      }
+
+      function hideCommModal() {
+        document.getElementById('comm-overlay').style.display = 'none';
+      }
+      function scheduleCommCheck() {
+        // 二重予約防止
+        if (checkTimer) return;
+
+        checkTimer = setTimeout(() => {
+          checkTimer = null;
+
+          if (isComm()) {
+            showcommModal();
+          }
+        }, CHECK_DELAY);
+      }
+      document.addEventListener('scroll', () => {
+        scheduleCommCheck();
+      }, { once: true });
+      
+      document.getElementById('close-comm').onclick = () => {
+        hideCommModal();
+        scheduleCommCheck(); // 再判定
+      };
+
+      
+    </script>
+  
+</body>
+</html>
