@@ -596,14 +596,14 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/Google/</loc>
+    <loc>https://shinpinoshi.com/tags/windows/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/windows/</loc>
+    <loc>https://shinpinoshi.com/tags/Google/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -617,21 +617,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/Hexo/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://shinpinoshi.com/tags/Python/</loc>
-    <lastmod>2026-02-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/firebase/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -653,6 +639,20 @@
   
   <url>
     <loc>https://shinpinoshi.com/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/Hexo/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/firebase/</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
