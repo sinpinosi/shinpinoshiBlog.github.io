@@ -57,8 +57,6 @@
 </div>
 
 <p><span class="link-comment">公式ページ</span><br><a href="https://software.fujitsu.com/jp/manual/manualfiles/M070173/J2X13160/04Z200/jmref05/jmref081.html">https://software.fujitsu.com/jp/manual/manualfiles/M070173/J2X13160/04Z200/jmref05/jmref081.html</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="ジョブの状態を取得jobschprint-p">ジョブの状態を取得（jobschprint -p）</span></h3><p>“<strong>jobschprint -p</strong>“は<span class="mark-r">ジョブの実行状態を取得します。</span></p>
 <p>正常終了や異常終了だけでなく幅広いエラーが出力されます。</p>
 <p><span class="mark-y">ジョブの正常終了や異常終了を検知したい場合に使用します。</span></p>
@@ -203,9 +201,6 @@
 
 
 <p><span class="link-comment">公式ページ</span><br><a href="https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref082.html">https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref082.html</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
 <h3><span id="ジョブネットの状態をcsv形式で取得jobschprintcsv">ジョブネットの状態をCSV形式で取得（jobschprintcsv）</span></h3><p>“<strong>jobschprintcsv</strong>“は<span class="mark-r">ジョブネットの状態をCSV形式で取得します。</span></p>
 <p>CSVで出力されるので加工しやすいのでおすすめです！</p>
 <p><span class="mark-y">Excelなどでお手軽に確認したい場合にご使用ください（^^b</span></p>
@@ -277,9 +272,6 @@
 </div>
 
 <p><span class="link-comment">公式ページ</span><br><a href="https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref093.html">https://software.fujitsu.com/jp/manual/manualfiles/M060082/J2X13160/02Z200/jmref05/jmref093.html</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
 <h3><span id="ジョブネットのインポートjobschsetnet">ジョブネットのインポート（jobschsetnet）</span></h3><p>“<strong>jobschsetnet</strong>“は<span class="mark-r">テキストファイルに定義されているジョブネット定義をインポートを行います。</span></p>
 <p><span class="mark-y">「jobschprint -r」でエクスポートしたデータをインポートすることができます。</span></p>
 <p><span class="mark-y">「jobschprint -r」でバックアップしたファイルを「jobschsetnet」で取り込みすることでリリースの切り戻しや定義の変更を容易に行うことができます。</span></p>
@@ -359,8 +351,6 @@
 
 
 <p><span class="link-comment">公式ページ</span><br><a href="https://software.fujitsu.com/jp/manual/manualfiles/M070066/J2X13160/03Z200/jmref04/jmref065.html">https://software.fujitsu.com/jp/manual/manualfiles/M070066/J2X13160/03Z200/jmref04/jmref065.html</a></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="ジョブネットのコントロールjobschcontrol">ジョブネットのコントロール（jobschcontrol）</span></h3><p>“<strong>jobschcontrol</strong>“は<span class="mark-r">ジョブネットの起動や停止、無効化などをコントロールします。</span></p>
 <p><span class="mark-y">「ジョブネットを手動で起動したい場合」や「動かしたくないジョブネットがある場合」などに使用します。</span></p>
 <div class="codeblock-nonum">
@@ -3225,6 +3215,146 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
       </tags>
   </entry>
   <entry>
+    <title>初心者がロードバイク購入時に気を付けたこと（ギア,変速機,フレーム など）</title>
+    <url>//life/bike/buy/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>先日ロードバイクを購入したので、<span class="mark-y">購入時に気を付けたことをまとめていきたいと思います。</span></p>
+<p>知識ゼロから勉強して購入しましたが、<span class="mark-g">購入したロードバイクには概ね満足しており、週末にサイクリングに行くのが楽しいです。</span><br><span class="mark-g">しかし一部「失敗したな～」という点もあります。それについても書いているので、皆様のご参考になればうれしいです！</span></p>
+<p>それではやっていきましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E8%B3%BC%E5%85%A5%E6%99%82%E6%B0%97%E3%82%92%E4%BB%98%E3%81%91%E3%81%9F%E3%81%93%E3%81%A8">購入時気を付けたこと</a><ul>
+<li><a href="#%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%81%AE%E6%9C%89%E7%84%A1">組み立ての有無</a></li>
+<li><a href="#%E3%82%AE%E3%82%A2%E3%81%AE%E5%A4%89%E9%80%9F%E6%95%B0">ギアの変速数</a></li>
+<li><a href="#%E3%82%AE%E3%82%A2%E3%81%AE%E5%A4%89%E9%80%9F%E7%94%A8%E3%83%AC%E3%83%90%E3%83%BC">ギアの変速用レバー</a></li>
+<li><a href="#%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%81%AE%E7%B4%A0%E6%9D%90">フレームの素材</a></li>
+<li><a href="#%E3%83%96%E3%83%AC%E3%83%BC%E3%82%AD%E3%81%AE%E7%A8%AE%E9%A1%9E">ブレーキの種類</a></li>
+<li><a href="#%E7%A9%BA%E6%B0%97%E5%85%A5%E3%82%8C%E3%81%AE%E7%A8%AE%E9%A1%9E">空気入れの種類</a></li>
+</ul>
+</li>
+<li><a href="#%E8%B3%BC%E5%85%A5%E5%BE%8C%E3%81%AB%E3%82%84%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8">購入後にやったこと</a><ul>
+<li><a href="#%E5%AE%89%E5%85%A8%E7%82%B9%E6%A4%9C">安全点検</a></li>
+<li><a href="#%E8%87%AA%E8%BB%A2%E8%BB%8A%E4%BF%9D%E9%99%BA">自転車保険</a></li>
+<li><a href="#%E9%98%B2%E7%8A%AF%E7%99%BB%E9%8C%B2">防犯登録</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="購入時気を付けたこと">購入時気を付けたこと</span></h2><h3><span id="組み立ての有無">組み立ての有無</span></h3><p><span class="mark-y">ネット通販でロードバイクを買うと送料節約のために、パーツが分解された状態で届くことが多いです。</span><br>自分もバラされている物を買いました。</p>
+<p>ただある程度は完成している状態で届く為、2時間くらいで組み立てることができました。<br><span class="mark-g">多分ニトリやIKEAの家具を組み立てられる人なら大丈夫です！</span></p>
+<p><span class="mark-y">値段を安く抑えたいならバラされている物を買うのが良いと思います。</span></p>
+<h3><span id="ギアの変速数">ギアの変速数</span></h3><p>ギアの変速数については8の倍数で分けられていることが多いです。（16,24,32などがある）</p>
+<p>自分はシティサイクルなので、16段変速を選びましたが、<br><span class="mark-y">山を上る予定がある方は24変速とかを買ったほうが良いと思います。</span></p>
+<p><span class="mark-g">ちなみに自分が住んでるところは坂が結構多いのですが、</span><br><span class="mark-g">16変速でも余裕で登れているので、後悔は無いです。</span></p>
+<p>とはいえ大は小を兼ねるので、お金に余裕がある方は24変速を購入してみるのも手かと思います。</p>
+<div class="notice notice-info">
+結局はエンジン（自分の脚力）次第なので、自信がある人は少ない変速でOK！
+</div>
+
+
+<h3><span id="ギアの変速用レバー">ギアの変速用レバー</span></h3><p>これは<span class="mark-y">「STIレバー」一択だと思ってます。</span><br>ブレーキと一緒になっているので、手の位置を動かさず変速できます。</p>
+<p>価格については2万円くらい上がりますので少し手が伸びにくいです。</p>
+<p>ただこれは絶対あったほうがいい！<br><span class="mark-g">信号待ちや坂など頻繁にギアチェンジするので、ノーストレスで変速できるSTIレバーは必須です。</span></p>
+<p>あと車のギアチェンみたいで、かっこいい、、、</p>
+<div class="notice notice-info">
+長く使うものはよいものを買った方が個人的にはよいと思います。
+</div>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="フレームの素材">フレームの素材</span></h3><p><span class="mark-g">フレームの種類には大きく分けて鉄、アルミ、カーボン、チタンがあります。</span></p>
+<p><span class="mark-y">自分は安くて軽いアルミでいいかなと思います。</span><br>他は結構値段が高くなるので、初心者が買うのはちょっと荷が重い(- -;</p>
+<p>今後買い替えることがあれば、軽くて頑丈なカーボンを買って、違いに感動してみたいです！<br>ただ数10万円が普通の世界なので、厳しいですね。。。</p>
+<h3><span id="ブレーキの種類">ブレーキの種類</span></h3><p><span class="mark-y">“リムブレーキ”と”ディスクブレーキ”の二種類があります。</span></p>
+<p>ざっくり説明は下記のとおりです。</p>
+<div class="nest-list">
+
+<ul>
+<li>リムブレーキ<ul>
+<li>普通のママチャリについている物と同じ</li>
+</ul>
+</li>
+<li>ディスクブレーキ<ul>
+<li>ホイールの中心に取り付けた円盤でパットを挟んでブレーキをかける</li></ul></li></ul></div>
+
+
+
+<p>自分はリムブレーキにしましたが、<span class="mark-g">ディスクブレーキのほうが絶対いいです！</span></p>
+<p>使っている人の話を聞くと、 <span class="mark-r">値段は高くなりますが、ブレーキの利きが良いので安心したサイクリングができるとのことです。</span></p>
+<p>これは今回購入してから気づいたことなので、後悔してます。<br>次は絶対ディスクブレーキにすると決めてます！</p>
+<h3><span id="空気入れの種類">空気入れの種類</span></h3><p><span class="mark-y">空気入れについてはロードバイクな場合ママチャリとは違う空気入れを買う必要があります。</span></p>
+<p>ロードバイクのタイヤには仏式というバルブが多く使用されています。</p>
+<p>ちなみにママチャリは英式バルブが多いです。</p>
+<p>なので、<span class="mark-g">空気入れを買う際は、Amazonなどで「仏式　空気入れ」と検索するとよいでしょう。</span><br>※必ず仏式とは限らないので、購入するロードバイクにあった空気入れを購入するようにしましょう</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+<h2><span id="購入後にやったこと">購入後にやったこと</span></h2><h3><span id="安全点検">安全点検</span></h3><p>自分でやりましたが、念入りにやったほうが良いです。<br>自分の場合、下記を確認しました。</p>
+<div class="nest-list">
+
+<ul>
+<li>ギアチェンジ<ul>
+<li>フロント（前）、リア（後）の両方とも全段階に正常にチェンジ可能か必ず確認しましょう。</li>
+</ul>
+</li>
+<li>ハンドル<ul>
+<li>ハンドルを下に強く押してみて、下がらないことを確認しましょう。</li>
+</ul>
+</li>
+<li>ブレーキ<ul>
+<li>前後ブレーキが動作することを必ず確認しましょう。</li>
+</ul>
+</li>
+<li>サドル<ul>
+<li>サドルもネジで固定されていることが多いので、強く推してみて下に下がらないことを確認しましょう。</li>
+</ul>
+</li>
+<li>タイヤ<ul>
+<li>タイヤがしっかり固定されているか、空気が漏れないかチェックしましょう。</li>
+</ul>
+</li>
+<li>ペダル<ul>
+<li>ペダルが外れないかチェックします。意外と盲点なので忘れずやっておきましょう。</li></ul></li></ul></div>
+
+
+
+<p>自分がやったのは下記ですが、他にも気になる場所があったら念入りにチェックしましょう！</p>
+<div class="notice notice-info">
+命にかかわるので特に気を付けましょう！！
+</div>
+
+
+<h3><span id="自転車保険">自転車保険</span></h3><p><span class="mark-y">自転車保険は義務になっているので、入る必要があります。</span><br>ただ車保険に内包されている可能性があるので、多重加入にならないように気を付けましょう！</p>
+<h3><span id="防犯登録">防犯登録</span></h3><p><span class="mark-y">自転車屋さんで登録できます。</span><br>盗まれたときとかに少しでも取り返せる可能性が上がるので、やっておいたほうが良いかと思います。</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>今回は自転車購入に関することを色々紹介しました。</p>
+<p>自分も何も知らない状態から調べて購入しました。</p>
+<p><span class="mark-g">知らない用語が出てきたりそれって必要？ってかなり苦労しましたが、</span><br><span class="mark-g">結果的にサイクリングをしても不満はないので、良い買い方ができたと思います！</span></p>
+<p>皆さんも初めてロードバイクを買うときは後悔しないように、ちゃんと調べて購入しましょう！</p>
+<p>以上。<br>自転車に乗るときは交通ルールを守って安全に運転しましょう！<br>お疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>おすすめ商品紹介</tag>
+        <tag>趣味</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>コーヒーの金属臭を防ぐ！京セラマグボトルの忖度無口コミ</title>
     <url>//introduction/waterbottle/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>先日<span class="mark-y">京セラのセラミックコーティングボトル（水筒）を購入したので、レビューしていきたいと思います！</span></p>
@@ -3684,146 +3814,6 @@ googleSearchConsoleから閲覧数が多い記事を取得して、
         <tag>趣味</tag>
         <tag>生活</tag>
         <tag>ショッピング</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初心者がロードバイク購入時に気を付けたこと（ギア,変速機,フレーム など）</title>
-    <url>//life/bike/buy/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>先日ロードバイクを購入したので、<span class="mark-y">購入時に気を付けたことをまとめていきたいと思います。</span></p>
-<p>知識ゼロから勉強して購入しましたが、<span class="mark-g">購入したロードバイクには概ね満足しており、週末にサイクリングに行くのが楽しいです。</span><br><span class="mark-g">しかし一部「失敗したな～」という点もあります。それについても書いているので、皆様のご参考になればうれしいです！</span></p>
-<p>それではやっていきましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E8%B3%BC%E5%85%A5%E6%99%82%E6%B0%97%E3%82%92%E4%BB%98%E3%81%91%E3%81%9F%E3%81%93%E3%81%A8">購入時気を付けたこと</a><ul>
-<li><a href="#%E7%B5%84%E3%81%BF%E7%AB%8B%E3%81%A6%E3%81%AE%E6%9C%89%E7%84%A1">組み立ての有無</a></li>
-<li><a href="#%E3%82%AE%E3%82%A2%E3%81%AE%E5%A4%89%E9%80%9F%E6%95%B0">ギアの変速数</a></li>
-<li><a href="#%E3%82%AE%E3%82%A2%E3%81%AE%E5%A4%89%E9%80%9F%E7%94%A8%E3%83%AC%E3%83%90%E3%83%BC">ギアの変速用レバー</a></li>
-<li><a href="#%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%81%AE%E7%B4%A0%E6%9D%90">フレームの素材</a></li>
-<li><a href="#%E3%83%96%E3%83%AC%E3%83%BC%E3%82%AD%E3%81%AE%E7%A8%AE%E9%A1%9E">ブレーキの種類</a></li>
-<li><a href="#%E7%A9%BA%E6%B0%97%E5%85%A5%E3%82%8C%E3%81%AE%E7%A8%AE%E9%A1%9E">空気入れの種類</a></li>
-</ul>
-</li>
-<li><a href="#%E8%B3%BC%E5%85%A5%E5%BE%8C%E3%81%AB%E3%82%84%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8">購入後にやったこと</a><ul>
-<li><a href="#%E5%AE%89%E5%85%A8%E7%82%B9%E6%A4%9C">安全点検</a></li>
-<li><a href="#%E8%87%AA%E8%BB%A2%E8%BB%8A%E4%BF%9D%E9%99%BA">自転車保険</a></li>
-<li><a href="#%E9%98%B2%E7%8A%AF%E7%99%BB%E9%8C%B2">防犯登録</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="購入時気を付けたこと">購入時気を付けたこと</span></h2><h3><span id="組み立ての有無">組み立ての有無</span></h3><p><span class="mark-y">ネット通販でロードバイクを買うと送料節約のために、パーツが分解された状態で届くことが多いです。</span><br>自分もバラされている物を買いました。</p>
-<p>ただある程度は完成している状態で届く為、2時間くらいで組み立てることができました。<br><span class="mark-g">多分ニトリやIKEAの家具を組み立てられる人なら大丈夫です！</span></p>
-<p><span class="mark-y">値段を安く抑えたいならバラされている物を買うのが良いと思います。</span></p>
-<h3><span id="ギアの変速数">ギアの変速数</span></h3><p>ギアの変速数については8の倍数で分けられていることが多いです。（16,24,32などがある）</p>
-<p>自分はシティサイクルなので、16段変速を選びましたが、<br><span class="mark-y">山を上る予定がある方は24変速とかを買ったほうが良いと思います。</span></p>
-<p><span class="mark-g">ちなみに自分が住んでるところは坂が結構多いのですが、</span><br><span class="mark-g">16変速でも余裕で登れているので、後悔は無いです。</span></p>
-<p>とはいえ大は小を兼ねるので、お金に余裕がある方は24変速を購入してみるのも手かと思います。</p>
-<div class="notice notice-info">
-結局はエンジン（自分の脚力）次第なので、自信がある人は少ない変速でOK！
-</div>
-
-
-<h3><span id="ギアの変速用レバー">ギアの変速用レバー</span></h3><p>これは<span class="mark-y">「STIレバー」一択だと思ってます。</span><br>ブレーキと一緒になっているので、手の位置を動かさず変速できます。</p>
-<p>価格については2万円くらい上がりますので少し手が伸びにくいです。</p>
-<p>ただこれは絶対あったほうがいい！<br><span class="mark-g">信号待ちや坂など頻繁にギアチェンジするので、ノーストレスで変速できるSTIレバーは必須です。</span></p>
-<p>あと車のギアチェンみたいで、かっこいい、、、</p>
-<div class="notice notice-info">
-長く使うものはよいものを買った方が個人的にはよいと思います。
-</div>
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="フレームの素材">フレームの素材</span></h3><p><span class="mark-g">フレームの種類には大きく分けて鉄、アルミ、カーボン、チタンがあります。</span></p>
-<p><span class="mark-y">自分は安くて軽いアルミでいいかなと思います。</span><br>他は結構値段が高くなるので、初心者が買うのはちょっと荷が重い(- -;</p>
-<p>今後買い替えることがあれば、軽くて頑丈なカーボンを買って、違いに感動してみたいです！<br>ただ数10万円が普通の世界なので、厳しいですね。。。</p>
-<h3><span id="ブレーキの種類">ブレーキの種類</span></h3><p><span class="mark-y">“リムブレーキ”と”ディスクブレーキ”の二種類があります。</span></p>
-<p>ざっくり説明は下記のとおりです。</p>
-<div class="nest-list">
-
-<ul>
-<li>リムブレーキ<ul>
-<li>普通のママチャリについている物と同じ</li>
-</ul>
-</li>
-<li>ディスクブレーキ<ul>
-<li>ホイールの中心に取り付けた円盤でパットを挟んでブレーキをかける</li></ul></li></ul></div>
-
-
-
-<p>自分はリムブレーキにしましたが、<span class="mark-g">ディスクブレーキのほうが絶対いいです！</span></p>
-<p>使っている人の話を聞くと、 <span class="mark-r">値段は高くなりますが、ブレーキの利きが良いので安心したサイクリングができるとのことです。</span></p>
-<p>これは今回購入してから気づいたことなので、後悔してます。<br>次は絶対ディスクブレーキにすると決めてます！</p>
-<h3><span id="空気入れの種類">空気入れの種類</span></h3><p><span class="mark-y">空気入れについてはロードバイクな場合ママチャリとは違う空気入れを買う必要があります。</span></p>
-<p>ロードバイクのタイヤには仏式というバルブが多く使用されています。</p>
-<p>ちなみにママチャリは英式バルブが多いです。</p>
-<p>なので、<span class="mark-g">空気入れを買う際は、Amazonなどで「仏式　空気入れ」と検索するとよいでしょう。</span><br>※必ず仏式とは限らないので、購入するロードバイクにあった空気入れを購入するようにしましょう</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
-<h2><span id="購入後にやったこと">購入後にやったこと</span></h2><h3><span id="安全点検">安全点検</span></h3><p>自分でやりましたが、念入りにやったほうが良いです。<br>自分の場合、下記を確認しました。</p>
-<div class="nest-list">
-
-<ul>
-<li>ギアチェンジ<ul>
-<li>フロント（前）、リア（後）の両方とも全段階に正常にチェンジ可能か必ず確認しましょう。</li>
-</ul>
-</li>
-<li>ハンドル<ul>
-<li>ハンドルを下に強く押してみて、下がらないことを確認しましょう。</li>
-</ul>
-</li>
-<li>ブレーキ<ul>
-<li>前後ブレーキが動作することを必ず確認しましょう。</li>
-</ul>
-</li>
-<li>サドル<ul>
-<li>サドルもネジで固定されていることが多いので、強く推してみて下に下がらないことを確認しましょう。</li>
-</ul>
-</li>
-<li>タイヤ<ul>
-<li>タイヤがしっかり固定されているか、空気が漏れないかチェックしましょう。</li>
-</ul>
-</li>
-<li>ペダル<ul>
-<li>ペダルが外れないかチェックします。意外と盲点なので忘れずやっておきましょう。</li></ul></li></ul></div>
-
-
-
-<p>自分がやったのは下記ですが、他にも気になる場所があったら念入りにチェックしましょう！</p>
-<div class="notice notice-info">
-命にかかわるので特に気を付けましょう！！
-</div>
-
-
-<h3><span id="自転車保険">自転車保険</span></h3><p><span class="mark-y">自転車保険は義務になっているので、入る必要があります。</span><br>ただ車保険に内包されている可能性があるので、多重加入にならないように気を付けましょう！</p>
-<h3><span id="防犯登録">防犯登録</span></h3><p><span class="mark-y">自転車屋さんで登録できます。</span><br>盗まれたときとかに少しでも取り返せる可能性が上がるので、やっておいたほうが良いかと思います。</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>今回は自転車購入に関することを色々紹介しました。</p>
-<p>自分も何も知らない状態から調べて購入しました。</p>
-<p><span class="mark-g">知らない用語が出てきたりそれって必要？ってかなり苦労しましたが、</span><br><span class="mark-g">結果的にサイクリングをしても不満はないので、良い買い方ができたと思います！</span></p>
-<p>皆さんも初めてロードバイクを買うときは後悔しないように、ちゃんと調べて購入しましょう！</p>
-<p>以上。<br>自転車に乗るときは交通ルールを守って安全に運転しましょう！<br>お疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>おすすめ商品紹介</tag>
-        <tag>趣味</tag>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -4415,6 +4405,175 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
+    <title>モッピーのポイントを手数料無しでVポイントに交換する方法（損しないルート）</title>
+    <url>//money/point/moppy/vpoint/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">モッピーで貯めたポイントを手数無しの等倍でVポイントに交換する方法</span>を紹介します！</p>
+<p><span class="mark-g">たった3ステップなのにポイントのロスを0にできる</span>ので、ポイ活ユーザとしては必ずやるべき内容となります。</p>
+<p>ちなみに<span class="mark-r">直接moppyから交換すると10%くらいのポイントが無駄になります(- -;</span></p>
+<p>その為Vポイントに交換する人は絶対にやりましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#1%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%AB%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E7%A7%BB%E7%AE%A1">1.ドットマネーにポイントを移管</a></li>
+<li><a href="#2%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%8B%E3%82%89v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%A6%E3%82%AE%E3%83%95%E3%83%88%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B">2.ドットマネーからVポイントを選択してギフトコードを交換</a></li>
+<li><a href="#3%E7%99%BA%E8%A1%8C%E3%81%95%E3%82%8C%E3%81%9Fv%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AE%E3%83%95%E3%83%88%E3%82%92v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E9%81%A9%E7%94%A8">3.発行されたVポイントギフトをVポイントカードに適用</a></li>
+<li><a href="#4%E4%BA%A4%E6%8F%9B%E3%81%8C%E5%AE%8C%E4%BA%86%E3%81%97%E3%81%9F%E3%81%8B%E7%A2%BA%E8%AA%8D">4.交換が完了したか確認</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="1ドットマネーにポイントを移管">1.ドットマネーにポイントを移管</span></h2><p><span class="mark-y">モッピーポイントをドットマネーのポイントに交換</span>します。</p>
+<p><span class="mark-g">モッピーを開き、「ポイント交換画面　→　他社ポイント　→　.money」を選択してポイントを交換</span>します。</p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_1.jpg" alt="moppy .moneyへの交換" title="moppy .moneyへの交換" width="300px">
+
+<p>あとは表示された手順に従って操作し、<span class="mark-y">最終的にドットマネーにポイントが反映されればOK</span>です！</p>
+<p>ちなみにドットマネーの登録がまだの方は、招待コードなどが気になるかもですが、<span class="mark-g">ドットマネーには招待コードが無いので、安心して登録しちゃってください(^^</span></p>
+<h2><span id="2ドットマネーからvポイントを選択してギフトコードを交換">2.ドットマネーからVポイントを選択してギフトコードを交換</span></h2><p><span class="mark-y">ドットマネーの「つかう」タブから「Vポイント」を選択、その後は画面の指示に従ってポイントを交換</span>する。<br><img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_2.jpg" alt=".money 使うタブ" title=".money 使うタブ" width="300px"></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_3.jpg" alt=".money Vポイント交換" title=".money Vポイント交換" width="300px">
+
+<div class="notice notice-warn">
+このときVポイントギフトの発行まで数時間かかることもあるので、気楽に待ちましょう！
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="3発行されたvポイントギフトをvポイントカードに適用">3.発行されたVポイントギフトをVポイントカードに適用</span></h2><p><span class="mark-y">ドットマネーで発行されたVポイントギフトをアカウントに適用</span>します<br><span class="mark-g">ギフトの確認は右上のメールマークからできます。</span></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_4.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メールマーク" width="300px">
+
+<p><span class="mark-g">「ポイントの交換が完了しました」のメッセージをクリックするとVポイントギフトを確認できます。</span></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_5.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メール内容" width="300px">
+
+<p><span class="mark-g">そのあとは画面に表示されている通りに入力すれば、Vポイントに交換できます！</span></p>
+<h2><span id="4交換が完了したか確認">4.交換が完了したか確認</span></h2><p><span class="mark-y">Vポイントアプリで履歴を確認すると.moneyからポイントを受け取れたことを確認できます！</span></p>
+<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_6.jpg" alt=".moneyからVポイントの交換履歴" title=".moneyからVポイントの交換履歴" width="300px">
+
+<div class="notice notice-info">
+あとはそのままVポイントとして使用したり、WAON POINTに交換してウェルシアの日使うようにすればいいですね！
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>モッピーのポイントを無駄なくVポイントに交換する方法を紹介しました。<br><span class="mark-y">この手順を行うことのリスクは無いので、やり得ですよね(^^b</span></p>
+<p>モッピーでポイント貯めるのは結構大変なので、どうせならお得に交換していきましょう！</p>
+<p>PS<br>皆さんはウェルシアの日では何を購入してますか？<br>自分は日用品はもちろん買いますが、最近では<span class="mark-g">見たことないお菓子を買うのが好きです！</span></p>
+<p>この間見つけてた激辛マニアのオマージュ品は結構好きでした。<br>（ちなみにGoogle検索で商品名調べても出てこない、、、幻だったのか？）</p>
+<p>まずいものはもちろんありますが、おいしいものもあるので、皆さんも是非やってみてください！</p>
+<p>以上となります。<br>ウエルシアの日に楽しむために頑張りましょう！<br>お疲れ様でした！</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>手順</tag>
+        <tag>ポイ活</tag>
+        <tag>お金</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>マンション購入で後悔しない住宅ローンの選び方｜金利を下げる具体例</title>
+    <url>//money/zyutakuloan/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">マンションを購入する際に住宅ローンの金利を低くする方法</span>をまとめていきたいと思います。</p>
+<p>どうせ同じ金利を払うなら少しでも安くしたいですよね。<br>そのための工夫をここでは書いていきます。</p>
+<p><span class="mark-g">私が購入するのがマンションなのでそのように書いてますが、もちろん戸建てにも使用できる方法となります。</span></p>
+<p>それではやっていきましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
+<li><a href="#1%E9%87%91%E5%88%A9%E3%81%8C%E4%BD%8E%E3%81%84%E9%8A%80%E8%A1%8C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">1.金利が低い銀行を利用する</a></li>
+<li><a href="#2%E8%B2%A1%E5%BD%A2%E4%BD%8F%E5%AE%85%E8%9E%8D%E8%B3%87%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">2.財形住宅融資を使用する</a></li>
+<li><a href="#3%E4%B8%8D%E8%A6%81%E3%81%AA%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BB%98%E3%81%91%E3%81%AA%E3%81%84">3.不要なオプションを付けない</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="方法">方法</span></h2><h3><span id="1金利が低い銀行を利用する">1.金利が低い銀行を利用する</span></h3><p>当たり前ですが<span class="mark-y">金利が低い銀行を選ぶことで、良い条件の住宅ローンが組むことができます。</span></p>
+<p>銀行によっては、<span class="mark-r">最安と比較すると0.5%程度変わる</span>ので、良く選んで契約する必要があります。</p>
+<p>自分のお勧めは下記となります。</p>
+<div class="nest-list">
+
+<ul>
+<li>・新生銀行<ul>
+<li>金利が安い、50年契約可能</li>
+</ul>
+</li>
+<li>・PayPay銀行<ul>
+<li>電気プランと併用すると金利が最安、50年契約可能、ペアローン団信有</li>
+</ul>
+</li>
+<li>・三菱UFJ銀行<ul>
+<li>上二つと比べると金利は高いが、大手ならではの安心感がある。金利は上がるが保険を手厚くできる</li></ul></li></ul></div>
+
+
+
+<div class="notice notice-warn">
+今後の動向がわからないため、明確な金利の額は控えさせていただきます。
+</div>
+
+<div class="notice notice-info">
+個人的には、がん保険やペアローン団信は掛け捨ての保険を別で契約すればよいのかなと思います。<br>
+金利の増加量が大きいので、、、
+</div>
+
+<p>住宅ローンの比較詳細については下記のサイトがわかりやすいです！<br><a href="https://mogecheck.jp/mortgage-ranking/purchase/floating">https://mogecheck.jp/mortgage-ranking/purchase/floating</a></p>
+<h3><span id="2財形住宅融資を使用する">2.財形住宅融資を使用する</span></h3><p><span class="mark-y">固定金利を使用する方は財形住宅融資を利用することで金利を安く抑えることができます。</span></p>
+<p>時によりますが、<span class="mark-r">銀行の固定金利と比較して、1%程度は安くできると思っていてください</span></p>
+<p>おまけに<span class="mark-r">融資の手数料がかからないので、費用を抑えることができます。</span></p>
+<p>ただ条件が色々あります。<br>例を挙げると</p>
+<div class="nest-list">
+
+<ul>
+<li>・財形貯蓄を1年継続かつ50万円以上であること</li>
+<li>・団信保険料を自分で支払う必要あり</li>
+<li>・5年ごとに金利見直し</li>
+<li>・融資可能金額は掛け金の10倍かつ最大4000万円まで</li></ul></div>
+などがあります。
+
+<p>個人的には、<span class="mark-y">固定金利を使用予定で1年以上待ってから住宅購入を考えている方</span>は利用してみるのが良いのではないかと思います。</p>
+<p><span class="mark-r">ただ固定金利といいつつ5年後に金利が上がる可能性がある</span>ので、そこら辺のリスクは考えておくべきですね！</p>
+<div class="notice notice-warn">
+制度の概要が変わるかもなので、利用する方は最新の情報を調べてみてくださいね(^^
+</div>
+
+<h3><span id="3不要なオプションを付けない">3.不要なオプションを付けない</span></h3><p><span class="mark-y">過剰な団信保険やペアローン団信など、必要以上の内容を付けないようにしましょう。</span></p>
+<p>オプションをあれもこれもと言って付けると、金利が増えて家計を圧迫する可能性があります。<br>例えば、<span class="mark-y">4000万円の住宅ローンでオプションの金利が0.5%増えるとすれば、</span><br>単純計算で<span class="mark-g">年間支出が20万円増える</span>ことになります。</p>
+<p>数パーセントを舐めると痛い目にあるので、気を付けましょう！</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで住宅ローンを安く抑える方法を紹介していきました。</p>
+<p>用語をだけでも覚えていってもらえたらいいなと思います。</p>
+<p>科学的なお話ですが、<span class="mark-y">脳はほしいものの情報を、自然と考えたり集めたりしてくれるとのことです。</span><br>そういった意味で皆様の脳の助けに慣れたら幸いです。</p>
+<p>2026現在、今後も住宅金利は上がる予想が多いです。<br>夢のマイホーム、マイマンションのために、少しでも金利を下げて幸せに過ごせるように工夫していきましょう！</p>
+<p>以上となります。<br>俺の夢は終わらねー！！<br>それではお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>貯金</tag>
+        <tag>お金</tag>
+        <tag>不動産</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毎月20日ウェルシアで買うべき日用品一覧【チェックリスト付き】</title>
     <url>//money/well/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">ウエルシアの日に使用するお買い物リストを作成しました。</span></p>
@@ -4651,85 +4810,13 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
-    <title>モッピーのポイントを手数料無しでVポイントに交換する方法（損しないルート）</title>
-    <url>//money/point/moppy/vpoint/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">モッピーで貯めたポイントを手数無しの等倍でVポイントに交換する方法</span>を紹介します！</p>
-<p><span class="mark-g">たった3ステップなのにポイントのロスを0にできる</span>ので、ポイ活ユーザとしては必ずやるべき内容となります。</p>
-<p>ちなみに<span class="mark-r">直接moppyから交換すると10%くらいのポイントが無駄になります(- -;</span></p>
-<p>その為Vポイントに交換する人は絶対にやりましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#1%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%AB%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E7%A7%BB%E7%AE%A1">1.ドットマネーにポイントを移管</a></li>
-<li><a href="#2%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%81%8B%E3%82%89v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%A6%E3%82%AE%E3%83%95%E3%83%88%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B">2.ドットマネーからVポイントを選択してギフトコードを交換</a></li>
-<li><a href="#3%E7%99%BA%E8%A1%8C%E3%81%95%E3%82%8C%E3%81%9Fv%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AE%E3%83%95%E3%83%88%E3%82%92v%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%81%AB%E9%81%A9%E7%94%A8">3.発行されたVポイントギフトをVポイントカードに適用</a></li>
-<li><a href="#4%E4%BA%A4%E6%8F%9B%E3%81%8C%E5%AE%8C%E4%BA%86%E3%81%97%E3%81%9F%E3%81%8B%E7%A2%BA%E8%AA%8D">4.交換が完了したか確認</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="1ドットマネーにポイントを移管">1.ドットマネーにポイントを移管</span></h2><p><span class="mark-y">モッピーポイントをドットマネーのポイントに交換</span>します。</p>
-<p><span class="mark-g">モッピーを開き、「ポイント交換画面　→　他社ポイント　→　.money」を選択してポイントを交換</span>します。</p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_1.jpg" alt="moppy .moneyへの交換" title="moppy .moneyへの交換" width="300px">
-
-<p>あとは表示された手順に従って操作し、<span class="mark-y">最終的にドットマネーにポイントが反映されればOK</span>です！</p>
-<p>ちなみにドットマネーの登録がまだの方は、招待コードなどが気になるかもですが、<span class="mark-g">ドットマネーには招待コードが無いので、安心して登録しちゃってください(^^</span></p>
-<h2><span id="2ドットマネーからvポイントを選択してギフトコードを交換">2.ドットマネーからVポイントを選択してギフトコードを交換</span></h2><p><span class="mark-y">ドットマネーの「つかう」タブから「Vポイント」を選択、その後は画面の指示に従ってポイントを交換</span>する。<br><img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_2.jpg" alt=".money 使うタブ" title=".money 使うタブ" width="300px"></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_3.jpg" alt=".money Vポイント交換" title=".money Vポイント交換" width="300px">
-
-<div class="notice notice-warn">
-このときVポイントギフトの発行まで数時間かかることもあるので、気楽に待ちましょう！
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="3発行されたvポイントギフトをvポイントカードに適用">3.発行されたVポイントギフトをVポイントカードに適用</span></h2><p><span class="mark-y">ドットマネーで発行されたVポイントギフトをアカウントに適用</span>します<br><span class="mark-g">ギフトの確認は右上のメールマークからできます。</span></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_4.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メールマーク" width="300px">
-
-<p><span class="mark-g">「ポイントの交換が完了しました」のメッセージをクリックするとVポイントギフトを確認できます。</span></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_5.jpg" alt=".money Vポイント受け取り" title=".money Vポイント受け取り メール内容" width="300px">
-
-<p><span class="mark-g">そのあとは画面に表示されている通りに入力すれば、Vポイントに交換できます！</span></p>
-<h2><span id="4交換が完了したか確認">4.交換が完了したか確認</span></h2><p><span class="mark-y">Vポイントアプリで履歴を確認すると.moneyからポイントを受け取れたことを確認できます！</span></p>
-<img src="/images/posts/20251210_money_point_moppy_vpoint/money_point_moppy_vpoint_6.jpg" alt=".moneyからVポイントの交換履歴" title=".moneyからVポイントの交換履歴" width="300px">
-
-<div class="notice notice-info">
-あとはそのままVポイントとして使用したり、WAON POINTに交換してウェルシアの日使うようにすればいいですね！
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>モッピーのポイントを無駄なくVポイントに交換する方法を紹介しました。<br><span class="mark-y">この手順を行うことのリスクは無いので、やり得ですよね(^^b</span></p>
-<p>モッピーでポイント貯めるのは結構大変なので、どうせならお得に交換していきましょう！</p>
-<p>PS<br>皆さんはウェルシアの日では何を購入してますか？<br>自分は日用品はもちろん買いますが、最近では<span class="mark-g">見たことないお菓子を買うのが好きです！</span></p>
-<p>この間見つけてた激辛マニアのオマージュ品は結構好きでした。<br>（ちなみにGoogle検索で商品名調べても出てこない、、、幻だったのか？）</p>
-<p>まずいものはもちろんありますが、おいしいものもあるので、皆さんも是非やってみてください！</p>
-<p>以上となります。<br>ウエルシアの日に楽しむために頑張りましょう！<br>お疲れ様でした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>手順</tag>
-        <tag>ポイ活</tag>
-        <tag>お金</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>マンション購入で後悔しない住宅ローンの選び方｜金利を下げる具体例</title>
-    <url>//money/zyutakuloan/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">マンションを購入する際に住宅ローンの金利を低くする方法</span>をまとめていきたいと思います。</p>
-<p>どうせ同じ金利を払うなら少しでも安くしたいですよね。<br>そのための工夫をここでは書いていきます。</p>
-<p><span class="mark-g">私が購入するのがマンションなのでそのように書いてますが、もちろん戸建てにも使用できる方法となります。</span></p>
-<p>それではやっていきましょう！</p>
+    <title>くら寿司でお得に寿司を食べる利用方法（LINEクーポン,三菱UFJカード など）</title>
+    <url>//money/point/kurazushi/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">くら寿司で安く寿司を食べて節約する方法紹介していきます。</span></p>
+<p><span class="mark-g">「安くて上手くて楽しい」くら寿司ですが、ポイ活という点では、はま寿司の三井住友カード7%還元には劣ると思ってます。</span></p>
+<p>そんなくら寿司ですが、<span class="mark-y">意外と知られていないお得に食べる方法があります。</span></p>
+<p>その中でもクーポンは有名ですが、それ以外にも色々節約できるポイントがたくさんあります！<br>今回はそれらを紹介していけたらと思います。</p>
+<p>それでは見ていきましょう！</p>
 <span id="more"></span>
 
 <h2><span id="目次">目次</span></h2><div class="post-toc">
@@ -4738,9 +4825,9 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
 
 <ul>
 <li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
-<li><a href="#1%E9%87%91%E5%88%A9%E3%81%8C%E4%BD%8E%E3%81%84%E9%8A%80%E8%A1%8C%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B">1.金利が低い銀行を利用する</a></li>
-<li><a href="#2%E8%B2%A1%E5%BD%A2%E4%BD%8F%E5%AE%85%E8%9E%8D%E8%B3%87%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">2.財形住宅融資を使用する</a></li>
-<li><a href="#3%E4%B8%8D%E8%A6%81%E3%81%AA%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BB%98%E3%81%91%E3%81%AA%E3%81%84">3.不要なオプションを付けない</a></li>
+<li><a href="#%E4%B8%89%E8%8F%B1ufj%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E4%BD%BF%E7%94%A87">三菱UFJカードを使用(7%)</a></li>
+<li><a href="#line%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%8F%E3%82%89%E5%AF%BF%E5%8F%B8%E3%82%AE%E3%83%95%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E8%B3%BC%E5%85%A510">LINEクーポンを使用してくら寿司ギフトカードを購入(10%〜)</a></li>
+<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E4%BD%BF%E7%94%A8">クーポンを使用</a></li>
 </ul>
 </li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
@@ -4751,72 +4838,48 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="方法">方法</span></h2><h3><span id="1金利が低い銀行を利用する">1.金利が低い銀行を利用する</span></h3><p>当たり前ですが<span class="mark-y">金利が低い銀行を選ぶことで、良い条件の住宅ローンが組むことができます。</span></p>
-<p>銀行によっては、<span class="mark-r">最安と比較すると0.5%程度変わる</span>ので、良く選んで契約する必要があります。</p>
-<p>自分のお勧めは下記となります。</p>
-<div class="nest-list">
-
-<ul>
-<li>・新生銀行<ul>
-<li>金利が安い、50年契約可能</li>
-</ul>
-</li>
-<li>・PayPay銀行<ul>
-<li>電気プランと併用すると金利が最安、50年契約可能、ペアローン団信有</li>
-</ul>
-</li>
-<li>・三菱UFJ銀行<ul>
-<li>上二つと比べると金利は高いが、大手ならではの安心感がある。金利は上がるが保険を手厚くできる</li></ul></li></ul></div>
-
-
-
-<div class="notice notice-warn">
-今後の動向がわからないため、明確な金利の額は控えさせていただきます。
-</div>
-
+<h2><span id="方法">方法</span></h2><h3><span id="三菱ufjカードを使用7">三菱UFJカードを使用(7%)</span></h3><p><span class="mark-y">三菱UFJカードを使用してはま寿司で支払いをすると7%還元を受けることができます。</span></p>
+<p>7%はかなりお得ですよね！</p>
+<p>さらにこのカードのすごいところが、<span class="mark-r">OKマートや東武ストアなどのスーパーでも還元を受けれるところです。</span><br>食料品にも使える点では三井住友カードより強いかも(^^!</p>
+<h3><span id="lineクーポンを使用してくら寿司ギフトカードを購入10">LINEクーポンを使用してくら寿司ギフトカードを購入(10%〜)</span></h3><p><span class="mark-y">LINEクーポンで配布される10%引きクーポンを使用すると、</span><br><span class="mark-y">くら寿司のギフトカードを10%割引で購入できます。</span></p>
+<p>これめちゃくちゃお得です！</p>
+<p>ギフトカードの種類は500,1000,3000,5000となってます。</p>
 <div class="notice notice-info">
-個人的には、がん保険やペアローン団信は掛け捨ての保険を別で契約すればよいのかなと思います。<br>
-金利の増加量が大きいので、、、
+くら寿司のギフト券はお支払い金額の全額をギフト券で払う必要はないので、<br>
+支払い金額に合わせてギフトを購入するのが良いと思います。
+<br><br>
+例えば、お支払い金額が3500円の場合<br>
+3000円のギフトカードを購入して使用、残りの500円を別の決済方法で支払いすることが可能です。
 </div>
 
-<p>住宅ローンの比較詳細については下記のサイトがわかりやすいです！<br><a href="https://mogecheck.jp/mortgage-ranking/purchase/floating">https://mogecheck.jp/mortgage-ranking/purchase/floating</a></p>
-<h3><span id="2財形住宅融資を使用する">2.財形住宅融資を使用する</span></h3><p><span class="mark-y">固定金利を使用する方は財形住宅融資を利用することで金利を安く抑えることができます。</span></p>
-<p>時によりますが、<span class="mark-r">銀行の固定金利と比較して、1%程度は安くできると思っていてください</span></p>
-<p>おまけに<span class="mark-r">融資の手数料がかからないので、費用を抑えることができます。</span></p>
-<p>ただ条件が色々あります。<br>例を挙げると</p>
-<div class="nest-list">
-
-<ul>
-<li>・財形貯蓄を1年継続かつ50万円以上であること</li>
-<li>・団信保険料を自分で支払う必要あり</li>
-<li>・5年ごとに金利見直し</li>
-<li>・融資可能金額は掛け金の10倍かつ最大4000万円まで</li></ul></div>
-などがあります。
-
-<p>個人的には、<span class="mark-y">固定金利を使用予定で1年以上待ってから住宅購入を考えている方</span>は利用してみるのが良いのではないかと思います。</p>
-<p><span class="mark-r">ただ固定金利といいつつ5年後に金利が上がる可能性がある</span>ので、そこら辺のリスクは考えておくべきですね！</p>
+<p>くら寿司のギフトカードの使用方法については、<br><span class="mark-g">セルフレジの場合、<br>伝票のバーコード読み込み後、ギフトコードのバーコードを読み込むことで使用できます。</span></p>
+<p>また時々20%クーポンが配布されることもあるので、要チェックです！！</p>
 <div class="notice notice-warn">
-制度の概要が変わるかもなので、利用する方は最新の情報を調べてみてくださいね(^^
+10%引きクーポンは常にあるわけではなく、「正月」、「バレンタイン」、「誕生月」などイベントごとに発行されることが多いです。
 </div>
 
-<h3><span id="3不要なオプションを付けない">3.不要なオプションを付けない</span></h3><p><span class="mark-y">過剰な団信保険やペアローン団信など、必要以上の内容を付けないようにしましょう。</span></p>
-<p>オプションをあれもこれもと言って付けると、金利が増えて家計を圧迫する可能性があります。<br>例えば、<span class="mark-y">4000万円の住宅ローンでオプションの金利が0.5%増えるとすれば、</span><br>単純計算で<span class="mark-g">年間支出が20万円増える</span>ことになります。</p>
-<p>数パーセントを舐めると痛い目にあるので、気を付けましょう！</p>
+<h3><span id="クーポンを使用">クーポンを使用</span></h3><p>結局LINEクーポンは強いので補足程度で書いておきます(^^!<br><span class="mark-y">LINEのお友達追加クーポンなど色々な場所でクーポンが配布されます。</span></p>
+<p><span class="mark-g">金額は50円など微々たるものですが、お手軽に利用できます。</span></p>
+<p>店頭のチラシなどで見つけたら積極的に使用していきましょう！</p>
+<div class="notice notice-info">
+ウェブで「くら寿司 クーポン」で検索するのもいいですね(^^
+</div>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="締め">締め</span></h2><p>こんな感じで住宅ローンを安く抑える方法を紹介していきました。</p>
-<p>用語をだけでも覚えていってもらえたらいいなと思います。</p>
-<p>科学的なお話ですが、<span class="mark-y">脳はほしいものの情報を、自然と考えたり集めたりしてくれるとのことです。</span><br>そういった意味で皆様の脳の助けに慣れたら幸いです。</p>
-<p>2026現在、今後も住宅金利は上がる予想が多いです。<br>夢のマイホーム、マイマンションのために、少しでも金利を下げて幸せに過ごせるように工夫していきましょう！</p>
-<p>以上となります。<br>俺の夢は終わらねー！！<br>それではお疲れさまでした。</p>
+<h2><span id="締め">締め</span></h2><p>安くて美味しいくら寿司をさらに安くお得に食べる方法でした。</p>
+<p>結構簡単にできるのでどの方法もおすすめです。</p>
+<p>個人的には<span class="mark-g">LINEのギフトカードがかなり優秀だと思いましたね(^^</span></p>
+<p>余談ですが、<span class="mark-g">最近のびっくらぽんって課金して確率を上げることができるんですよ！</span><br>昔妖怪ウォッチのコラボで全然当たらなくて悲しい思いをしたので、こういった取り組みはうれしい(^^!</p>
+<p>以上となります。<br>びっくらぽんは復活演出で当たると熱いですよね！<br>それではお疲れさまでした！</p>
 ]]></content>
       <categories>
         <category>お金</category>
       </categories>
       <tags>
-        <tag>貯金</tag>
+        <tag>ポイ活</tag>
         <tag>お金</tag>
-        <tag>不動産</tag>
+        <tag>食</tag>
       </tags>
   </entry>
   <entry>
@@ -4897,79 +4960,6 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </tags>
   </entry>
   <entry>
-    <title>くら寿司でお得に寿司を食べる利用方法（LINEクーポン,三菱UFJカード など）</title>
-    <url>//money/point/kurazushi/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">くら寿司で安く寿司を食べて節約する方法紹介していきます。</span></p>
-<p><span class="mark-g">「安くて上手くて楽しい」くら寿司ですが、ポイ活という点では、はま寿司の三井住友カード7%還元には劣ると思ってます。</span></p>
-<p>そんなくら寿司ですが、<span class="mark-y">意外と知られていないお得に食べる方法があります。</span></p>
-<p>その中でもクーポンは有名ですが、それ以外にも色々節約できるポイントがたくさんあります！<br>今回はそれらを紹介していけたらと思います。</p>
-<p>それでは見ていきましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
-<li><a href="#%E4%B8%89%E8%8F%B1ufj%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E4%BD%BF%E7%94%A87">三菱UFJカードを使用(7%)</a></li>
-<li><a href="#line%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%8F%E3%82%89%E5%AF%BF%E5%8F%B8%E3%82%AE%E3%83%95%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E3%82%92%E8%B3%BC%E5%85%A510">LINEクーポンを使用してくら寿司ギフトカードを購入(10%〜)</a></li>
-<li><a href="#%E3%82%AF%E3%83%BC%E3%83%9D%E3%83%B3%E3%82%92%E4%BD%BF%E7%94%A8">クーポンを使用</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="方法">方法</span></h2><h3><span id="三菱ufjカードを使用7">三菱UFJカードを使用(7%)</span></h3><p><span class="mark-y">三菱UFJカードを使用してはま寿司で支払いをすると7%還元を受けることができます。</span></p>
-<p>7%はかなりお得ですよね！</p>
-<p>さらにこのカードのすごいところが、<span class="mark-r">OKマートや東武ストアなどのスーパーでも還元を受けれるところです。</span><br>食料品にも使える点では三井住友カードより強いかも(^^!</p>
-<h3><span id="lineクーポンを使用してくら寿司ギフトカードを購入10">LINEクーポンを使用してくら寿司ギフトカードを購入(10%〜)</span></h3><p><span class="mark-y">LINEクーポンで配布される10%引きクーポンを使用すると、</span><br><span class="mark-y">くら寿司のギフトカードを10%割引で購入できます。</span></p>
-<p>これめちゃくちゃお得です！</p>
-<p>ギフトカードの種類は500,1000,3000,5000となってます。</p>
-<div class="notice notice-info">
-くら寿司のギフト券はお支払い金額の全額をギフト券で払う必要はないので、<br>
-支払い金額に合わせてギフトを購入するのが良いと思います。
-<br><br>
-例えば、お支払い金額が3500円の場合<br>
-3000円のギフトカードを購入して使用、残りの500円を別の決済方法で支払いすることが可能です。
-</div>
-
-<p>くら寿司のギフトカードの使用方法については、<br><span class="mark-g">セルフレジの場合、<br>伝票のバーコード読み込み後、ギフトコードのバーコードを読み込むことで使用できます。</span></p>
-<p>また時々20%クーポンが配布されることもあるので、要チェックです！！</p>
-<div class="notice notice-warn">
-10%引きクーポンは常にあるわけではなく、「正月」、「バレンタイン」、「誕生月」などイベントごとに発行されることが多いです。
-</div>
-
-<h3><span id="クーポンを使用">クーポンを使用</span></h3><p>結局LINEクーポンは強いので補足程度で書いておきます(^^!<br><span class="mark-y">LINEのお友達追加クーポンなど色々な場所でクーポンが配布されます。</span></p>
-<p><span class="mark-g">金額は50円など微々たるものですが、お手軽に利用できます。</span></p>
-<p>店頭のチラシなどで見つけたら積極的に使用していきましょう！</p>
-<div class="notice notice-info">
-ウェブで「くら寿司 クーポン」で検索するのもいいですね(^^
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>安くて美味しいくら寿司をさらに安くお得に食べる方法でした。</p>
-<p>結構簡単にできるのでどの方法もおすすめです。</p>
-<p>個人的には<span class="mark-g">LINEのギフトカードがかなり優秀だと思いましたね(^^</span></p>
-<p>余談ですが、<span class="mark-g">最近のびっくらぽんって課金して確率を上げることができるんですよ！</span><br>昔妖怪ウォッチのコラボで全然当たらなくて悲しい思いをしたので、こういった取り組みはうれしい(^^!</p>
-<p>以上となります。<br>びっくらぽんは復活演出で当たると熱いですよね！<br>それではお疲れさまでした！</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>ポイ活</tag>
-        <tag>お金</tag>
-        <tag>食</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>リンツで50%お得にチョコを買う利用方法（LINEクーポン,アプリクーポン）</title>
     <url>//money/point/lindt/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-g">リンツでお得にチョコを買う方法を紹介していきます。</span></p>
@@ -5031,118 +5021,6 @@ Vポイントを等価交換する時は工夫が必要で.moneyにポイント�
       </categories>
       <tags>
         <tag>ショッピング</tag>
-        <tag>ポイ活</tag>
-        <tag>お金</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JR東日本新幹線チケットを格安で買う方法（JREPOINT特典 等）</title>
-    <url>//money/jreast/shinkansen/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">JR東日本の新幹線チケットを格安で購入する方法を紹介します。</span></p>
-<p>旅行や仕事で新幹線に乗る機会は多いと思います。<br>同じ電車に乗るなら安く乗れる方が嬉しいですよね！</p>
-<p><span class="mark-r">ここでは新幹線に4割程度安く乗る方法を紹介していきます。</span></p>
-<p>すでに知っていることも多いと思いますが、もしかしたら初見の情報もあるかもしれないので、是非見ていってください（^^b</p>
-<p>それではやっていきましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
-<li><a href="#jre%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%81%A7%E6%96%B0%E5%B9%B9%E7%B7%9A%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E8%B3%BC%E5%85%A5">JREポイントで新幹線チケットを購入</a></li>
-<li><a href="#jre-bank%E3%81%AB%E3%81%8A%E9%87%91%E3%82%92%E9%A0%90%E3%81%91%E3%82%8B">JRE BANKにお金を預ける</a></li>
-<li><a href="#%E3%83%88%E3%82%AF%E3%81%A0%E5%80%A4%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8">トクだ値チケットを利用</a></li>
-<li><a href="#jre%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%81%A7%E3%81%A9%E3%81%93%E3%81%8B%E3%81%88%E3%83%93%E3%83%A5%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%BF%E7%94%A8">JREポイントでどこかえビューンを使用</a></li>
-<li><a href="#%E9%87%91%E5%88%B8%E5%B1%8B%E3%81%A7%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E8%B3%BC%E5%85%A5">金券屋でチケットを購入</a></li>
-</ul>
-</li>
-<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="方法">方法</span></h2><h3><span id="jreポイントで新幹線チケットを購入">JREポイントで新幹線チケットを購入</span></h3><p><span class="mark-y">JREポイントで新幹線eチケット（JRE POINT特典）を購入すると安く購入できます。</span></p>
-<p><span class="mark-r">割引率は30%程度となります。</span></p>
-<div class="notice notice-info">
-東京仙台間で計算<br>
-通常：11260<br>
-ポイント利用：7940
-</div>
-
-<p>30%はかなり大きい（^^b</p>
-<p><span class="link-comment">公式サイト</span><br><a href="https://www.eki-net.com/top/jrticket/guide/reserve/tokuten_ticket.html">https://www.eki-net.com/top/jrticket/guide/reserve/tokuten_ticket.html</a></p>
-<h3><span id="jre-bankにお金を預ける">JRE BANKにお金を預ける</span></h3><p><span class="mark-y">JRE BANKの口座を取得して、お金を預けるとそれだけで新幹線の割引券がもらえます。</span></p>
-<p><span class="mark-r">割引率は驚異の4割引！！</span><br>超お得です（^^</p>
-<p><span class="mark-g">もらえる条件の詳細は、お金を一定金額預ける or 給料受け取り口座を変更すると達成数に応じて割引券がもらえる形です。</span></p>
-<p>具体的な金額と枚数については、結構変動があるので、下記の公式サイトをご確認ください！<br><span class="link-comment">公式サイト</span><br><a href="https://www.rakuten-bank.co.jp/jrebank/campaign/jreg-tokuten/">https://www.rakuten-bank.co.jp/jrebank/campaign/jreg-tokuten/</a></p>
-<div class="notice notice-info">
-記事作成時点では、300万円で2枚、給与受け取り口座指定で3枚。<br>
-合計5枚を半年に1回もらえます。
-</div>
-
-<p>一応招待コードを利用するとポイントがもらえます。<br>これから作る方はご利用いただけると嬉しいです！<br><strong>招待コード：J89158593</strong></p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="トクだ値チケットを利用">トクだ値チケットを利用</span></h3><p><span class="mark-y">乗車予定日の14日前に新幹線チケットを購入すると、最大30%ほどの割引を受けられます！</span></p>
-<p>早く予約するだけで30%引きはかなりお得ですよね（^^</p>
-<p><span class="mark-g">注意として14日前には予約をする必要がある</span>ので、出発日時はしっかり決めておく必要はあります。</p>
-<p><span class="link-comment">公式サイト</span><br><a href="https://www.eki-net.com/top/tokudane/">https://www.eki-net.com/top/tokudane/</a></p>
-<h3><span id="jreポイントでどこかえビューンを使用">JREポイントでどこかえビューンを使用</span></h3><p>JREポイントでどこかえビューンを使用すると<span class="mark-y">往復6000ポイントで新幹線を使用できます。</span></p>
-<p>ただし場所は選べないので、仕事では使えないかもです。<br><span class="mark-g">ただ旅行には最適で、どこになるのかわからないので、貴重な体験ができたりします。</span></p>
-<p>行き先が決まってから観光地を探すのって結構楽しいし楽なんですよ！</p>
-<p>自分の場合は先日米沢に行ってきました。<br>米沢牛が有名ですよね（^^</p>
-<p>歴史ある旅館に泊まって、米沢牛を食べて帰宅しました。</p>
-<p>その土地にしかないものがあるので、こういった旅行はかなりおすすめです！</p>
-<p><span class="link-comment">公式サイト</span><br><a href="https://www.eki-net.com/top/product/shinkansen/e-dokokani.html">https://www.eki-net.com/top/product/shinkansen/e-dokokani.html</a></p>
-<span class="mark-r">
-ちなみにJREバンクを契約してお金を預けると定期的に2000ポイント分の割引チケットがもらえます。</span>
-<span class="mark-r">つまり4000ポイントで往復の新幹線チケットが手に入るわけです。</span>
-安すぎません！？
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="金券屋でチケットを購入">金券屋でチケットを購入</span></h3><p><span class="mark-y">金券屋でチケットを購入すると10%ほど安く購入できます。</span></p>
-<p>ただこちらは在庫の有無が分かりづらいので、個人的にはあまりお勧めしていません。</p>
-<p>とはいえ10%安くなることには違いないので、もし家の近くに金券屋がある方は良いかもしれません！</p>
-<h2><span id="補足">補足</span></h2><p>上で話題に出してますが、<span class="mark-y">JREポイントは絶対に登録しておきましょう！</span></p>
-<div class="nest-list">
-
-<ul>
-<li>特に下記に当てはまる人はやらないとかなり損です<ul>
-<li>JRの電車に乗る人(在来線、新幹線)</li>
-<li>JRの定期券を購入する人</li>
-<li>普段の支払いにSuicaを使用する人</li>
-<li>JR駅ナカでよく買い物する人</li></ul></li></ul></div>
-
-
-
-<p>特に普段使いでSuicaを使用する人は、必ず使用しましょう。<br><span class="mark-g">JREクレジットカードとSuicaを紐付けるとチャージ金額の1.5%還元を受けられます。</span></p>
-<p>普通ポイントは1%還元が多いですが、新幹線を安く乗れるJREポイントが1.5%還元されるのは嬉しいですよね！</p>
-<p>まだの方はぜひ確認してみてください！</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p><span class="mark-y">自分が今友達にオススメする決済方法があるとしたらダントツでSuicaを押します！</span></p>
-<p>だって簡単に1.5%還元受けれるのデカすぎません？</p>
-<p>新幹線に乗らなければ、普通に支払いに使えばいいし、腐らないので貯めといてもよし。</p>
-<p>ぜひ皆さんも貯めましょう！</p>
-<p>皆さんは新幹線で最近どこにいきましたか？<br>自分は上でも書いた通り米沢ですね。<br>米沢牛美味しかったです！</p>
-<p>次は青森か石川あたりに行ってみたいな〜</p>
-<p>貯金と節約とポイ活は大事ですが、旅行などの経験も超重要ですよね。</p>
-<p>自分の場合は死ぬ前に写真を見返して楽しい人生だったなと思えるように生きていきたいです！</p>
-<p><span class="mark-g">今回は結構熱を込めて説明してますが、こんな感じで他にも色々節約や投資、ポイ活の情報を紹介してます。</span><br><span class="mark-g">他の記事も下の関連記事やカテゴリ「お金」から是非見ていってくださいね！</span></p>
-<p>以上。<br>節約も投資も遊びも全部全力でやって悔いのない人生を送りましょう！<br>それではお疲れ様でした（^^&#x2F;</p>
-]]></content>
-      <categories>
-        <category>お金</category>
-      </categories>
-      <tags>
-        <tag>趣味</tag>
         <tag>ポイ活</tag>
         <tag>お金</tag>
       </tags>
@@ -5420,6 +5298,118 @@ UMACAカードは即日配布なので、登録と同時にもらえます。<br
 <p>とまぁ冗談はこれくらいにして、とにかくUMACAはうまく使えばかなりお得なので、是非皆さんも使ってみてください！</p>
 <p><span class="mark-r">自分のサイトではこんな感じで、ポイ活や投資など人生を豊かにするための情報を発信しています。</span><br><span class="mark-r">使えるお金を増やして趣味も全力で楽しむのがモットーです（^^!</span><br><span class="mark-r">良ければ他の記事も見ていってください！</span></p>
 <p>以上<br>少しでもお得に楽しく競馬を楽しみましょう！<br>それではお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>お金</category>
+      </categories>
+      <tags>
+        <tag>趣味</tag>
+        <tag>ポイ活</tag>
+        <tag>お金</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JR東日本新幹線チケットを格安で買う方法（JREPOINT特典 等）</title>
+    <url>//money/jreast/shinkansen/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">JR東日本の新幹線チケットを格安で購入する方法を紹介します。</span></p>
+<p>旅行や仕事で新幹線に乗る機会は多いと思います。<br>同じ電車に乗るなら安く乗れる方が嬉しいですよね！</p>
+<p><span class="mark-r">ここでは新幹線に4割程度安く乗る方法を紹介していきます。</span></p>
+<p>すでに知っていることも多いと思いますが、もしかしたら初見の情報もあるかもしれないので、是非見ていってください（^^b</p>
+<p>それではやっていきましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
+<li><a href="#jre%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%81%A7%E6%96%B0%E5%B9%B9%E7%B7%9A%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E8%B3%BC%E5%85%A5">JREポイントで新幹線チケットを購入</a></li>
+<li><a href="#jre-bank%E3%81%AB%E3%81%8A%E9%87%91%E3%82%92%E9%A0%90%E3%81%91%E3%82%8B">JRE BANKにお金を預ける</a></li>
+<li><a href="#%E3%83%88%E3%82%AF%E3%81%A0%E5%80%A4%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8">トクだ値チケットを利用</a></li>
+<li><a href="#jre%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%81%A7%E3%81%A9%E3%81%93%E3%81%8B%E3%81%88%E3%83%93%E3%83%A5%E3%83%BC%E3%83%B3%E3%82%92%E4%BD%BF%E7%94%A8">JREポイントでどこかえビューンを使用</a></li>
+<li><a href="#%E9%87%91%E5%88%B8%E5%B1%8B%E3%81%A7%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%82%92%E8%B3%BC%E5%85%A5">金券屋でチケットを購入</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A3%9C%E8%B6%B3">補足</a></li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="方法">方法</span></h2><h3><span id="jreポイントで新幹線チケットを購入">JREポイントで新幹線チケットを購入</span></h3><p><span class="mark-y">JREポイントで新幹線eチケット（JRE POINT特典）を購入すると安く購入できます。</span></p>
+<p><span class="mark-r">割引率は30%程度となります。</span></p>
+<div class="notice notice-info">
+東京仙台間で計算<br>
+通常：11260<br>
+ポイント利用：7940
+</div>
+
+<p>30%はかなり大きい（^^b</p>
+<p><span class="link-comment">公式サイト</span><br><a href="https://www.eki-net.com/top/jrticket/guide/reserve/tokuten_ticket.html">https://www.eki-net.com/top/jrticket/guide/reserve/tokuten_ticket.html</a></p>
+<h3><span id="jre-bankにお金を預ける">JRE BANKにお金を預ける</span></h3><p><span class="mark-y">JRE BANKの口座を取得して、お金を預けるとそれだけで新幹線の割引券がもらえます。</span></p>
+<p><span class="mark-r">割引率は驚異の4割引！！</span><br>超お得です（^^</p>
+<p><span class="mark-g">もらえる条件の詳細は、お金を一定金額預ける or 給料受け取り口座を変更すると達成数に応じて割引券がもらえる形です。</span></p>
+<p>具体的な金額と枚数については、結構変動があるので、下記の公式サイトをご確認ください！<br><span class="link-comment">公式サイト</span><br><a href="https://www.rakuten-bank.co.jp/jrebank/campaign/jreg-tokuten/">https://www.rakuten-bank.co.jp/jrebank/campaign/jreg-tokuten/</a></p>
+<div class="notice notice-info">
+記事作成時点では、300万円で2枚、給与受け取り口座指定で3枚。<br>
+合計5枚を半年に1回もらえます。
+</div>
+
+<p>一応招待コードを利用するとポイントがもらえます。<br>これから作る方はご利用いただけると嬉しいです！<br><strong>招待コード：J89158593</strong></p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="トクだ値チケットを利用">トクだ値チケットを利用</span></h3><p><span class="mark-y">乗車予定日の14日前に新幹線チケットを購入すると、最大30%ほどの割引を受けられます！</span></p>
+<p>早く予約するだけで30%引きはかなりお得ですよね（^^</p>
+<p><span class="mark-g">注意として14日前には予約をする必要がある</span>ので、出発日時はしっかり決めておく必要はあります。</p>
+<p><span class="link-comment">公式サイト</span><br><a href="https://www.eki-net.com/top/tokudane/">https://www.eki-net.com/top/tokudane/</a></p>
+<h3><span id="jreポイントでどこかえビューンを使用">JREポイントでどこかえビューンを使用</span></h3><p>JREポイントでどこかえビューンを使用すると<span class="mark-y">往復6000ポイントで新幹線を使用できます。</span></p>
+<p>ただし場所は選べないので、仕事では使えないかもです。<br><span class="mark-g">ただ旅行には最適で、どこになるのかわからないので、貴重な体験ができたりします。</span></p>
+<p>行き先が決まってから観光地を探すのって結構楽しいし楽なんですよ！</p>
+<p>自分の場合は先日米沢に行ってきました。<br>米沢牛が有名ですよね（^^</p>
+<p>歴史ある旅館に泊まって、米沢牛を食べて帰宅しました。</p>
+<p>その土地にしかないものがあるので、こういった旅行はかなりおすすめです！</p>
+<p><span class="link-comment">公式サイト</span><br><a href="https://www.eki-net.com/top/product/shinkansen/e-dokokani.html">https://www.eki-net.com/top/product/shinkansen/e-dokokani.html</a></p>
+<span class="mark-r">
+ちなみにJREバンクを契約してお金を預けると定期的に2000ポイント分の割引チケットがもらえます。</span>
+<span class="mark-r">つまり4000ポイントで往復の新幹線チケットが手に入るわけです。</span>
+安すぎません！？
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="金券屋でチケットを購入">金券屋でチケットを購入</span></h3><p><span class="mark-y">金券屋でチケットを購入すると10%ほど安く購入できます。</span></p>
+<p>ただこちらは在庫の有無が分かりづらいので、個人的にはあまりお勧めしていません。</p>
+<p>とはいえ10%安くなることには違いないので、もし家の近くに金券屋がある方は良いかもしれません！</p>
+<h2><span id="補足">補足</span></h2><p>上で話題に出してますが、<span class="mark-y">JREポイントは絶対に登録しておきましょう！</span></p>
+<div class="nest-list">
+
+<ul>
+<li>特に下記に当てはまる人はやらないとかなり損です<ul>
+<li>JRの電車に乗る人(在来線、新幹線)</li>
+<li>JRの定期券を購入する人</li>
+<li>普段の支払いにSuicaを使用する人</li>
+<li>JR駅ナカでよく買い物する人</li></ul></li></ul></div>
+
+
+
+<p>特に普段使いでSuicaを使用する人は、必ず使用しましょう。<br><span class="mark-g">JREクレジットカードとSuicaを紐付けるとチャージ金額の1.5%還元を受けられます。</span></p>
+<p>普通ポイントは1%還元が多いですが、新幹線を安く乗れるJREポイントが1.5%還元されるのは嬉しいですよね！</p>
+<p>まだの方はぜひ確認してみてください！</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p><span class="mark-y">自分が今友達にオススメする決済方法があるとしたらダントツでSuicaを押します！</span></p>
+<p>だって簡単に1.5%還元受けれるのデカすぎません？</p>
+<p>新幹線に乗らなければ、普通に支払いに使えばいいし、腐らないので貯めといてもよし。</p>
+<p>ぜひ皆さんも貯めましょう！</p>
+<p>皆さんは新幹線で最近どこにいきましたか？<br>自分は上でも書いた通り米沢ですね。<br>米沢牛美味しかったです！</p>
+<p>次は青森か石川あたりに行ってみたいな〜</p>
+<p>貯金と節約とポイ活は大事ですが、旅行などの経験も超重要ですよね。</p>
+<p>自分の場合は死ぬ前に写真を見返して楽しい人生だったなと思えるように生きていきたいです！</p>
+<p><span class="mark-g">今回は結構熱を込めて説明してますが、こんな感じで他にも色々節約や投資、ポイ活の情報を紹介してます。</span><br><span class="mark-g">他の記事も下の関連記事やカテゴリ「お金」から是非見ていってくださいね！</span></p>
+<p>以上。<br>節約も投資も遊びも全部全力でやって悔いのない人生を送りましょう！<br>それではお疲れ様でした（^^&#x2F;</p>
 ]]></content>
       <categories>
         <category>お金</category>
@@ -5736,6 +5726,150 @@ UMACAカードは即日配布なので、登録と同時にもらえます。<br
       </tags>
   </entry>
   <entry>
+    <title>湊線で行く磯崎海岸と阿字ヶ浦の日帰り観光モデルルート</title>
+    <url>//travel/solo/isozaki/</url>
+    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに日帰りで一人旅</span>をしてきました。</p>
+<p>結構いい感じに癒されて、おすすめできるルートなので、皆さんの旅の参考になりましたら幸いです！</p>
+<p>写真もたくさん撮ったので是非見ていってください(^^</p>
+<p>それでは見ていきましょう！</p>
+<span id="more"></span>
+
+<h2><span id="目次">目次</span></h2><div class="post-toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%BB%8A%E5%9B%9E%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88">今回のルート</a></li>
+<li><a href="#%E8%A6%B3%E5%85%89%E5%9C%B0">観光地</a><ul>
+<li><a href="#%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E6%B5%B7%E6%B5%9C%E9%89%84%E9%81%93%E6%B9%8A%E7%B7%9A">ひたちなか海浜鉄道湊線</a></li>
+<li><a href="#%E7%A3%AF%E5%B4%8E%E6%B5%B7%E5%B2%B8">磯崎海岸</a></li>
+<li><a href="#%E9%85%92%E5%88%97%E7%A3%AF%E5%89%8D%E7%A5%9E%E7%A4%BE">酒列磯前神社</a></li>
+<li><a href="#%E9%98%BF%E5%AD%97%E3%83%B6%E6%B5%A6%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">阿字ヶ浦海水浴場</a></li>
+<li><a href="#%E6%B5%9C%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%82%A3%E3%83%BC-%E3%81%82%E3%81%98%E3%81%B1%E3%82%93">浜ベーカリィー あじぱん</a></li>
+<li><a href="#%E5%8B%9D%E7%94%B0%E9%A7%85-%E9%A7%85%E4%B8%AD%E3%81%AE%E8%95%8E%E9%BA%A6%E5%B1%8B%E3%81%95%E3%82%93">勝田駅 駅中の蕎麦屋さん</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="今回のルート">今回のルート</span></h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="観光地">観光地</span></h2><h3><span id="ひたちなか海浜鉄道湊線">ひたちなか海浜鉄道湊線</span></h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
+<p>田んぼの間を電車が走るので運転席横の窓から見ると最高の景色でした。</p>
+<p>あとつり革が干し芋になっていてちょっと面白かった(^^</p>
+<p><span class="mark-y">料金については、駅員さんが「往復利用するなら一日利用券のほうが1000円だからお得だよ」と教えてくれたので、少しお得に利用できました！</span></p>
+<figure class="image-figure">
+  <figcaption>勝田駅</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_1.jpg" alt="勝田駅" title="勝田駅">
+</figure>
+
+<figure class="image-figure">
+  <figcaption>湊線一日フリー切符</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_2.jpg" alt="湊線一日フリー切符" title="湊線一日フリー切符">
+</figure>
+<figure class="image-figure">
+  <figcaption>湊線列車</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_3.jpg" alt="湊線列車" title="湊線列車">
+</figure>
+<figure class="image-figure">
+  <figcaption>湊線車内</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_4.jpg" alt="湊線車内" title="湊線車内">
+</figure>
+
+<h3><span id="磯崎海岸">磯崎海岸</span></h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
+<p><span class="mark-g">岩の海岸、、最高です！</span><br><span class="mark-g">波音もよく聞こえ気持ちよかったです！</span></p>
+<p>一応岩の上も歩けますが、時々グラグラする箇所があり自分は転びかけました(^^;<br>皆さんも気をつけて！</p>
+<p>またGoogleマップには、ヒトデの写真とかあったので期待してましたが、季節外れでしたので今回は残念。。</p>
+<p><span class="mark-r">周辺には焼きそばなどの軽食のお店はありましたが、レストランはないように見えます。</span></p>
+<p><span class="mark-y">岩場に座って小一時間ぼーっとするのにおすすめです！</span></p>
+<figure class="image-figure">
+  <figcaption>磯崎海岸を上から見た写真</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_5.jpg" alt="磯崎海岸を上から見た写真" title="磯崎海岸を上から見た写真">
+</figure>
+<figure class="image-figure">
+  <figcaption>磯崎海岸の浜の写真</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_6.jpg" alt="磯崎海岸の浜" title="磯崎海岸の浜">
+</figure>
+<figure class="image-figure">
+  <figcaption>磯崎海岸の石浜の写真</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_7.jpg" alt="磯崎海岸の石浜" title="磯崎海岸の石浜">
+</figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="酒列磯前神社">酒列磯前神社</span></h3><p>磯崎海岸から徒歩で行きました。</p>
+<p><span class="mark-g">横の入り口から入りましたが、鳥居が緑とマッチしてきれいでした！</span></p>
+<p>参道も自然を感じれるのでよかったです(^^</p>
+<figure class="image-figure">
+  <figcaption>酒列磯前神社裏鳥居</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_8.jpg" alt="酒列磯前神社裏鳥居" title="酒列磯前神社裏鳥居">
+</figure>
+
+<figure class="image-figure">
+  <figcaption>酒列磯前神社鳥居</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_9.jpg" alt="酒列磯前神社鳥居" title="酒列磯前神社鳥居">
+</figure>
+
+<h3><span id="阿字ヶ浦海水浴場">阿字ヶ浦海水浴場</span></h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
+<p><span class="mark-y">・その割には水は透き通って綺麗！</span><br><span class="mark-y">・オフシーズンなのに砂浜にゴミが落ちてなくて綺麗！</span><br><span class="mark-y">・人があんまりいない！</span></p>
+<p><span class="mark-r">なのでござを引いて海を眺めるのに最高です(^^#</span></p>
+<p>コーヒー持ってくればよかったな、、、<br>あと11月でも日差しが強かったので、日傘は必須ですね！</p>
+<figure class="image-figure">
+  <figcaption>阿字ヶ浦海水浴場 堤防</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_10.jpg" alt="阿字ヶ浦海水浴場 堤防" title="阿字ヶ浦海水浴場 堤防">
+</figure>
+<figure class="image-figure">
+  <figcaption>阿字ヶ浦海水浴場 砂浜</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_11.jpg" alt="阿字ヶ浦海水浴場 砂浜" title="阿字ヶ浦海水浴場 砂浜">
+</figure>
+<figure class="image-figure">
+  <figcaption>阿字ヶ浦海水浴場 海</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_12.jpg" alt="阿字ヶ浦海水浴場 海" title="阿字ヶ浦海水浴場 海">
+</figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h3><span id="浜ベーカリィー-あじぱん">浜ベーカリィー あじぱん</span></h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
+<p>カレーパンとクリームパンを購入しました(^^</p>
+<p><span class="mark-y">カレーパンはノンフライなのでパサパサするかな？と思いましたがそんなことなく、カレーの優しい味とマッチしてとてもおいしかったです！</span></p>
+<p><span class="mark-y">クリームパンはクリームが上に乗っててかわいいです！</span><br><span class="mark-y">味の方は甘さ控えめで普段食べてるクリームパンより上品な味がしました。</span></p>
+<p>個人的にはカレーパンがかなり好みでしたのでまた行きたいな(^^</p>
+<figure class="image-figure">
+  <figcaption>浜ベーカリィー あじぱん</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_13.jpg" alt="浜ベーカリィー あじぱん" title="浜ベーカリィー あじぱん">
+</figure>
+
+<h3><span id="勝田駅-駅中の蕎麦屋さん">勝田駅 駅中の蕎麦屋さん</span></h3><p>唐揚げそばを食べました！</p>
+<p>一口目「唐揚げが冷たい？？？」ってなりましたが、これは冷たいほうがいいですね！<br><span class="mark-g">そばが温かいので、冷たい唐揚げと一緒に食べると最高に美味でした！</span></p>
+<p>勝田駅に立ち寄ったら是非食べてみてください(^^!</p>
+<figure class="image-figure">
+  <figcaption>勝田駅 駅中の蕎麦屋さん</figcaption>
+  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_14.jpg" alt="勝田駅 駅中の蕎麦屋さん" title="勝田駅 駅中の蕎麦屋さん">
+</figure>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<h2><span id="締め">締め</span></h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
+<p>普段パソコンばかり見てる自分からすると、<span class="mark-y">車なしで砂浜と岩場両方の海が見れるのは最高ですね(^^</span></p>
+<p>皆さんもこんな感じのモデルコースで一人旅をしてみてはいかがでしょうか？</p>
+<p>以上、今回もお疲れさまでした。</p>
+]]></content>
+      <categories>
+        <category>旅</category>
+      </categories>
+      <tags>
+        <tag>趣味</tag>
+        <tag>旅</tag>
+        <tag>一人旅</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一人旅 茨城県大甕徒歩観光モデルコース（日立灯台,久慈浜海水浴場,水木海水浴場）</title>
     <url>//travel/solo/oomika/</url>
     <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は1月3日雪が降ってテンションが爆上がりしたので<span class="mark-y">茨城県の大甕周辺に突発無計画一人旅をしてきました。</span></p>
@@ -5956,150 +6090,6 @@ UMACAカードは即日配布なので、登録と同時にもらえます。<br
 <p><span class="mark-y">割と歩くので、カップルや家族で行くときは車やタクシーを使った方が絶対にいいと思います！</span></p>
 <p>一人で行く分には結構楽しめたので、また機会があったら行きたいですね！<br>水木海水浴場も途中で切り上げちゃいましたし、、、</p>
 <p>今回は以上です。<br>突発無計画旅行は楽しいですが、電車の予約は計画的に！<br>それではお疲れさまでした。</p>
-]]></content>
-      <categories>
-        <category>旅</category>
-      </categories>
-      <tags>
-        <tag>趣味</tag>
-        <tag>旅</tag>
-        <tag>一人旅</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>湊線で行く磯崎海岸と阿字ヶ浦の日帰り観光モデルルート</title>
-    <url>//travel/solo/isozaki/</url>
-    <content><![CDATA[<h2><span id="概要">概要</span></h2><p>こんにちは！<br>今回は<span class="mark-g">海を見に茨城県の磯崎海岸と阿字ヶ浦海水浴場をメインに日帰りで一人旅</span>をしてきました。</p>
-<p>結構いい感じに癒されて、おすすめできるルートなので、皆さんの旅の参考になりましたら幸いです！</p>
-<p>写真もたくさん撮ったので是非見ていってください(^^</p>
-<p>それでは見ていきましょう！</p>
-<span id="more"></span>
-
-<h2><span id="目次">目次</span></h2><div class="post-toc">
-
-<!-- toc -->
-
-<ul>
-<li><a href="#%E4%BB%8A%E5%9B%9E%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%88">今回のルート</a></li>
-<li><a href="#%E8%A6%B3%E5%85%89%E5%9C%B0">観光地</a><ul>
-<li><a href="#%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E6%B5%B7%E6%B5%9C%E9%89%84%E9%81%93%E6%B9%8A%E7%B7%9A">ひたちなか海浜鉄道湊線</a></li>
-<li><a href="#%E7%A3%AF%E5%B4%8E%E6%B5%B7%E5%B2%B8">磯崎海岸</a></li>
-<li><a href="#%E9%85%92%E5%88%97%E7%A3%AF%E5%89%8D%E7%A5%9E%E7%A4%BE">酒列磯前神社</a></li>
-<li><a href="#%E9%98%BF%E5%AD%97%E3%83%B6%E6%B5%A6%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">阿字ヶ浦海水浴場</a></li>
-<li><a href="#%E6%B5%9C%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%82%A3%E3%83%BC-%E3%81%82%E3%81%98%E3%81%B1%E3%82%93">浜ベーカリィー あじぱん</a></li>
-<li><a href="#%E5%8B%9D%E7%94%B0%E9%A7%85-%E9%A7%85%E4%B8%AD%E3%81%AE%E8%95%8E%E9%BA%A6%E5%B1%8B%E3%81%95%E3%82%93">勝田駅 駅中の蕎麦屋さん</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
-</ul>
-<!-- tocstop -->
-
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="今回のルート">今回のルート</span></h2><p>xx:xx　自宅～勝田駅（常磐線）<br>↓<br>10:45　勝田～磯崎（ひたちなか海浜鉄道湊線）<br>↓<br>11:00　磯崎海岸<br>↓<br>12:30　酒列磯前神社<br>↓<br>13:00　阿字ヶ浦海水浴場<br>↓<br>14:00　浜ベーカリィー あじぱん<br>↓<br>14:15　阿字ヶ浦～勝田（ひたちなか海浜鉄道湊線）<br>↓<br>15:00　勝田駅の蕎麦屋さん<br>↓<br>xx:xx　勝田駅～自宅（常磐線）</p>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="観光地">観光地</span></h2><h3><span id="ひたちなか海浜鉄道湊線">ひたちなか海浜鉄道湊線</span></h3><p><span class="mark-g">勝田駅から磯崎駅まではひたちなか海浜鉄道湊線で向かいます</span></p>
-<p>田んぼの間を電車が走るので運転席横の窓から見ると最高の景色でした。</p>
-<p>あとつり革が干し芋になっていてちょっと面白かった(^^</p>
-<p><span class="mark-y">料金については、駅員さんが「往復利用するなら一日利用券のほうが1000円だからお得だよ」と教えてくれたので、少しお得に利用できました！</span></p>
-<figure class="image-figure">
-  <figcaption>勝田駅</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_1.jpg" alt="勝田駅" title="勝田駅">
-</figure>
-
-<figure class="image-figure">
-  <figcaption>湊線一日フリー切符</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_2.jpg" alt="湊線一日フリー切符" title="湊線一日フリー切符">
-</figure>
-<figure class="image-figure">
-  <figcaption>湊線列車</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_3.jpg" alt="湊線列車" title="湊線列車">
-</figure>
-<figure class="image-figure">
-  <figcaption>湊線車内</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_4.jpg" alt="湊線車内" title="湊線車内">
-</figure>
-
-<h3><span id="磯崎海岸">磯崎海岸</span></h3><p><span class="mark-g">私が行った時間は人が居なくて、ほぼ独り占めできました！</span></p>
-<p><span class="mark-g">岩の海岸、、最高です！</span><br><span class="mark-g">波音もよく聞こえ気持ちよかったです！</span></p>
-<p>一応岩の上も歩けますが、時々グラグラする箇所があり自分は転びかけました(^^;<br>皆さんも気をつけて！</p>
-<p>またGoogleマップには、ヒトデの写真とかあったので期待してましたが、季節外れでしたので今回は残念。。</p>
-<p><span class="mark-r">周辺には焼きそばなどの軽食のお店はありましたが、レストランはないように見えます。</span></p>
-<p><span class="mark-y">岩場に座って小一時間ぼーっとするのにおすすめです！</span></p>
-<figure class="image-figure">
-  <figcaption>磯崎海岸を上から見た写真</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_5.jpg" alt="磯崎海岸を上から見た写真" title="磯崎海岸を上から見た写真">
-</figure>
-<figure class="image-figure">
-  <figcaption>磯崎海岸の浜の写真</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_6.jpg" alt="磯崎海岸の浜" title="磯崎海岸の浜">
-</figure>
-<figure class="image-figure">
-  <figcaption>磯崎海岸の石浜の写真</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_7.jpg" alt="磯崎海岸の石浜" title="磯崎海岸の石浜">
-</figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="酒列磯前神社">酒列磯前神社</span></h3><p>磯崎海岸から徒歩で行きました。</p>
-<p><span class="mark-g">横の入り口から入りましたが、鳥居が緑とマッチしてきれいでした！</span></p>
-<p>参道も自然を感じれるのでよかったです(^^</p>
-<figure class="image-figure">
-  <figcaption>酒列磯前神社裏鳥居</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_8.jpg" alt="酒列磯前神社裏鳥居" title="酒列磯前神社裏鳥居">
-</figure>
-
-<figure class="image-figure">
-  <figcaption>酒列磯前神社鳥居</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_9.jpg" alt="酒列磯前神社鳥居" title="酒列磯前神社鳥居">
-</figure>
-
-<h3><span id="阿字ヶ浦海水浴場">阿字ヶ浦海水浴場</span></h3><p>夏ならば海水浴場となり、人がごった返すであろう場所ですが、<span class="mark-g">シーズンオフなので釣り人が点々としてる程度でした。</span></p>
-<p><span class="mark-y">・その割には水は透き通って綺麗！</span><br><span class="mark-y">・オフシーズンなのに砂浜にゴミが落ちてなくて綺麗！</span><br><span class="mark-y">・人があんまりいない！</span></p>
-<p><span class="mark-r">なのでござを引いて海を眺めるのに最高です(^^#</span></p>
-<p>コーヒー持ってくればよかったな、、、<br>あと11月でも日差しが強かったので、日傘は必須ですね！</p>
-<figure class="image-figure">
-  <figcaption>阿字ヶ浦海水浴場 堤防</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_10.jpg" alt="阿字ヶ浦海水浴場 堤防" title="阿字ヶ浦海水浴場 堤防">
-</figure>
-<figure class="image-figure">
-  <figcaption>阿字ヶ浦海水浴場 砂浜</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_11.jpg" alt="阿字ヶ浦海水浴場 砂浜" title="阿字ヶ浦海水浴場 砂浜">
-</figure>
-<figure class="image-figure">
-  <figcaption>阿字ヶ浦海水浴場 海</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_12.jpg" alt="阿字ヶ浦海水浴場 海" title="阿字ヶ浦海水浴場 海">
-</figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h3><span id="浜ベーカリィー-あじぱん">浜ベーカリィー あじぱん</span></h3><p><span class="mark-g">ここまで朝から何も食べておらず、お腹が空いたな〜と思いながら海から駅に歩いてたら、なんとパン屋さんを発見！</span></p>
-<p>カレーパンとクリームパンを購入しました(^^</p>
-<p><span class="mark-y">カレーパンはノンフライなのでパサパサするかな？と思いましたがそんなことなく、カレーの優しい味とマッチしてとてもおいしかったです！</span></p>
-<p><span class="mark-y">クリームパンはクリームが上に乗っててかわいいです！</span><br><span class="mark-y">味の方は甘さ控えめで普段食べてるクリームパンより上品な味がしました。</span></p>
-<p>個人的にはカレーパンがかなり好みでしたのでまた行きたいな(^^</p>
-<figure class="image-figure">
-  <figcaption>浜ベーカリィー あじぱん</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_13.jpg" alt="浜ベーカリィー あじぱん" title="浜ベーカリィー あじぱん">
-</figure>
-
-<h3><span id="勝田駅-駅中の蕎麦屋さん">勝田駅 駅中の蕎麦屋さん</span></h3><p>唐揚げそばを食べました！</p>
-<p>一口目「唐揚げが冷たい？？？」ってなりましたが、これは冷たいほうがいいですね！<br><span class="mark-g">そばが温かいので、冷たい唐揚げと一緒に食べると最高に美味でした！</span></p>
-<p>勝田駅に立ち寄ったら是非食べてみてください(^^!</p>
-<figure class="image-figure">
-  <figcaption>勝田駅 駅中の蕎麦屋さん</figcaption>
-  <img src="/images/posts/20251124_trip_isozaki/trip_isozaki_14.jpg" alt="勝田駅 駅中の蕎麦屋さん" title="勝田駅 駅中の蕎麦屋さん">
-</figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>こんな感じで観光しました。<br>おやつの時間には帰路についてましたが、仕事の疲れはかなりとれる良い旅行でした！</p>
-<p>普段パソコンばかり見てる自分からすると、<span class="mark-y">車なしで砂浜と岩場両方の海が見れるのは最高ですね(^^</span></p>
-<p>皆さんもこんな感じのモデルコースで一人旅をしてみてはいかがでしょうか？</p>
-<p>以上、今回もお疲れさまでした。</p>
 ]]></content>
       <categories>
         <category>旅</category>
