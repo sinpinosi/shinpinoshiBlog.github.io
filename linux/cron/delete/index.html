@@ -140,7 +140,7 @@
 
 </div>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="手順">手順</span></h2><h3><span id="退避ディレクトリ作成">退避ディレクトリ作成</span></h3><p>リリース前のcron定義をバックアップするためのディレクトリを作成します。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [任意のディレクトリ]/cron_bk</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span> -l [任意のディレクトリ]</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">「cron_bk」フォルダが存在すること</span><br></pre></td></tr></table></figure>
@@ -151,7 +151,7 @@
 <h3><span id="現在定義されているcronの設定を確認">現在定義されているcronの設定を確認</span></h3><p>念のためcronに現在設定されている内容を確認します。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用観点</span></span><br><span class="line">削除対象のcronが存在すること</span><br></pre></td></tr></table></figure>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h3><span id="cronのバックアップと編集用ファイル作成">cronのバックアップと編集用ファイル作成</span></h3><p>cronのバックアップと編集用ファイルを作成する</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">crontab -l &gt; crontab.back</span><br><span class="line">crontab -l &gt; crontab.edit</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">下記ファイルが存在すること</span><br><span class="line">・crontab.edit</span><br><span class="line">・crontab.back</span><br></pre></td></tr></table></figure>
@@ -162,7 +162,7 @@
 <h3><span id="cronを適用">cronを適用</span></h3><p>編集用ファイルをcronに適用する</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">crontab crontab.edit		</span><br><span class="line"></span><br><span class="line"><span class="comment">##確認</span></span><br><span class="line"><span class="comment">###確認用コマンド</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="comment">###確認観点</span></span><br><span class="line">削除対象のcronが存在しないこと</span><br></pre></td></tr></table></figure>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="締め">締め</span></h2><p>色々な記事を見ましたが、cronを直接触るのは非常に危険とのことです。<br>（まぁ常時動いてるものを触るのは危険ですよねd(^_^o)）</p>
 <p>なので手順としては、編集用ファイルを作成して編集するようにしてます。<br>環境によっては使用できないコマンドもあるので、鵜呑みにして本番環境に流すのは絶対にやめましょう！</p>
@@ -239,12 +239,12 @@
 <p>初回普通にfaviconを設定していましたが、なかなか反映されず困ってましたが、<br>色々な方法を試して無事登録できたのでその方法を紹介していきます。</p>
 <p>同じように苦戦している方の参考になればうれしいです！</p>
 <p>Hexoを使用していない方もこの方法は有効だと思うので、是非見ていってください(^^&#x2F;s</p></p></div></li></ul>
-  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
         </aside>
       
   </article>
-  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <footer id="footer" class="inner">
     
   <!-- プロフィール -->
@@ -298,13 +298,13 @@
     </div>
   </div>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <div id="footer-widget">
   <div class="widget-container">
     
       
 <div class="widget tag">
-  <h3 class="title">Category</h3>
+  <h3 class="title">Categories</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>13</small></li>
@@ -420,7 +420,7 @@
 
   </footer>
 
-  <!-- 
+  
     <div id="comm-overlay">
       <div id="comm-modal">
         <image src="/images/common/header_logo.png" alt="site-logo"></image>
@@ -485,6 +485,6 @@
 
       
     </script>
-   -->
+  
 </body>
 </html>

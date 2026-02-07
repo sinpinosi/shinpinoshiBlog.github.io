@@ -151,7 +151,7 @@
 
 </div>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="経緯">経緯</span></h2><p>実装した経緯としては、<span class="mark-r">Google AdSenseで「無効な操作: 自己クリック」が検知され、そのままアカウント停止をされたことにあります。</span></p>
 <p>ただ自分の方では心当たりがなく、<span class="mark-y">firebase Analyticsで調査したところ、広告が停止された時間と同時刻に60並列での同時接続が確認されました。</span></p>
@@ -174,6 +174,8 @@
 
 <p><strong>＜対応前のアクセス順序＞</strong><br>ブラウザ　→　お名前.com　→　Github Pages</p>
 <p><strong>＜対応後のアクセス順序＞</strong><br>ブラウザ　→　お名前.com　→　<span class="mark-r">cloudflare</span> →　Github Pages</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 <h2><span id="実装方法">実装方法</span></h2><h3><span id="1cloudflareにアカウント登録">1.cloudflareにアカウント登録</span></h3><p>下記にアクセスし、cloudflareのアカウントを作成します。<br><a target="_blank" rel="noopener" href="https://www.cloudflare.com/ja-jp/">https://www.cloudflare.com/ja-jp/</a></p>
 <h3><span id="2cloudflare-ns情報を取得する">2.cloudflare NS情報を取得する</span></h3><p>登録後<span class="mark-y">cloudflareの画面に表示されているNS（ネームサーバ）情報を取得</span>しておきます。</p>
 <p>※おそらく新規登録後の画面と下記の画像は少し違うと思います。画像は参考までに自身の画面に表示されているNS情報を取得しておいてください。</p>
@@ -191,7 +193,7 @@
 自分の場合、数分で設定が適用されたので、数分待っても画面が表示されていない場合は、何か間違えてるかも？
 </div>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h3><span id="4bot対策用の設定を行う">4.Bot対策用の設定を行う</span></h3><p>cloudflareに入れたら、<span class="mark-y">Bot対策として「ボットファイトモード」を設定します。</span></p>
 <p><span class="mark-g">これだけでBotと疑わしきアクセスにはチャレンジを表示されるようになります。</span></p>
@@ -204,7 +206,7 @@
 <p>無料でここまでできるの助かりますよね！</p>
 <img src="/images/posts/20251215_cloudflare/cloudflare_7.png" alt="cloudflare セキュリティルール" title="cloudflare セキュリティルール">
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="確認">確認</span></h2><h3><span id="サイトにcloudflareが適用されていることを確認">サイトにcloudflareが適用されていることを確認</span></h3><p><span class="mark-y">セキュリティルールに自分のIPを設定して、自分のサイトにcloudflareが設定されていることを確認します。</span></p>
 <p>セキュリティルールに下記のように設定すればOKです。</p>
@@ -231,7 +233,7 @@
 「User-Agent Switcher」 というChromeの拡張機能を使えば自分でもbotアクセスを実施できますが、複雑なのと、間違えて他サイトにアクセスするとBot判定され、アクセス拒否されることがあるので、自信がある人以外はやらないことをお勧めします。
 </div>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="締め">締め</span></h2><p>こんな感じで無料かつ簡単にセキュリティを高めることができます。</p>
 <p><span class="mark-r">インターネットには、悪い人たちがたくさんいるので、自分のサイトは自分で守ることが大切ですね。</span><br>自分も今回の件で改めて実感しました。</p>
@@ -292,13 +294,13 @@
         <aside id="sidebar">
           <div class="related-posts">
   <h3>関連記事</h3>
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事に自動で目次を付ける（テーマ：light）\" title="【Hexo】記事に自動で目次を付ける（テーマ：light）" rel="bookmark">【Hexo】記事に自動で目次を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事の書き方（マークダウン）について（テーマ：light）\" title="【Hexo】記事の書き方（マークダウン）について（テーマ：light）" rel="bookmark">【Hexo】記事の書き方（マークダウン）について（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】コードブロックにファイル名を入れる（テーマ：light）\" title="【Hexo】コードブロックにファイル名を入れる（テーマ：light）" rel="bookmark">【Hexo】コードブロックにファイル名を入れる（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2025\10\13\【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）\" title="【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" rel="bookmark">【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】サイトマップを自動で作成（テーマ：light）\" title="【Hexo】サイトマップを自動で作成（テーマ：light）" rel="bookmark">【Hexo】サイトマップを自動で作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p></p></div></li></ul>
-  
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事に自動で目次を付ける（テーマ：light）\" title="【Hexo】記事に自動で目次を付ける（テーマ：light）" rel="bookmark">【Hexo】記事に自動で目次を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】コードブロックにファイル名を入れる（テーマ：light）\" title="【Hexo】コードブロックにファイル名を入れる（テーマ：light）" rel="bookmark">【Hexo】コードブロックにファイル名を入れる（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>コードブロックにQiitaみたいなファイル名があると便利なので、作ってみる</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事の書き方（マークダウン）について（テーマ：light）\" title="【Hexo】記事の書き方（マークダウン）について（テーマ：light）" rel="bookmark">【Hexo】記事の書き方（マークダウン）について（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>マークダウンについて自分用にメモをする</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】サイトマップを自動で作成（テーマ：light）\" title="【Hexo】サイトマップを自動で作成（テーマ：light）" rel="bookmark">【Hexo】サイトマップを自動で作成（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>GoogleSearchConsoleにて、インデックス登録が「クロール済み-インデックス未登録」となっていたので、問題を修正する</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2025\10\13\【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）\" title="【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）" rel="bookmark">【Hexo】コードブロックにプログラム言語別で色を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Qiitaのコードブロックのようにプログラム言語別で色（ハイライト）を付ける<br>※下記は変更前</p></p></div></li></ul>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
         </aside>
       
   </article>
-  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   <footer id="footer" class="inner">
     
   <!-- プロフィール -->
@@ -352,13 +354,13 @@
     </div>
   </div>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><!-- スクエア広告 --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8290631609177926" data-ad-slot="5755040507" data-ad-format="auto" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <div id="footer-widget">
   <div class="widget-container">
     
       
 <div class="widget tag">
-  <h3 class="title">Category</h3>
+  <h3 class="title">Categories</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>13</small></li>
@@ -474,7 +476,7 @@
 
   </footer>
 
-  <!-- 
+  
     <div id="comm-overlay">
       <div id="comm-modal">
         <image src="/images/common/header_logo.png" alt="site-logo"></image>
@@ -539,6 +541,6 @@
 
       
     </script>
-   -->
+  
 </body>
 </html>
