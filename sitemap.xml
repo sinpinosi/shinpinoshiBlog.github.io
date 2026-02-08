@@ -591,6 +591,20 @@
   </url>
   
   <url>
+    <loc>https://shinpinoshi.com/tags/%E3%83%96%E3%83%AD%E3%82%B0/</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/Cloudflare/</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://shinpinoshi.com/tags/NodeJs/</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -606,20 +620,6 @@
   
   <url>
     <loc>https://shinpinoshi.com/tags/HULFT/</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/%E3%83%96%E3%83%AD%E3%82%B0/</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/Cloudflare/</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -675,14 +675,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/</loc>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://shinpinoshi.com/tags/%E6%96%B0%E4%BA%BA/</loc>
+    <loc>https://shinpinoshi.com/tags/%E8%B2%AF%E9%87%91/</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -703,7 +696,7 @@
   </url>
   
   <url>
-    <loc>https://shinpinoshi.com/tags/%E8%B2%AF%E9%87%91/</loc>
+    <loc>https://shinpinoshi.com/tags/%E6%96%B0%E4%BA%BA/</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -718,6 +711,13 @@
   
   <url>
     <loc>https://shinpinoshi.com/tags/%E3%81%8A%E9%87%91/</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://shinpinoshi.com/tags/%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
