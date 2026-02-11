@@ -3,13 +3,15 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
   <meta charset="utf-8">
   
-  <title>無料でウェブサイトのユーザー属性と操作を記録する（googleアナリティクス）</title>
+  <title>Googleアドセンスの不合格理由と具体的な改善案（合格者レポート）</title>
   <meta name="author" content="shinpinoshi">
   
-    <meta name="description" content="概要GoogleSearchConsoleだと訪問人数程度しかわからず正直物足りません。
-オンラインでどれくらい人が居るのか、どんな操作をしたのかなどもう少し詳しくデータを集めたいので、今回はfirebase analyticsを使用して、確認してみたいと思います。
-ちなみに無料で実装できます！便利すぎますね！  
-初心者にもわかりやすいように書いていくので、良ければ見ていってください。">
+    <meta name="description" content="概要今回はGoogleアドセンスの不合格理由と具体的な改善案を実際に自分がやったことベースでお話していこうと思います。
+Googleアドセンスの審査は落ちた理由があいまいに書かれてよくわからないことも多いです。自分も3回ほど不合格となり、わけもわからずでした。
+そんな自分でもネットで色々調べたりしてトライ＆エラーを何度も繰り返しようやく合格できたので、ここでは実際に試したことを書いていきたいと思います。
+不合格のループに入ってしまっている方の助けになれたらうれしいです！
+またここでは合格するための改善案だけではなく、サイトを運用するうえで推奨される設定についても紹介しています。アドセンス合格後に問題があったときに調査の助けとなるのでやっておくとよいと思います。
+それではやっていきましょう！">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -43,19 +45,21 @@
     }
   </script>
   
-  <meta property="og:url" content="https://shinpinoshi.com/hexo/firebase/analytics/" />
-  <meta property="og:title" content="無料でウェブサイトのユーザー属性と操作を記録する（googleアナリティクス）" />
+  <meta property="og:url" content="https://shinpinoshi.com/engineering/google/adsence/sinsa/" />
+  <meta property="og:title" content="Googleアドセンスの不合格理由と具体的な改善案（合格者レポート）" />
 
   
     <meta property="og:type" content="article">
   
 
   
-    <meta property="og:image" content="https://shinpinoshi.com/images/cover/hexo_firebase_analytics_.jpg" />
-    <meta property="og:description" content="概要GoogleSearchConsoleだと訪問人数程度しかわからず正直物足りません。
-オンラインでどれくらい人が居るのか、どんな操作をしたのかなどもう少し詳しくデータを集めたいので、今回はfirebase analyticsを使用して、確認してみたいと思います。
-ちなみに無料で実装できます！便利すぎますね！  
-初心者にもわかりやすいように書いていくので、良ければ見ていってください。" />
+    <meta property="og:image" content="https://shinpinoshi.com/images/cover/engineering_google_adsence_sinsa_.jpg" />
+    <meta property="og:description" content="概要今回はGoogleアドセンスの不合格理由と具体的な改善案を実際に自分がやったことベースでお話していこうと思います。
+Googleアドセンスの審査は落ちた理由があいまいに書かれてよくわからないことも多いです。自分も3回ほど不合格となり、わけもわからずでした。
+そんな自分でもネットで色々調べたりしてトライ＆エラーを何度も繰り返しようやく合格できたので、ここでは実際に試したことを書いていきたいと思います。
+不合格のループに入ってしまっている方の助けになれたらうれしいです！
+またここでは合格するための改善案だけではなく、サイトを運用するうえで推奨される設定についても紹介しています。アドセンス合格後に問題があったときに調査の助けとなるのでやっておくとよいと思います。
+それではやっていきましょう！" />
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@shinpinoshi" />
@@ -63,7 +67,7 @@
   <meta property="og:locale" content="ja_JP" />
 
   
-    <meta name="thumbnail" content="https://shinpinoshi.com/images/cover/hexo_firebase_analytics_.jpg" />
+    <meta name="thumbnail" content="https://shinpinoshi.com/images/cover/engineering_google_adsence_sinsa_.jpg" />
   
 
 
@@ -85,7 +89,7 @@
       <div id="content" class="inner-width-post">
     
         <div id="main-col" class="alignleft"><div id="wrapper">
-<article id="post-hexo-20251124-無料でウェブサイトのユーザー属性と操作を記録する（googleアナリティクス）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-Googleアドセンスの不合格理由と具体的な改善案（合格者レポート）" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     <nav class="breadcrumb">
   <a href="/">Home</a>
@@ -98,7 +102,7 @@
   
   
     &nbsp;>&nbsp;
-    <span>無料でウェブサイトのユーザー属性と操作を記録する（googleアナリティクス）</span>
+    <span>Googleアドセンスの不合格理由と具体的な改善案（合格者レポート）</span>
   
 </nav>
 
@@ -108,20 +112,22 @@
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2025-11-24T13:06:31.000Z">2025-11-24</time>
+        <time class="dt-published" datetime="2026-02-11T07:10:54.000Z">2026-02-11</time>
       
       
   
-    <h1 class="p-name title" itemprop="headline name">無料でウェブサイトのユーザー属性と操作を記録する（googleアナリティクス）</h1>
+    <h1 class="p-name title" itemprop="headline name">Googleアドセンスの不合格理由と具体的な改善案（合格者レポート）</h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h2><span id="概要">概要</span></h2><p>GoogleSearchConsoleだと<span class="mark-y">訪問人数程度しかわからず</span>正直物足りません。</p>
-<p><span class="mark-g">オンラインでどれくらい人が居るのか、どんな操作をしたのか</span>などもう少し詳しくデータを集めたいので、<br>今回は<span class="mark-r">firebase analytics</span>を使用して、確認してみたいと思います。</p>
-<p><span class="mark-y">ちなみに無料で実装できます！</span><br>便利すぎますね！  </p>
-<p>初心者にもわかりやすいように書いていくので、良ければ見ていってください。</p>
+        <h2><span id="概要">概要</span></h2><p>今回は<span class="mark-y">Googleアドセンスの不合格理由と具体的な改善案を</span><br><span class="mark-y">実際に自分がやったことベースでお話していこうと思います。</span></p>
+<p>Googleアドセンスの審査は落ちた理由があいまいに書かれてよくわからないことも多いです。<br>自分も3回ほど不合格となり、わけもわからずでした。</p>
+<p>そんな自分でもネットで色々調べたりしてトライ＆エラーを何度も繰り返しようやく合格できたので、<br>ここでは実際に試したことを書いていきたいと思います。</p>
+<p><span class="mark-g">不合格のループに入ってしまっている方の助けになれたらうれしいです！</span></p>
+<p>またここでは合格するための改善案だけではなく、<span class="mark-y">サイトを運用するうえで推奨される設定についても紹介しています。</span><br><span class="mark-g">アドセンス合格後に問題があったときに調査の助けとなるのでやっておくとよいと思います。</span></p>
+<p>それではやっていきましょう！</p>
 <span id="more"></span>
 
 <h2><span id="目次">目次</span></h2><div class="post-toc">
@@ -129,16 +135,20 @@
 <!-- toc -->
 
 <ul>
-<li><a href="#%E7%92%B0%E5%A2%83">環境</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95">方法</a><ul>
-<li><a href="#firebase%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">firebaseのプロジェクトを作成する</a></li>
-<li><a href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%81%ABcdn%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B">サイトにCDNを追加する</a></li>
-<li><a href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B">サイトをデプロイする</a></li>
+<li><a href="#%E4%B8%8D%E5%90%88%E6%A0%BC%E8%84%B1%E5%8D%B4%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E6%94%B9%E5%96%84%E6%A1%88">不合格脱却のための改善案</a><ul>
+<li><a href="#%E8%A8%98%E4%BA%8B%E3%82%92%E6%95%B0%E6%9C%AC%E4%B8%8A%E3%81%92%E3%82%8B">記事を数本上げる</a></li>
+<li><a href="#%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85-%E3%81%AE%E4%BD%9C%E6%88%90">プライバシーポリシー・免責事項 の作成</a></li>
+<li><a href="#%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%81%AE%E4%BD%9C%E6%88%90">お問い合わせフォームの作成</a></li>
+<li><a href="#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E6%88%90">自己紹介ページの作成</a></li>
+<li><a href="#%E3%83%91%E3%83%B3%E3%81%8F%E3%81%9A%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90">パンくずリストの作成</a></li>
+<li><a href="#%E8%A6%8B%E3%82%84%E3%81%99%E3%81%8F%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E5%B7%A5%E5%A4%AB">見やすくするための工夫</a></li>
+<li><a href="#googlesearchconsole%E3%81%B8%E3%81%AE%E7%99%BB%E9%8C%B2">GoogleSearchConsoleへの登録</a></li>
+<li><a href="#%E8%B3%AA%E3%81%8C%E9%AB%98%E3%81%84%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%92%E6%8A%95%E7%A8%BF">質が高いコンテンツを投稿</a></li>
 </ul>
 </li>
-<li><a href="#%E7%A2%BA%E8%AA%8D">確認</a><ul>
-<li><a href="#firebase-analytics%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%8C%E5%AE%8C%E4%BA%86%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8">firebase Analyticsの設定が完了していること</a></li>
-<li><a href="#firebase-analytics%E3%81%A7%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AE%E6%93%8D%E4%BD%9C%E3%82%92%E7%A2%BA%E8%AA%8D">firebase Analyticsでユーザの操作を確認</a></li>
+<li><a href="#%E4%BB%BB%E6%84%8F%E3%81%A7%E3%82%84%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E8%A8%AD%E5%AE%9A">任意でやっておきたい設定</a><ul>
+<li><a href="#firebase-consolegoogle%E3%82%A2%E3%83%8A%E3%83%AA%E3%83%86%E3%82%A3%E3%82%AF%E3%82%B9%E3%81%B8%E3%81%AE%E7%99%BB%E9%8C%B2">firebase console（Googleアナリティクス）への登録</a></li>
+<li><a href="#bot%E3%81%AE%E5%AF%BE%E7%AD%96cloudflare">Botの対策（cloudflare）</a></li>
 </ul>
 </li>
 <li><a href="#%E7%B7%A0%E3%82%81">締め</a></li>
@@ -149,67 +159,64 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="環境">環境</span></h2><p><strong>＜サーバ＞</strong><br>GithubPages</p>
-<p><strong>＜ライブラリ＞</strong><br>Hexo（静的HTML生成ツール）</p>
-<div class="notice notice-info">
-基本的にはHTMLでの対応となりますので、どんな環境でも問題なく実装できると思います。
-</div>
-
+<h2><span id="不合格脱却のための改善案">不合格脱却のための改善案</span></h2><h3><span id="記事を数本上げる">記事を数本上げる</span></h3><p><span class="mark-y">審査を通すためにいくつか記事を投稿します。</span><br>自分が通したときは<span class="mark-r">“15本以上の記事”を投稿したとき</span>でした。</p>
+<p><span class="mark-g">自分のブログを見ればわかりますが、記事の長さは重要ではないように思います。</span><br><span class="mark-g">それよりも、「見た人がいいサイトだと思えるコンテンツを作ること」の方が大事</span>なのではないかと思います。</p>
+<p>ちなみに自分のブログの場合、700文字～2000文字程度の記事が多いです。</p>
+<p>むろん質を上げるためには文字数が勝手に多くなるので、あまり意識することでもないかと思います。<br>少なくとも文字数を稼ぐためにわざと遠回しな表現をするなどは不要だと思います。</p>
+<p>UXも落ちるのでよくないですね！</p>
+<h3><span id="プライバシーポリシー免責事項-の作成">プライバシーポリシー・免責事項 の作成</span></h3><p><span class="mark-y">プライバシーポリシーと免責事項 を作ることは必須です。</span></p>
+<p><span class="mark-g">サイトを利用する上で、「サイト利用時の注意点」や、「責任の所在」などを書きます。</span></p>
+<p>例えば、サーバで実行するコマンドなどを掲載している場合、<br>「そのコマンドを実行して何か損失があっても責任を負いませんよ」ということをここに書いておきます。</p>
+<p>Adsenseを通すのはもちろんですが、自分を守るためにもしっかり書いていきましょう！</p>
+<p>ちなみに自分のサイトではプライバシーポリシーの実装方法を記載してます。<br>良ければどうぞ(^^b</p>
+<p><a href="/hexo/privacypolicy/" title="プライバシーポリシー作成">プライバシーポリシー作成</a></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="方法">方法</span></h2><h3><span id="firebaseのプロジェクトを作成する">firebaseのプロジェクトを作成する</span></h3><h4><span id="下記urlにアクセス">＞下記URLにアクセス</span></h4><p>下記URLを押下し、firebaseにアクセスします。<br><a target="_blank" rel="noopener" href="https://console.firebase.google.com/">https://console.firebase.google.com/</a></p>
-<h4><span id="プロジェクト作成を押下">＞プロジェクト作成を押下</span></h4><p><span class="mark-y">Firebaseプロジェクトを設定して開始</span>を押下します。<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_1.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="プロジェクト名を入れる">＞プロジェクト名を入れる</span></h4><p>プロジェクト名を入力し、続行を押下<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_2.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="googleアナリティクスを有効にする">＞Googleアナリティクスを有効にする</span></h4><p>ナビ通りに手順を進めると、<span class="mark-y">Googleアナリティクスの設定画面</span>が表示されます。<br><span class="mark-y">このプロジェクトでGoogleアナリティクスを有効にする</span>にチェックを入れて続行を押しましょう<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_3.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<p>※その後表示されるGoogleアナリティクスの構成は下記のような感じ<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_4.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="完了">＞完了</span></h4><p>下記のような画面が出ればプロジェクトの作成は完了<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_5.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+
+<h3><span id="お問い合わせフォームの作成">お問い合わせフォームの作成</span></h3><p><span class="mark-y">サイトに問題があったとき問い合わせできるように、問い合わせフォームを作っておくことが必要なようです。</span></p>
+<p>確かに何かと問い合わせをする事案は発生することがあると思うので、必須ですね。</p>
+<p>こちらについても作成方法を下記に記載しているのでよければどぞ！<br><span class="mark-r">ちなみに問い合わせフォームは完全無料で実装できます(^^!</span></p>
+<p><a href="/hexo/contact/" title="問い合わせフォーム作成">問い合わせフォーム作成</a></p>
+<h3><span id="自己紹介ページの作成">自己紹介ページの作成</span></h3><p><span class="mark-y">自己紹介ページを作成しておきます。</span><br>この記事を書いている人がどんな人なのか、記す必要があるということですね！</p>
+<p>自分の場合は、各記事のページにもプロフィールが表示されるようにしています(^^;</p>
+<p>自分が持っている資格などがある方は書いておくと説得性を持たせられるのでよいかもしれません、</p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h3><span id="サイトにcdnを追加する">サイトにCDNを追加する</span></h3><h4><span id="プロジェクト設定を開く">＞プロジェクト設定を開く</span></h4><p><span class="mark-y">設定マーク　→　プロジェクト設定</span>を選択<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_6.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="マイアプリからウェブを選択">＞マイアプリからウェブを選択</span></h4><p><span class="mark-y">全般　→　マイアプリ　→　ウェブ</span>を選択<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_7.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="アプリのニックネームを選択">＞アプリのニックネームを選択</span></h4><p>任意の名前でアプリのニックネームを登録<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_8.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
+<h3><span id="パンくずリストの作成">パンくずリストの作成</span></h3><p>今見ているページがサイトのどの位置なのか一目でわかるように、<span class="mark-y">パンくずリストを作成する必要があります。</span></p>
+<p>サイトの構造を把握しておく上でも便利なので、あったほうが良いですね！</p>
+<p>当サイトでも記事タイトルの上に配置しております。</p>
+<h3><span id="見やすくするための工夫">見やすくするための工夫</span></h3><p><span class="mark-y">ユーザが記事を見やすくするために色々工夫します。</span></p>
+<p>例えば、<br><span class="mark-r">・文字にマーカーを付けたり</span><br><span class="mark-r">・注意事項は背景を変更して囲いを付けたり</span><br>などです。</p>
+<p>少し面倒ですが、記事の見やすさはサイトの滞在時間にも影響するのでSEO的にもやっておいたほうが良いですね。</p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h4><span id="cdnを取得">＞CDNを取得</span></h4><p>FirebaseSDKで<span class="mark-y">&lt;script&gt;タグを使用する</span>を選択し、コードを取得する<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_9.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<h4><span id="htmlの一番下にcdnを追加">＞htmlの一番下にCDNを追加</span></h4><p>アナリティクスを取得したいhtmlの一番下に先ほど取得したCDNを追加する<br><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_10.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<div class="notice notice-warn">
-自分の場合、hexoを使用しているので、article.ejsにCDNを追加しました。
-</div>
-
+<h3><span id="googlesearchconsoleへの登録">GoogleSearchConsoleへの登録</span></h3><p><span class="mark-y">GooglesearchConsoleへの登録を行い、サイトがGoogle検索に表示されるようにします。</span></p>
+<p><span class="mark-g">他にも不要になったサイトを一時的に削除したり、サイトの改善点などを教えてくれるので登録しておきましょう！</span><br>（Adsenseの審査に必須かといわれるとビミョーですが、無いとブログ運営なんてできないので必須としてます）</p>
+<p>登録自体も数分でできるので絶対にやっておきましょう！</p>
+<h3><span id="質が高いコンテンツを投稿">質が高いコンテンツを投稿</span></h3><p><span class="mark-y">ブログに投稿している記事は質の高いコンテンツである必要があります。</span></p>
+<p>これはブログを書く人なら無意識にやってることなので、そこまで重要ではないです。</p>
+<p>見た人が「サイトを見てよかった！」と思えるようなコンテンツを作ることが大切です。</p>
+<p>例えば、下記のサイトは質が低いですよね<br><span class="mark-r">・他サイトのパクリ</span><br><span class="mark-r">・タイトルと内容が全く違うページ</span><br><span class="mark-r">・結論がなく何が言いたいのかわからないページ</span><br>これらは質の高いコンテンツとは言えませんよね。</p>
+<p><span class="mark-g">要は「人が見たときに良いと思ってもらえるコンテンツを作る 」ことが大切ということです(^^&#x2F;</span></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h3><span id="サイトをデプロイする">サイトをデプロイする</span></h3><p>CDNを追加したHTMLをサーバにデプロイします。</p>
-<p>私の場合は下記コマンドを使用してgithubPagesへのデプロイをしました。</p>
-<p class="codeblock-filename"><span>コマンド</span></p>
-
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean; hexo g; hexo deploy;</span><br></pre></td></tr></table></figure>
-<div class="notice notice-warn">
-push後しばらくしてgithubよりシークレットが含まれていると警告メールが来ました。
-その場合は、GitHubを開き警告を解除しておきましょう。
-</div>
-
+<h2><span id="任意でやっておきたい設定">任意でやっておきたい設定</span></h2><h3><span id="firebase-consolegoogleアナリティクスへの登録">firebase console（Googleアナリティクス）への登録</span></h3><p><span class="mark-y">firebase consoleに登録しておきます。</span></p>
+<p><span class="mark-g">メリットはユーザが「どの端末」で「どの地域」から「どんな操作をしたのか」確認できることです。</span><br><span class="mark-g">また新規で何人ブログを見たのかを確認できるので、モチベアップの効果もあります(^^b</span></p>
+<p>障害や問題が発生したときの調査にも使用できます！<br>実際自分の場合は、不正な多重アクセスがありアドセンスが停止されたことがあります。</p>
+<p>こういったときにGoogleにアクセス元などの情報を渡す必要が出てくるので、とても便利です。</p>
+<p>GoogleSearchConsoleよりさらに詳細な情報を確認できるので、入れておいたほうが良いです。</p>
+<h3><span id="botの対策cloudflare">Botの対策（cloudflare）</span></h3><p><span class="mark-y">Botへの対策としてcloudflareを使用します。</span></p>
+<p><span class="mark-g">悪質なBotや人をアクセス元やIPアドレス単位でブロックできます。</span><br>また異常な操作をするユーザもブロックできるのでやるべきだと思います。</p>
+<p><span class="mark-r">これだけの機能があるのになんと無料で利用できます！</span></p>
+<p>インターネットには悪い人たちがたくさんいるので、<br>絶対に登録しておきましょう！</p>
+<p><span class="mark-g">少し設定が複雑なので、実装する際はしっかり勉強してからやることをお勧めします。</span></p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-<h2><span id="確認">確認</span></h2><h3><span id="firebase-analyticsの設定が完了していること">firebase Analyticsの設定が完了していること</span></h3><p>サイトにアクセスし、アナリティクスが機能していることを確認する<br><span class="mark-y">Analytics Dashboardのアクティブユーザに人数が表示されればOKです。</span></p>
-<p><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_11.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<div class="notice notice-info">
-反映まで結構時間かかるかもしれません。
-気長に待ちましょう！
-</div>
-
-<h3><span id="firebase-analyticsでユーザの操作を確認">firebase Analyticsでユーザの操作を確認</span></h3><p>自分のサイトでユーザがどんな操作をしているかを確認する<br><span class="mark-y">Realtime Analyticsを確認すると</span><br><span class="mark-y">・どんな場所からアクセスされたのか</span><br><span class="mark-y">・どんな操作をしたのか</span><br>など色々と確認できます。</p>
-<p><img src="/images/posts/20251124_firebase_analytics/firebase_analytics_12.png" alt="プロジェクト作成" title="プロジェクト作成"></p>
-<div class="notice notice-info">
-ちなみに画像右上の<span class="mark-g">Googleアナリティクスで表示</span>を選択するとさらに詳しい情報が見れます。
-ここでは紹介しませんが、更に詳しい情報を知りたい方は見てみると面白いと思います。
-</div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<h2><span id="締め">締め</span></h2><p>ユーザがどんな操作をしたのか結構気になってたので、簡単に実装できてよかったです！</p>
-<p>HTMLにタグを追加するだけで実装できるのは便利ですね、<br>ユーザの操作まで見れるのは結構でかい！<br>しかも無料！！</p>
-<p>大きいウェブサイトになれば需要を確認するのに役立つので、かなり便利そうです！</p>
-<p>以上お疲れさまでした。</p>
+<h2><span id="締め">締め</span></h2><p>以上となります。<br><span class="mark-g">GoogleAdsenseの申請には結構な時間と労力が必要ですが、合格したらメリットはとても大きいです！</span></p>
+<p>ポリシーを準拠する必要はありますが、好きなことを書いてお金を稼げますし(^^;</p>
+<p>苦戦している人はここに書いてあることを試して是非チャレンジしてみてください！</p>
+<p><span class="mark-r">自分のブログではこういった技術的な悩みや節約についてをメインに色々紹介しております。</span><br><span class="mark-r">他の記事も是非見ていってください！</span></p>
+<p>以上<br>ブログを書いてお金を稼ぐそれって最高じゃん！<br>それではお疲れさまでした！</p>
 
       
     </div>
@@ -224,7 +231,7 @@ push後しばらくしてgithubよりシークレットが含まれていると�
         
   
   <div class="tags">
-    <a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>, <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a>, <a href="/tags/firebase/">firebase</a>
+    <a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>, <a href="/tags/Google/">Google</a>, <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/">ブログ</a>
   </div>
 
       
@@ -266,12 +273,9 @@ push後しばらくしてgithubよりシークレットが含まれていると�
           <div class="related-posts">
   <h3>関連記事</h3>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\google\adsence\sinsa\" title="Googleアドセンスの不合格理由と具体的な改善案（合格者レポート）" rel="bookmark">Googleアドセンスの不合格理由と具体的な改善案（合格者レポート）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">Googleアドセンスの不合格理由と具体的な改善案を</span><br><span class="mark-y">実際に自分がやったことベースでお話していこうと思います。</span></p>
-<p>Googleアドセンスの審査は落ちた理由があいまいに書かれてよくわからないことも多いです。<br>自分も3回ほど不合格となり、わけもわからずでした。</p>
-<p>そんな自分でもネットで色々調べたりしてトライ＆エラーを何度も繰り返しようやく合格できたので、<br>ここでは実際に試したことを書いていきたいと思います。</p>
-<p><span class="mark-g">不合格のループに入ってしまっている方の助けになれたらうれしいです！</span></p>
-<p>またここでは合格するための改善案だけではなく、<span class="mark-y">サイトを運用するうえで推奨される設定についても紹介しています。</span><br><span class="mark-g">アドセンス合格後に問題があったときに調査の助けとなるのでやっておくとよいと思います。</span></p>
-<p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\cloudflare\accessblock\" title="Cloudflareで不正アクセスを拒否する方法（Googleアドセンスが停止された話）" rel="bookmark">Cloudflareで不正アクセスを拒否する方法（Googleアドセンスが停止された話）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">無料でブログへの不信なアクセスを拒否するためにcloudflareを使用してみようと思います。</span></p>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\googlesearch\images\" title="Google画像検索にサイトの画像を表示させる方法（サイズ,タグ,sitemap）" rel="bookmark">Google画像検索にサイトの画像を表示させる方法（サイズ,タグ,sitemap）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">Google画像検索に自分のサイトの画像を表示させる方法</span>を紹介します。</p>
+<p>自分の場合、<span class="mark-g">旅行の記事を書いていたのですが、旅先で撮った写真が画像検索に登録されない事情が起きてました。</span></p>
+<p>なぜ？と思い色々試した結果、無事Googleの画像検索結果に引っかかるようになったので、<br>を紹介して記載していきます！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\cloudflare\accessblock\" title="Cloudflareで不正アクセスを拒否する方法（Googleアドセンスが停止された話）" rel="bookmark">Cloudflareで不正アクセスを拒否する方法（Googleアドセンスが停止された話）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">無料でブログへの不信なアクセスを拒否するためにcloudflareを使用してみようと思います。</span></p>
 <p><span class="mark-g">自動でBotを検知し確認＆ブロックしてくれる</span>のでとても便利です。</p>
 <p>しかも<span class="mark-g">サーバを移したり、ドメインを移管する必要はなく、少しの設定で簡単に実装できます。</span></p>
 <p>経緯も含め、同じように困っている方もいると思うので、そのような方の参考になると嬉しいです。</p>
