@@ -83,7 +83,7 @@ body {
 } 
 
 /* commblock */
-#comm-overlay {
+#comm-ova {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
@@ -96,7 +96,7 @@ body {
   justify-content: center;
 }
 
-#comm-modal {
+#comm-ml {
   background: #ffffff;
   border: #ffdb77 10px solid;
   color: #222;
@@ -106,24 +106,24 @@ body {
   text-align: center;
 }
 /* ===== Title ===== */
-#comm-modal img {
+#comm-ml img {
   height: 40px;
   margin: 0 0 12px;
 }
-#comm-modal h2 {
+#comm-ml h2 {
   margin: 0 0 12px;
   font-size: 18px;
   font-weight: 600;
 }
 /* ===== Text ===== */
-#comm-modal p {
+#comm-ml p {
   margin: 0 0 18px;
   font-size: 14px;
   line-height: 1.6;
   color: #555;
 }
 /* Secondary */
-#comm-modal .btn-secondary {
+#comm-ml .btn-sc {
   font-weight: bold;
   font-size: 16px;  
   background: #40abfd;

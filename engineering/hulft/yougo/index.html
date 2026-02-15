@@ -218,7 +218,7 @@ HULFTの大枠をとらえる上で重要な単語をピックアップしてい
         
   
   <div class="tags">
-    <a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>, <a href="/tags/%E3%81%BE%E3%81%A8%E3%82%81/">まとめ</a>, <a href="/tags/HULFT/">HULFT</a>
+    <a href="/tags/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%83%AA%E3%83%B3%E3%82%B0/">エンジニアリング</a>, <a href="/tags/HULFT/">HULFT</a>, <a href="/tags/%E3%81%BE%E3%81%A8%E3%82%81/">まとめ</a>
   </div>
 
       
@@ -273,7 +273,11 @@ HULFTの大枠をとらえる上で重要な単語をピックアップしてい
 <p>そんな自分でもネットで色々調べたりしてトライ＆エラーを何度も繰り返しようやく合格できたので、<br>ここでは実際に試したことを書いていきたいと思います。</p>
 <p><span class="mark-g">不合格のループに入ってしまっている方の助けになれたらうれしいです！</span></p>
 <p>またここでは合格するための改善案だけではなく、<span class="mark-y">サイトを運用するうえで推奨される設定についても紹介しています。</span><br><span class="mark-g">アドセンス合格後に問題があったときに調査の助けとなるのでやっておくとよいと思います。</span></p>
-<p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\【Hexo】記事に自動で目次を付ける（テーマ：light）\" title="【Hexo】記事に自動で目次を付ける（テーマ：light）" rel="bookmark">【Hexo】記事に自動で目次を付ける（テーマ：light）</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Webページにどんなことが書いてあるかわかりにくいので、<br>記事に目次を付けてみる</p></p></div></li></ul>
+<p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\programming\draw_text_on_image\" title="Node.js ツールでサムネ画像に文字入れする方法【sharp,canvas】" rel="bookmark">Node.js ツールでサムネ画像に文字入れする方法【sharp,canvas】</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>今回は<span class="mark-y">画像の中に文字を入れるツールを作るための手順</span>をお伝えします。</p>
+<p>というのも<span class="mark-y">記事を作るためにサムネイルを作成する必要があり「画像編集ツールを開く → 編集 → 出力 → アップロード」という作業を毎回やるのが超絶面倒(- -;</span></p>
+<p>「せや！コマンドラインだけで実行できたら楽やん！」って思ったののがきっかけです。</p>
+<p><span class="mark-g">NodeJsだけで完結するので、誰でも簡単に実装できる</span>と思います。</p>
+<p>それではやっていきましょう！</p></p></div></li></ul>
 </div>
         </aside>
       
@@ -453,8 +457,8 @@ HULFTの大枠をとらえる上で重要な単語をピックアップしてい
   </footer>
 
   
-    <div id="comm-overlay">
-      <div id="comm-modal">
+    <div id="comm-ova">
+      <div id="comm-ml">
         <image src="/images/common/header_logo.png" alt="site-logo"></image>
         <h2>広告ブロックが検出されました</h2>
         <p>
@@ -462,7 +466,7 @@ HULFTの大枠をとらえる上で重要な単語をピックアップしてい
           広告ブロックの解除に何卒ご協力お願いします(^^          
         </p>
         <div class="buttons">
-          <button class="btn-secondary" id="close-comm">閉じる</button>
+          <button class="btn-sc" id="c3-comm">閉じる</button>
         </div>
       </div>
     </div>
@@ -488,11 +492,11 @@ HULFTの大枠をとらえる上で重要な単語をピックアップしてい
         });
       }
       function showcommModal() {
-        document.getElementById('comm-overlay').style.display = 'flex';
+        document.getElementById('comm-ova').style.display = 'flex';
       }
 
       function hideCommModal() {
-        document.getElementById('comm-overlay').style.display = 'none';
+        document.getElementById('comm-ova').style.display = 'none';
       }
       function scheduleCommCheck() {
         // 二重予約防止
@@ -510,7 +514,7 @@ HULFTの大枠をとらえる上で重要な単語をピックアップしてい
         scheduleCommCheck();
       }, { once: true });
       
-      document.getElementById('close-comm').onclick = () => {
+      document.getElementById('c3-comm').onclick = () => {
         hideCommModal();
         scheduleCommCheck(); // 再判定
       };

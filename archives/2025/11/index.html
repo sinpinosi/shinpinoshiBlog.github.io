@@ -460,8 +460,8 @@
   </footer>
 
   
-    <div id="comm-overlay">
-      <div id="comm-modal">
+    <div id="comm-ova">
+      <div id="comm-ml">
         <image src="/images/common/header_logo.png" alt="site-logo"></image>
         <h2>広告ブロックが検出されました</h2>
         <p>
@@ -469,7 +469,7 @@
           広告ブロックの解除に何卒ご協力お願いします(^^          
         </p>
         <div class="buttons">
-          <button class="btn-secondary" id="close-comm">閉じる</button>
+          <button class="btn-sc" id="c3-comm">閉じる</button>
         </div>
       </div>
     </div>
@@ -495,11 +495,11 @@
         });
       }
       function showcommModal() {
-        document.getElementById('comm-overlay').style.display = 'flex';
+        document.getElementById('comm-ova').style.display = 'flex';
       }
 
       function hideCommModal() {
-        document.getElementById('comm-overlay').style.display = 'none';
+        document.getElementById('comm-ova').style.display = 'none';
       }
       function scheduleCommCheck() {
         // 二重予約防止
@@ -517,7 +517,7 @@
         scheduleCommCheck();
       }, { once: true });
       
-      document.getElementById('close-comm').onclick = () => {
+      document.getElementById('c3-comm').onclick = () => {
         hideCommModal();
         scheduleCommCheck(); // 再判定
       };
