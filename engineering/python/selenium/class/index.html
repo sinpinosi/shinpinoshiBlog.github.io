@@ -165,7 +165,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.keys <span class="keyword">import</span> Keys</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.select <span class="keyword">import</span> Select</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.service <span class="keyword">import</span> Service <span class="keyword">as</span> ChromeService</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MySelenium</span>:</span><br><span class="line">    driver=<span class="literal">None</span></span><br><span class="line">    url=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># classの初期化</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,url</span>):</span><br><span class="line">        <span class="variable language_">self</span>.url=url</span><br><span class="line">        <span class="variable language_">self</span>.get()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># urlの画面を開く</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">#不要なブラウザ制御コメントを非表示にする</span></span><br><span class="line">        ChromeOptions = webdriver.ChromeOptions()</span><br><span class="line">        ChromeOptions.add_experimental_option(<span class="string">&#x27;excludeSwitches&#x27;</span>, [<span class="string">&#x27;enable-logging&#x27;</span>])</span><br><span class="line">        <span class="comment">#driverオブジェクト作成</span></span><br><span class="line">        <span class="variable language_">self</span>.driver=webdriver.Chrome(options=ChromeOptions)</span><br><span class="line">        <span class="variable language_">self</span>.driver.get(<span class="variable language_">self</span>.url)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># フォームに文字を入力</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sendKeys</span>(<span class="params">self,<span class="built_in">type</span>,name,key</span>):</span><br><span class="line">        element = <span class="variable language_">self</span>.getWaitElement(<span class="built_in">type</span>,name)</span><br><span class="line">        element.send_keys(key)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># フォームをクリア</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">clearKeys</span>(<span class="params">self,<span class="built_in">type</span>,name</span>):</span><br><span class="line">        element = <span class="variable language_">self</span>.getWaitElement(<span class="built_in">type</span>,name)</span><br><span class="line">        element.clear()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># ボタン押下</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">clickButton</span>(<span class="params">self,<span class="built_in">type</span>,name</span>):</span><br><span class="line">        element = <span class="variable language_">self</span>.getClickElementWait(<span class="built_in">type</span>, name)</span><br><span class="line">        element.click() </span><br><span class="line"></span><br><span class="line">	<span class="comment"># 要素のテキストを取得</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getElementText</span>(<span class="params">self,<span class="built_in">type</span>,name</span>):</span><br><span class="line">        element = <span class="variable language_">self</span>.getWaitElement(<span class="built_in">type</span>,name)</span><br><span class="line">        <span class="keyword">return</span> element.text</span><br><span class="line">    </span><br><span class="line">	<span class="comment"># 複数要素を取得する</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getWaitElements</span>(<span class="params">self,<span class="built_in">type</span>,name</span>):</span><br><span class="line">        wait = WebDriverWait(<span class="variable language_">self</span>.driver, <span class="number">20</span>)</span><br><span class="line">        el = wait.until(expected_conditions.visibility_of_all_elements_located((<span class="built_in">type</span>,name)))</span><br><span class="line">        <span class="keyword">return</span> el </span><br><span class="line"></span><br><span class="line">	<span class="comment"># 要素を取得する</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getWaitElement</span>(<span class="params">self,<span class="built_in">type</span>,name</span>):</span><br><span class="line">        wait = WebDriverWait(<span class="variable language_">self</span>.driver, <span class="number">20</span>)</span><br><span class="line">        el =  wait.until(expected_conditions.visibility_of_element_located((<span class="built_in">type</span>,name)))</span><br><span class="line">        <span class="keyword">return</span> el </span><br><span class="line"></span><br><span class="line">	<span class="comment"># 要素取得し押下する</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getClickElementWait</span>(<span class="params">self,<span class="built_in">type</span>,name</span>):</span><br><span class="line">        wait = WebDriverWait(<span class="variable language_">self</span>.driver, <span class="number">20</span>)</span><br><span class="line">        <span class="keyword">return</span> wait.until(expected_conditions.element_to_be_clickable((<span class="built_in">type</span>,name)))</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 画面を閉じる</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">quit</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.driver.quit()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 画面をリセット</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reset</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.quit()</span><br><span class="line">        <span class="variable language_">self</span>.get()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="説明">説明</span></h2><h3><span id="初期化処理__init__">初期化処理（__init__）</span></h3><p><span class="mark-y">seleniumのクラスの初期化処理です。</span></p>
 <p>引数で指定したURLで画面を開く処理をしています。</p>
@@ -185,8 +184,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="urlの画面を開くget">urlの画面を開く（get）</span></h3><p><span class="mark-y">classに設定されているURLの画面を開きます。</span></p>
 <p><span class="mark-g">init処理でも使用しており、基本的に当クラス内でのみ呼び出すメソッドであり、直接使用することはほぼないと思います。</span></p>
 <p><span class="mark-g">内部では「add_experimental_option」を使用しており、selenium起動時にchromeの上に表示されるバーを消して、seleniumのgetメソッドで画面を開いています。</span></p>
@@ -197,9 +194,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 <p class="codeblock-filename"><span>呼び出し例</span></p>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.get()</span><br></pre></td></tr></table></figure>
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h3><span id="フォームに文字を入力sendkeys">フォームに文字を入力（sendKeys）</span></h3><p><span class="mark-y">引数で指定したフォームに文字を入力します。</span><br>フォームのinput要素などにこのメソッドを使えば簡単に文字を入れることができます。</p>
 <p><span class="mark-g">内部的にはページ下部で紹介している「getWaitElement」を呼び出し要素を取得、</span><br><span class="mark-g">seleniumの「send_keys」メソッドで文字を入力しています。</span></p>
@@ -232,8 +226,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="フォームの文字をクリアclearkeys">フォームの文字をクリア（clearKeys）</span></h3><p><span class="mark-y">フォームの文字をクリアします。</span></p>
 <p><span class="mark-g">内部的にはページ下部で紹介している「getWaitElement」を呼び出し要素を取得、</span><br><span class="mark-g">seleniumのclearメソッドを呼び出して要素をクリアしています。</span></p>
 <p class="codeblock-filename"><span>clearKeys</span></p>
@@ -260,8 +252,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 <li>typeで指定した種類のセレクタ</li></ul></li></ul></div>
 
 
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h3><span id="ボタン押下clickbutton">ボタン押下（clickButton）</span></h3><p><span class="mark-y">指定された要素のボタンを押下します。</span></p>
 <p><span class="mark-g">内部的にはページ下部で紹介している「getClickElementWait」を呼び出し要素を取得、</span><br><span class="mark-g">seleniumのclickメソッドを呼び出してボタンを押下しています</span></p>
@@ -290,8 +280,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="要素のテキストを取得getelementtext">要素のテキストを取得（getElementText）</span></h3><p><span class="mark-y">要素に書かれているテキストを取得します。</span></p>
 <p><span class="mark-g">内部的にはページ下部で紹介している「getWaitElement」を呼び出し要素を取得、</span><br><span class="mark-g">seleniumのtext変数からテキストを取得しています。</span></p>
 <p class="codeblock-filename"><span>getElementText</span></p>
@@ -317,8 +305,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 <li>typeで指定した種類のセレクタ</li></ul></li></ul></div>
 
 
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h3><span id="要素を複数取得getwaitelements">要素を複数取得（getWaitElements）</span></h3><p><span class="mark-y">要素を複数要素を取得します。</span></p>
 <p>例えば、特定のclassの要素を取得して、順番に文字を入れたい場合などに使用できます。<br>上で紹介したメソッドではカバーしきれない複雑な処理などに対応するために、作成しております。</p>
@@ -347,8 +333,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 <li>typeで指定した種類のセレクタ</li></ul></li></ul></div>
 
 
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h3><span id="要素を取得getwaitelement">要素を取得（getWaitElement）</span></h3><p><span class="mark-y">引数で指定した要素を取得します。</span></p>
 <p>基本的には当クラス内で呼び出すものですが、メソッドにない機能や複雑な処理を行いたい場合に使用します。</p>
@@ -379,8 +363,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="クリック可能な要素を取得getclickelementwait">クリック可能な要素を取得（getClickElementWait）</span></h3><p><span class="mark-y">クリック可能な要素を取得します。</span></p>
 <p>基本的には、当クラス内の「clickButton」メソッドで使用するものです。</p>
 <p>とはいえ特定のボタンが押下可能な状態かどうかを判定する処理などにも使えると思うので、一応紹介します。</p>
@@ -410,8 +392,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="画面を閉じるquit">画面を閉じる（quit）</span></h3><p><span class="mark-y">seleniumでの操作が完了したら呼び出す処理です。</span></p>
 <p>これをやらないと無駄にメモリを圧迫するので、処理の最後に必ずやっておきましょう！</p>
 <p><span class="mark-g">内部的にはseleniumの「quit」を呼び出してドライバを閉じています。</span></p>
@@ -423,8 +403,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
 <h3><span id="画面を再表示するreset">画面を再表示する（reset）</span></h3><p><span class="mark-y">画面を一度閉じて、再表示するときに使用します。</span></p>
 <p>入力完了後、画面をリセットしてまた入力しなおしたいときなどに使用します。</p>
 <p><span class="mark-g">内部的には当メソッド内の「quit」と「get」メソッドを呼び出して画面の再表示を実装しています。</span></p>
@@ -434,8 +412,6 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
 <p class="codeblock-filename"><span>呼び出し例</span></p>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">driver.reset()</span><br></pre></td></tr></table></figure>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="締め">締め</span></h2><p>こんな感じで、seleniumのクラスを作ってみました。</p>
 <p>純粋なseleniumと比べるとかなり使いやすくなったのではないでしょうか？<br>個人的には要素が表示されるのを自動で待ってくれる機能がお気に入りです。</p>
@@ -582,7 +558,7 @@ seleniumは結構便利ですが、整理されていないと要素が取得で
     
       
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">Category</h3>
   <ul class="entry">
   
     <li><a href="/categories/%E3%81%8A%E9%87%91/">お金</a><small>14</small></li>
