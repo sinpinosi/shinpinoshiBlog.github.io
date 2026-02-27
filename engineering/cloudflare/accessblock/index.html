@@ -132,6 +132,7 @@
 <span id="more"></span>
 
 
+
 <h2><span id="目次">目次</span></h2><div class="post-toc">
 
 <!-- toc -->
@@ -158,7 +159,7 @@
 
 </div>
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="経緯">経緯</span></h2><p>実装した経緯としては、<span class="mark-r">Google AdSenseで「無効な操作: 自己クリック」が検知され、そのままアカウント停止をされたことにあります。</span></p>
 <p>ただ自分の方では心当たりがなく、<span class="mark-y">firebase Analyticsで調査したところ、広告が停止された時間と同時刻に60並列での同時接続が確認されました。</span></p>
@@ -166,6 +167,8 @@
 <p>上記を踏まえ、<span class="mark-r">不審な挙動をするBOTがサイトにアクセスできないようにしようと思いました。</span></p>
 <img src="/images/posts/20251215_cloudflare/cloudflare_1.png" alt="firebase Analytics 不審なアクセス確認 並列数" title="不審なアクセス確認 並列数">
 <img src="/images/posts/20251215_cloudflare/cloudflare_2.png" alt="firebase Analytics 不審なアクセス確認 アクセス元" title="不審なアクセス確認 アクセス元">
+
+
 
 <h2><span id="環境">環境</span></h2><div class="nest-list">
 
@@ -181,6 +184,8 @@
 
 <p><strong>＜対応前のアクセス順序＞</strong><br>ブラウザ　→　お名前.com　→　Github Pages</p>
 <p><strong>＜対応後のアクセス順序＞</strong><br>ブラウザ　→　お名前.com　→　<span class="mark-r">cloudflare</span> →　Github Pages</p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 <h2><span id="実装方法">実装方法</span></h2><h3><span id="1cloudflareにアカウント登録">1.cloudflareにアカウント登録</span></h3><p>下記にアクセスし、cloudflareのアカウントを作成します。<br><a target="_blank" rel="noopener" href="https://www.cloudflare.com/ja-jp/">https://www.cloudflare.com/ja-jp/</a></p>
 <h3><span id="2cloudflare-ns情報を取得する">2.cloudflare NS情報を取得する</span></h3><p>登録後<span class="mark-y">cloudflareの画面に表示されているNS（ネームサーバ）情報を取得</span>しておきます。</p>
 <p>※おそらく新規登録後の画面と下記の画像は少し違うと思います。画像は参考までに自身の画面に表示されているNS情報を取得しておいてください。</p>
@@ -210,6 +215,9 @@
 <p>無料でここまでできるの助かりますよね！</p>
 <img src="/images/posts/20251215_cloudflare/cloudflare_7.png" alt="cloudflare セキュリティルール" title="cloudflare セキュリティルール">
 
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290631609177926" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="rectangle" data-ad-client="ca-pub-8290631609177926" data-ad-slot="9014686717" data-full-width-responsive="false"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <h2><span id="確認">確認</span></h2><h3><span id="サイトにcloudflareが適用されていることを確認">サイトにcloudflareが適用されていることを確認</span></h3><p><span class="mark-y">セキュリティルールに自分のIPを設定して、自分のサイトにcloudflareが設定されていることを確認します。</span></p>
 <p>セキュリティルールに下記のように設定すればOKです。</p>
@@ -306,14 +314,14 @@
 <p>一応廃止するだけならプロパティで簡単に廃止することはできるのですが、<br><span class="mark-g">レイアウトが残ったりと中途半端な廃止となってしまいます。</span></p>
 <p><span class="mark-g">さすがにレイアウトが残っているのはよろしくないので、今回は完全に削除する方法を紹介します。</span></p>
 <p>同じような悩みがある方の助けになれたら嬉しいです！</p>
-<p>それではやっていきましょう（^^&#x2F;</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\wordpress\css\hanei\" title="WordPressで自作のCSSをサイトの全ページに反映させる" rel="bookmark">WordPressで自作のCSSをサイトの全ページに反映させる</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">今回は自分で作成したCSSをサイトの全ページに反映させる方法を紹介します。</span></p>
+<p>それではやっていきましょう（^^&#x2F;</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\wordpress\docker\phone\" title="docker WordPressのローカル環境をスマホから画面閲覧可能にする" rel="bookmark">docker WordPressのローカル環境をスマホから画面閲覧可能にする</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">今回はローカル環境のdockerに構築したWordPressをスマホから閲覧可能にするための構築方法を紹介していきます。</span></p>
+<p><span class="mark-g">ブログを運営するにあたりWordPressの技術検証をしており、スマホの使用感を知りたい！</span><br><span class="mark-g">というのがきっかけで構築してみました。</span></p>
+<p>実際のWordPressの運用でもスマホ操作することは多いと思うので、<br>スマホでの操作感を知りたい方は是非参考にしてみてください！</p>
+<p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\wordpress\css\hanei\" title="WordPressで自作のCSSをサイトの全ページに反映させる" rel="bookmark">WordPressで自作のCSSをサイトの全ページに反映させる</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">今回は自分で作成したCSSをサイトの全ページに反映させる方法を紹介します。</span></p>
 <p>wordpressでは基本的に他の方が作成したデザインを使用してサイトを運営することが多いと思います。</p>
 <p><span class="mark-g">基本的にはそれでよいと思うのですが、やはりオリジナリティを出したい場面もあると思い、</span><br><span class="mark-g">方法の一つにCSSを自分で書いて適用したいという方もいると思います。</span></p>
 <p>今回はそんな悩みに対応するための方法を紹介していきます。</p>
 <p>各ページではなく全ページに反映されるので、その点をご了承ください</p>
-<p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\wordpress\docker\phone\" title="docker WordPressのローカル環境をスマホから画面閲覧可能にする" rel="bookmark">docker WordPressのローカル環境をスマホから画面閲覧可能にする</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">今回はローカル環境のdockerに構築したWordPressをスマホから閲覧可能にするための構築方法を紹介していきます。</span></p>
-<p><span class="mark-g">ブログを運営するにあたりWordPressの技術検証をしており、スマホの使用感を知りたい！</span><br><span class="mark-g">というのがきっかけで構築してみました。</span></p>
-<p>実際のWordPressの運用でもスマホ操作することは多いと思うので、<br>スマホでの操作感を知りたい方は是非参考にしてみてください！</p>
 <p>それではやっていきましょう！</p></p></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\engineering\wordpress\toolbar\delete\" title="WordPressの画面アクセス時に表示される謎の黒いバー（ツールバー）を消す" rel="bookmark">WordPressの画面アクセス時に表示される謎の黒いバー（ツールバー）を消す</a></h3></div><div class="popular-posts-excerpt"><p><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><span class="mark-y">今回はwordpressの管理画面にログインしたまま、画面にアクセスすると表示される</span><br><span class="mark-y">黒いバー（ツールバー）を削除する方法を紹介していきます。</span></p>
 <p>wordpressのローカル環境での確認していると毎回表示されてしまい、邪魔なんですよね。。。<br>全く使わないのに表示されるのは流石に鬱陶しいので削除したいと思い色々調べてみました。</p>
 <p><span class="mark-g">結果1つ設定を変更するだけで簡単に消すことができたので方法を紹介していきます。</span></p>
