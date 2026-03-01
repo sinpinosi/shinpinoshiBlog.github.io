@@ -72,6 +72,9 @@ body {
   width: auto !important;
   margin: 0px !important;
 }
+.rakten-ads>table>tbody>tr>td>div{
+  width: auto !important;
+}
 .rakten-ads img{
     border: 0px !important;
 }
